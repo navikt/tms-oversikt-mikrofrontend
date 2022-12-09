@@ -1,0 +1,52 @@
+{
+  "name": "tms-mikrofrontend-template",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "prepare": "husky install && chmod +x .husky/scripts/check-no-a11y-ignored.sh ",
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .js,.jsx ."
+  },
+  "dependencies": {
+    "@navikt/ds-css": "0.12.5",
+    "@navikt/ds-react": "0.14.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-query": "3.34.7",
+    "rollup-plugin-terser": "7.0.2",
+    "vite-plugin-css-injected-by-js": "1.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "@vitejs/plugin-react": "1.0.7",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.30.1",
+    "husky": "7.0.0",
+    "jsdom": "19.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.5.1",
+    "rollup-plugin-import-map": "2.2.2",
+    "vite": "2.9.13",
+    "vite-plugin-mock": "2.9.6",
+    "vitest": "0.0.113"
+  },
+  "prettier": {
+    "printWidth": 120
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint -c .eslintrc.pre-commit.js --fix",
+      "prettier --cache --write"
+    ],
+    "*.{css,md,html,json}": [
+      "prettier --cache --write"
+    ]
+  }
+}
