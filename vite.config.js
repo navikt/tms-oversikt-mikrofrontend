@@ -32,7 +32,7 @@ export default ({ command }) => ({
   build: {
     lib: {
       entry: resolve(__dirname, "src/Mikrofrontend.jsx"),
-      name: "tms-mikrofrontend-template",
+      name: "dev-tms-oppgaver-mikrofrontend",
       formats: ["es"],
       fileName: () => `bundle.js`,
     },
@@ -42,6 +42,11 @@ export default ({ command }) => ({
     environment: "jsdom",
     deps: {
       inline: ["@testing-library/user-event"],
+    },
+  },
+  css: {
+    modules: {
+      generateScopedName: "[name]__[local]___[hash:base64:5]",
     },
   },
 });

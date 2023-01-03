@@ -8,4 +8,13 @@ export default [
       };
     },
   },
+  {
+    url: "/api/endpoint/utkast",
+    method: "get",
+    response: () => {
+      return {
+        antall: 2,
+      };
+    },
+  },
 ];

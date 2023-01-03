@@ -1,0 +1,12 @@
+{
+  "varsel": "Varsel",
+  "varsel.ingress.oppgave.entall": "{antallOppgaver} oppgave",
+  "varsel.ingress.oppgave.flertall": "{antallOppgaver} oppgaver",
+  "varsel.ingress.beskjed.entall": "{antallBeskjeder} beskjed",
+  "varsel.ingress.beskjed.flertall": "{antallBeskjeder} beskjeder",
+  "varsel.oppgaver.og.beskjeder": " og ",
+  "varsel.ingress.ingen.varsler": "Ingen varsler",
+  "utkast.tittel": "Utkast",
+  "utkast.ingress.entall": "En påbegynt søknad",
+  "utkast.ingress.flertall": "{antall} påbegynte søknader"
+}

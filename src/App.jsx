@@ -1,20 +1,12 @@
-import { useState } from "react";
-import { useQuery } from "react-query";
-import { apiUrl } from "./api/urls";
-import { fetcher } from "./api/api";
-import Komponent from "./components/Komponent";
+import MainPage from "./components/main-page/MainPage";
 import "@navikt/ds-css";
 import "./App.css";
 
 function App() {
-  const { data } = useQuery(apiUrl, fetcher);
-
   return (
-    <main className="main">
-      <div className="app">
-        <Komponent tekst={data?.tekst} />
-      </div>
-    </main>
+    <div className="app">
+      <MainPage />
+    </div>
   );
 }
 
