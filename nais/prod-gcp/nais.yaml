@@ -1,29 +1,29 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: dev-tms-oppgaver-mikrofrontend
+  name: tms-oversikt-mikrofrontend
   namespace: min-side
   labels:
     team: min-side
 spec:
   envFrom:
-    - secret: dev-tms-oppgaver-mikrofrontend-secrets
+    - secret: tms-oversikt-mikrofrontend-secrets
   image: {{ image }}
   port: 7100
   liveness:
-    path: /dev-tms-oppgaver-mikrofrontend/internal/isAlive
+    path: /tms-oversikt-mikrofrontend/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /dev-tms-oppgaver-mikrofrontend/internal/isReady
+    path: /tms-oversikt-mikrofrontend/internal/isReady
     initialDelay: 10
   prometheus:
     enabled: true
-    path: /dev-tms-oppgaver-mikrofrontend/internal/metrics
+    path: /tms-oversikt-mikrofrontend/internal/metrics
   replicas:
     min: 2
     max: 4
   ingresses:
-    - "https://person.nav.no/dev-tms-oppgaver-mikrofrontend"
+    - "https://person.nav.no/tms-oversikt-mikrofrontend"
   resources:
     limits:
       cpu: "3"

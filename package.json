@@ -1,5 +1,5 @@
 {
-  "name": "dev-tms-oppgaver-mikrofrontend",
+  "name": "tms-oversikt-mikrofrontend",
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",

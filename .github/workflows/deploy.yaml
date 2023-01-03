@@ -4,7 +4,7 @@ on:
     branches:
       - "main"
 env:
-  "IMAGE": "ghcr.io/${{ github.repository }}/dev-tms-oppgaver-mikrofrontend:${{ github.sha }}"
+  "IMAGE": "ghcr.io/${{ github.repository }}/tms-oversikt-mikrofrontend:${{ github.sha }}"
 jobs:
   build:
     name: "build"

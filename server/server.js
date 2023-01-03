@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const basePath = "/dev-tms-oppgaver-mikrofrontend";
+const basePath = "/tms-oversikt-mikrofrontend";
 const buildPath = path.resolve(__dirname, "../dist");
 const server = express();
 const corsAllowedOrigin = process.env.CORS_ALLOWED_ORIGIN || "http://localhost:3000";
