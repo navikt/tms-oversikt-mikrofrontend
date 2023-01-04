@@ -1,4 +1,9 @@
-.wrapper {
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.panelWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

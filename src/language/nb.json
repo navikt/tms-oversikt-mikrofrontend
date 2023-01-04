@@ -8,5 +8,8 @@
   "varsel.ingress.ingen.varsler": "Ingen varsler",
   "utkast.tittel": "Utkast",
   "utkast.ingress.entall": "En påbegynt søknad",
-  "utkast.ingress.flertall": "{antall} påbegynte søknader"
+  "utkast.ingress.flertall": "{antall} påbegynte søknader",
+  "sidetittel.velkomsthilsen": "Hei, ",
+  "sidetittel.velkomsthilsen.morgen": "God morgen, ",
+  "sidetittel.velkomsthilsen.kveld": "God kveld, "
 }
