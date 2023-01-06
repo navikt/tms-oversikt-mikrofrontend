@@ -36,10 +36,17 @@ const MIN_SIDE_PROXY_URL = {
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
+const DIGISOS_UTKAST_API_URL = {
+  local: "http://localhost:3000/api/endpoint/digisos/utkast/antall",
+  development: "https://www.dev.nav.no/dittnav-api/digisos/utkast/antall",
+  production: "https://www.nav.no/dittnav-api/digisos/utkast/antall",
+};
+
 export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
+export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
 
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
