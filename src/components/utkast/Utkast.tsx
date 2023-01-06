@@ -9,7 +9,7 @@ const Utkast = () => {
   const { data: data } = useQuery(antallUtkastUrl, fetcher);
   const translate = useIntl();
 
-  const antall = data?.antall;
+  const antall = 2//data?.antall;
   const showUtkast = antall > 0;
   const entall = antall === 1;
 
