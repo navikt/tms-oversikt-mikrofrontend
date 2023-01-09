@@ -2,17 +2,16 @@ import React from "react";
 import { fetcher } from "../../api/api";
 import { useIntl } from "react-intl";
 import { useQuery } from "react-query";
-import { beskjederApiUrl, minSideVarslingerUrl, oppgaverApiUrl } from "../../api/urls";
+import { antallVarslerUrl, minSideVarslingerUrl } from "../../api/urls";
 import Card from "../card/Card";
 
 const Oppgaver = () => {
-  const { data: oppgaver } = useQuery(oppgaverApiUrl, fetcher);
-  const { data: beskjeder } = useQuery(beskjederApiUrl, fetcher);
+  const { data: data, isLoading } = useQuery(antallVarslerUrl, fetcher);
 
   const translate = useIntl();
 
-  const antallOppgaver = oppgaver?.length;
-  const antallBeskjeder = beskjeder?.length;
+  const antallOppgaver = data?.oppgaver;
+  const antallBeskjeder = data?.beskjeder + data?.innbokser;
 
   const hasOppgaver = antallOppgaver > 0;
   const hasBeskjeder = antallBeskjeder > 0;
@@ -42,14 +41,23 @@ const Oppgaver = () => {
 
   const type = hasVarsler ? "oppgave" : "ingenOppgaver";
 
-return(
+  if(isLoading) {
+    return <Card 
+    tittel={tittel}
+    ingress={"isLoading"}
+    type={type}
+    url={minSideVarslingerUrl}
+    />
+  }
+
+  return(
         <Card 
             tittel={tittel}
             ingress={ingress}
             type={type}
             url={minSideVarslingerUrl}
         />
-    )
+  )
 };
 
 export default Oppgaver;

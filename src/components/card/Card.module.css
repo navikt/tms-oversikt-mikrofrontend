@@ -86,6 +86,11 @@
   text-decoration: none;
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
 .tittel {
   margin: 0 !important;
   font-weight: 600 !important;
