@@ -6,21 +6,25 @@ import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../ap
 import Card from "../card/Card";
 
 const Utkast = () => {
-  const { data: data } = useQuery(antallUtkastUrl, fetcher);
-  const { data: digisosAntall } = useQuery(digisosUtkastApiUrl, fetcher);
+  const { data: utkastAntall, isLoading: utkastLoading } = useQuery(antallUtkastUrl, fetcher);
+  const { data: digisosAntall, isLoading: digisosLoading } = useQuery(digisosUtkastApiUrl, fetcher);
   const translate = useIntl();
 
-  const antallUtkast = data?.antall + digisosAntall?.antall;
-  const showUtkast = antallUtkast > 0;
-  const entall = antallUtkast === 1;
+  const antall = (utkastAntall ? utkastAntall : 0) + (digisosAntall ? digisosAntall : 0);
+  const showUtkast = antall > 0;
+  const entall = antall === 1;
 
   const tittel = translate.formatMessage({ id: "utkast.tittel" });
 
   const ingress = entall ? 
     translate.formatMessage({ id: "utkast.ingress.entall" })
   :
-    translate.formatMessage({ id: "utkast.ingress.flertall" }, { antall: antallUtkast })
+    translate.formatMessage({ id: "utkast.ingress.flertall" }, { antall: antall })
   ;
+
+  if(utkastLoading || digisosLoading) {
+    return null;
+  }
 
   return (
     <>
