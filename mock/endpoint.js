@@ -33,7 +33,7 @@ export default [
       return {
         oppgaver: 3,
         beskjeder: 2,
-        innboks: 4,
+        innbokser: 4,
       };
     },
   },
