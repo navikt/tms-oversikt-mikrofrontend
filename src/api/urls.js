@@ -37,7 +37,7 @@ const MIN_SIDE_PROXY_URL = {
 };
 
 const DIGISOS_UTKAST_API_URL = {
-  local: "http://localhost:3000/api/endpoint/digisos/utkast/antall",
+  local: "http://localhost:3000/dittnav-api/digisos/utkast/antall",
   development: "https://www.dev.nav.no/dittnav-api/digisos/utkast/antall",
   production: "https://www.nav.no/dittnav-api/digisos/utkast/antall",
 };

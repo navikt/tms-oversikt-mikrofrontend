@@ -10,7 +10,7 @@ const Utkast = () => {
   const { data: digisosAntall, isLoading: digisosLoading } = useQuery(digisosUtkastApiUrl, fetcher);
   const translate = useIntl();
 
-  const antall = (utkastAntall ? utkastAntall : 0) + (digisosAntall ? digisosAntall : 0);
+  const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);
   const showUtkast = antall > 0;
   const entall = antall === 1;
 

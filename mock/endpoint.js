@@ -9,11 +9,31 @@ export default [
     },
   },
   {
-    url: "/api/endpoint/utkast",
+    url: "/tms-min-side-proxy/utkast/utkast/antall",
     method: "get",
     response: () => {
       return {
         antall: 2,
+      };
+    },
+  },
+  {
+    url: "/dittnav-api/digisos/utkast/antall",
+    method: "get",
+    response: () => {
+      return {
+        antall: 3,
+      };
+    },
+  },
+  {
+    url: "/dittnav-api/varsel/antall",
+    method: "get",
+    response: () => {
+      return {
+        oppgaver: 3,
+        beskjeder: 2,
+        innboks: 4,
       };
     },
   },
