@@ -51,12 +51,12 @@ const Oppgaver = () => {
   }
 
   return(
-        <Card 
-            tittel={tittel}
-            ingress={ingress}
-            type={type}
-            url={minSideVarslingerUrl}
-        />
+    <Card 
+        tittel={tittel}
+        ingress={ingress}
+        type={type}
+        url={minSideVarslingerUrl}
+    />
   )
 };
 
