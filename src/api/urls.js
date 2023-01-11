@@ -51,7 +51,7 @@ export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 
-export const antallVarslerUrl = `${minSideProxyUrl}/varsel/antall`;
+export const antallVarslerUrl = `${dittNavApiUrl}/varsel/antall`;
 export const oppgaverApiUrl = `${dittNavApiUrl}/oppgave`;
 export const beskjederApiUrl = `${dittNavApiUrl}/beskjed`;
 
