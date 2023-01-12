@@ -1,15 +1,11 @@
-.wrapper {
+.tekst {
+  text-transform: capitalize;
+  margin: 0 !important;
   display: flex;
   flex-direction: row;
 }
 
-.tekst {
-  text-transform: capitalize;
-  margin: 0 !important;
-}
-
 .hilsning {
-  margin-right: 5px;
   color: var(--navds-semantic-color-text-muted);
 }
 
