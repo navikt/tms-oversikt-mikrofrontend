@@ -9,6 +9,7 @@
 }
 
 .hilsning {
+  margin-right: 5px;
   color: var(--navds-semantic-color-text-muted);
 }
 
