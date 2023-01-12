@@ -23,8 +23,7 @@ const Sidetittel = () => {
   return (
     <section className={SidetittelCSS.wrapper}>
       <Heading size={"large"} level="2" className={SidetittelCSS.tekst}>
-        <span className={SidetittelCSS.hilsning}>{translate.formatMessage({ id: velkomsthilsen })}</span>
-        <span>{navnOrIdent}</span>
+        {translate.formatMessage({ id: velkomsthilsen })}{navnOrIdent}
       </Heading>
     </section>
   );

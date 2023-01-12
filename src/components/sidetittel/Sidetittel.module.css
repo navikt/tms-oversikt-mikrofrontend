@@ -1,12 +1,6 @@
 .tekst {
   text-transform: capitalize;
   margin: 0 !important;
-  display: flex;
-  flex-direction: row;
-}
-
-.hilsning {
-  color: var(--navds-semantic-color-text-muted);
 }
 
 @media (min-width: 0px) {
