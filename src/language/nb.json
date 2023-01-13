@@ -11,5 +11,6 @@
   "utkast.ingress.flertall": "{antall} påbegynte søknader",
   "sidetittel.velkomsthilsen": "Hei, ",
   "sidetittel.velkomsthilsen.morgen": "God morgen, ",
-  "sidetittel.velkomsthilsen.kveld": "God kveld, "
+  "sidetittel.velkomsthilsen.kveld": "God kveld, ",
+  "loader.tekst": "Laster..."
 }

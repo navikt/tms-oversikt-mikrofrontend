@@ -1,30 +1,28 @@
 .oppgave {
-  background-color: #ffd799;
-  margin-right: 24px;
+  background-color: #ffeccc;
 }
 
 .oppgave:focus-within,
 .oppgave:hover {
-  background-color: #ffc166;
+  background-color: #ffeccc;
 }
 
 .ingenOppgaver {
-  background-color: #f1f1f1;
-  margin-right: 24px;
+  background-color: var(--a-surface-subtle);
 }
 
 .ingenOppgaver:focus-within,
 .ingenOppgaver:hover {
-  background-color: #e5e5e5;
+  background-color: var(--a-surface-subtle);
 }
 
 .utkast {
-  background-color: #cce2f0;
+  background-color: var(--a-deepblue-100);
 }
 
 .utkast:focus-within,
 .utkast:hover {
-  background-color: #99c4dd;
+  background-color: var(--a-deepblue-100);
 }
 
 .card {
@@ -32,18 +30,22 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  padding: 1rem;
   border: none;
-  width: 444px;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px transparent;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
 .card .text {
-  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
   color: #272727;
-  justify-content: center;
 }
 
 .card a {
@@ -71,11 +73,26 @@
 
 .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--a-border-subtle) !important;
   cursor: pointer;
+}
+
+.card:hover .tittel {
+  text-decoration: underline;
+}
+
+.card:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
 }
 
 .card:focus-within a:focus {
   text-decoration: none;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
 }
 
 .tittel {
@@ -85,6 +102,10 @@
 
 .ingress {
   font-size: medium;
+}
+
+.chevron {
+  overflow: visible;
 }
 
 .ikonWrapper {
@@ -98,16 +119,50 @@
 }
 
 .ikonoppgave {
-  color: #d46e00;
-  background-color: #ffeccc;
+  color: var(--a-icon-default);
+  background-color: #ffd799;
 }
 
 .ikoningenOppgaver {
-  color: #707070;
-  background-color: #f7f7f7;
+  color: var(--a-icon-default);
+  background-color: var(--a-grayalpha-100);
 }
 
 .ikonutkast {
-  color: #005b82;
-  background-color: #e6f1f8;
+  color: var(--a-icon-default);
+  background-color: var(--a-deepblue-200);
+}
+
+@media (min-width: 0px) {
+  .card {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .oppgave {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .ingenOppgaver {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+
+@media (min-width: 648px) {
+  .card {
+    width: 444px;
+    padding: 16px;
+  }
+
+  .oppgave {
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
+
+  .ingenOppgaver {
+    margin-right: 24px;
+    margin-bottom: 0;
+  }
 }

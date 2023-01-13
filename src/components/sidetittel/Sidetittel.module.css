@@ -1,10 +1,9 @@
 .tekst {
-  text-transform: capitalize;
   margin: 0 !important;
 }
 
-.hilsning {
-  color: var(--navds-semantic-color-text-muted);
+.navn {
+  text-transform: capitalize;
 }
 
 @media (min-width: 0px) {

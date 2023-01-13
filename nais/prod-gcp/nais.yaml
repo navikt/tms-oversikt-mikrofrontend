@@ -23,7 +23,7 @@ spec:
     min: 2
     max: 4
   ingresses:
-    - "https://person.nav.no/tms-oversikt-mikrofrontend"
+    - "https://www.nav.no/tms-oversikt-mikrofrontend"
   resources:
     limits:
       cpu: "3"

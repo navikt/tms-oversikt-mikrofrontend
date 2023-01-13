@@ -5,7 +5,7 @@ import { useIntl } from "react-intl";
 import { identUrl, navnUrl } from "../../api/urls";
 import { Heading } from "@navikt/ds-react";
 import { getVelkomsthilsen } from "./velkomsthilsen";
-import SidetittelCSS from "./Sidetittel.module.css";
+import style from "./Sidetittel.module.css";
 
 const Sidetittel = () => {
   const { data: navn, isError: navnFailed } = useQuery(navnUrl, fetcher);
@@ -18,15 +18,11 @@ const Sidetittel = () => {
 
   const navnOrIdent = navnFailed ? ident?.ident : navn?.navn.toLowerCase();
   const velkomsthilsen = getVelkomsthilsen();
-  console.log(getVelkomsthilsen());
 
   return (
-    <section className={SidetittelCSS.wrapper}>
-      <Heading size={"large"} className={SidetittelCSS.hilsning}>
-        {translate.formatMessage({ id: velkomsthilsen })}
-      </Heading>
-      <Heading spacing size="large" level="2" className={SidetittelCSS.tekst}>
-        {navnOrIdent}
+    <section className={style.wrapper}>
+      <Heading size={"large"} level="2" className={style.tekst}>
+        <span>{translate.formatMessage({ id: velkomsthilsen })}</span> <span className={style.navn}>{navnOrIdent}</span>
       </Heading>
     </section>
   );

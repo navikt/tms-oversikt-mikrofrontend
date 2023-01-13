@@ -2,14 +2,15 @@ import React from "react";
 import { fetcher } from "../../api/api";
 import { useIntl } from "react-intl";
 import { useQuery } from "react-query";
-import { antallUtkastUrl, minSideUtkastUrl } from "../../api/urls";
+import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../api/urls";
 import Card from "../card/Card";
 
 const Utkast = () => {
-  const { data: data } = useQuery(antallUtkastUrl, fetcher);
+  const { data: utkastAntall, isLoading: utkastLoading } = useQuery(antallUtkastUrl, fetcher);
+  const { data: digisosAntall, isLoading: digisosLoading } = useQuery(digisosUtkastApiUrl, fetcher);
   const translate = useIntl();
 
-  const antall = data?.antall;
+  const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);
   const showUtkast = antall > 0;
   const entall = antall === 1;
 
@@ -20,6 +21,10 @@ const Utkast = () => {
   :
     translate.formatMessage({ id: "utkast.ingress.flertall" }, { antall: antall })
   ;
+
+  if(utkastLoading || digisosLoading) {
+    return null;
+  }
 
   return (
     <>
