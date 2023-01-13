@@ -1,6 +1,5 @@
 .oppgave {
   background-color: #ffeccc;
-  margin-right: 24px;
 }
 
 .oppgave:focus-within,
@@ -10,7 +9,6 @@
 
 .ingenOppgaver {
   background-color: var(--a-surface-subtle);
-  margin-right: 24px;
 }
 
 .ingenOppgaver:focus-within,
@@ -141,11 +139,27 @@
     max-width: 444px;
     padding: 16px;
   }
+
+  .oppgave {
+    margin-right: 0;
+  }
+
+  .ingenOppgaver {
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 648px) {
   .card {
     width: 444px;
     padding: 16px;
+  }
+
+  .oppgave {
+    margin-right: 24px;
+  }
+
+  .ingenOppgaver {
+    margin-right: 24px;
   }
 }
