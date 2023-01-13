@@ -5,6 +5,17 @@
 
 .panelWrapper {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+}
+
+@media (min-width: 0px) {
+  .panelWrapper {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 648px) {
+  .panelWrapper {
+    flex-direction: row;
+  }
 }
