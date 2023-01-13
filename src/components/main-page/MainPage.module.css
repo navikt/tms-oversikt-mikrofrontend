@@ -13,7 +13,7 @@
     flex-direction: column;
   }
 
-  .panelWrapper div:first-of-type {
+  .panelWrapper :nth-child(0) {
     margin-bottom: 16px;
   }
 }
