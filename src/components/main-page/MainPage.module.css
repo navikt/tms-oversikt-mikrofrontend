@@ -12,10 +12,6 @@
   .panelWrapper {
     flex-direction: column;
   }
-
-  .panelWrapper :nth-child(0) {
-    margin-bottom: 16px;
-  }
 }
 
 @media (min-width: 648px) {

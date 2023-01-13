@@ -141,10 +141,12 @@
 
   .oppgave {
     margin-right: 0;
+    margin-bottom: 16px;
   }
 
   .ingenOppgaver {
     margin-right: 0;
+    margin-bottom: 16px;
   }
 }
 
@@ -156,9 +158,11 @@
 
   .oppgave {
     margin-right: 24px;
+    margin-bottom: 0;
   }
 
   .ingenOppgaver {
     margin-right: 24px;
+    margin-bottom: 0;
   }
 }
