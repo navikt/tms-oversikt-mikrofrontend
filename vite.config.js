@@ -30,11 +30,16 @@ export default ({ command }) => ({
     },
   ],
   build: {
-    lib: {
-      entry: resolve(__dirname, "src/Mikrofrontend.jsx"),
-      name: "tms-oversikt-mikrofrontend",
-      formats: ["es"],
-      fileName: () => `bundle.js`,
+    manifest: true,
+    rollupOptions: {
+      input: {
+        bundle: resolve(__dirname, "src/Mikrofrontend.jsx"),
+      },
+      preserveEntrySignatures: "exports-only",
+      output: {
+        entryFileNames: "[name].js",
+        format: "esm",
+      },
     },
   },
   test: {
