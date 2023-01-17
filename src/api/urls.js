@@ -55,7 +55,7 @@ export const antallVarslerUrl = `${dittNavApiUrl}/varsel/antall`;
 export const oppgaverApiUrl = `${dittNavApiUrl}/oppgave`;
 export const beskjederApiUrl = `${dittNavApiUrl}/beskjed`;
 
-export const minSideVarslingerUrl = `${minSideUrl}/varslinger`;
+export const minSideVarslerUrl = `${minSideUrl}/varsler`;
 
 export const identUrl = `${minSideProxyUrl}/personalia/ident`;
 export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
