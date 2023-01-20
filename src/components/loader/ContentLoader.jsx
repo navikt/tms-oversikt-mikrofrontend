@@ -4,7 +4,7 @@ import styles from "./ContentLoader.module.css";
 
 const ContentLoader = () => {
   return (
-    <div className={styles["content-loader"]}>
+    <div className={styles.contentLoader}>
       <Loader transparent size="medium" />
     </div>
   );
