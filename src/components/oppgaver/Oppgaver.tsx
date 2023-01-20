@@ -15,7 +15,7 @@ const Oppgaver = () => {
 
   const hasOppgaver = antallOppgaver > 0;
   const hasBeskjeder = antallBeskjeder > 0;
-  const hasVarsler = false//hasOppgaver || hasBeskjeder;
+  const hasVarsler = hasOppgaver || hasBeskjeder;
   const hasOppgaverAndBeskjeder = hasOppgaver && hasBeskjeder;
   const oppgaveEntall = antallOppgaver === 1;
   const beskjedEntall = antallBeskjeder === 1;
