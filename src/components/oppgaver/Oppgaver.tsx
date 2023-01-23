@@ -2,7 +2,7 @@ import React from "react";
 import { fetcher } from "../../api/api";
 import { useIntl } from "react-intl";
 import { useQuery } from "react-query";
-import { antallVarslerUrl, minSideVarslingerUrl } from "../../api/urls";
+import { antallVarslerUrl, minSideVarslerUrl } from "../../api/urls";
 import Card from "../card/Card";
 
 const Oppgaver = () => {
@@ -46,7 +46,7 @@ const Oppgaver = () => {
     tittel={tittel}
     ingress={"isLoading"}
     type={type}
-    url={minSideVarslingerUrl}
+    url={minSideVarslerUrl}
     />
   }
 
@@ -55,7 +55,7 @@ const Oppgaver = () => {
         tittel={tittel}
         ingress={ingress}
         type={type}
-        url={minSideVarslingerUrl}
+        url={minSideVarslerUrl}
     />
   )
 };
