@@ -33,11 +33,11 @@ export default ({ command }) => ({
     manifest: true,
     rollupOptions: {
       input: {
-        bundle: resolve(__dirname, "src/Mikrofrontend.jsx"),
+        "tms-oversikt-mikrofrontend": resolve(__dirname, "src/Mikrofrontend.jsx"),
       },
       preserveEntrySignatures: "exports-only",
       output: {
-        entryFileNames: "[name].js",
+        entryFileNames: "[name].[hash].js",
         format: "esm",
       },
     },
