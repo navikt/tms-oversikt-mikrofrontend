@@ -29,12 +29,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: "Build application"
         run: "npm run build"
+
       - name: cdn-upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: min-side
           source: ./dist
           destination: 'tms-oversikt-mikrofrontend'
+
       - name: "Build and publish Docker image"
         run:
           "docker build --pull --tag ${IMAGE} . && echo $GITHUB_TOKEN | docker login\
