@@ -20,11 +20,11 @@ const Sidetittel = () => {
   const velkomsthilsen = getVelkomsthilsen();
 
   return (
-    <section className={style.wrapper}>
+    <div className={style.wrapper}>
       <Heading size={"large"} level="2" className={style.tekst}>
         <span>{translate.formatMessage({ id: velkomsthilsen })}</span> <span className={style.navn}>{navnOrIdent}</span>
       </Heading>
-    </section>
+    </div>
   );
 };
 

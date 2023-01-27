@@ -7,13 +7,13 @@ import style from "./MainPage.module.css";
 const MainPage = () => {
     return(
         <>
-            <section className={style.pageWrapper}>
+            <div className={style.pageWrapper}>
                 <Sidetittel />
-            </section>
-            <section className={style.panelWrapper}> 
+            </div>
+            <div className={style.panelWrapper}> 
                 <Oppgaver />
                 <Utkast />
-            </section>
+            </div>
         </>
     )
 }
