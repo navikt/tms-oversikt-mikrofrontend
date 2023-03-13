@@ -18,12 +18,6 @@ const API_URL = {
   production: "https://person.nav.no/api/endpoint",
 };
 
-const DITTNAV_API_URL = {
-  local: "http://localhost:3000/dittnav-api",
-  development: "https://www.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
-};
-
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
   development: "https://www.dev.nav.no/minside",
@@ -44,16 +38,13 @@ const DIGISOS_UTKAST_API_URL = {
 
 export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
-export const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
 
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 
-export const antallVarslerUrl = `${dittNavApiUrl}/varsel/antall`;
-export const oppgaverApiUrl = `${dittNavApiUrl}/oppgave`;
-export const beskjederApiUrl = `${dittNavApiUrl}/beskjed`;
+export const antallVarslerUrl = `${minSideProxyUrl}/varsel/tms-varsel-api/antall/aktive`;
 
 export const minSideVarslerUrl = `${minSideUrl}/varsler`;
 
