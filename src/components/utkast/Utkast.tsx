@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { fetcher } from "../../api/api";
-import { useIntl } from "react-intl";
+import { LanguageContext } from "../../utils/LanguageProvider";
+import { text } from "../../language/text";
 import { useQuery } from "react-query";
 import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../api/urls";
 import Card from "../card/Card";
@@ -8,18 +9,18 @@ import Card from "../card/Card";
 const Utkast = () => {
   const { data: utkastAntall, isLoading: utkastLoading } = useQuery(antallUtkastUrl, fetcher);
   const { data: digisosAntall, isLoading: digisosLoading } = useQuery(digisosUtkastApiUrl, fetcher);
-  const translate = useIntl();
+  const language = useContext(LanguageContext);
 
   const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);
   const showUtkast = antall > 0;
   const entall = antall === 1;
 
-  const tittel = translate.formatMessage({ id: "utkast.tittel" });
+  const tittel = text.utkastTittel[language];
 
   const ingress = entall ? 
-    translate.formatMessage({ id: "utkast.ingress.entall" })
+    text.utkastIngressEntall[language]
   :
-    translate.formatMessage({ id: "utkast.ingress.flertall" }, { antall: antall })
+    text.utkastIngressFlertall[language]
   ;
 
   if(utkastLoading || digisosLoading) {

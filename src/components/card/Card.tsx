@@ -1,7 +1,8 @@
-import React from "react";
-import { useIntl } from "react-intl";
+import React, { useContext } from "react";
 import { Bell, Edit, Next } from "@navikt/ds-icons";
 import { Heading } from "@navikt/ds-react";
+import { LanguageContext } from "../../utils/LanguageProvider";
+import { text } from "../../language/text";
 import ContentLoader from "../loader/ContentLoader";
 import style from "./Card.module.css";
 
@@ -15,7 +16,7 @@ type Props = {
 
 const Card = ({tittel, ingress, type, url}: Props) => {
     
-    const translate = useIntl();
+    const language = useContext(LanguageContext);
     const ikonBackgroundColor = "ikon" + type;
     const isUtkast = type === "utkast";
     const isLoading = ingress === "isLoading";
@@ -29,7 +30,7 @@ const Card = ({tittel, ingress, type, url}: Props) => {
                     }
                 </div>
                 <a href={url} className={isLoading ? `${style.loading} ${style.text}`: style.text}>
-                    {isLoading ? <span className={style.ingress}>{translate.formatMessage({ id: "loader.tekst" })}</span> :
+                    {isLoading ? <span className={style.ingress}>{text.loaderTekst[language]}</span> :
                     <>
                         <Heading level="2" size="small" className={style.tittel}>{tittel}</Heading>
                         <span className={style.ingress}>{ingress}</span>

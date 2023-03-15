@@ -6,7 +6,7 @@ import LanguageProvider from "./utils/LanguageProvider";
 
 const Mikrofrontend = () => {
   return (
-    <LanguageProvider defaultSprak="nb">
+    <LanguageProvider>
       <QueryClientProvider client={new QueryClient()}>
         <App />
       </QueryClientProvider>
