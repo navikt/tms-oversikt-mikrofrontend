@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { fetcher } from "../../api/api";
 import { LanguageContext } from "../../utils/LanguageProvider";
 import { text } from "../../language/text";
-import { useQuery } from "react-query";
+import useSWRImmutable from "swr/immutable";
 import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../api/urls";
 import Card from "../card/Card";
 
 const Utkast = () => {
-  const { data: utkastAntall, isLoading: utkastLoading } = useQuery(antallUtkastUrl, fetcher);
-  const { data: digisosAntall, isLoading: digisosLoading } = useQuery(digisosUtkastApiUrl, fetcher);
+  const { data: utkastAntall, isLoading: utkastLoading } = useSWRImmutable(antallUtkastUrl, fetcher);
+  const { data: digisosAntall, isLoading: digisosLoading } = useSWRImmutable(digisosUtkastApiUrl, fetcher);
   const language = useContext(LanguageContext);
 
   const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);
