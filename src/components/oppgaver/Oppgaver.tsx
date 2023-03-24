@@ -27,7 +27,7 @@ const Oppgaver = () => {
   const oppgaveTekst =  
     hasOppgaver ? 
       (oppgaveEntall ? 
-        text.varselIngressOppgaveEntall[language] 
+        text.varselIngressOppgaveEntall[language](antallOppgaver.toString())
         : 
         text.varselIngressOppgaveFlertall[language](antallOppgaver.toString())
       ) 
@@ -39,7 +39,7 @@ const Oppgaver = () => {
   const beskjedTekst =  
     hasBeskjeder ? 
       (beskjedEntall ? 
-        text.varselIngressBeskjedEntall[language] 
+        text.varselIngressBeskjedEntall[language](antallOppgaver.toString())
         : 
         text.varselIngressBeskjedFlertall[language](antallBeskjeder.toString())
       ) 
