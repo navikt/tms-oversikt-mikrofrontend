@@ -5,7 +5,7 @@ import LanguageProvider from "./utils/LanguageProvider";
 
 const Mikrofrontend = () => {
   return (
-    <LanguageProvider defaultSprak="nb">
+    <LanguageProvider>
       <App />
     </LanguageProvider>
   );
