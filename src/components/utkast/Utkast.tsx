@@ -20,7 +20,7 @@ const Utkast = () => {
   const ingress = entall ? 
     text.utkastIngressEntall[language]
   :
-    text.utkastIngressFlertall[language]
+    text.utkastIngressFlertall[language](antall.toString())
   ;
 
   if(utkastLoading || digisosLoading) {

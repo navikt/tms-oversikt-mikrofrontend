@@ -29,7 +29,7 @@ const Oppgaver = () => {
       (oppgaveEntall ? 
         text.varselIngressOppgaveEntall[language] 
         : 
-        text.varselIngressOppgaveFlertall[language]
+        text.varselIngressOppgaveFlertall[language](antallOppgaver.toString())
       ) 
     : ""
   ;
@@ -41,7 +41,7 @@ const Oppgaver = () => {
       (beskjedEntall ? 
         text.varselIngressBeskjedEntall[language] 
         : 
-        text.varselIngressBeskjedFlertall[language]
+        text.varselIngressBeskjedFlertall[language](antallBeskjeder.toString())
         //antallBeskjeder
       ) 
     : ""
