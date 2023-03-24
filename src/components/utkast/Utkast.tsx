@@ -29,8 +29,8 @@ const Utkast = () => {
 
   return (
     <>
-      {showUtkast ? 
-        <Card 
+      {showUtkast ?
+        <Card
           tittel={tittel}
           ingress={ingress}
           type="utkast"

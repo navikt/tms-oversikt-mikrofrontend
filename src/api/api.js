@@ -1,15 +1,12 @@
-const checkResponse = (response) => {
-  if (!response.ok) {
-    throw new Error("Fetch request failed");
-  }
-};
-
-export const fetcher = async ({ queryKey }) => {
-  const response = await fetch(queryKey, {
+export const fetcher = async (path) => {
+  const response = await fetch(path, {
     method: "GET",
     credentials: "include",
   });
-  checkResponse(response);
 
-  return response.json();
+  if (!response.ok) {
+    throw new Error("Fetch request failed");
+  }
+
+  return await response.json();
 };

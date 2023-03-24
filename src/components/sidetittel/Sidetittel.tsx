@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "react-query";
+import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
 import { identUrl, navnUrl } from "../../api/urls";
 import { Heading } from "@navikt/ds-react";
@@ -7,9 +7,8 @@ import { getVelkomsthilsen } from "./velkomsthilsen";
 import style from "./Sidetittel.module.css";
 
 const Sidetittel = () => {
-  const { data: navn, isError: navnFailed } = useQuery(navnUrl, fetcher);
-  const { data: ident, isError: identFailed } = useQuery(identUrl, fetcher);
-
+  const { data: navn, error: navnFailed } = useSWRImmutable(navnUrl, fetcher);
+  const { data: ident, error: identFailed } = useSWRImmutable(identUrl, fetcher);
 
   if ((!navn && !ident) || identFailed) {
     return null;
