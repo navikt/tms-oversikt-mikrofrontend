@@ -39,7 +39,7 @@ const Oppgaver = () => {
   const beskjedTekst =  
     hasBeskjeder ? 
       (beskjedEntall ? 
-        text.varselIngressBeskjedEntall[language](antallOppgaver.toString())
+        text.varselIngressBeskjedEntall[language](antallBeskjeder.toString())
         : 
         text.varselIngressBeskjedFlertall[language](antallBeskjeder.toString())
       ) 
