@@ -41,12 +41,12 @@ export const text = {
   },
   utkastIngressEntall: {
     nb: "En påbegynt søknad",
-    nn: "Ei påbyrja søknad",
+    nn: "Ein søknad du har starta på",
     en: "One started application",
   },
   utkastIngressFlertall: {
     nb: (antall) => `${antall} påbegynte søknader`,
-    nn: (antall) => `${antall} påbyrja søknadar`,
+    nn: (antall) => `${antall} søknadar du har starta på`,
     en: (antall) => `${antall} started applications`,
   },
   sidetittelVelkomsthilsen: {
