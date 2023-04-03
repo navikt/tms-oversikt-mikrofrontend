@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { fetcher } from "../../api/api";
 import useSWRImmutable from "swr/immutable";
 import { antallVarslerUrl, minSideVarslerUrl } from "../../api/urls";
-import { LanguageContext } from "../../utils/LanguageProvider";
+import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import Card from "../card/Card";
 
@@ -24,28 +24,28 @@ const Oppgaver = () => {
   const tittel = text.varsel[language];
 
 
-  const oppgaveTekst =  
-    hasOppgaver ? 
-      (oppgaveEntall ? 
+  const oppgaveTekst =
+    hasOppgaver ?
+      (oppgaveEntall ?
         text.varselIngressOppgaveEntall[language](antallOppgaver.toString())
-        : 
+        :
         text.varselIngressOppgaveFlertall[language](antallOppgaver.toString())
-      ) 
+      )
     : ""
   ;
 
   const beskjedOgOppgaver = hasOppgaverAndBeskjeder ? text.varselOppgaverOgBeskjeder[language] : "";
-  
-  const beskjedTekst =  
-    hasBeskjeder ? 
-      (beskjedEntall ? 
+
+  const beskjedTekst =
+    hasBeskjeder ?
+      (beskjedEntall ?
         text.varselIngressBeskjedEntall[language](antallBeskjeder.toString())
-        : 
+        :
         text.varselIngressBeskjedFlertall[language](antallBeskjeder.toString())
-      ) 
+      )
     : ""
   ;
-  
+
   const ingress = hasVarsler ? (oppgaveTekst + beskjedOgOppgaver + beskjedTekst) : text.varselIngressIngenVarsler[language];
 
   const type = hasVarsler ? "oppgave" : "ingenOppgaver";

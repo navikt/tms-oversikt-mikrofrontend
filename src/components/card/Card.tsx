@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Bell, Edit, Next } from "@navikt/ds-icons";
 import { Heading } from "@navikt/ds-react";
-import { LanguageContext } from "../../utils/LanguageProvider";
+import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import ContentLoader from "../loader/ContentLoader";
 import style from "./Card.module.css";

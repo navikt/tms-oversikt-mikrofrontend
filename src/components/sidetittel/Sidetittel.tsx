@@ -4,7 +4,7 @@ import { fetcher } from "../../api/api";
 import { identUrl, navnUrl } from "../../api/urls";
 import { Heading } from "@navikt/ds-react";
 import { getVelkomsthilsen } from "./velkomsthilsen";
-import { LanguageContext } from "../../utils/LanguageProvider";
+import { LanguageContext } from "../../language/LanguageProvider";
 import style from "./Sidetittel.module.css";
 
 const Sidetittel = () => {
