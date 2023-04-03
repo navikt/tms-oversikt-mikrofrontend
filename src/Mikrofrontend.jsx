@@ -1,7 +1,6 @@
 import React from "react";
 import App from "./App";
-import "./App.css";
-import LanguageProvider from "./utils/LanguageProvider";
+import LanguageProvider from "./language/LanguageProvider";
 
 const Mikrofrontend = () => {
   return (

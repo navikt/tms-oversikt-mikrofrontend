@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { fetcher } from "../../api/api";
-import { LanguageContext } from "../../utils/LanguageProvider";
+import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import useSWRImmutable from "swr/immutable";
 import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../api/urls";
@@ -17,7 +17,7 @@ const Utkast = () => {
 
   const tittel = text.utkastTittel[language];
 
-  const ingress = entall ? 
+  const ingress = entall ?
     text.utkastIngressEntall[language]
   :
     text.utkastIngressFlertall[language](antall.toString())
