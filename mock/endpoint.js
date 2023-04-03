@@ -1,10 +1,19 @@
 export default [
   {
-    url: "/api/endpoint",
+    url: "/tms-min-side-proxy/personalia/navn",
     method: "get",
     response: () => {
       return {
-        tekst: "Dette kommer til å bli en awesome mikrofrontend! 😊 🎉",
+        navn: "Navn navnesen",
+      };
+    },
+  },
+  {
+    url: "/tms-min-side-proxy/personalia/ident",
+    method: "get",
+    response: () => {
+      return {
+        navn: "123",
       };
     },
   },
