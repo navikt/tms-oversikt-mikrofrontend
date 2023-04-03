@@ -6,16 +6,14 @@ import { text } from "../../language/text";
 import ContentLoader from "../loader/ContentLoader";
 import style from "./Card.module.css";
 
-
 type Props = {
-    tittel: string, 
+    tittel: string,
     ingress: string
     type: string
     url: string
 }
 
 const Card = ({tittel, ingress, type, url}: Props) => {
-    
     const language = useContext(LanguageContext);
     const ikonBackgroundColor = "ikon" + type;
     const isUtkast = type === "utkast";
@@ -24,7 +22,7 @@ const Card = ({tittel, ingress, type, url}: Props) => {
     return(
         <div className={`${style.card} ${style[type]}`}>
             <div className={style.container}>
-                <div className={`${style.ikonWrapper} ${style[ikonBackgroundColor]}`}> 
+                <div className={`${style.ikonWrapper} ${style[ikonBackgroundColor]}`}>
                     {isLoading ? <ContentLoader /> :
                     isUtkast ? <Edit fontSize="24px"/> : <Bell fontSize="24px"/>
                     }
