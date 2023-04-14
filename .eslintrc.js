@@ -10,7 +10,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "jsx-a11y"],
-  ignorePatterns: [".eslintrc.*", "**/dist/*.js", "vite.config.js", "/server/server.js"],
+  ignorePatterns: [".eslintrc.*", "**/dist/*.js", "vite.config.js", "/server/server.js", "./mock"],
   rules: {
     //ref https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
     "react/jsx-uses-react": "off",

@@ -13,6 +13,7 @@
   "dependencies": {
     "@navikt/ds-css": "2.0.11",
     "@navikt/ds-react": "2.0.11",
+    "amplitude-js": "8.21.8",
     "dayjs": "1.11.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
