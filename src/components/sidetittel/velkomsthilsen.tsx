@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "../../language/LanguageProvider";
+import React from "react";
 import { text } from "../../language/text";
 import dayjs from "dayjs";
 

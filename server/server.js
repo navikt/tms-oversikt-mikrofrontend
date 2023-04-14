@@ -6,7 +6,7 @@ const buildPath = path.resolve(__dirname, "../dist");
 const server = express();
 const corsAllowedOrigin = process.env.CORS_ALLOWED_ORIGIN || "http://localhost:3000";
 
-server.use(cors({ origin: corsAllowedOrigin }));
+server.use(cors({ origin: [corsAllowedOrigin, "https://www.intern.dev.nav.no"] }));
 
 server.use(basePath, express.static(buildPath));
 
