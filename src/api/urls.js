@@ -9,7 +9,6 @@ export const getEnvironment = () => {
   if (isDevelopment) {
     return "development";
   }
-
   return "local";
 };
 
@@ -36,17 +35,62 @@ const DIGISOS_UTKAST_API_URL = {
   production: "https://www.nav.no/dittnav-api/digisos/utkast/antall",
 };
 
+const AAP_BASE_URL = {
+  local: "http://localhost:3000/aap",
+  development: "https://www.dev.nav.no/aap/aap-min-side-microfrontend",
+  production: "https://www.nav.no/aap/aap-min-side-microfrontend",
+};
+
+const AAP_BASE_CDN_URL = {
+  local: "http://localhost:3000/aap",
+  development: "https://cdn.nav.no/aap/aap-min-side-microfrontend/dist",
+  production: "https://cdn.nav.no/aap/aap-min-side-microfrontend/dist",
+};
+
+const ARBEIDSSOKER_URL = {
+  local: "http://localhost:3000/er-arbeidssoker",
+  development: "https://www.intern.dev.nav.no/aia-backend/er-arbeidssoker",
+  production: "https://www.nav.no/aia-backend/er-arbeidssoker",
+};
+
+const AIA_BASE_URL = {
+  local: "http://localhost:3000/aia",
+  development: "https://veientilarbeid.intern.dev.nav.no/esm",
+  production: "https://veientilarbeid.nav.no/esm",
+};
+
+const AIA_BASE_CDN_URL = {
+  local: "http://localhost:3000/aia",
+  development: "https://cdn.nav.no/paw/aia",
+  production: "https://cdn.nav.no/paw/aia",
+};
+
+const MELDEKORT_URL = {
+  local: "http://localhost:3000/meldekort/bundle.js",
+  development: "https://www.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
+  production: "https://www.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
+};
+
+const SELECTOR_URL = {
+  local: "http://localhost:3000/selector",
+  development: "https://www.dev.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+  production: "https://www.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+};
+
 export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
-
+export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
+export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
+export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
+export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
+export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
+export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
+export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
-
 export const antallVarslerUrl = `${minSideProxyUrl}/varsel/tms-varsel-api/antall/aktive`;
-
 export const minSideVarslerUrl = `${minSideUrl}/varsler`;
-
 export const identUrl = `${minSideProxyUrl}/personalia/ident`;
 export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
