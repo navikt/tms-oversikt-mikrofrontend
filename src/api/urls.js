@@ -222,6 +222,18 @@ const ARBEIDSAVKLARINGSPENGER_URL = {
   production: "https://www.nav.no/aap/mine-aap",
 };
 
+const SYFO_DIALOG_BASE_URL = {
+  local: "http://localhost:3000/aia",
+  development: "https://www.dev.nav.no/dialogmote-mikrofrontend",
+  production: "https://www.nav.no/dialogmote-mikrofrontend",
+};
+
+const SYFO_DIALOG_CDN_URL = {
+  local: "http://localhost:3000/aap",
+  development: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
+  production: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
+};
+
 export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
@@ -231,6 +243,8 @@ export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
+export const syfoDialogManifestUrl = `${SYFO_DIALOG_BASE_URL[getEnvironment()]}/manifest.json`;
+export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
