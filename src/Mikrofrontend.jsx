@@ -1,6 +1,6 @@
 import App from "./App";
 import LanguageProvider from "./language/LanguageProvider";
-import { initializeAmplitude } from "./amplitude";
+import { initializeAmplitude } from "./utils/amplitude";
 
 const Mikrofrontend = () => {
   initializeAmplitude();
