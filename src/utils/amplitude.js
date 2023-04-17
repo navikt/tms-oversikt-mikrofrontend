@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import amplitude from "amplitude-js";
 
 export const initializeAmplitude = () => {

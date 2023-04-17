@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
-import { LanguageContext } from "../../../../tms-min-side-tjenester/src/utils/LanguageProvider";
-import { text } from "../../../../tms-min-side-tjenester/src/language/text";
-import { fetcher } from "../../../../tms-min-side-tjenester/src/api/api";
 import { LinkPanel, Panel, Heading } from "@navikt/ds-react";
-import { mineSakerUrl, sakerApiUrl } from "../../../../tms-min-side-tjenester/src/api/urls";
-import { logAmplitudeEvent } from "../../../../tms-min-side-tjenester/src/utils/amplitude";
 import SakstemaElement from "./SakstemaElement";
 import { FileContent } from "@navikt/ds-icons";
 import CSS from "./SisteSakerPanel.module.css";
+import { mineSakerUrl, sakerApiUrl } from "../../api/urls";
+import { fetcher } from "../../api/api";
+import { LanguageContext } from "../../language/LanguageProvider";
+import { text } from "../../language/text";
+import { logEvent } from "../../utils/amplitude";
 
 const SisteSakerPanel = () => {
   const { data: saker } = useSWRImmutable(sakerApiUrl, fetcher);
@@ -25,11 +25,7 @@ const SisteSakerPanel = () => {
             <Heading spacing level="2" size="medium">
               {text.sisteSakerTittel[language]}
             </Heading>
-            <a
-              className={CSS.alle_saker}
-              href={mineSakerUrl}
-              onClick={() => logAmplitudeEvent("Siste saker - Se alle")}
-            >
+            <a className={CSS.alle_saker} href={mineSakerUrl} onClick={() => logEvent("Siste saker - Se alle")}>
               {text.seAlle[language]}
             </a>
           </div>
@@ -47,7 +43,7 @@ const SisteSakerPanel = () => {
           href={mineSakerUrl}
           border={false}
           className={CSS.panel_liten}
-          onClick={() => logAmplitudeEvent("Siste saker liten")}
+          onClick={() => logEvent("Siste saker liten")}
         >
           <div
             style={{

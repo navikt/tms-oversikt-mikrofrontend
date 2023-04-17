@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "../../../../tms-min-side-tjenester/src/utils/LanguageProvider";
-import { text } from "../../../../tms-min-side-tjenester/src/language/text";
-import { Bandage, DirectionSign, FillForms, PensionBag } from "@navikt/ds-icons";
-import { arbeidUrl, dinPensjonUrl, soknadUrl, sykefravaerUrl } from "../../../../tms-min-side-tjenester/src/api/urls";
+import { useContext } from "react";
 import Flis from "./Flis";
+import { Bandage, DirectionSign, FillForms, PensionBag } from "@navikt/ds-icons";
 import CSS from "./GenerelleFliser.module.css";
+import { LanguageContext } from "../../language/LanguageProvider";
+import { text } from "../../language/text";
+import { arbeidUrl, dinPensjonUrl, soknadUrl, sykefravaerUrl } from "../../api/urls";
 
 const GenerelleFliser = () => {
   const language = useContext(LanguageContext);

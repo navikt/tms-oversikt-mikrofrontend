@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { LanguageContext } from "../../../../tms-min-side-tjenester/src/utils/LanguageProvider";
-import { text } from "../../../../tms-min-side-tjenester/src/language/text";
 import { LinkPanel, Panel, Heading } from "@navikt/ds-react";
-import { dialogMedVeilederUrl, innboksUrl } from "../../../../tms-min-side-tjenester/src/api/urls";
-import { logAmplitudeEvent } from "../../../../tms-min-side-tjenester/src/utils/amplitude";
 import KommunikasjonsElement from "./KommunikasjonsElement";
+import { LanguageContext } from "../../language/LanguageProvider";
+import { text } from "../../language/text";
+import { dialogMedVeilederUrl, innboksUrl } from "../../api/urls";
+import { logEvent } from "../../utils/amplitude";
 import { DialogDots, Email } from "@navikt/ds-icons";
 import CSS from "./KommunikasjonsFlis.module.css";
 
@@ -33,12 +33,7 @@ const KommunikasjonsFlis = ({ size }) => {
         </Panel>
       ) : (
         <section>
-          <LinkPanel
-            href={innboksUrl}
-            border={false}
-            className={CSS.small}
-            onClick={() => logAmplitudeEvent("Innboks liten")}
-          >
+          <LinkPanel href={innboksUrl} border={false} className={CSS.small} onClick={() => logEvent("Innboks liten")}>
             <div className={CSS.content_wrapper}>
               <div className={CSS.ikon_wrapper}>
                 <Email fontSize="22px" />

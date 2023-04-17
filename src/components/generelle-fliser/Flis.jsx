@@ -1,11 +1,11 @@
 import { LinkPanel } from "@navikt/ds-react";
-import { logAmplitudeEvent } from "../../../../tms-min-side-tjenester/src/utils/amplitude";
+import { logEvent } from "../../utils/amplitude";
 import CSS from "./Flis.module.css";
 
 const Flis = ({ tittel, ikon, href }) => {
   return (
     <>
-      <LinkPanel className={CSS.flis} href={href} border={false} onClick={() => logAmplitudeEvent(tittel)}>
+      <LinkPanel className={CSS.flis} href={href} border={false} onClick={() => logEvent(tittel)}>
         <div
           style={{
             display: "grid",
