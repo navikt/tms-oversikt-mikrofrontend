@@ -1,0 +1,53 @@
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem 0;
+  color: #262626;
+  text-decoration: none;
+}
+
+.content_wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.lenketekst {
+  color: #262626 !important;
+  font-weight: bolder;
+}
+
+.dato {
+  margin-bottom: 0 !important;
+  color: #707070 !important;
+  font-weight: 100 !important;
+  font-size: 14px !important;
+}
+
+.ikon {
+  display: flex;
+  align-self: center;
+  overflow: visible;
+  padding: 0.8125rem;
+  margin: 0 1.5rem 0 0;
+  background-color: #cce2f0;
+  border-radius: 50%;
+}
+
+.element:hover {
+  cursor: pointer;
+}
+
+.element:hover > div > div > a {
+  text-decoration: underline !important;
+}
+
+.element:hover > svg.chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.chevron {
+  margin-left: 0.5rem;
+  overflow: visible;
+}

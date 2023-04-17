@@ -1,0 +1,26 @@
+.tittel {
+  margin-bottom: 16px !important;
+}
+
+.ingress {
+  margin-bottom: 16px !important;
+}
+
+@media (max-width: 834px) {
+  .panel {
+    visibility: hidden;
+    max-height: 0;
+    max-width: 0;
+    border: none;
+    padding: 0 !important;
+  }
+}
+
+@media (min-width: 834px) {
+  .panel {
+    width: 37.5rem;
+    margin-bottom: 24px;
+    padding: 40px !important;
+    background-color: #f7f7f7 !important;
+  }
+}
