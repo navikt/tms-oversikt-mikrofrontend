@@ -16,6 +16,72 @@
   margin-bottom: 2.5rem;
 }
 
+.page_wrapper_microfrontend {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #262626;
+}
+
+.flereTjenester {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-bottom: 2rem;
+  background-color: #f7f7f7 !important;
+  border-radius: 8px !important;
+  padding: 16px 24px !important;
+}
+
+.flere_tjenester_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.25rem !important;
+  text-align: left;
+  font-weight: bold !important;
+}
+
+.lenkepanel_liten_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.lenkepanel_stor_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.navds-link-panel__chevron {
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 0px) {
+  .lenkepanel_liten_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lenkepanel_stor_wrapper {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 648px) {
+  .lenkepanel_liten_wrapper {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .lenkepanel_stor_wrapper {
+    margin-bottom: 2rem;
+  }
+}
+
 @media (min-width: 0px) {
   .panelWrapper {
     flex-direction: column;

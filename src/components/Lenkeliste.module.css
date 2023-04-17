@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.link {
+  min-width: 33.33%;
+  margin-bottom: 0.5rem;
+}
+
+.link:not(:first-child):not(:nth-child(2)) {
+  flex-grow: 0;
+}
+
+@media (max-width: 648px) {
+  .link {
+    flex: 1 1 50%;
+  }
+}
+
+@media (max-width: 448px) {
+  .link {
+    flex: 1 1 100%;
+  }
+}
