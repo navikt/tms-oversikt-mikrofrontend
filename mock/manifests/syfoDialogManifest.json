@@ -1,0 +1,8 @@
+{
+  "src/Mikrofrontend.tsx": {
+    "file": "bundle.js",
+    "src": "src/Mikrofrontend.tsx",
+    "isEntry": true,
+    "css": ["assets/bundle.4ce1efd6.css"]
+  }
+}

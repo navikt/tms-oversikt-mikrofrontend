@@ -10,7 +10,6 @@ import {
   meldekortUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
-  syfoManifestUrl,
 } from "./api/urls";
 import { aiaManifestUrl, oppfolgingUrl, selectorUrl } from "./api/urls";
 import ContentLoader from "./components/loader/ContentLoader";

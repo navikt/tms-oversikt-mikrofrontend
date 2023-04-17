@@ -223,13 +223,13 @@ const ARBEIDSAVKLARINGSPENGER_URL = {
 };
 
 const SYFO_DIALOG_BASE_URL = {
-  local: "http://localhost:3000/aia",
+  local: "http://localhost:3000/syfo-dialog",
   development: "https://www.dev.nav.no/dialogmote-mikrofrontend",
   production: "https://www.nav.no/dialogmote-mikrofrontend",
 };
 
 const SYFO_DIALOG_CDN_URL = {
-  local: "http://localhost:3000/aap",
+  local: "http://localhost:3000/syfo-dialog",
   development: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
   production: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
 };
