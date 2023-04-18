@@ -3,12 +3,12 @@ import { fetcher } from "../../api/api";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import useSWRImmutable from "swr/immutable";
-import { antallUtkastUrl, minSideUtkastUrl, digisosUtkastApiUrl } from "../../api/urls";
+import { antallUtkastUrl, minSideUtkastUrl, digisosAntallUtkastUrl } from "../../api/urls";
 import Card from "../card/Card";
 
 const Utkast = () => {
   const { data: utkastAntall, isLoading: utkastLoading } = useSWRImmutable(antallUtkastUrl, fetcher);
-  const { data: digisosAntall, isLoading: digisosLoading } = useSWRImmutable(digisosUtkastApiUrl, fetcher);
+  const { data: digisosAntall, isLoading: digisosLoading } = useSWRImmutable(digisosAntallUtkastUrl, fetcher);
   const language = useContext(LanguageContext);
 
   const antall = (utkastAntall ? utkastAntall?.antall : 0) + (digisosAntall ? digisosAntall?.antall : 0);

@@ -30,12 +30,6 @@ const MIN_SIDE_PROXY_URL = {
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
-const DIGISOS_UTKAST_API_URL = {
-  local: "http://localhost:3000/dittnav-api/digisos/utkast/antall",
-  development: "https://www.dev.nav.no/dittnav-api/digisos/utkast/antall",
-  production: "https://www.nav.no/dittnav-api/digisos/utkast/antall",
-};
-
 const AAP_BASE_URL = {
   local: "http://localhost:3000/aap",
   development: "https://www.dev.nav.no/aap/aap-min-side-microfrontend",
@@ -225,7 +219,6 @@ const ARBEIDSAVKLARINGSPENGER_URL = {
 export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
-export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
 export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
 export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
@@ -233,6 +226,7 @@ export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
+export const digisosAntallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/digisos/antall`;
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 export const antallVarslerUrl = `${minSideProxyUrl}/varsel/tms-varsel-api/antall/aktive`;
