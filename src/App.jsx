@@ -44,6 +44,10 @@ function App() {
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
 
+  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest) {
+    return <ContentLoader />;
+  }
+
   const isAapBruker = profil?.microfrontends.includes("aap");
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
@@ -64,7 +68,6 @@ function App() {
         <Oppgaver />
         <Utkast />
       </div>
-      {isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest ? ContentLoader : null}
       <React.Suspense fallback={<ContentLoader />}>
         <ErrorBoundary setIsError={setIsError}>
           <Meldekort />
