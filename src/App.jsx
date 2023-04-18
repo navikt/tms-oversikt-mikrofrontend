@@ -2,16 +2,8 @@ import React, { useContext, useState } from "react";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Utkast from "./components/utkast/Utkast";
-import {
-  aapBaseCdnUrl,
-  aapManifestUrl,
-  aiaBaseCdnUrl,
-  arbeidssokerUrl,
-  meldekortUrl,
-  syfoDialogCdnUrl,
-  syfoDialogManifestUrl,
-} from "./api/urls";
-import { aiaManifestUrl, oppfolgingUrl, selectorUrl } from "./api/urls";
+import { aapBaseCdnUrl, aapManifestUrl, aiaBaseCdnUrl, arbeidssokerUrl, meldekortUrl } from "./api/urls";
+import { aiaManifestUrl, oppfolgingUrl, selectorUrl, syfoDialogManifestUrl, syfoDialogCdnUrl } from "./api/urls";
 import ContentLoader from "./components/loader/ContentLoader";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "./api/api";
@@ -66,7 +58,6 @@ function App() {
   );
 
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const Meldekort = React.lazy(() => import(meldekortUrl));
 

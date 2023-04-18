@@ -13,11 +13,6 @@ export const getEnvironment = () => {
   return "local";
 };
 
-const API_URL = {
-  development: "http://localhost:3000/api/endpoint",
-  production: "https://person.nav.no/api/endpoint",
-};
-
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
   development: "https://www.dev.nav.no/minside",
@@ -230,11 +225,10 @@ const SYFO_DIALOG_BASE_URL = {
 
 const SYFO_DIALOG_CDN_URL = {
   local: "http://localhost:3000/syfo-dialog",
-  development: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
-  production: "https://cdn.nav.no/syfo-dialog/dialogmote-mikrofrontend/dist",
+  development: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
+  production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
 };
 
-export const apiUrl = API_URL[getEnvironment()];
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const digisosUtkastApiUrl = DIGISOS_UTKAST_API_URL[getEnvironment()];
