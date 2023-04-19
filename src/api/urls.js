@@ -14,25 +14,25 @@ export const getEnvironment = () => {
 
 const MIN_SIDE_URL = {
   local: "http://localhost:3000/minside",
-  development: "https://www.dev.nav.no/minside",
+  development: "https://www.intern.dev.nav.no/minside",
   production: "https://www.nav.no/minside",
 };
 
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000/tms-min-side-proxy",
-  development: "https://www.dev.nav.no/tms-min-side-proxy",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy",
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
 const DIGISOS_UTKAST_API_URL = {
   local: "http://localhost:3000/dittnav-api/digisos/utkast/antall",
-  development: "https://www.dev.nav.no/dittnav-api/digisos/utkast/antall",
+  development: "https://www.intern.dev.nav.no/dittnav-api/digisos/utkast/antall",
   production: "https://www.nav.no/dittnav-api/digisos/utkast/antall",
 };
 
 const AAP_BASE_URL = {
   local: "http://localhost:3000/aap",
-  development: "https://www.dev.nav.no/aap/aap-min-side-microfrontend",
+  development: "https://www.intern.dev.nav.no/aap/aap-min-side-microfrontend",
   production: "https://www.nav.no/aap/aap-min-side-microfrontend",
 };
 
@@ -62,19 +62,19 @@ const AIA_BASE_CDN_URL = {
 
 const MELDEKORT_URL = {
   local: "http://localhost:3000/meldekort/bundle.js",
-  development: "https://www.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
+  development: "https://www.intern.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
   production: "https://www.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
 };
 
 const SELECTOR_URL = {
   local: "http://localhost:3000/selector",
-  development: "https://www.dev.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/selector/mikrofrontends",
   production: "https://www.nav.no/tms-min-side-proxy/selector/mikrofrontends",
 };
 
 const OPPFOLGING_URL = {
   local: "http://localhost:3000/api/oppfolging",
-  development: "https://www.dev.nav.no/dittnav-api/oppfolging",
+  development: "https://www.intern.dev.nav.no/dittnav-api/oppfolging",
   production: "https://www.nav.no/dittnav-api/oppfolging",
 };
 
@@ -104,19 +104,19 @@ const AKTIVITETSPLAN_URL = {
 
 const MELDEKORT_INFO_URL = {
   local: "http://localhost:3000/meldekort",
-  development: "https://www.dev.nav.no/meldekort/om-meldekort",
+  development: "https://www.intern.dev.nav.no/meldekort/om-meldekort",
   production: "https://www.nav.no/meldekort/om-meldekort",
 };
 
 const PERSONOPPLYSNINGER_URL = {
   local: "http://localhost:3000/personopplysninger",
-  development: "https://www.dev.nav.no/person/personopplysninger",
+  development: "https://www.intern.dev.nav.no/person/personopplysninger",
   production: "https://www.nav.no/person/personopplysninger",
 };
 
 const SJEMAER_URL = {
   local: "http://localhost:3000/soknader",
-  development: "https://www.dev.nav.no/soknader",
+  development: "https://www.intern.dev.nav.no/soknader",
   production: "https://www.nav.no/soknader",
 };
 
@@ -134,7 +134,7 @@ const STILLINGSOK_URL = {
 
 const ARBEID_URL = {
   local: "http://localhost:3000/arbeid",
-  development: "https://www.dev.nav.no/arbeid",
+  development: "https://www.intern.dev.nav.no/arbeid",
   production: "https://www.nav.no/arbeid",
 };
 
@@ -146,13 +146,13 @@ const ARBEIDSSOKER_REGISTRERING_URL = {
 
 const SOSIALHJELP_URL = {
   local: "http://localhost:3000/sosialhjelp",
-  development: "https://www.dev.nav.no/sosialhjelp/innsyn",
+  development: "https://www.intern.dev.nav.no/sosialhjelp/innsyn",
   production: "https://www.nav.no/sosialhjelp/innsyn",
 };
 
 const FULLMAKTER_URL = {
   local: "http://localhost:3000/fullmakter",
-  development: "https://www.dev.nav.no/person/pdl-fullmakt-ui",
+  development: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui",
   production: "https://www.nav.no/person/pdl-fullmakt-ui",
 };
 
@@ -176,7 +176,7 @@ const HJELPEMIDLER_URL = {
 
 const NAV_URL = {
   local: "http://localhost:3000",
-  development: "https://www.dev.nav.no",
+  development: "https://www.intern.dev.nav.no",
   production: "https://www.nav.no",
 };
 
@@ -188,7 +188,7 @@ const PERSON_NAV_URL = {
 
 const DITTNAV_API_URL = {
   local: "http://localhost:3000/dittnav-api",
-  development: "https://www.dev.nav.no/dittnav-api",
+  development: "https://www.intern.dev.nav.no/dittnav-api",
   production: "https://www.nav.no/dittnav-api",
 };
 
@@ -200,7 +200,7 @@ const TJENESTER_URL = {
 
 const UTBETALINGSOVERSIKT_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
-  development: "https://www.dev.nav.no/utbetalingsoversikt",
+  development: "https://www.intern.dev.nav.no/utbetalingsoversikt",
   production: "https://tjenester.nav.no/utbetalingsoversikt",
 };
 
