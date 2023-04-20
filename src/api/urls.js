@@ -92,7 +92,7 @@ const FORELDREPENGER_URL = {
 
 const AKTIVITETSPLAN_URL = {
   local: "http://localhost:3000/aktivitetsplan",
-  development: "https://aktivitetsplan-q.nav.no",
+  development: "https://aktivitetsplan.dev.nav.no",
   production: "https://aktivitetsplan.nav.no",
 };
 
