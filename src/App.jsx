@@ -37,8 +37,8 @@ function App() {
   });
 
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
-  const lenker = data?.erUnderOppfolging ? oppfolgingsLenker : generelleLenker;
-  const brukerUnderOppfolging = data?.erUnderOppfolging;
+  const lenker = data?.underOppfolging ? oppfolgingsLenker : generelleLenker;
+  const brukerUnderOppfolging = data?.underOppfolging;
   const language = useContext(LanguageContext);
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
