@@ -5,7 +5,6 @@ import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { terser } from "rollup-plugin-terser";
 import { resolve } from "path";
-
 const reactUrl = "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js";
 const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js";
 
@@ -38,7 +37,7 @@ export default ({ command }) => ({
       preserveEntrySignatures: "exports-only",
       output: {
         entryFileNames: "[name].[hash].js",
-        format: "esm",
+        format: "cjs",
       },
     },
   },

@@ -259,9 +259,9 @@ export const text = {
     nn: "Ja, jeg vil teste",
     en: "Ja, jeg vil teste",
   },
-  flereTjenesterTittel: {
-    nb: "Flere tjenester",
-    nn: "Fleire tenester",
-    en: "More services",
+  aktivitetsplanId: {
+    nb: "Aktivitetsplan",
+    nn: "Aktivitetsplan",
+    en: "Aktivitetsplan",
   },
 };

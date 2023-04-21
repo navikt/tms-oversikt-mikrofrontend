@@ -23,6 +23,7 @@ import { generelleLenker, oppfolgingsLenker } from "./lenker";
 import { text } from "./language/text";
 import style from "./App.module.css";
 import "@navikt/ds-css";
+import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 
 function App() {
   const [isError, setIsError] = useState(false);
@@ -92,6 +93,7 @@ function App() {
           <SisteSakerPanel />
         </section>
         {brukerUnderOppfolging ? null : <GenerelleFliser />}
+        <InnloggedeTjenester />
         <Panel className={style.flereTjenester}>
           <Heading spacing level="2" size="medium" className={style.flere_tjenester_header}>
             {text.flereTjenesterTittel[language]}
