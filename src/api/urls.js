@@ -68,8 +68,8 @@ const SELECTOR_URL = {
 
 const OPPFOLGING_URL = {
   local: "http://localhost:3000/api/oppfolging",
-  development: "https://www.intern.dev.nav.no/dittnav-api/oppfolging",
-  production: "https://www.nav.no/dittnav-api/oppfolging",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/oppfolging",
+  production: "https://www.nav.no/tms-min-side-proxy/oppfolging",
 };
 
 const STILLINGER_URL = {
