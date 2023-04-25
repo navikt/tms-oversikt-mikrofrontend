@@ -3,13 +3,13 @@ import Sidetittel from "./components/sidetittel/Sidetittel";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Utkast from "./components/utkast/Utkast";
 import { aapBaseCdnUrl, aapManifestUrl, aiaBaseCdnUrl, arbeidssokerUrl, meldekortUrl } from "./api/urls";
-import { aiaManifestUrl, oppfolgingUrl, selectorUrl } from "./api/urls";
+import { aiaManifestUrl, oppfolgingUrl, selectorUrl, syfoDialogManifestUrl, syfoDialogCdnUrl } from "./api/urls";
 import ContentLoader from "./components/loader/ContentLoader";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "./api/api";
 import { useManifest } from "./hooks/useManifest";
 import ErrorBoundary from "./error-boundary/ErrorBoundary";
-import { aapEntry, aiaEntry, bundle } from "./entrypoints";
+import { aapEntry, aiaEntry, bundle, syfoDialogEntry } from "./entrypoints";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import { logEvent } from "./utils/amplitude";
 import Utbetaling from "./components/utbetaling/Utbetaling";
@@ -43,18 +43,21 @@ function App() {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
+  const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
-  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest) {
+  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
     return <ContentLoader />;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
+  const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
+  const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
@@ -80,6 +83,11 @@ function App() {
         {isArbeidssoker ? (
           <ErrorBoundary setIsError={setIsError}>
             <ArbeidsflateForInnloggetArbeidssoker />
+          </ErrorBoundary>
+        ) : null}
+        {isSyfoDialogBruker ? (
+          <ErrorBoundary setIsError={setIsError}>
+            <SyfoDialog />
           </ErrorBoundary>
         ) : null}
       </React.Suspense>

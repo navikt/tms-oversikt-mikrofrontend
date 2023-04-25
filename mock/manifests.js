@@ -2,6 +2,8 @@
 const aapManifest = require("./manifests/aapManifest.json");
 // eslint-disable-next-line no-undef
 const aiaManifest = require("./manifests/aiaManifest.json");
+// eslint-disable-next-line no-undef
+const syfoDialogManifest = require("./manifests/syfoDialogManifest.json");
 
 export default [
   {
@@ -16,6 +18,13 @@ export default [
     method: "get",
     response: () => {
       return aapManifest;
+    },
+  },
+  {
+    url: "/syfo-dialog/manifest.json",
+    method: "get",
+    response: () => {
+      return syfoDialogManifest;
     },
   },
   {
