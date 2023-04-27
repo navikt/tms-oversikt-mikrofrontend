@@ -38,7 +38,7 @@ const AAP_BASE_CDN_URL = {
 
 const ARBEIDSSOKER_URL = {
   local: "http://localhost:3000/er-arbeidssoker",
-  development: "https://www.intern.dev.nav.no/aia-backend/er-arbeidssoker",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
   production: "https://www.nav.no/aia-backend/er-arbeidssoker",
 };
 
