@@ -266,7 +266,6 @@ export const sykefravaerUrl = SYKEFRAVAER_URL[getEnvironment()];
 export const hjelpemidlerUrl = HJELPEMIDLER_URL[getEnvironment()];
 export const navUrl = NAV_URL[getEnvironment()];
 export const personNavUrl = PERSON_NAV_URL[getEnvironment()];
-export const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const tjenesterUrl = TJENESTER_URL[getEnvironment()];
 export const innboksUrl = INNBOKS_URL[getEnvironment()];
 export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnvironment()];
