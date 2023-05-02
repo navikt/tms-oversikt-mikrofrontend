@@ -180,14 +180,8 @@ const PERSON_NAV_URL = {
   production: "https://person.nav.no",
 };
 
-const DITTNAV_API_URL = {
-  local: "http://localhost:3000/dittnav-api",
-  development: "https://www.intern.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
-};
-
 const MINE_SAKER_API_URL = {
-  local: "http://localhost:3000/dittnav-api",
+  local: "http://localhost:3000/mine-saker-api/siste",
   development: "https://www.intern.dev.nav.no/mine-saker-api/siste",
   production: "https://person.nav.no/mine-saker-api/siste",
 };
