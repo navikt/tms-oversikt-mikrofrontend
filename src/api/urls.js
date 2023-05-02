@@ -180,10 +180,10 @@ const PERSON_NAV_URL = {
   production: "https://person.nav.no",
 };
 
-const DITTNAV_API_URL = {
-  local: "http://localhost:3000/dittnav-api",
-  development: "https://www.intern.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
+const MINE_SAKER_API_URL = {
+  local: "http://localhost:3000/mine-saker-api/siste",
+  development: "https://www.intern.dev.nav.no/mine-saker-api/siste",
+  production: "https://person.nav.no/mine-saker-api/siste",
 };
 
 const TJENESTER_URL = {
@@ -260,14 +260,13 @@ export const sykefravaerUrl = SYKEFRAVAER_URL[getEnvironment()];
 export const hjelpemidlerUrl = HJELPEMIDLER_URL[getEnvironment()];
 export const navUrl = NAV_URL[getEnvironment()];
 export const personNavUrl = PERSON_NAV_URL[getEnvironment()];
-export const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const tjenesterUrl = TJENESTER_URL[getEnvironment()];
 export const innboksUrl = INNBOKS_URL[getEnvironment()];
 export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnvironment()];
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
+export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;
-export const sakerApiUrl = `${dittNavApiUrl}/saker`;
 export const soknadUrl = `${navUrl}/soknader`;
 export const dinPensjonUrl = `${tjenesterUrl}/pselv/publisering/dinpensjon.jsf`;

@@ -4,14 +4,14 @@ import { LinkPanel, Panel, Heading } from "@navikt/ds-react";
 import SakstemaElement from "./SakstemaElement";
 import { FileContent } from "@navikt/ds-icons";
 import CSS from "./SisteSakerPanel.module.css";
-import { mineSakerUrl, sakerApiUrl } from "../../api/urls";
+import { mineSakerUrl, mineSakerApiUrl } from "../../api/urls";
 import { fetcher } from "../../api/api";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import { logEvent } from "../../utils/amplitude";
 
 const SisteSakerPanel = () => {
-  const { data: saker } = useSWRImmutable(sakerApiUrl, fetcher);
+  const { data: saker } = useSWRImmutable(mineSakerApiUrl, fetcher);
 
   const language = useContext(LanguageContext);
 
