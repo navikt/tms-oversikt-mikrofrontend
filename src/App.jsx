@@ -94,12 +94,6 @@ function App() {
         </section>
         {brukerUnderOppfolging ? null : <GenerelleFliser />}
         <InnloggedeTjenester />
-        <Panel className={style.flereTjenester}>
-          <Heading spacing level="2" size="medium" className={style.flere_tjenester_header}>
-            {text.flereTjenesterTittel[language]}
-          </Heading>
-          <Lenkeliste lenker={lenker} />
-        </Panel>
       </section>
     </div>
   );

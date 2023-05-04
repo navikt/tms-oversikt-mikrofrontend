@@ -1,0 +1,13 @@
+.wrapper {
+  padding: 4rem 15rem;
+}
+
+.tittel {
+  color: var(--global-deepblue-700, #004367);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}

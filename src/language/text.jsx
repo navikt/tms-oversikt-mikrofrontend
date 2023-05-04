@@ -264,4 +264,29 @@ export const text = {
     nn: "Aktivitetsplan",
     en: "Aktivitetsplan",
   },
+  alleInnloggedeTjenesterTittel: {
+    nb: "Alle innloggede tjenester",
+    nn: "Alle innloggede tjenester",
+    en: "Alle innloggede tjenester",
+  },
+  jobbOgOppfolgingTittel: {
+    nb: "JOBB OG OPPFØLGING",
+    nn: "JOBB OG OPPFØLGING",
+    en: "JOBB OG OPPFØLGING",
+  },
+  pengeStøtteOgHjelpemidlerTittel: {
+    nb: "PENGESTØTTE OG HJELPEMIDLER",
+    nn: "PENGESTØTTE OG HJELPEMIDLER",
+    en: "PENGESTØTTE OG HJELPEMIDLER",
+  },
+  personopplysningTittel: {
+    nb: "PERSONOPPLYSNING",
+    nn: "PERSONOPPLYSNING",
+    en: "PERSONOPPLYSNING",
+  },
+  annetTittel: {
+    nb: "ANNET",
+    nn: "ANNET",
+    en: "ANNET",
+  },
 };
