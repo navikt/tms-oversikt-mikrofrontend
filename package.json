@@ -11,7 +11,7 @@
     "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .js,.jsx ."
   },
   "dependencies": {
-    "@navikt/ds-react": "2.8.13",
+    "@navikt/ds-react": "2.9.3",
     "amplitude-js": "8.21.8",
     "dayjs": "1.11.7",
     "react": "18.2.0",
