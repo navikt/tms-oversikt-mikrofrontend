@@ -22,7 +22,6 @@ import { LanguageContext } from "./language/LanguageProvider";
 import { generelleLenker, oppfolgingsLenker } from "./lenker";
 import { text } from "./language/text";
 import style from "./App.module.css";
-import "@navikt/ds-css";
 
 function App() {
   const [isError, setIsError] = useState(false);
