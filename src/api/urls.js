@@ -38,8 +38,8 @@ const AAP_BASE_CDN_URL = {
 
 const ARBEIDSSOKER_URL = {
   local: "http://localhost:3000/er-arbeidssoker",
-  development: "https://www.intern.dev.nav.no/aia-backend/er-arbeidssoker",
-  production: "https://www.nav.no/aia-backend/er-arbeidssoker",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
+  production: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
 };
 
 const AIA_BASE_URL = {
@@ -68,8 +68,8 @@ const SELECTOR_URL = {
 
 const OPPFOLGING_URL = {
   local: "http://localhost:3000/api/oppfolging",
-  development: "https://www.intern.dev.nav.no/dittnav-api/oppfolging",
-  production: "https://www.nav.no/dittnav-api/oppfolging",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/oppfolging",
+  production: "https://www.nav.no/tms-min-side-proxy/oppfolging",
 };
 
 const STILLINGER_URL = {
@@ -180,10 +180,10 @@ const PERSON_NAV_URL = {
   production: "https://person.nav.no",
 };
 
-const DITTNAV_API_URL = {
-  local: "http://localhost:3000/dittnav-api",
-  development: "https://www.intern.dev.nav.no/dittnav-api",
-  production: "https://www.nav.no/dittnav-api",
+const MINE_SAKER_API_URL = {
+  local: "http://localhost:3000/mine-saker-api/siste",
+  development: "https://www.intern.dev.nav.no/mine-saker-api/siste",
+  production: "https://person.nav.no/mine-saker-api/siste",
 };
 
 const TJENESTER_URL = {
@@ -210,6 +210,18 @@ const ARBEIDSAVKLARINGSPENGER_URL = {
   production: "https://www.nav.no/aap/mine-aap",
 };
 
+const SYFO_DIALOG_BASE_URL = {
+  local: "http://localhost:3000/syfo-dialog",
+  development: "https://www.intern.dev.nav.no/dialogmote-mikrofrontend",
+  production: "https://www.nav.no/dialogmote-mikrofrontend",
+};
+
+const SYFO_DIALOG_CDN_URL = {
+  local: "http://localhost:3000/syfo-dialog",
+  development: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
+  production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
+};
+
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
@@ -217,6 +229,8 @@ export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
+export const syfoDialogManifestUrl = `${SYFO_DIALOG_BASE_URL[getEnvironment()]}/manifest.json`;
+export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const digisosAntallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/digisos/antall`;
@@ -246,14 +260,13 @@ export const sykefravaerUrl = SYKEFRAVAER_URL[getEnvironment()];
 export const hjelpemidlerUrl = HJELPEMIDLER_URL[getEnvironment()];
 export const navUrl = NAV_URL[getEnvironment()];
 export const personNavUrl = PERSON_NAV_URL[getEnvironment()];
-export const dittNavApiUrl = DITTNAV_API_URL[getEnvironment()];
 export const tjenesterUrl = TJENESTER_URL[getEnvironment()];
 export const innboksUrl = INNBOKS_URL[getEnvironment()];
 export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnvironment()];
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
+export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;
-export const sakerApiUrl = `${dittNavApiUrl}/saker`;
 export const soknadUrl = `${navUrl}/soknader`;
 export const dinPensjonUrl = `${tjenesterUrl}/pselv/publisering/dinpensjon.jsf`;

@@ -1,29 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Utkast from "./components/utkast/Utkast";
 import { aapBaseCdnUrl, aapManifestUrl, aiaBaseCdnUrl, arbeidssokerUrl, meldekortUrl } from "./api/urls";
-import { aiaManifestUrl, oppfolgingUrl, selectorUrl } from "./api/urls";
+import { aiaManifestUrl, oppfolgingUrl, selectorUrl, syfoDialogManifestUrl, syfoDialogCdnUrl } from "./api/urls";
 import ContentLoader from "./components/loader/ContentLoader";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "./api/api";
 import { useManifest } from "./hooks/useManifest";
 import ErrorBoundary from "./error-boundary/ErrorBoundary";
-import { aapEntry, aiaEntry, bundle } from "./entrypoints";
+import { aapEntry, aiaEntry, bundle, syfoDialogEntry } from "./entrypoints";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import { logEvent } from "./utils/amplitude";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import GenerelleFliser from "./components/generelle-fliser/GenerelleFliser";
-import { Heading, Panel } from "@navikt/ds-react";
-import Lenkeliste from "./components/Lenkeliste";
-import { LanguageContext } from "./language/LanguageProvider";
-import { generelleLenker, oppfolgingsLenker } from "./lenker";
-import { text } from "./language/text";
-import style from "./App.module.css";
-import "@navikt/ds-css";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
+import style from "./App.module.css";
 
 function App() {
   const [isError, setIsError] = useState(false);
@@ -38,24 +32,25 @@ function App() {
   });
 
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
-  const lenker = data?.erUnderOppfolging ? oppfolgingsLenker : generelleLenker;
-  const brukerUnderOppfolging = data?.erUnderOppfolging;
-  const language = useContext(LanguageContext);
+  const brukerUnderOppfolging = data?.underOppfolging;
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
+  const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
-  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest) {
+  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
     return <ContentLoader />;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
+  const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
+  const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
@@ -81,6 +76,11 @@ function App() {
         {isArbeidssoker ? (
           <ErrorBoundary setIsError={setIsError}>
             <ArbeidsflateForInnloggetArbeidssoker />
+          </ErrorBoundary>
+        ) : null}
+        {isSyfoDialogBruker ? (
+          <ErrorBoundary setIsError={setIsError}>
+            <SyfoDialog />
           </ErrorBoundary>
         ) : null}
       </React.Suspense>
