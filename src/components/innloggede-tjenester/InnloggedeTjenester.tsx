@@ -8,7 +8,7 @@ import style from "./InnloggedeTjenester.module.css";
 const InnloggedeTjenester = () => {
 
   return (      
-    <div className={style.wrapper}>
+    <div>
       <Heading level="4" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
       <nav className={style.container}>
         <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobb}/>
