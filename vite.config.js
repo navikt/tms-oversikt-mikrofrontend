@@ -37,7 +37,7 @@ export default ({ command }) => ({
       preserveEntrySignatures: "exports-only",
       output: {
         entryFileNames: "[name].[hash].js",
-        format: "cjs",
+        format: "esm",
       },
     },
   },
