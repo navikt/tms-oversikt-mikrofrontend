@@ -272,21 +272,21 @@ export const text = {
   jobbOgOppfolgingTittel: {
     nb: "JOBB OG OPPFØLGING",
     nn: "JOBB OG OPPFØLGING",
-    en: "JOBB OG OPPFØLGING",
+    en: "JOB AND WORK RELATED SERVICES",
   },
   pengeStøtteOgHjelpemidlerTittel: {
     nb: "PENGESTØTTE OG HJELPEMIDLER",
-    nn: "PENGESTØTTE OG HJELPEMIDLER",
-    en: "PENGESTØTTE OG HJELPEMIDLER",
+    nn: "PENGESTØTTER OG HJELPEMIDDEL",
+    en: "BENEFITS AND ASSISTIVE TECHNOLOGY",
   },
   personopplysningTittel: {
     nb: "PERSONOPPLYSNING",
-    nn: "PERSONOPPLYSNING",
-    en: "PERSONOPPLYSNING",
+    nn: "PERSONOPPLYSNINGAR",
+    en: "PERSONAL DATA",
   },
   annetTittel: {
     nb: "ANNET",
-    nn: "ANNET",
-    en: "ANNET",
+    nn: "ANNA",
+    en: "OTHER",
   },
 };
