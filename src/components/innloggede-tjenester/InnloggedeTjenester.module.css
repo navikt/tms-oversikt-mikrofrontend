@@ -7,3 +7,10 @@
   flex-wrap: wrap;
   margin-top: 22px;
 }
+
+@media (max-width: 648px) {
+  .container {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+}
