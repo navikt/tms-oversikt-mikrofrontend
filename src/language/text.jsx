@@ -266,8 +266,8 @@ export const text = {
   },
   alleInnloggedeTjenesterTittel: {
     nb: "Alle innloggede tjenester",
-    nn: "Alle innloggede tjenester",
-    en: "Alle innloggede tjenester",
+    nn: "Alle innlogga tenester",
+    en: "Signed in services",
   },
   jobbOgOppfolgingTittel: {
     nb: "JOBB OG OPPFØLGING",
