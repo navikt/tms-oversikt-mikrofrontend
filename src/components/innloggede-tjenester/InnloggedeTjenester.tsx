@@ -11,10 +11,14 @@ const InnloggedeTjenester = () => {
     <div>
       <Heading level="4" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
       <nav className={style.container}>
-        <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobb}/>
-        <LenkeListe tittel={useTranslate("pengeStøtteOgHjelpemidlerTittel")} liste={hjelpemidler}/>
-        <LenkeListe tittel={useTranslate("personopplysningTittel")} liste={personopplysning}/>
-        <LenkeListe tittel={useTranslate("annetTittel")} liste={annet}/>
+        <div className={style.listeContainer}>
+          <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobb}/>
+          <LenkeListe tittel={useTranslate("pengeStøtteOgHjelpemidlerTittel")} liste={hjelpemidler}/>
+        </div>
+        <div className={style.listeContainer}>
+          <LenkeListe tittel={useTranslate("personopplysningTittel")} liste={personopplysning}/>
+          <LenkeListe tittel={useTranslate("annetTittel")} liste={annet}/>
+        </div>
       </nav>
     </div>
   );
