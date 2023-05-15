@@ -1,3 +1,10 @@
+.appContainer {
+  width: 100%;
+  max-width: 912px;
+  justify-content: center;
+  margin: auto;
+}
+
 .app {
   flex-direction: column;
   display: flex;
