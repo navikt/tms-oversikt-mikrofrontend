@@ -1,3 +1,10 @@
+.background {
+  margin-left: calc((100vw - 100%) / 2);
+  padding: 2.75rem calc((100vw - 100%) / 2);
+  margin-right: calc((100vw - 100%) / 2);
+  background-color: var(--global-deepblue-50, #e6f1f8);
+}
+
 .tittel {
   color: var(--global-deepblue-700, #004367);
 }
@@ -5,18 +12,20 @@
 .container {
   display: flex;
   justify-content: space-between;
+  gap: 64px;
 }
 
 .listeContainer {
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 @media (max-width: 648px) {
   .container {
     flex-wrap: nowrap;
     flex-direction: column;
+    justify-content: center;
+    gap: 0;
   }
 
   .listeContainer {

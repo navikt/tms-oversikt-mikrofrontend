@@ -55,48 +55,46 @@ function App() {
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
   return (
-    <div className={style.appContainer}>
-      <div className={style.app}>
-        {isError ? <Feilmelding /> : null}
-        <div className={style.pageWrapper}>
-          <Sidetittel />
-        </div>
-        <div className={style.panelWrapper}>
-          <Oppgaver />
-          <Utkast />
-        </div>
-        <React.Suspense fallback={<ContentLoader />}>
-          <ErrorBoundary setIsError={setIsError}>
-            <Meldekort />
-          </ErrorBoundary>
-          {isAapBruker ? (
-            <ErrorBoundary setIsError={setIsError}>
-              <Arbeidsavklaringspenger />
-            </ErrorBoundary>
-          ) : null}
-          {isArbeidssoker ? (
-            <ErrorBoundary setIsError={setIsError}>
-              <ArbeidsflateForInnloggetArbeidssoker />
-            </ErrorBoundary>
-          ) : null}
-          {isSyfoDialogBruker ? (
-            <ErrorBoundary setIsError={setIsError}>
-              <SyfoDialog />
-            </ErrorBoundary>
-          ) : null}
-        </React.Suspense>
-        <section className={style.page_wrapper_microfrontend}>
-          <section className="min-side-lenkepanel">
-            <section className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
-              <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
-              <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
-            </section>
-            <SisteSakerPanel />
-          </section>
-          {brukerUnderOppfolging ? null : <GenerelleFliser />}
-          <InnloggedeTjenester />
-        </section>
+    <div className={style.app}>
+      {isError ? <Feilmelding /> : null}
+      <div className={style.pageWrapper}>
+        <Sidetittel />
       </div>
+      <div className={style.panelWrapper}>
+        <Oppgaver />
+        <Utkast />
+      </div>
+      <React.Suspense fallback={<ContentLoader />}>
+        <ErrorBoundary setIsError={setIsError}>
+          <Meldekort />
+        </ErrorBoundary>
+        {isAapBruker ? (
+          <ErrorBoundary setIsError={setIsError}>
+            <Arbeidsavklaringspenger />
+          </ErrorBoundary>
+        ) : null}
+        {isArbeidssoker ? (
+          <ErrorBoundary setIsError={setIsError}>
+            <ArbeidsflateForInnloggetArbeidssoker />
+          </ErrorBoundary>
+        ) : null}
+        {isSyfoDialogBruker ? (
+          <ErrorBoundary setIsError={setIsError}>
+            <SyfoDialog />
+          </ErrorBoundary>
+        ) : null}
+      </React.Suspense>
+      <section className={style.page_wrapper_microfrontend}>
+        <section className="min-side-lenkepanel">
+          <section className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
+            <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
+            <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
+          </section>
+          <SisteSakerPanel />
+        </section>
+        {brukerUnderOppfolging ? null : <GenerelleFliser />}
+        <InnloggedeTjenester />
+      </section>
     </div>
   );
 }

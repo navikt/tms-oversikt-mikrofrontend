@@ -7,8 +7,9 @@ import style from "./InnloggedeTjenester.module.css";
 
 const InnloggedeTjenester = () => {
 
-  return (      
-    <div>
+  return (  
+    <div>   
+    <div className={style.background}>
       <Heading level="4" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
       <nav className={style.container}>
         <div className={style.listeContainer}>
@@ -21,6 +22,7 @@ const InnloggedeTjenester = () => {
         </div>
       </nav>
     </div>
+    </div> 
   );
 };
 
