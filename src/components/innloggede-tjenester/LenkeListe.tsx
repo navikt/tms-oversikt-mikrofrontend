@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BodyShort } from "@navikt/ds-react";
+import { BodyShort, Detail } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import style from "./LenkeListe.module.css";
 
@@ -10,7 +10,7 @@ const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en:
     return(
         <>
             <div className={style.listeContainer}>
-                <p className={style.listeTittel}>{tittel}</p>
+                <Detail className={style.listeTittel}>{tittel}</Detail>
                 <ul className={style.liste}>
                     {liste.map((link) => (
                     <li className={style.lenke}>
