@@ -289,4 +289,9 @@ export const text = {
     nn: "ANNA",
     en: "OTHER",
   },
+  alleTjenesterDisclaimer: {
+    nb: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
+    nn: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
+    en: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
+  },
 };
