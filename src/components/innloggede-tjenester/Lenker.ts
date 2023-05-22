@@ -2,7 +2,7 @@ export const jobb = [
   {
     nb: "Aktivitetsplan",
     nn: "Aktivitetsplan",
-    en: "Activity plan (in Norwegian)",
+    en: "Activity plan",
     url: {
       nb: "https://aktivitetsplan.nav.no/",
       nn: "https://aktivitetsplan.nav.no/",
@@ -12,7 +12,7 @@ export const jobb = [
   {
     nb: "Behov for tilrettelegging",
     nn: "Behov for tilrettelegging",
-    en: "Need for facilitation (text in Norwegian)",
+    en: "Need for facilitation",
     url: {
       nb: "https://www.nav.no/person/behov-for-tilrettelegging",
       nn: "https://www.nav.no/person/behov-for-tilrettelegging",
@@ -42,7 +42,7 @@ export const jobb = [
   {
     nb: "Jobbsporet ditt",
     nn: "Jobbsporet ditt",
-    en: "Job track (in Norwegian)",
+    en: "Job track",
     url: {
       nb: "https://jobbsporet.nav.no ",
       nn: "https://jobbsporet.nav.no ",
@@ -208,7 +208,7 @@ export const personopplysning = [
   {
     nb: "Fullmakt",
     nn: "Fullmakt",
-    en: "Powers of attorney (text in Norwegian)",
+    en: "Powers of attorney",
     url: {
       nb: "https://www.nav.no/person/pdl-fullmakt-ui",
       nn: "https://www.nav.no/person/pdl-fullmakt-ui",
@@ -269,19 +269,9 @@ export const personopplysning = [
 
 export const annet = [
   {
-    nb: "Chat (innlogget)",
-    nn: "Chat (innlogget)",
-    en: "Chat (login)",
-    url: {
-      nb: "",
-      nn: "",
-      en: "",
-    }
-  },
-  {
     nb: "Pensjonskalkulator",
     nn: "Pensjonskalkulator",
-    en: "Calculate pensions (text in Norwegian)",
+    en: "Calculate pensions",
     url: {
       nb: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
       nn: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
