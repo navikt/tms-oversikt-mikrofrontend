@@ -13,7 +13,7 @@ const InnloggedeTjenester = () => {
 
   return (  
     <div className={style.background}>
-      <Heading level="4" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
+      <Heading level="2" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
       {isEnglish ? <Detail>{useTranslate("alleTjenesterDisclaimer")}</Detail> : null}
       <nav className={style.container}>
         <div className={style.listeContainer}>
