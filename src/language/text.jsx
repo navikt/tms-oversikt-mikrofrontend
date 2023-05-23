@@ -290,8 +290,8 @@ export const text = {
     en: "OTHER",
   },
   alleTjenesterDisclaimer: {
-    nb: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
-    nn: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
-    en: "Not all pages exist in english, in these cases the norwegian page is provided instead.",
+    nb: "",
+    nn: "",
+    en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
   },
 };

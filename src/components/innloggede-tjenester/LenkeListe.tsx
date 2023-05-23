@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { BodyShort, Detail } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import style from "./LenkeListe.module.css";
+import { logEvent } from "../../utils/amplitude";
 
 const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en: string, url: {nb: string, nn: string, en: string} }>, tittel: string}) => {
 
@@ -14,7 +15,15 @@ const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en:
                 <ul className={style.liste}>
                     {liste.map((link) => (
                     <li className={style.lenke}>
-                        <BodyShort><a href={link.url[language]} className={style.color}>{link[language]}</a></BodyShort>
+                        <BodyShort>
+                            <a 
+                                href={link.url[language]} 
+                                className={style.color}
+                                onClick={() => logEvent("navigere", "Alle tjenester - " + link[language])}
+                            >
+                                {link[language]}
+                            </a>
+                        </BodyShort>
                     </li>
                     ))}
                 </ul>

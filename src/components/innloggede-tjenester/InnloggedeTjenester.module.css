@@ -21,6 +21,11 @@
   width: 50%;
 }
 
+.disclaimer {
+  color: var(--a-deepblue-700);
+  margin-top: 0.75rem;
+}
+
 @media (max-width: 648px) {
   .container {
     flex-wrap: nowrap;

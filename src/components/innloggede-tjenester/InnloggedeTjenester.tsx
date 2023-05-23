@@ -9,12 +9,12 @@ import style from "./InnloggedeTjenester.module.css";
 const InnloggedeTjenester = () => {
   const language = useContext(LanguageContext);
 
-  const isEnglish = language === "en";
+  const isEnglish = true//language === "en";
 
   return (  
     <div className={style.background}>
       <Heading level="2" size="small" className={style.tittel}>{useTranslate("alleInnloggedeTjenesterTittel")}</Heading>
-      {isEnglish ? <BodyShort size="medium">{useTranslate("alleTjenesterDisclaimer")}</BodyShort> : null}
+      {isEnglish ? <BodyShort size="medium" className={style.disclaimer}>Not all pages exist in English, in these cases the Norwegian page is provided.</BodyShort> : null}
       <nav className={style.container}>
         <div className={style.listeContainer}>
           <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobb}/>
