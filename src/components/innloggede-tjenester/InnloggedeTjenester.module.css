@@ -23,7 +23,7 @@
 
 .disclaimer {
   color: var(--a-deepblue-700);
-  margin-top: 0.75rem;
+  margin-top: 0.75rem !important;
 }
 
 @media (max-width: 648px) {
