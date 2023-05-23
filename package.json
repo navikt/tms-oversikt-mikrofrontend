@@ -11,7 +11,8 @@
     "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .js,.jsx ."
   },
   "dependencies": {
-    "@navikt/ds-react": "2.9.3",
+    "@navikt/ds-icons": "3.1.3",
+    "@navikt/ds-react": "3.1.3",
     "amplitude-js": "8.21.8",
     "dayjs": "1.11.7",
     "react": "18.2.0",
@@ -49,5 +50,8 @@
     "*.{css,md,html,json}": [
       "prettier --cache --write"
     ]
+  },
+  "engines": {
+    "node": ">=18.15.0"
   }
 }
