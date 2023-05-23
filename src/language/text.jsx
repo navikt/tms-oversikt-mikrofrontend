@@ -225,9 +225,9 @@ export const text = {
     en: "My attendance allowance",
   },
   dittSykefravaer: {
-    nb: "Ditt sykefravær",
-    nn: "Ditt sjukefravær",
-    en: "My absences due to sickness",
+    nb: "Sykefravær",
+    nn: "Sjukefravær",
+    en: "Absences due to sickness",
   },
   hjelpemidler: {
     nb: "Hjelpemidler",
