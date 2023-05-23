@@ -2,7 +2,6 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
 .pageWrapper {
@@ -69,6 +68,14 @@
   .lenkepanel_stor_wrapper {
     margin-bottom: 0;
   }
+
+  .panelWrapper {
+    flex-direction: column;
+  }
+
+  .appContainer {
+    margin: 0 1rem;
+  }
 }
 
 @media (min-width: 648px) {
@@ -80,16 +87,12 @@
   .lenkepanel_stor_wrapper {
     margin-bottom: 2rem;
   }
-}
 
-@media (min-width: 0px) {
-  .panelWrapper {
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 648px) {
   .panelWrapper {
     flex-direction: row;
+  }
+
+  .appContainer {
+    margin: auto;
   }
 }

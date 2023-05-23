@@ -259,9 +259,39 @@ export const text = {
     nn: "Ja, jeg vil teste",
     en: "Ja, jeg vil teste",
   },
-  flereTjenesterTittel: {
-    nb: "Flere tjenester",
-    nn: "Fleire tenester",
-    en: "More services",
+  aktivitetsplanId: {
+    nb: "Aktivitetsplan",
+    nn: "Aktivitetsplan",
+    en: "Aktivitetsplan",
+  },
+  alleInnloggedeTjenesterTittel: {
+    nb: "Alle innloggede tjenester",
+    nn: "Alle innlogga tenester",
+    en: "Signed in services",
+  },
+  jobbOgOppfolgingTittel: {
+    nb: "JOBB OG OPPFØLGING",
+    nn: "JOBB OG OPPFØLGING",
+    en: "JOB AND WORK RELATED SERVICES",
+  },
+  pengeStøtteOgHjelpemidlerTittel: {
+    nb: "PENGESTØTTE OG HJELPEMIDLER",
+    nn: "PENGESTØTTER OG HJELPEMIDDEL",
+    en: "BENEFITS AND ASSISTIVE TECHNOLOGY",
+  },
+  personopplysningTittel: {
+    nb: "PERSONOPPLYSNING",
+    nn: "PERSONOPPLYSNINGAR",
+    en: "PERSONAL DATA",
+  },
+  annetTittel: {
+    nb: "ANNET",
+    nn: "ANNA",
+    en: "OTHER",
+  },
+  alleTjenesterDisclaimer: {
+    nb: "",
+    nn: "",
+    en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
   },
 };

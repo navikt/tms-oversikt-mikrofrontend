@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Utkast from "./components/utkast/Utkast";
@@ -16,11 +16,7 @@ import Utbetaling from "./components/utbetaling/Utbetaling";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import GenerelleFliser from "./components/generelle-fliser/GenerelleFliser";
-import { Heading, Panel } from "@navikt/ds-react";
-import Lenkeliste from "./components/Lenkeliste";
-import { LanguageContext } from "./language/LanguageProvider";
-import { generelleLenker, oppfolgingsLenker } from "./lenker";
-import { text } from "./language/text";
+import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import style from "./App.module.css";
 
 function App() {
@@ -36,9 +32,7 @@ function App() {
   });
 
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
-  const lenker = data?.underOppfolging ? oppfolgingsLenker : generelleLenker;
   const brukerUnderOppfolging = data?.underOppfolging;
-  const language = useContext(LanguageContext);
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
@@ -99,12 +93,7 @@ function App() {
           <SisteSakerPanel />
         </section>
         {brukerUnderOppfolging ? null : <GenerelleFliser />}
-        <Panel className={style.flereTjenester}>
-          <Heading spacing level="2" size="medium" className={style.flere_tjenester_header}>
-            {text.flereTjenesterTittel[language]}
-          </Heading>
-          <Lenkeliste lenker={lenker} />
-        </Panel>
+        <InnloggedeTjenester />
       </section>
     </div>
   );
