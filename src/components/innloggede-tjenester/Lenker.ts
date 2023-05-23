@@ -143,9 +143,9 @@ export const hjelpemidler = [
     }
   },
   {
-    nb: "Sykepenger og sykefravær",
-    nn: "Sjukepengar og sjukefravær",
-    en: "Allowance and absence due to sickness",
+    nb: "Sykefravær",
+    nn: "Sjukefravær",
+    en: "Absence due to sickness",
     url: {
       nb: "https://www.nav.no/syk/sykefravaer",
       nn: "https://www.nav.no/syk/sykefravaer",
