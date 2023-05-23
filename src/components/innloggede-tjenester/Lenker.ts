@@ -273,9 +273,9 @@ export const annet = [
     nn: "Pensjonskalkulator",
     en: "Calculate pensions",
     url: {
-      nb: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
-      nn: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
-      en: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
+      nb: "https://www.nav.no/pselv/simulering.jsf",
+      nn: "https://www.nav.no/pselv/simulering.jsf",
+      en: "https://www.nav.no/pselv/simulering.jsf",
     }
   },
   {
