@@ -264,9 +264,9 @@ export const text = {
     nn: "Aktivitetsplan",
     en: "Aktivitetsplan",
   },
-  alleInnloggedeTjenesterTittel: {
-    nb: "Alle innloggede tjenester",
-    nn: "Alle innlogga tenester",
+  innloggedeTjenesterTittel: {
+    nb: "Innloggede tjenester",
+    nn: "Innlogga tenester",
     en: "Signed in services",
   },
   jobbOgOppfolgingTittel: {
