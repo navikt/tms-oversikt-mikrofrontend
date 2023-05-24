@@ -308,4 +308,14 @@ export const annet = [
       en: "https://innboks.nav.no/",
     }
   },
+  {
+    nb: "Søknad og skjema",
+    nn: "Søknad og skjema",
+    en: "Application and forms",
+    url: {
+      nb: "https://www.nav.no/soknader",
+      nn: "https://www.nav.no/soknader",
+      en: "https://www.nav.no/soknader/en/person",
+    }
+  },
 ];
