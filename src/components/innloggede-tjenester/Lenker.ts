@@ -311,7 +311,7 @@ export const annet = [
   {
     nb: "Søknad og skjema",
     nn: "Søknad og skjema",
-    en: "Application and forms",
+    en: "Applications and forms",
     url: {
       nb: "https://www.nav.no/soknader",
       nn: "https://www.nav.no/soknader",
