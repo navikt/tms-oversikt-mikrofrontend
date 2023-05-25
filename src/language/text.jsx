@@ -276,7 +276,7 @@ export const text = {
   },
   pengeStøtteOgHjelpemidlerTittel: {
     nb: "DIN OVERSIKT",
-    nn: "DIN OVERSIKT",
+    nn: "DI OVERSIKT",
     en: "YOUR OVERVIEW",
   },
   personopplysningTittel: {
