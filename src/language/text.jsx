@@ -275,9 +275,9 @@ export const text = {
     en: "JOB AND WORK RELATED SERVICES",
   },
   pengeStøtteOgHjelpemidlerTittel: {
-    nb: "PENGESTØTTE OG HJELPEMIDLER",
-    nn: "PENGESTØTTER OG HJELPEMIDDEL",
-    en: "BENEFITS AND ASSISTIVE TECHNOLOGY",
+    nb: "DIN OVERSIKT",
+    nn: "DIN OVERSIKT",
+    en: "YOUR OVERVIEW",
   },
   personopplysningTittel: {
     nb: "PERSONOPPLYSNING",
