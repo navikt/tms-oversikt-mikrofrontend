@@ -18,6 +18,7 @@ import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import GenerelleFliser from "./components/generelle-fliser/GenerelleFliser";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import style from "./App.module.css";
+import ProduktkortListe from "./components/sakspanel/ProduktkortListe";
 
 function App() {
   const [isError, setIsError] = useState(false);
@@ -84,17 +85,18 @@ function App() {
           </ErrorBoundary>
         ) : null}
       </React.Suspense>
-      <section className={style.page_wrapper_microfrontend}>
-        <section className="min-side-lenkepanel">
-          <section className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
+      <div className={style.page_wrapper_microfrontend}>
+        <div className="min-side-lenkepanel">
+          <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
             <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
-          </section>
+          </div>
+          <ProduktkortListe />
           <SisteSakerPanel />
-        </section>
+        </div>
         {brukerUnderOppfolging ? null : <GenerelleFliser />}
         <InnloggedeTjenester />
-      </section>
+      </div>
     </div>
   );
 }
