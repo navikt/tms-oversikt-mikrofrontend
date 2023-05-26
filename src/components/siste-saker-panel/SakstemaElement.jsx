@@ -11,7 +11,7 @@ const SakstemaElement = ({ href, sakstema, sistEndret }) => {
   const language = useContext(LanguageContext);
 
   return (
-    <a className={CSS.element} href={href} onClick={() => logEvent("Siste saker - " + sakstema)}>
+    <a className={CSS.element} href={href} onClick={() => logEvent("navigere", "Siste saker - " + sakstema)}>
       <div className={CSS.content_wrapper}>
         <div className={CSS.ikon}>
           <FileContent fontSize="1.375rem" />

@@ -16,7 +16,7 @@ const Utbetaling = ({ size }) => {
         className={size === "large" ? CSS.flis_large : CSS.flis}
         href={utbetalingsoversiktUrl}
         border={false}
-        onClick={() => logEvent("Dine utbetalinger")}
+        onClick={() => logEvent("navigere", "Dine utbetalinger")}
       >
         <div className={CSS.content_wrapper}>
           <div className={CSS.ikon}>
