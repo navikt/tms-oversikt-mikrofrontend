@@ -33,7 +33,12 @@ const KommunikasjonsFlis = ({ size }) => {
         </Panel>
       ) : (
         <section>
-          <LinkPanel href={innboksUrl} border={false} className={CSS.small} onClick={() => logEvent("Innboks liten")}>
+          <LinkPanel
+            href={innboksUrl}
+            border={false}
+            className={CSS.small}
+            onClick={() => logEvent("navigere", "Innboks liten")}
+          >
             <div className={CSS.content_wrapper}>
               <div className={CSS.ikon_wrapper}>
                 <Email fontSize="22px" />

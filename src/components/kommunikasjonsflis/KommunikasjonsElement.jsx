@@ -5,7 +5,7 @@ import CSS from "./KommunikasjonsElement.module.css";
 
 const KommunikasjonsElement = ({ href, tittel, ingress, ikon }) => {
   return (
-    <a className={CSS.element} href={href} onClick={() => logEvent(tittel)}>
+    <a className={CSS.element} href={href} onClick={() => logEvent("navigere", tittel)}>
       <div className={CSS.content_wrapper}>
         <div className={CSS.ikon}>{ikon}</div>
         <div>
