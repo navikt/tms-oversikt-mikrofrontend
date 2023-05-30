@@ -18,7 +18,7 @@ import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import GenerelleFliser from "./components/generelle-fliser/GenerelleFliser";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import style from "./App.module.css";
-import ProduktkortListe from "./components/sakspanel/ProduktkortListe";
+import ProduktkortListe from "./components/produktkort/ProduktkortListe";
 
 function App() {
   const [isError, setIsError] = useState(false);

@@ -10,4 +10,22 @@ export default [
       };
     },
   },
+  {
+    url: "/mine-saker-api/sakstemaer",
+    method: "get",
+    response: () => {
+      return [
+        { kode: "DAG" },
+        { kode: "AAP" },
+        { kode: "FOR" },
+        { kode: "HJE" },
+        { kode: "KOM" },
+        { kode: "PEN" },
+        { kode: "OMS" },
+        { kode: "SYK" },
+        { kode: "UFO" },
+        { kode: "UKJENT" },
+      ];
+    },
+  },
 ];
