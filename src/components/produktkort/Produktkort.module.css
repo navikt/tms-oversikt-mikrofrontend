@@ -9,6 +9,8 @@
   box-shadow: 0px 0px 12px 0px rgba(176, 176, 176, 0.08);
   border: solid 1px transparent;
   width: 100%;
+  color: #272727;
+  text-decoration: none;
 }
 
 .wrapper:hover {
@@ -23,8 +25,12 @@
   transform: translate(3px, 0);
 }
 
+.wrapper:hover h2 {
+  text-decoration: underline;
+}
+
 .wrapper:focus {
-  box-shadow: var(--a-shadow-focus);
+  border: solid 1px var(--a-border-focus);
 }
 
 .ikonOgTekst {

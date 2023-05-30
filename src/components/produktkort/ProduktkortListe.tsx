@@ -1,6 +1,17 @@
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { mineSakerSakstemaerUrl } from "../../api/urls";
+import {
+  aapProduktside,
+  dagpengerProduktside,
+  foreldrepengerProduktside,
+  hjelpemidlerProduktside,
+  mineSakerSakstemaerUrl,
+  pensonProduktside,
+  pleiepengerProduktside,
+  sosialhjelpProduktside,
+  sykefraværProduktside,
+  uføretrygdProduktside,
+} from "../../api/urls";
 import IkonAAP from "../../assets/IkonAAP";
 import IkonDagpenger from "../../assets/IkonDagpenger";
 import IkonForeldrepenger from "../../assets/IkonForeldrepenger";
@@ -18,47 +29,47 @@ type Sakstemaer = Array<{ kode: string }>;
 
 const configMap: Record<string, ProduktConfig> = {
   AAP: {
-    url: "nav.no",
+    url: aapProduktside,
     tittel: "AAP",
     ikon: <IkonAAP />,
   },
   DAG: {
-    url: "nav.no",
+    url: dagpengerProduktside,
     tittel: "Dagpenger",
     ikon: <IkonDagpenger />,
   },
   FOR: {
-    url: "nav.no",
+    url: foreldrepengerProduktside,
     tittel: "Foreldrepenger",
     ikon: <IkonForeldrepenger />,
   },
   HJE: {
-    url: "nav.no",
+    url: hjelpemidlerProduktside,
     tittel: "Hjelpemidler",
     ikon: <IkonHjelpemidler />,
   },
   KOM: {
-    url: "nav.no",
+    url: sosialhjelpProduktside,
     tittel: "Økonomisk sosialhjelp",
     ikon: <IkonØkonomiskSosialhjelp />,
   },
   PEN: {
-    url: "nav.no",
+    url: pensonProduktside,
     tittel: "Pensjon",
     ikon: <IkonPensjon />,
   },
   OMS: {
-    url: "nav.no",
+    url: pleiepengerProduktside,
     tittel: "Pleiepenger",
     ikon: <IkonPleiepenger />,
   },
   SYK: {
-    url: "nav.no",
+    url: sykefraværProduktside,
     tittel: "Sykefravær",
     ikon: <IkonSykefravær />,
   },
   UFO: {
-    url: "nav.no",
+    url: uføretrygdProduktside,
     tittel: "Uføretrygd",
     ikon: <IkonUføretrygd />,
   },
