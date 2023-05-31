@@ -1,4 +1,4 @@
-import { Next } from "@navikt/ds-icons";
+import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import ProduktConfig from "./ProduktConfig";
 import style from "./Produktkort.module.css";
@@ -15,7 +15,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
           <BodyLong size="medium">Oversikt over saken din</BodyLong>
         </div>
       </div>
-      <Next className={style.chevron} fontSize="24px" />
+      <ChevronRightIcon className={style.chevron} fontSize="24px" />
     </a>
   );
 };
