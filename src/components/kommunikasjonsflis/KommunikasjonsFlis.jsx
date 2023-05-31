@@ -37,7 +37,7 @@ const KommunikasjonsFlis = ({ size }) => {
             href={innboksUrl}
             border={false}
             className={CSS.small}
-            onClick={() => logEvent("navigere", "Innboks liten")}
+            onClick={() => logEvent("navigere", "Kommunikasjonsflis - Inngang innboks")}
           >
             <div className={CSS.content_wrapper}>
               <div className={CSS.ikon_wrapper}>

@@ -28,7 +28,7 @@ const Card = ({tittel, ingress, type, url}: Props) => {
                     isUtkast ? <Edit fontSize="24px"/> : <Bell fontSize="24px"/>
                     }
                 </div>
-                <a href={url} className={isLoading ? `${style.loading} ${style.text}`: style.text} onClick={() => logEvent("navigere", isUtkast ? "Utkast panel" : "Varsler panel")}>
+                <a href={url} className={isLoading ? `${style.loading} ${style.text}`: style.text} onClick={() => logEvent("navigere", isUtkast ? "Utkast inngang" : "Varsler inngang")}>
                     {isLoading ? <span className={style.ingress}>{text.loaderTekst[language]}</span> :
                     <>
                         <Heading level="2" size="small" className={style.tittel}>{tittel}</Heading>
