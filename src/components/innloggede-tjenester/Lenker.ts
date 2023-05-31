@@ -10,16 +10,6 @@ export const jobb = [
     },
   },
   {
-    nb: "Behov for tilrettelegging",
-    nn: "Behov for tilrettelegging",
-    en: "Need for facilitation",
-    url: {
-      nb: "https://www.nav.no/person/behov-for-tilrettelegging",
-      nn: "https://www.nav.no/person/behov-for-tilrettelegging",
-      en: "https://www.nav.no/person/behov-for-tilrettelegging",
-    },
-  },
-  {
     nb: "CV til bruk ved jobbsøk (Arbeidsplassen)",
     nn: "CV",
     en: "CV",
