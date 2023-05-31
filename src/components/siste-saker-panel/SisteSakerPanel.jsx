@@ -47,7 +47,7 @@ const SisteSakerPanel = () => {
           href={mineSakerUrl}
           border={false}
           className={CSS.panel_liten}
-          onClick={() => logEvent("navigere", "Siste saker liten")}
+          onClick={() => logEvent("navigere", "Siste saker - panel uten saker")}
         >
           <div
             style={{
