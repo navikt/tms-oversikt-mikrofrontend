@@ -4,10 +4,9 @@
   align-items: center;
   justify-content: space-between;
   width: 468px;
-  border-radius: 8px;
+  border-radius: var(--a-border-radius-large);
   background-color: var(--a-bg-default);
   box-shadow: 0px 0px 12px 0px rgba(176, 176, 176, 0.08);
-  border: solid 1px transparent;
   width: 100%;
   color: #272727;
   text-decoration: none;
@@ -16,8 +15,7 @@
 .wrapper:hover {
   cursor: pointer;
   background-color: var(--a-surface-hover);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1);
-  border: solid 1px var(--a-border-subtle);
+  box-shadow: none;
 }
 
 .wrapper:hover .chevron {
@@ -30,7 +28,8 @@
 }
 
 .wrapper:focus {
-  border: solid 1px var(--a-border-focus);
+  box-shadow: var(--a-shadow-focus);
+  outline: none;
 }
 
 .ikonOgTekst {
