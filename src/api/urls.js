@@ -228,12 +228,6 @@ const SYFO_DIALOG_CDN_URL = {
   production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
 };
 
-const AAP_PRODUKTSIDE = {
-  local: "https://aap-innsyn.dev.nav.no/aap/mine-aap",
-  development: "https://aap-innsyn.dev.nav.no/aap/mine-aap",
-  production: "https://www.nav.no/aap/mine-aap",
-};
-
 const DAGPENGER_PRODUKTSIDE = {
   local: "https://arbeid.intern.dev.nav.no/arbeid/dagpenger/mine-dagpenger",
   development: "https://arbeid.intern.dev.nav.no/arbeid/dagpenger/mine-dagpenger",
@@ -327,7 +321,6 @@ export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
 export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
 
-export const aapProduktside = AAP_PRODUKTSIDE[getEnvironment()];
 export const dagpengerProduktside = DAGPENGER_PRODUKTSIDE[getEnvironment()];
 export const foreldrepengerProduktside = FORELDREPENGER_PRODUKTSIDE[getEnvironment()];
 export const hjelpemidlerProduktside = HJELPEMIDLER_PRODUKTSIDE[getEnvironment()];

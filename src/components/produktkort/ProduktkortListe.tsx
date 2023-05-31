@@ -28,11 +28,6 @@ import style from "./ProduktkortListe.module.css";
 type Sakstemaer = Array<{ kode: string }>;
 
 const configMap: Record<string, ProduktConfig> = {
-  AAP: {
-    url: aapProduktside,
-    tittel: "AAP",
-    ikon: <IkonAAP />,
-  },
   DAG: {
     url: dagpengerProduktside,
     tittel: "Dagpenger",
