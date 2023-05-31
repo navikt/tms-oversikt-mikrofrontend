@@ -247,7 +247,7 @@ export const personopplysning = [
   },
   {
     nb: "Personalia",
-    nn: "Personopplysningar / Personalia",
+    nn: "Personalia",
     en: "Personal data",
     url: {
       nb: "https://www.nav.no/person/personopplysninger/nb/#personalia",
