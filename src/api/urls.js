@@ -252,25 +252,25 @@ const SOSIALHJELP_PRODUKTSIDE = {
   production: "https://www.nav.no/sosialhjelp/innsyn",
 };
 
-const PENSJON_PRODUKSIDE = {
+const PENSJON_PRODUKTSIDE = {
   local: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf",
   development: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf",
   production: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
 };
 
-const PLEIEPENGER_PRODUKSIDE = {
+const PLEIEPENGER_PRODUKTSIDE = {
   local: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
   development: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
   production: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
 };
 
-const SYKEFRAVÆR_PRODUKSIDE = {
+const SYKEFRAVÆR_PRODUKTSIDE = {
   local: "https://www-gcp.dev.nav.no/syk/sykefravaer",
   development: "https://www-gcp.dev.nav.no/syk/sykefravaer",
   production: "https://www.nav.no/syk/sykefravaer",
 };
 
-const UFØRETRYGD_PRODUKSIDE = {
+const UFØRETRYGD_PRODUKTSIDE = {
   local: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/uforetrygd.jsf",
   development: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/uforetrygd.jsf",
   production: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
@@ -325,10 +325,10 @@ export const dagpengerProduktside = DAGPENGER_PRODUKTSIDE[getEnvironment()];
 export const foreldrepengerProduktside = FORELDREPENGER_PRODUKTSIDE[getEnvironment()];
 export const hjelpemidlerProduktside = HJELPEMIDLER_PRODUKTSIDE[getEnvironment()];
 export const sosialhjelpProduktside = SOSIALHJELP_PRODUKTSIDE[getEnvironment()];
-export const pensonProduktside = PENSJON_PRODUKSIDE[getEnvironment()];
-export const pleiepengerProduktside = PLEIEPENGER_PRODUKSIDE[getEnvironment()];
-export const sykefraværProduktside = SYKEFRAVÆR_PRODUKSIDE[getEnvironment()];
-export const uføretrygdProduktside = UFØRETRYGD_PRODUKSIDE[getEnvironment()];
+export const pensjonProduktside = PENSJON_PRODUKTSIDE[getEnvironment()];
+export const pleiepengerProduktside = PLEIEPENGER_PRODUKTSIDE[getEnvironment()];
+export const sykefraværProduktside = SYKEFRAVÆR_PRODUKTSIDE[getEnvironment()];
+export const uføretrygdProduktside = UFØRETRYGD_PRODUKTSIDE[getEnvironment()];
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;
