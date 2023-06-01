@@ -1,4 +1,4 @@
-.wrapper {
+.container {
   padding: 1.5rem 1.25rem;
   display: flex;
   align-items: center;
@@ -12,22 +12,22 @@
   text-decoration: none;
 }
 
-.wrapper:hover {
+.container:hover {
   cursor: pointer;
   background-color: var(--a-surface-hover);
   box-shadow: none;
 }
 
-.wrapper:hover .chevron {
+.container:hover .chevron {
   transition-duration: 0.2s;
   transform: translate(3px, 0);
 }
 
-.wrapper:hover h2 {
+.container:hover h2 {
   text-decoration: underline;
 }
 
-.wrapper:focus {
+.container:focus {
   box-shadow: var(--a-shadow-focus);
   outline: none;
 }

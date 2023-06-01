@@ -55,6 +55,11 @@ export const produktConfigMap: Record<string, ProduktConfig> = {
       tittel: "Sykefravær",
       ikon: <IkonSykefravær />,
     },
+    SYM: {
+        url: sykefraværProduktside,
+        tittel: "Sykefravær",
+        ikon: <IkonSykefravær />,
+      },
     UFO: {
       url: uføretrygdProduktside,
       tittel: "Uføretrygd",

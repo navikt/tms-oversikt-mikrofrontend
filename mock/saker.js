@@ -23,6 +23,7 @@ export default [
         { kode: "PEN" },
         { kode: "OMS" },
         { kode: "SYK" },
+        { kode: "SYM" },
         { kode: "UFO" },
         { kode: "UKJENT" },
       ];

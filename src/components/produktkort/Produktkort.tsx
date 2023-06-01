@@ -5,7 +5,7 @@ import style from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
   return (
-    <a className={style.wrapper} href={produktConfig.url}>
+    <a className={style.container} href={produktConfig.url}>
       <div className={style.ikonOgTekst}>
         {produktConfig.ikon}
         <div>
