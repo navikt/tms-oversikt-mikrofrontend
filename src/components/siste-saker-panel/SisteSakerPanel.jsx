@@ -25,7 +25,11 @@ const SisteSakerPanel = () => {
             <Heading spacing level="2" size="medium">
               {text.sisteSakerTittel[language]}
             </Heading>
-            <a className={CSS.alle_saker} href={mineSakerUrl} onClick={() => logEvent("Siste saker - Se alle")}>
+            <a
+              className={CSS.alle_saker}
+              href={mineSakerUrl}
+              onClick={() => logEvent("navigere", "Siste saker - Se alle")}
+            >
               {text.seAlle[language]}
             </a>
           </div>
@@ -43,7 +47,7 @@ const SisteSakerPanel = () => {
           href={mineSakerUrl}
           border={false}
           className={CSS.panel_liten}
-          onClick={() => logEvent("Siste saker liten")}
+          onClick={() => logEvent("navigere", "Siste saker - panel uten saker")}
         >
           <div
             style={{

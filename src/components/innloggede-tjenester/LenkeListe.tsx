@@ -19,7 +19,7 @@ const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en:
                             <a 
                                 href={link.url[language]} 
                                 className={style.color}
-                                onClick={() => logEvent("navigere", "Alle tjenester - " + link[language])}
+                                onClick={() => logEvent("navigere", "Innloggede tjenester - " + link[language])}
                             >
                                 {link[language]}
                             </a>

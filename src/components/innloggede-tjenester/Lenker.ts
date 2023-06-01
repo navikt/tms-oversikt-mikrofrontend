@@ -10,16 +10,6 @@ export const jobb = [
     },
   },
   {
-    nb: "Behov for tilrettelegging",
-    nn: "Behov for tilrettelegging",
-    en: "Need for facilitation",
-    url: {
-      nb: "https://www.nav.no/person/behov-for-tilrettelegging",
-      nn: "https://www.nav.no/person/behov-for-tilrettelegging",
-      en: "https://www.nav.no/person/behov-for-tilrettelegging",
-    },
-  },
-  {
     nb: "CV til bruk ved jobbsøk (Arbeidsplassen)",
     nn: "CV",
     en: "CV",
@@ -257,7 +247,7 @@ export const personopplysning = [
   },
   {
     nb: "Personalia",
-    nn: "Personopplysningar / Personalia",
+    nn: "Personalia",
     en: "Personal data",
     url: {
       nb: "https://www.nav.no/person/personopplysninger/nb/#personalia",
@@ -273,9 +263,9 @@ export const annet = [
     nn: "Pensjonskalkulator",
     en: "Calculate pensions",
     url: {
-      nb: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
-      nn: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
-      en: "https://www.nav.no/pselv/simulering.jsf?execution=e2s1",
+      nb: "https://www.nav.no/pselv/simulering.jsf",
+      nn: "https://www.nav.no/pselv/simulering.jsf",
+      en: "https://www.nav.no/pselv/simulering.jsf",
     }
   },
   {
@@ -306,6 +296,16 @@ export const annet = [
       nb: "https://innboks.nav.no/",
       nn: "https://innboks.nav.no/",
       en: "https://innboks.nav.no/",
+    }
+  },
+  {
+    nb: "Søknad og skjema",
+    nn: "Søknad og skjema",
+    en: "Applications and forms",
+    url: {
+      nb: "https://www.nav.no/soknader",
+      nn: "https://www.nav.no/soknader",
+      en: "https://www.nav.no/soknader/en/person",
     }
   },
 ];

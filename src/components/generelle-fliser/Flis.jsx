@@ -5,7 +5,12 @@ import CSS from "./Flis.module.css";
 const Flis = ({ tittel, ikon, href }) => {
   return (
     <>
-      <LinkPanel className={CSS.flis} href={href} border={false} onClick={() => logEvent(tittel)}>
+      <LinkPanel
+        className={CSS.flis}
+        href={href}
+        border={false}
+        onClick={() => logEvent("navigere", "Generelle fliser - " + tittel)}
+      >
         <div
           style={{
             display: "grid",
