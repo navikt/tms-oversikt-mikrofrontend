@@ -280,7 +280,7 @@ export const text = {
     en: "YOUR OVERVIEW",
   },
   personopplysningTittel: {
-    nb: "PERSONOPPLYSNING",
+    nb: "PERSONOPPLYSNINGER",
     nn: "PERSONOPPLYSNINGAR",
     en: "PERSONAL DATA",
   },
