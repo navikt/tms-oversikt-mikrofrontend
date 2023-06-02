@@ -6,7 +6,7 @@ import style from "./Produktkort.module.css";
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
   return (
     <a className={style.container} href={produktConfig.url}>
-      <div className={style.ikonOgTekst}>
+      <div className={style.ikonOgTekstContainer}>
         {produktConfig.ikon}
         <div>
           <Heading size="small" level="2">
