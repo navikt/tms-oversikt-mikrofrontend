@@ -7,7 +7,7 @@
   margin-right: calc(((100vw - 100%) / 2) * -1);
   margin-bottom: 2rem;
   margin-top: 2rem;
-  background-color: var(--a-surface-subtle);
+  background-color: var(--a-bg-subtle);
 }
 
 @media (min-width: 648px) {
