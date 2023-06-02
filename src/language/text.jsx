@@ -294,4 +294,9 @@ export const text = {
     nn: "",
     en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
   },
+  dagpenger: {
+    nb: "Dagpenger",
+    nn: "Dagpenger",
+    en: "Dagpenger",
+  },
 };
