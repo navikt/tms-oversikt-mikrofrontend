@@ -13,21 +13,19 @@ const ProduktkortListe = () => {
   const produktConfigs = sakstemaer
     ?.sort((a, b) => a.kode.localeCompare(b.kode))
     .map((sakstema) => produktConfigMap[sakstema.kode])
-    .filter((produktConfig, index) => produktConfig != undefined);
+    .filter((produktConfig) => produktConfig != undefined);
 
   const uniqueProduktConfigs = produktConfigs?.filter(
-    (produktConfig, index) =>
-      produktConfigs.findIndex((element) => element.tittel == produktConfig.tittel) === index
+    (produktConfig, index) => produktConfigs.findIndex((element) => element.tittel == produktConfig.tittel) === index
   );
 
-  const noProduktkort = uniqueProduktConfigs == undefined || uniqueProduktConfigs.length == 0;
-  if (noProduktkort) {
+  if (uniqueProduktConfigs == undefined || uniqueProduktConfigs.length == 0) {
     return <></>;
   } else {
     return (
       <div className={style.container}>
         {uniqueProduktConfigs.map((produktConfig) => (
-          <Produktkort produktConfig={produktConfig} />
+          <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
         ))}
       </div>
     );

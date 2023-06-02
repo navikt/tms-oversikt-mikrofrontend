@@ -1,17 +1,17 @@
 const IkonUføretrygd = () => (
   <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_4222_182467)">
+    <g clipPath="url(#clip0_4222_182467)">
       <path
         d="M24.0176 21.2214L36.4779 8.76111L45.7544 18.0376L33.2941 30.4979L38.5553 35.7591L14.5996 39.9158L18.7563 15.9601L24.0176 21.2214Z"
         fill="#CCE2F0"
       />
-      <path d="M22.4827 52.0002C22.4827 52.0002 25.4827 32.7502 13.4273 24.9953" stroke="#262626" stroke-width="1.5" />
-      <path d="M21.4021 35.5469L14.2305 33.6252" stroke="#262626" stroke-width="1.5" />
-      <path d="M19.4428 31.4252L19.4428 24.0006" stroke="#262626" stroke-width="1.5" />
+      <path d="M22.4827 52.0002C22.4827 52.0002 25.4827 32.7502 13.4273 24.9953" stroke="#262626" strokeWidth="1.5" />
+      <path d="M21.4021 35.5469L14.2305 33.6252" stroke="#262626" strokeWidth="1.5" />
+      <path d="M19.4428 31.4252L19.4428 24.0006" stroke="#262626" strokeWidth="1.5" />
       <mask id="path-5-inside-1_4222_182467" fill="white">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.1949 20.2569C23.1399 20.1533 23.0829 20.0504 23.0238 19.948C20.3436 15.3057 14.4486 13.6915 9.85698 16.3424C5.26537 18.9934 3.71587 24.9057 6.39608 29.548C6.45512 29.6502 6.51571 29.751 6.57782 29.8503C3.91057 32.634 3.27658 36.9462 5.30124 40.453C7.75809 44.7084 13.1994 46.1664 17.4548 43.7095L29.7575 36.6066C34.0129 34.1497 35.4709 28.7084 33.014 24.453C30.9896 20.9466 26.9389 19.3395 23.1949 20.2569Z"
         />
       </mask>
@@ -20,9 +20,9 @@ const IkonUføretrygd = () => (
         fill="#262626"
         mask="url(#path-5-inside-1_4222_182467)"
       />
-      <line x1="39.5" y1="5.06066" x2="30.5607" y2="14" stroke="#262626" stroke-width="1.5" stroke-linecap="round" />
-      <line x1="41" y1="11.0607" x2="32.0607" y2="20" stroke="#262626" stroke-width="1.5" stroke-linecap="round" />
-      <line x1="51" y1="8.06066" x2="42.0607" y2="17" stroke="#262626" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="39.5" y1="5.06066" x2="30.5607" y2="14" stroke="#262626" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="41" y1="11.0607" x2="32.0607" y2="20" stroke="#262626" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="51" y1="8.06066" x2="42.0607" y2="17" stroke="#262626" strokeWidth="1.5" strokeLinecap="round" />
     </g>
     <defs>
       <clipPath id="clip0_4222_182467">
