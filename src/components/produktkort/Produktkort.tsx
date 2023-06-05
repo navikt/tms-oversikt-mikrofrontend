@@ -12,7 +12,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
           <Heading size="small" level="2">
             {produktConfig.tittel}
           </Heading>
-          <BodyLong size="medium">Oversikt over saken din</BodyLong>
+          <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
         </div>
       </div>
       <ChevronRightIcon className={style.chevron} fontSize="24px" />

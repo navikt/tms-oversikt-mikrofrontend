@@ -21,7 +21,7 @@ import { LanguageContext } from "../../language/LanguageProvider";
 import { produktlinker as produktUrls } from "./ProduktUrls";
 import { produktText } from "./ProduktText";
 
-type ProduktConfig = { url: string; tittel: string; ikon: JSX.Element };
+type ProduktConfig = { url: string; tittel: string; ingress: string, ikon: JSX.Element };
 
 export function getProduktConfigMap(): Record<string, ProduktConfig> {
   const language = useContext(LanguageContext);
@@ -30,46 +30,55 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     DAG: {
       url: produktUrls.dagpenger[language],
       tittel: produktText.dagpenger[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonDagpenger />,
     },
     FOR: {
       url: produktUrls.foreldrepenger[language],
       tittel: produktText.foreldrepenger[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonForeldrepenger />,
     },
     HJE: {
       url: produktUrls.hjelpemidler[language],
       tittel: produktText.hjelpemidler[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonHjelpemidler />,
     },
     KOM: {
       url: produktUrls.sosialhjelp[language],
       tittel: produktText.sosialhjelp[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonØkonomiskSosialhjelp />,
     },
     PEN: {
       url: produktUrls.pensjon[language],
       tittel: produktText.pensjon[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonPensjon />,
     },
     OMS: {
       url: produktUrls.pleiepenger[language],
       tittel: produktText.pleiepenger[language],
+      ingress: produktText.pleiepengeIngress[language],
       ikon: <IkonPleiepenger />,
     },
     SYK: {
       url: produktUrls.sykefravær[language],
       tittel: produktText.sykefravær[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonSykefravær />,
     },
     SYM: {
       url: produktUrls.sykefravær[language],
       tittel: produktText.sykefravær[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonSykefravær />,
     },
     UFO: {
       url: produktUrls.uføretrygd[language],
       tittel: produktText.uføretrygd[language],
+      ingress: produktText.generellIngress[language],
       ikon: <IkonUføretrygd />,
     },
   };
