@@ -18,8 +18,8 @@ import IkonSykefravær from "../../assets/IkonSykefravær";
 import IkonUføretrygd from "../../assets/IkonUføretrygd";
 import IkonØkonomiskSosialhjelp from "../../assets/IkonØkonomiskSosialhjelp";
 import { LanguageContext } from "../../language/LanguageProvider";
-import { text } from "../../language/text";
 import { produktlinker as produktUrls } from "./ProduktUrls";
+import { produktText } from "./ProduktText";
 
 type ProduktConfig = { url: string; tittel: string; ikon: JSX.Element };
 
@@ -29,47 +29,47 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
   return {
     DAG: {
       url: produktUrls.dagpenger[language],
-      tittel: text.dagpenger[language],
+      tittel: produktText.dagpenger[language],
       ikon: <IkonDagpenger />,
     },
     FOR: {
-      url: foreldrepengerProduktside,
-      tittel: "Foreldrepenger",
+      url: produktUrls.foreldrepenger[language],
+      tittel: produktText.foreldrepenger[language],
       ikon: <IkonForeldrepenger />,
     },
     HJE: {
-      url: hjelpemidlerProduktside,
-      tittel: "Hjelpemidler",
+      url: produktUrls.hjelpemidler[language],
+      tittel: produktText.hjelpemidler[language],
       ikon: <IkonHjelpemidler />,
     },
     KOM: {
-      url: sosialhjelpProduktside,
-      tittel: "Økonomisk sosialhjelp",
+      url: produktUrls.sosialhjelp[language],
+      tittel: produktText.sosialhjelp[language],
       ikon: <IkonØkonomiskSosialhjelp />,
     },
     PEN: {
-      url: pensjonProduktside,
-      tittel: "Pensjon",
+      url: produktUrls.pensjon[language],
+      tittel: produktText.pensjon[language],
       ikon: <IkonPensjon />,
     },
     OMS: {
-      url: pleiepengerProduktside,
-      tittel: "Pleiepenger",
+      url: produktUrls.pleiepenger[language],
+      tittel: produktText.pleiepenger[language],
       ikon: <IkonPleiepenger />,
     },
     SYK: {
-      url: sykefraværProduktside,
-      tittel: "Sykefravær",
+      url: produktUrls.sykefravær[language],
+      tittel: produktText.sykefravær[language],
       ikon: <IkonSykefravær />,
     },
     SYM: {
-      url: sykefraværProduktside,
-      tittel: "Sykefravær",
+      url: produktUrls.sykefravær[language],
+      tittel: produktText.sykefravær[language],
       ikon: <IkonSykefravær />,
     },
     UFO: {
-      url: uføretrygdProduktside,
-      tittel: "Uføretrygd",
+      url: produktUrls.uføretrygd[language],
+      tittel: produktText.uføretrygd[language],
       ikon: <IkonUføretrygd />,
     },
   };
