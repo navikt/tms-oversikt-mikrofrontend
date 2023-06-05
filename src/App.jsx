@@ -15,7 +15,6 @@ import { logEvent } from "./utils/amplitude";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
-import GenerelleFliser from "./components/generelle-fliser/GenerelleFliser";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import style from "./App.module.css";
 import ProduktkortListe from "./components/produktkort/ProduktkortListe";
@@ -94,7 +93,6 @@ function App() {
           <ProduktkortListe />
           <SisteSakerPanel />
         </div>
-        {brukerUnderOppfolging ? null : <GenerelleFliser />}
         <InnloggedeTjenester />
       </div>
     </div>
