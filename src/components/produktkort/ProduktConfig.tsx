@@ -48,7 +48,7 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     KOM: {
       url: produktUrls.sosialhjelp[language],
       tittel: produktText.sosialhjelp[language],
-      ingress: produktText.generellIngress[language],
+      ingress: produktText.sosialhjelpIngress[language],
       ikon: <IkonØkonomiskSosialhjelp />,
     },
     PEN: {

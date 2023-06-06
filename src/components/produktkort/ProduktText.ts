@@ -5,9 +5,9 @@ export const produktText = {
     en: "Dagpenger",
   },
   foreldrepenger: {
-    nb: "Foreldrepenger",
-    nn: "Foreldrepengar",
-    en: "Parental benefit",
+    nb: "Foreldre- og svangerskapspenger",
+    nn: "Foreldre- og svangerskapspenger",
+    en: "Foreldre- og svangerskapspenger",
   },
   hjelpemidler: {
     nb: "Hjelpemidler",
@@ -48,5 +48,10 @@ export const produktText = {
     nb: "Oversikt over pleiepengene dine",
     nn: "Oversikt over pleiepengene dine",
     en: "Oversikt over pleiepengene dine",
+  },
+  sosialhjelpIngress: {
+    nb: "Oversikt over søknadene dine",
+    nn: "Oversikt over søknadene dine",
+    en: "Oversikt over søknadene dine",
   }
 };
