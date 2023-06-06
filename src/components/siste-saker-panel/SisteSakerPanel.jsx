@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
-import { LinkPanel, Panel, Heading } from "@navikt/ds-react";
+import { LinkPanel, Panel, Heading, BodyShort } from "@navikt/ds-react";
 import SakstemaElement from "./SakstemaElement";
 import { FileContent } from "@navikt/ds-icons";
 import CSS from "./SisteSakerPanel.module.css";
@@ -22,16 +22,9 @@ const SisteSakerPanel = () => {
       {visStortSakspanel ? (
         <Panel className={CSS.panel}>
           <div className={CSS.heading}>
-            <Heading spacing level="2" size="medium">
+            <BodyShort size="medium" spacing="true">
               {text.sisteSakerTittel[language]}
-            </Heading>
-            <a
-              className={CSS.alle_saker}
-              href={mineSakerUrl}
-              onClick={() => logEvent("navigere", "Siste saker - Se alle")}
-            >
-              {text.seAlle[language]}
-            </a>
+            </BodyShort>
           </div>
           {saker?.sakstemaer.slice(0, 2).map((sak) => (
             <SakstemaElement
@@ -41,6 +34,14 @@ const SisteSakerPanel = () => {
               sistEndret={sak.sistEndret}
             />
           ))}
+
+          <a
+            className={CSS.alle_saker}
+            href={mineSakerUrl}
+            onClick={() => logEvent("navigere", "Siste saker - Se alle")}
+          >
+            <BodyShort size="medium">{text.seAlle[language]}</BodyShort>
+          </a>
         </Panel>
       ) : (
         <LinkPanel

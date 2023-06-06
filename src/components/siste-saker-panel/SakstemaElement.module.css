@@ -19,9 +19,7 @@
 
 .dato {
   margin-bottom: 0 !important;
-  color: #707070 !important;
-  font-weight: 100 !important;
-  font-size: 14px !important;
+  color: var(--a-text-subtle) !important;
 }
 
 .ikon {

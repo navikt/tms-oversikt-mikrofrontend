@@ -3,6 +3,9 @@
   text-decoration: none;
   font-weight: normal;
   text-decoration: underline;
+  color: #272727;
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
 }
 
 .alle_saker:hover {
@@ -15,14 +18,9 @@
   justify-content: space-between;
 }
 
-.panel > a:nth-of-type(2) {
-  border-top: 1px solid lightgray;
-  margin-bottom: 0.4rem;
-  padding: 1rem 1rem 0 0;
-}
-
 .panel > a {
-  text-decoration: none;
+  border-top: 1px solid lightgray;
+  padding: 1rem 0;
 }
 
 .ikon {
@@ -40,7 +38,6 @@
 }
 
 .panel {
-  background-color: #f7f7f7 !important;
   border-radius: 8px !important;
 }
 

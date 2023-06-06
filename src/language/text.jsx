@@ -80,9 +80,9 @@ export const text = {
     en: "My payments",
   },
   sisteSakerTittel: {
-    nb: "Dine siste saker",
-    nn: "Dei siste sakane dine",
-    en: "My recent cases",
+    nb: "Saksdokumenter og årsoppgaver",
+    nn: "Saksdokumenter og årsoppgaver",
+    en: "Saksdokumenter og årsoppgaver",
   },
   sisteSakerLenketekst: {
     nb: "Se alle dine saker",
@@ -90,8 +90,8 @@ export const text = {
     en: "All my cases",
   },
   sisteSakerLenkedetail: {
-    nb: "Sist oppdatert: ",
-    nn: "Sist oppdatert: ",
+    nb: "Sist endret: ",
+    nn: "Sist endret: ",
     en: "Last updated: ",
   },
   seAlle: {

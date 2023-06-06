@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Detail } from "@navikt/ds-react";
+import { BodyLong, Detail } from "@navikt/ds-react";
 import { Next, FileContent } from "@navikt/ds-icons";
 import CSS from "./SakstemaElement.module.css";
 import { LanguageContext } from "../../language/LanguageProvider";
@@ -13,14 +13,11 @@ const SakstemaElement = ({ href, sakstema, sistEndret }) => {
   return (
     <a className={CSS.element} href={href} onClick={() => logEvent("navigere", "Siste saker - " + sakstema)}>
       <div className={CSS.content_wrapper}>
-        <div className={CSS.ikon}>
-          <FileContent fontSize="1.375rem" />
-        </div>
         <div>
           <div className={CSS.lenketekst}>{sakstema}</div>
-          <Detail spacing className={CSS.dato}>
+          <BodyLong size="small" className={CSS.dato}>
             {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
-          </Detail>
+          </BodyLong>
         </div>
       </div>
       <Next className={CSS.chevron} fontSize="1.5rem" />
