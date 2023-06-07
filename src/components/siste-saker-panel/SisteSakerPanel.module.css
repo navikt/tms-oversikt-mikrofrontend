@@ -1,26 +1,29 @@
-.alle_saker {
-  margin-right: 1rem;
-  text-decoration: none;
-  font-weight: normal;
-  text-decoration: underline;
-  color: #272727;
-  border-top: 1px solid lightgray;
-  padding-top: 1rem;
-}
-
-.alle_saker:hover {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.heading {
-  display: flex;
-  justify-content: space-between;
+.panel {
+  width: 100%;
 }
 
 .panel > a {
   border-top: 1px solid lightgray;
   padding: 1rem 0;
+}
+
+.panel_liten {
+  background-color: #f7f7f7 !important;
+  border-radius: 8px !important;
+}
+
+.panel_liten_tittel {
+  font-size: 18px !important;
+}
+
+.alleSaker {
+  display: flex;
+  color: #272727;
+}
+
+.alleSaker:hover {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .ikon {
@@ -33,26 +36,7 @@
   border-radius: 50%;
 }
 
-.panel_liten_tittel {
-  font-size: 18px !important;
-}
-
-.panel {
-  border-radius: 8px !important;
-}
-
-.panel_liten {
-  background-color: #f7f7f7 !important;
-  border-radius: 8px !important;
-}
-
 @media (min-width: 0px) {
-  .panel {
-    margin: 2rem 0 2rem 0;
-    padding: 0.75rem 1rem !important;
-    width: 100%;
-  }
-
   .panel_liten {
     margin: 2rem 0 2rem 0;
     padding: 0.75rem 1rem !important;

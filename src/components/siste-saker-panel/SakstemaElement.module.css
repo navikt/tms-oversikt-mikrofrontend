@@ -1,4 +1,4 @@
-.element {
+.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,45 +7,23 @@
   text-decoration: none;
 }
 
-.content_wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.lenketekst {
-  color: #262626 !important;
-  font-weight: bolder;
-}
-
-.dato {
-  margin-bottom: 0 !important;
-  color: var(--a-text-subtle) !important;
-}
-
-.ikon {
-  display: flex;
-  align-self: center;
-  overflow: visible;
-  padding: 0.8125rem;
-  margin: 0 1.5rem 0 0;
-  background-color: #cce2f0;
-  border-radius: 50%;
-}
-
-.element:hover {
+.container:hover {
   cursor: pointer;
 }
 
-.element:hover > div > div > a {
-  text-decoration: underline !important;
+.container:hover .lenketekst {
+  text-decoration: underline;
 }
 
-.element:hover > svg.chevron {
+.container:hover .chevron {
   transition-duration: 0.2s;
   transform: translate(3px, 0);
 }
 
-.chevron {
-  margin-left: 0.5rem;
-  overflow: visible;
+.lenketekst {
+  font-weight: bolder;
+}
+
+.dato {
+  color: var(--a-text-subtle);
 }

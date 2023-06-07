@@ -1,12 +1,12 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import ProduktConfig from "./ProduktConfig";
-import style from "./Produktkort.module.css";
+import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
   return (
-    <a className={style.container} href={produktConfig.url}>
-      <div className={style.ikonOgTekstContainer}>
+    <a className={styles.container} href={produktConfig.url}>
+      <div className={styles.ikonOgTekstContainer}>
         {produktConfig.ikon}
         <div>
           <Heading size="small" level="2">
@@ -15,7 +15,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
           <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
         </div>
       </div>
-      <ChevronRightIcon className={style.chevron} fontSize="24px" />
+      <ChevronRightIcon className={styles.chevron} fontSize="24px" />
     </a>
   );
 };

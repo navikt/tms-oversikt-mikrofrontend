@@ -4,7 +4,7 @@ import { fetcher } from "../../api/api";
 import { mineSakerSakstemaerUrl } from "../../api/urls";
 import { getProduktConfigMap } from "./ProduktConfig";
 import Produktkort from "./Produktkort";
-import style from "./ProduktkortListe.module.css";
+import styles from "./ProduktkortListe.module.css";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -26,7 +26,7 @@ const ProduktkortListe = () => {
     return <></>;
   } else {
     return (
-      <div className={style.container}>
+      <div className={styles.container}>
         {uniqueProduktConfigs.map((produktConfig) => (
           <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
         ))}
