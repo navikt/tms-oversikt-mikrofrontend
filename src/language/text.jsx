@@ -1,7 +1,7 @@
 export const text = {
   varsel: {
-    nb: "Varsel",
-    nn: "Varsel",
+    nb: "Varsler",
+    nn: "Varsler",
     en: "Notification",
   },
   varselIngressOppgaveEntall: {
