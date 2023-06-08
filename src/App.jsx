@@ -91,7 +91,10 @@ function App() {
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
           <ProduktkortListe />
-          <SisteSakerPanel />
+
+          <div className={style.sisteSakerWrapper}>
+            <SisteSakerPanel />
+          </div>
         </div>
         <InnloggedeTjenester />
       </div>
