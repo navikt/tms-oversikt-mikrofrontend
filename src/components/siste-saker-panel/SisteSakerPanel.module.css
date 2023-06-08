@@ -16,8 +16,13 @@
   font-size: 18px !important;
 }
 
-.alleSaker {
+.alleSakerWrapper {
   display: flex;
+  border-top: 1px solid lightgray;
+  padding: 1rem 0;
+}
+
+.alleSaker {
   color: #272727;
 }
 

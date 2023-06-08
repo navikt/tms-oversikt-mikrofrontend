@@ -32,13 +32,15 @@ const SisteSakerPanel = () => {
               sistEndret={sak.sistEndret}
             />
           ))}
-          <a
-            className={styles.alleSaker}
-            href={mineSakerUrl}
-            onClick={() => logEvent("navigere", "Siste saker - Se alle")}
-          >
-            <BodyShort size="medium">{text.seAlle[language]}</BodyShort>
-          </a>
+          <BodyShort className={styles.alleSakerWrapper} size="medium">
+            <a
+              className={styles.alleSaker}
+              href={mineSakerUrl}
+              onClick={() => logEvent("navigere", "Siste saker - Se alle")}
+            >
+              {text.seAlle[language]}
+            </a>
+          </BodyShort>
         </Panel>
       ) : (
         <LinkPanel
