@@ -21,7 +21,7 @@
 }
 
 .lenketekst {
-  font-weight: bolder;
+  font-weight: bolder !important;
 }
 
 .dato {
