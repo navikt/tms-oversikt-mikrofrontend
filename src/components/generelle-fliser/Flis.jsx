@@ -1,5 +1,5 @@
 import { LinkPanel } from "@navikt/ds-react";
-import { logEvent } from "../../utils/amplitude";
+import { logNavigereEvent } from "../../utils/amplitude";
 import CSS from "./Flis.module.css";
 
 const Flis = ({ tittel, ikon, href }) => {
@@ -9,7 +9,7 @@ const Flis = ({ tittel, ikon, href }) => {
         className={CSS.flis}
         href={href}
         border={false}
-        onClick={() => logEvent("navigere", "Generelle fliser - " + tittel)}
+        onClick={() => logNavigereEvent("generell flis", "card", "generelle-fliser", tittel)}
       >
         <div
           style={{

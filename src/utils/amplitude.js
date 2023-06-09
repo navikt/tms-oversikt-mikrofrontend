@@ -16,3 +16,12 @@ export function logEvent(name, metric) {
     komponent: metric,
   });
 }
+export function logNavigereEvent(komponent, type, kategori, lenketekst) {
+  amplitude.getInstance().logEvent("navigere", {
+    app: "tms-min-side",
+    komponent: komponent,
+    type: type,
+    kategori: kategori,
+    lenketekst: lenketekst,
+  });
+}
