@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
-import { BodyLong, BodyShort } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { useContext } from "react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { formatDateMonth } from "../../language/i18n";
@@ -13,8 +13,10 @@ const SakstemaElement = ({ href, sakstema, sistEndret }) => {
   return (
     <a className={styles.container} href={href} onClick={() => logEvent("navigere", "Siste saker - " + sakstema)}>
       <div>
-        <BodyShort className={styles.lenketekst}>{sakstema}</BodyShort>
-        <BodyLong size="small" className={styles.dato}>
+        <Heading size="small" level="2">
+          {sakstema}
+        </Heading>
+        <BodyLong className={styles.dato}>
           {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
         </BodyLong>
       </div>

@@ -20,10 +20,6 @@
   transform: translate(3px, 0);
 }
 
-.lenketekst {
-  font-weight: bolder !important;
-}
-
 .dato {
   color: var(--a-text-subtle);
 }
