@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.container:hover .lenketekst {
+.container:hover h2 {
   text-decoration: underline;
 }
 
