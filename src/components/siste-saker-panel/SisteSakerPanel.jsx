@@ -8,7 +8,7 @@ import { mineSakerUrl, mineSakerApiUrl } from "../../api/urls";
 import { fetcher } from "../../api/api";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
-import { logEvent } from "../../utils/amplitude";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 const SisteSakerPanel = () => {
   const { data: saker } = useSWRImmutable(mineSakerApiUrl, fetcher);
@@ -28,7 +28,7 @@ const SisteSakerPanel = () => {
             <a
               className={CSS.alle_saker}
               href={mineSakerUrl}
-              onClick={() => logEvent("navigere", "Siste saker - Se alle")}
+              onClick={() => logNavigereEvent("Se alle saker inngang", "lenke", "siste-saker-panel", "Se alle")}
             >
               {text.seAlle[language]}
             </a>
@@ -47,7 +47,7 @@ const SisteSakerPanel = () => {
           href={mineSakerUrl}
           border={false}
           className={CSS.panel_liten}
-          onClick={() => logEvent("navigere", "Siste saker - panel uten saker")}
+          onClick={() => logNavigereEvent("Siste saker inngang", "card", "siste-saker-panel", "Dine siste saker")}
         >
           <div
             style={{
