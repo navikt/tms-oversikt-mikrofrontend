@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BodyShort, Detail } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import style from "./LenkeListe.module.css";
-import { logEvent } from "../../utils/amplitude";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en: string, url: {nb: string, nn: string, en: string} }>, tittel: string}) => {
 
@@ -19,7 +19,7 @@ const LenkeListe = ({liste, tittel}: {liste: Array<{ nb: string, nn: string, en:
                             <a 
                                 href={link.url[language]} 
                                 className={style.color}
-                                onClick={() => logEvent("navigere", "Innloggede tjenester - " + link[language])}
+                                onClick={() => logNavigereEvent("Innloggede tjenester lenke", "lenke", "innloggede-tjenester", link["nb"])}
                             >
                                 {link[language]}
                             </a>

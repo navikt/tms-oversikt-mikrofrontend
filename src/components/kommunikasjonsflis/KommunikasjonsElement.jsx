@@ -1,11 +1,15 @@
 import { Detail } from "@navikt/ds-react";
 import { Next } from "@navikt/ds-icons";
-import { logEvent } from "../../utils/amplitude";
+import { logNavigereEvent } from "../../utils/amplitude";
 import CSS from "./KommunikasjonsElement.module.css";
 
 const KommunikasjonsElement = ({ href, tittel, ingress, ikon }) => {
   return (
-    <a className={CSS.element} href={href} onClick={() => logEvent("navigere", "Kommunikasjonsflis - " + tittel)}>
+    <a
+      className={CSS.element}
+      href={href}
+      onClick={() => logNavigereEvent("Kommunikasjonsflis lenke", "lenke", "kommunikasjonsflis", tittel)}
+    >
       <div className={CSS.content_wrapper}>
         <div className={CSS.ikon}>{ikon}</div>
         <div>

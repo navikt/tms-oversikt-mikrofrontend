@@ -4,7 +4,7 @@ import KommunikasjonsElement from "./KommunikasjonsElement";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import { dialogMedVeilederUrl, innboksUrl } from "../../api/urls";
-import { logEvent } from "../../utils/amplitude";
+import { logNavigereEvent } from "../../utils/amplitude";
 import { DialogDots, Email } from "@navikt/ds-icons";
 import CSS from "./KommunikasjonsFlis.module.css";
 
@@ -37,7 +37,9 @@ const KommunikasjonsFlis = ({ size }) => {
             href={innboksUrl}
             border={false}
             className={CSS.small}
-            onClick={() => logEvent("navigere", "Kommunikasjonsflis - Inngang innboks")}
+            onClick={() =>
+              logNavigereEvent("Kommunikasjonsflis liten", "card", "kommunikasjonsflis", "Inngang innboks")
+            }
           >
             <div className={CSS.content_wrapper}>
               <div className={CSS.ikon_wrapper}>

@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { useContext } from "react";
 import { LanguageContext } from "../../language/LanguageProvider";
+import { logNavigereEvent } from "../../utils/amplitude";
 import { formatDateMonth } from "../../language/i18n";
 import { text } from "../../language/text";
 import { logEvent } from "../../utils/amplitude";
@@ -11,7 +12,11 @@ const SakstemaElement = ({ href, sakstema, sistEndret }) => {
   const language = useContext(LanguageContext);
 
   return (
-    <a className={styles.container} href={href} onClick={() => logEvent("navigere", "Siste saker - " + sakstema)}>
+    <a
+      className={styles.container}
+      href={href}
+      onClick={() => logNavigereEvent("Sakstemalenke", "lenke", "siste-saker-panel", sakstema)}
+    >
       <div>
         <Heading size="small" level="2">
           {sakstema}
