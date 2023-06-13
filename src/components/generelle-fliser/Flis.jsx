@@ -9,7 +9,7 @@ const Flis = ({ tittel, ikon, href }) => {
         className={CSS.flis}
         href={href}
         border={false}
-        onClick={() => logNavigereEvent("generell flis", "card", "generelle-fliser", tittel)}
+        onClick={() => logNavigereEvent("generell-flis", "generelle-fliser", tittel)}
       >
         <div
           style={{
