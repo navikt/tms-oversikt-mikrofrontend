@@ -8,7 +8,7 @@ const KommunikasjonsElement = ({ href, tittel, ingress, ikon }) => {
     <a
       className={CSS.element}
       href={href}
-      onClick={() => logNavigereEvent("Kommunikasjonsflis lenke", "lenke", "kommunikasjonsflis", tittel)}
+      onClick={() => logNavigereEvent("kommunikasjon-med-nav", "kommunikasjon", tittel)}
     >
       <div className={CSS.content_wrapper}>
         <div className={CSS.ikon}>{ikon}</div>

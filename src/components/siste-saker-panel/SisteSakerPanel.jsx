@@ -36,7 +36,7 @@ const SisteSakerPanel = () => {
             <a
               className={styles.alleSaker}
               href={mineSakerUrl}
-              onClick={() => logNavigereEvent("Se alle saker inngang", "lenke", "siste-saker-panel", "Se alle")}
+              onClick={() => logNavigereEvent("dokumentarkiv", "generell", "Se alle")}
             >
               {text.seAlle[language]}
             </a>
@@ -47,7 +47,7 @@ const SisteSakerPanel = () => {
           href={mineSakerUrl}
           border={false}
           className={styles.panel_liten}
-          onClick={() => logNavigereEvent("Siste saker inngang", "card", "siste-saker-panel", "Dine siste saker")}
+          onClick={() => logNavigereEvent("dokumentarkiv-liten", "generell", "Dine siste saker")}
         >
           <div
             style={{

@@ -31,7 +31,7 @@ const Card = ({tittel, ingress, type, url}: Props) => {
                 <a 
                     href={url} 
                     className={isLoading ? `${style.loading} ${style.text}`: style.text} 
-                    onClick={() => logNavigereEvent(isUtkast ? "Utkast inngang" : "Varsler inngang", "card", "alert-island", ingress)}>
+                    onClick={() => logNavigereEvent(isUtkast ? "utkast" : "varsler", "alert-island", ingress)}>
                     {isLoading ? <span className={style.ingress}>{text.loaderTekst[language]}</span> :
                     <>
                         <Heading level="2" size="small" className={style.tittel}>{tittel}</Heading>
