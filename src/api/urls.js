@@ -228,54 +228,6 @@ const SYFO_DIALOG_CDN_URL = {
   production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
 };
 
-const DAGPENGER_PRODUKTSIDE = {
-  local: "https://arbeid.intern.dev.nav.no/arbeid/dagpenger/mine-dagpenger",
-  development: "https://arbeid.intern.dev.nav.no/arbeid/dagpenger/mine-dagpenger",
-  production: "https://www.nav.no/arbeid/dagpenger/mine-dagpenger",
-};
-
-const FORELDREPENGER_PRODUKTSIDE = {
-  local: "https://foreldrepenger.nav.no/",
-  development: "https://foreldrepenger.dev.nav.no/",
-  production: "https://foreldrepenger.nav.no/",
-};
-
-const HJELPEMIDLER_PRODUKTSIDE = {
-  local: "https://hjelpemidler.dev.nav.no/hjelpemidler/dinehjelpemidler",
-  development: "https://hjelpemidler.dev.nav.no/hjelpemidler/dinehjelpemidler",
-  production: "https://www.nav.no/hjelpemidler/dinehjelpemidler",
-};
-
-const SOSIALHJELP_PRODUKTSIDE = {
-  local: "https://www-q1.dev.nav.no/sosialhjelp/innsyn",
-  development: "https://www-q1.dev.nav.no/sosialhjelp/innsyn",
-  production: "https://www.nav.no/sosialhjelp/innsyn",
-};
-
-const PENSJON_PRODUKTSIDE = {
-  local: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf",
-  development: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf",
-  production: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
-};
-
-const PLEIEPENGER_PRODUKTSIDE = {
-  local: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-  development: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-  production: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-};
-
-const SYKEFRAVÆR_PRODUKTSIDE = {
-  local: "https://www-gcp.dev.nav.no/syk/sykefravaer",
-  development: "https://www-gcp.dev.nav.no/syk/sykefravaer",
-  production: "https://www.nav.no/syk/sykefravaer",
-};
-
-const UFØRETRYGD_PRODUKTSIDE = {
-  local: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/uforetrygd.jsf",
-  development: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/uforetrygd.jsf",
-  production: "https://www.nav.no/pselv/publisering/uforetrygd.jsf?context=ut",
-};
-
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
@@ -320,15 +272,6 @@ export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnviron
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
 export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
-
-export const dagpengerProduktside = DAGPENGER_PRODUKTSIDE[getEnvironment()];
-export const foreldrepengerProduktside = FORELDREPENGER_PRODUKTSIDE[getEnvironment()];
-export const hjelpemidlerProduktside = HJELPEMIDLER_PRODUKTSIDE[getEnvironment()];
-export const sosialhjelpProduktside = SOSIALHJELP_PRODUKTSIDE[getEnvironment()];
-export const pensjonProduktside = PENSJON_PRODUKTSIDE[getEnvironment()];
-export const pleiepengerProduktside = PLEIEPENGER_PRODUKTSIDE[getEnvironment()];
-export const sykefraværProduktside = SYKEFRAVÆR_PRODUKTSIDE[getEnvironment()];
-export const uføretrygdProduktside = UFØRETRYGD_PRODUKTSIDE[getEnvironment()];
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;

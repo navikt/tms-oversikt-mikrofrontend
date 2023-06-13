@@ -1,14 +1,4 @@
 import { useContext } from "react";
-import {
-  dagpengerProduktside,
-  foreldrepengerProduktside,
-  hjelpemidlerProduktside,
-  pensjonProduktside,
-  pleiepengerProduktside,
-  sosialhjelpProduktside,
-  sykefraværProduktside,
-  uføretrygdProduktside,
-} from "../../api/urls";
 import IkonDagpenger from "../../assets/IkonDagpenger";
 import IkonForeldrepenger from "../../assets/IkonForeldrepenger";
 import IkonHjelpemidler from "../../assets/IkonHjelpemidler";
