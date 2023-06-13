@@ -43,5 +43,15 @@ export const produktText = {
     nb: "Oversikt over søknadene dine",
     nn: "Oversikt over søknadene dine",
     en: "Oversikt over søknadene dine",
+  },
+  pensjonIngress: {
+    nb: "Oversikt over pensjonen din",
+    nn: "Oversikt over pensjonen din",
+    en: "Oversikt over pensjonen din",
+  },
+  uføretrygdIngress: {
+    nb: "Oversikt over uføretrygden din",
+    nn: "Oversikt over uføretrygden din",
+    en: "Oversikt over uføretrygden din",
   }
 };

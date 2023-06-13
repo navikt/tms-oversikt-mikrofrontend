@@ -43,7 +43,7 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     PEN: {
       url: produktUrls.pensjon[language],
       tittel: produktText.pensjon[language],
-      ingress: produktText.generellIngress[language],
+      ingress: produktText.pensjonIngress[language],
       ikon: <IkonPensjon />,
     },
     SYK: {
@@ -61,7 +61,7 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     UFO: {
       url: produktUrls.uføretrygd[language],
       tittel: produktText.uføretrygd[language],
-      ingress: produktText.generellIngress[language],
+      ingress: produktText.uføretrygdIngress[language],
       ikon: <IkonUføretrygd />,
     },
   };
