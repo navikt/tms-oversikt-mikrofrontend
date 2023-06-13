@@ -34,7 +34,6 @@ export default [
         { kode: "HJE" },
         { kode: "KOM" },
         { kode: "PEN" },
-        { kode: "OMS" },
         { kode: "SYK" },
         { kode: "SYM" },
         { kode: "UFO" },

@@ -30,11 +30,6 @@ const produktlinkerDev = {
     nn: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
     en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
   },
-  pleiepenger: {
-    nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    en: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-  },
   pensjon: {
     nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
     nn: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",
@@ -72,11 +67,6 @@ const produktlinkerProd = {
     nb: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
     nn: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
     en: "https://www.nav.no/hjelpemidler/dinehjelpemidler/",
-  },
-  pleiepenger: {
-    nb: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    nn: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
-    en: "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn",
   },
   pensjon: {
     nb: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?context=pensjon",

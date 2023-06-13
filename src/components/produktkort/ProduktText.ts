@@ -14,11 +14,6 @@ export const produktText = {
     nn: "Hjelpemiddel",
     en: "Assistive technology",
   },
-  pleiepenger: {
-    nb: "Sykdom i familien",
-    nn: "Sykdom i familien",
-    en: "Sykdom i familien",
-  },
   pensjon: {
     nb: "Pensjon",
     nn: "Pensjon",
@@ -43,11 +38,6 @@ export const produktText = {
     nb: "Oversikt over saken din",
     nn: "Oversikt over saken din",
     en: "Oversikt over saken din",
-  },
-  pleiepengeIngress: {
-    nb: "Oversikt over pleiepengene dine",
-    nn: "Oversikt over pleiepengene dine",
-    en: "Oversikt over pleiepengene dine",
   },
   sosialhjelpIngress: {
     nb: "Oversikt over søknadene dine",

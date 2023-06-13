@@ -13,7 +13,6 @@ import IkonDagpenger from "../../assets/IkonDagpenger";
 import IkonForeldrepenger from "../../assets/IkonForeldrepenger";
 import IkonHjelpemidler from "../../assets/IkonHjelpemidler";
 import IkonPensjon from "../../assets/IkonPensjon";
-import IkonPleiepenger from "../../assets/IkonPleiepenger";
 import IkonSykefravær from "../../assets/IkonSykefravær";
 import IkonUføretrygd from "../../assets/IkonUføretrygd";
 import IkonØkonomiskSosialhjelp from "../../assets/IkonØkonomiskSosialhjelp";
@@ -56,12 +55,6 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
       tittel: produktText.pensjon[language],
       ingress: produktText.generellIngress[language],
       ikon: <IkonPensjon />,
-    },
-    OMS: {
-      url: produktUrls.pleiepenger[language],
-      tittel: produktText.pleiepenger[language],
-      ingress: produktText.pleiepengeIngress[language],
-      ikon: <IkonPleiepenger />,
     },
     SYK: {
       url: produktUrls.sykefravær[language],
