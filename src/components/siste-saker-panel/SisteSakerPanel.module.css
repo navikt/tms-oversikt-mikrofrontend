@@ -32,6 +32,17 @@
   text-decoration: none;
 }
 
+.ingenDokumenterContainer {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.ingenDokumenterTextWrapper {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--a-bg-subtle);
+}
+
 .ikon {
   display: flex;
   align-self: center;

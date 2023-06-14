@@ -1,5 +1,4 @@
-import { FileContent } from "@navikt/ds-icons";
-import { BodyShort, LinkPanel, Panel } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Panel } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
@@ -21,7 +20,7 @@ const SisteSakerPanel = () => {
     <>
       {visStortSakspanel ? (
         <Panel className={styles.panel}>
-          <BodyShort size="medium" spacing="true">
+          <BodyShort as="h2" spacing="true">
             {text.sisteSakerTittel[language]}
           </BodyShort>
           {saker?.sakstemaer.slice(0, 2).map((sak) => (
@@ -32,7 +31,7 @@ const SisteSakerPanel = () => {
               sistEndret={sak.sistEndret}
             />
           ))}
-          <BodyShort className={styles.alleSakerWrapper} size="medium">
+          <BodyShort className={styles.alleSakerWrapper}>
             <a
               className={styles.alleSaker}
               href={mineSakerUrl}
@@ -43,26 +42,14 @@ const SisteSakerPanel = () => {
           </BodyShort>
         </Panel>
       ) : (
-        <LinkPanel
-          href={mineSakerUrl}
-          border={false}
-          className={styles.panel_liten}
-          onClick={() => logNavigereEvent("dokumentarkiv-liten", "generell", "Dine siste saker")}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridAutoFlow: "column",
-              gap: "var(--navds-spacing-8)",
-              alignItems: "center",
-            }}
-          >
-            <div className={styles.ikon}>
-              <FileContent fontSize="1.375rem" />
-            </div>
-            <LinkPanel.Title className={styles.panel_liten_tittel}>{text.sisteSakerTittel[language]}</LinkPanel.Title>
+        <div className={styles.ingenDokumenterContainer}>
+          <BodyShort as="h2" spacing="true">
+            {text.sisteSakerTittel[language]}
+          </BodyShort>
+          <div className={styles.ingenDokumenterTextWrapper}>
+            <BodyLong>Foreløpig ingen dokumenter å vise</BodyLong>
           </div>
-        </LinkPanel>
+        </div>
       )}
     </>
   );
