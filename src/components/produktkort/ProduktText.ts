@@ -53,5 +53,10 @@ export const produktText = {
     nb: "Oversikt over uføretrygden din",
     nn: "Oversikt over uføretrygden din",
     en: "Oversikt over uføretrygden din",
-  }
+  },
+  oversiktTittel: {
+    nb: "Din oversikt",
+    nn: "Di oversikt",
+    en: "Your overview",
+  },
 };

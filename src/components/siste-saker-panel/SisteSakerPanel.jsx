@@ -47,7 +47,7 @@ const SisteSakerPanel = () => {
             {text.sisteSakerTittel[language]}
           </BodyShort>
           <div className={styles.ingenDokumenterTextWrapper}>
-            <BodyLong>Foreløpig ingen dokumenter å vise</BodyLong>
+            <BodyLong>{text.ingenDokumenter[language]}</BodyLong>
           </div>
         </div>
       )}

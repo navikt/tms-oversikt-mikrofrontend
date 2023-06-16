@@ -84,6 +84,11 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Dokumentarkiv",
   },
+  ingenDokumenter: {
+    nb: "Foreløpig ingen dokumenter å vise",
+    nn: "Foreløpig ingen dokumenter å vise",
+    en: "Foreløpig ingen dokumenter å vise",
+  },
   sisteSakerLenketekst: {
     nb: "Se alle dine saker",
     nn: "Sjå alle sakane dine",
