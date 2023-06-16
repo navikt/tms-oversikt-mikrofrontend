@@ -176,7 +176,7 @@ const NAV_URL = {
 
 const PERSON_NAV_URL = {
   local: "http://localhost:3000",
-  development: "https://person.dev.nav.no",
+  development: "https://intern.dev.nav.no",
   production: "https://person.nav.no",
 };
 
