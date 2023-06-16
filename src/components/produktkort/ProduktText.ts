@@ -1,12 +1,12 @@
 export const produktText = {
   dagpenger: {
     nb: "Dagpenger",
-    nn: "Dagpenger",
+    nn: "Dagpengar",
     en: "Dagpenger",
   },
   foreldrepenger: {
     nb: "Foreldre- og svangerskapspenger",
-    nn: "Foreldre- og svangerskapspenger",
+    nn: "Foreldre- og svangerskapspengar",
     en: "Foreldre- og svangerskapspenger",
   },
   hjelpemidler: {
@@ -36,23 +36,23 @@ export const produktText = {
   },
   generellIngress: {
     nb: "Oversikt over saken din",
-    nn: "Oversikt over saken din",
-    en: "Oversikt over saken din",
+    nn: "Oversikt over saka di",
+    en: "Your case overview",
   },
   sosialhjelpIngress: {
     nb: "Oversikt over søknadene dine",
     nn: "Oversikt over søknadene dine",
-    en: "Oversikt over søknadene dine",
+    en: "Overview of your applications",
   },
   pensjonIngress: {
     nb: "Oversikt over pensjonen din",
     nn: "Oversikt over pensjonen din",
-    en: "Oversikt over pensjonen din",
+    en: "Your pension overview",
   },
   uføretrygdIngress: {
     nb: "Oversikt over uføretrygden din",
-    nn: "Oversikt over uføretrygden din",
-    en: "Oversikt over uføretrygden din",
+    nn: "Oversikt over uføretrygda di",
+    en: "Your disability benefit overview",
   },
   oversiktTittel: {
     nb: "Din oversikt",

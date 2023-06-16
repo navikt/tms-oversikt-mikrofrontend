@@ -1,4 +1,4 @@
-import { BodyShort, Heading } from "@navikt/ds-react";
+import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
@@ -32,8 +32,8 @@ const ProduktkortListe = () => {
     return (
       <div className={styles.oversiktContainer}>
         <BodyShort as="h2" spacing="true">
-            {produktText.oversiktTittel[language]}
-          </BodyShort>
+          {produktText.oversiktTittel[language]}
+        </BodyShort>
         <div className={styles.listeContainer}>
           {uniqueProduktConfigs.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />

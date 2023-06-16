@@ -82,12 +82,12 @@ export const text = {
   sisteSakerTittel: {
     nb: "Dokumentarkiv",
     nn: "Dokumentarkiv",
-    en: "Dokumentarkiv",
+    en: "Document archive",
   },
   ingenDokumenter: {
     nb: "Foreløpig ingen dokumenter å vise",
-    nn: "Foreløpig ingen dokumenter å vise",
-    en: "Foreløpig ingen dokumenter å vise",
+    nn: "Førebels ingen dokument å vise",
+    en: "Currently no documents to show",
   },
   sisteSakerLenketekst: {
     nb: "Se alle dine saker",
@@ -301,7 +301,7 @@ export const text = {
   },
   dagpenger: {
     nb: "Dagpenger",
-    nn: "Dagpenger",
+    nn: "Dagpengar",
     en: "Dagpenger",
   },
 };
