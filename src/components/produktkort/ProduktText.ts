@@ -2,12 +2,12 @@ export const produktText = {
   dagpenger: {
     nb: "Dagpenger",
     nn: "Dagpengar",
-    en: "Dagpenger",
+    en: "Unemployment benefit",
   },
   foreldrepenger: {
     nb: "Foreldre- og svangerskapspenger",
     nn: "Foreldre- og svangerskapspengar",
-    en: "Foreldre- og svangerskapspenger",
+    en: "Parental- and Maternity benefits",
   },
   hjelpemidler: {
     nb: "Hjelpemidler",
@@ -21,7 +21,7 @@ export const produktText = {
   },
   sykefravær: {
     nb: "Sykefravær",
-    nn: "Sjukefravær",
+    nn: "Sjukefråvær",
     en: "Absence due to sickness",
   },
   uføretrygd: {
@@ -53,6 +53,11 @@ export const produktText = {
     nb: "Oversikt over uføretrygden din",
     nn: "Oversikt over uføretrygda di",
     en: "Your disability benefit overview",
+  },
+  sykefraværIngress: {
+    nb: "Sykepenger, sykmeldinger og oppfølging",
+    nn: "Sjukepengar, sjukmeldingar og oppfølging",
+    en: "Sickness benefits and sick leaves",
   },
   oversiktTittel: {
     nb: "Din oversikt",

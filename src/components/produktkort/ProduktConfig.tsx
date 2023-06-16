@@ -49,13 +49,13 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     SYK: {
       url: produktUrls.sykefravær[language],
       tittel: produktText.sykefravær[language],
-      ingress: produktText.generellIngress[language],
+      ingress: produktText.sykefraværIngress[language],
       ikon: <IkonSykefravær />,
     },
     SYM: {
       url: produktUrls.sykefravær[language],
       tittel: produktText.sykefravær[language],
-      ingress: produktText.generellIngress[language],
+      ingress: produktText.sykefraværIngress[language],
       ikon: <IkonSykefravær />,
     },
     UFO: {
