@@ -59,6 +59,11 @@
   height: 18px;
 }
 
+.sisteSakerWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 @media (min-width: 0px) {
   .lenkepanel_liten_wrapper {
     display: flex;

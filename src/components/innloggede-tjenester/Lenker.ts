@@ -269,8 +269,8 @@ export const annet = [
     }
   },
   {
-    nb: "Saksdokumenter og årsoppgaver",
-    nn: "Dokument og årsoppgåver",
+    nb: "Dokumentarkiv",
+    nn: "Dokumentarkiv",
     en: "Documents",
     url: {
       nb: "https://person.nav.no/mine-saker",

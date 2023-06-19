@@ -80,9 +80,14 @@ export const text = {
     en: "My payments",
   },
   sisteSakerTittel: {
-    nb: "Dine siste saker",
-    nn: "Dei siste sakane dine",
-    en: "My recent cases",
+    nb: "Dokumentarkiv",
+    nn: "Dokumentarkiv",
+    en: "Document archive",
+  },
+  ingenDokumenter: {
+    nb: "Foreløpig ingen dokumenter å vise",
+    nn: "Førebels ingen dokument å vise",
+    en: "Currently no documents to show",
   },
   sisteSakerLenketekst: {
     nb: "Se alle dine saker",
@@ -90,8 +95,8 @@ export const text = {
     en: "All my cases",
   },
   sisteSakerLenkedetail: {
-    nb: "Sist oppdatert: ",
-    nn: "Sist oppdatert: ",
+    nb: "Sist endret: ",
+    nn: "Sist endret: ",
     en: "Last updated: ",
   },
   seAlle: {
@@ -293,5 +298,10 @@ export const text = {
     nb: "",
     nn: "",
     en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
+  },
+  dagpenger: {
+    nb: "Dagpenger",
+    nn: "Dagpengar",
+    en: "Dagpenger",
   },
 };

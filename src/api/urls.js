@@ -176,7 +176,7 @@ const NAV_URL = {
 
 const PERSON_NAV_URL = {
   local: "http://localhost:3000",
-  development: "https://person.dev.nav.no",
+  development: "https://www.intern.dev.nav.no",
   production: "https://person.nav.no",
 };
 
@@ -184,6 +184,12 @@ const MINE_SAKER_API_URL = {
   local: "http://localhost:3000/mine-saker-api/siste",
   development: "https://www.intern.dev.nav.no/mine-saker-api/siste",
   production: "https://person.nav.no/mine-saker-api/siste",
+};
+
+const MINE_SAKER_SAKSTEMAER_URL = {
+  local: "http://localhost:3000/mine-saker-api/sakstemaer",
+  development: "https://www.intern.dev.nav.no/mine-saker-api/sakstemaer",
+  production: "https://person.nav.no/mine-saker-api/sakstemaer",
 };
 
 const TJENESTER_URL = {
@@ -265,6 +271,7 @@ export const innboksUrl = INNBOKS_URL[getEnvironment()];
 export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnvironment()];
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
 export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
+export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;

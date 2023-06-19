@@ -1,29 +1,26 @@
+import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { useContext } from "react";
-import { Detail } from "@navikt/ds-react";
-import { Next, FileContent } from "@navikt/ds-icons";
-import CSS from "./SakstemaElement.module.css";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { logNavigereEvent } from "../../utils/amplitude";
-import { text } from "../../language/text";
 import { formatDateMonth } from "../../language/i18n";
+import { text } from "../../language/text";
+import styles from "./SakstemaElement.module.css";
 
 const SakstemaElement = ({ href, sakstema, sistEndret }) => {
   const language = useContext(LanguageContext);
 
   return (
-    <a className={CSS.element} href={href} onClick={() => logNavigereEvent("dokumentarkiv", "generell", sakstema)}>
-      <div className={CSS.content_wrapper}>
-        <div className={CSS.ikon}>
-          <FileContent fontSize="1.375rem" />
-        </div>
-        <div>
-          <div className={CSS.lenketekst}>{sakstema}</div>
-          <Detail spacing className={CSS.dato}>
-            {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
-          </Detail>
-        </div>
+    <a className={styles.container} href={href} onClick={() => logNavigereEvent("dokumentarkiv", "generell", sakstema)}>
+      <div>
+        <Heading size="small" level="2">
+          {sakstema}
+        </Heading>
+        <BodyLong className={styles.dato}>
+          {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
+        </BodyLong>
       </div>
-      <Next className={CSS.chevron} fontSize="1.5rem" />
+      <ChevronRightIcon className={styles.chevron} fontSize="24px" />
     </a>
   );
 };
