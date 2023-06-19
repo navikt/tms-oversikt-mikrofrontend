@@ -228,6 +228,12 @@ const SYFO_DIALOG_CDN_URL = {
   production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
 };
 
+const TMS_VARSEL_API = {
+  local: "http://localhost:3000/tms-varsel-api",
+  development: "https://www.intern.dev.nav.no/tms-varsel-api",
+  production: "https://www.nav.no/tms-varsel-api",
+};
+
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
@@ -242,7 +248,7 @@ export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const digisosAntallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/digisos/antall`;
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
-export const antallVarslerUrl = `${minSideProxyUrl}/varsel/tms-varsel-api/antall/aktive`;
+export const antallVarslerUrl = `${NAV_URL}/tms-varsel-api/antall/aktive`;
 export const minSideVarslerUrl = `${minSideUrl}/varsler`;
 export const identUrl = `${minSideProxyUrl}/personalia/ident`;
 export const navnUrl = `${minSideProxyUrl}/personalia/navn`;

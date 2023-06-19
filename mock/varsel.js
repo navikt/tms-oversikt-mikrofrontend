@@ -1,6 +1,6 @@
 export default [
   {
-    url: "/dittnav-api/varsel/antall",
+    url: "/tms-varsel-api/antall/aktive",
     method: "get",
     response: () => {
       return {
