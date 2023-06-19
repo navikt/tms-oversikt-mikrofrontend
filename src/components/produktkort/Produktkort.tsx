@@ -6,7 +6,11 @@ import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
   return (
-    <a className={styles.container} href={produktConfig.url} onClick={() => logNavigereEvent("produktkort", "personlig", produktConfig.tittel)}>
+    <a
+      className={styles.container}
+      href={produktConfig.url}
+      onClick={() => logNavigereEvent("produktkort", "personlig", produktConfig.produktnavn)}
+    >
       <div className={styles.ikonOgTekstContainer}>
         {produktConfig.ikon}
         <div>
