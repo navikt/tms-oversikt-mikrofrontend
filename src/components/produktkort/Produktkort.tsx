@@ -1,11 +1,12 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading } from "@navikt/ds-react";
+import { logNavigereEvent } from "../../utils/amplitude";
 import ProduktConfig from "./ProduktConfig";
 import styles from "./Produktkort.module.css";
 
 const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
   return (
-    <a className={styles.container} href={produktConfig.url}>
+    <a className={styles.container} href={produktConfig.url} onClick={() => logNavigereEvent("produktkort", "personlig", produktConfig.tittel)}>
       <div className={styles.ikonOgTekstContainer}>
         {produktConfig.ikon}
         <div>
