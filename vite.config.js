@@ -1,6 +1,4 @@
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { viteMockServe } from "vite-plugin-mock";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { terser } from "rollup-plugin-terser";
@@ -18,10 +16,6 @@ export default ({ command }) => ({
     react(),
     terser(),
     cssInjectedByJsPlugin(),
-    viteMockServe({
-      mockPath: "mock",
-      localEnabled: command === "serve",
-    }),
     {
       ...rollupImportMapPlugin({ imports }),
       enforce: "pre",
