@@ -18,6 +18,7 @@ import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import style from "./App.module.css";
 import ProduktkortListe from "./components/produktkort/ProduktkortListe";
+import DinOversikt from "./components/din-oversikt/DinOversikt";
 
 function App() {
   const [isError, setIsError] = useState(false);
@@ -68,19 +69,9 @@ function App() {
         <ErrorBoundary setIsError={setIsError}>
           <Meldekort />
         </ErrorBoundary>
-        {isAapBruker ? (
-          <ErrorBoundary setIsError={setIsError}>
-            <Arbeidsavklaringspenger />
-          </ErrorBoundary>
-        ) : null}
         {isArbeidssoker ? (
           <ErrorBoundary setIsError={setIsError}>
             <ArbeidsflateForInnloggetArbeidssoker />
-          </ErrorBoundary>
-        ) : null}
-        {isSyfoDialogBruker ? (
-          <ErrorBoundary setIsError={setIsError}>
-            <SyfoDialog />
           </ErrorBoundary>
         ) : null}
       </React.Suspense>
@@ -90,6 +81,7 @@ function App() {
             <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
+          <DinOversikt setIsError2={setIsError} />
           <ProduktkortListe />
 
           <div className={style.sisteSakerWrapper}>
