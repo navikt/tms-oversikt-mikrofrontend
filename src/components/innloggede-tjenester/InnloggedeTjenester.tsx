@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { jobb, hjelpemidler, personopplysning, annet } from "./Lenker";
+import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./Lenker";
 import { useTranslate } from "../../hooks/useTranslate";
-import { BodyShort, Detail, Heading } from "@navikt/ds-react";
+import { BodyShort, Heading } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import LenkeListe from "./LenkeListe";
 import styles from "./InnloggedeTjenester.module.css";
@@ -17,12 +17,12 @@ const InnloggedeTjenester = () => {
       {isEnglish ? <BodyShort size="medium" className={styles.disclaimer}>{useTranslate("alleTjenesterDisclaimer")}</BodyShort> : null}
       <nav className={styles.contentContainer}>
         <div className={styles.listColumn}>
-          <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobb}/>
-          <LenkeListe tittel={useTranslate("pengeStøtteOgHjelpemidlerTittel")} liste={hjelpemidler}/>
+          <LenkeListe tittel={useTranslate("jobbOgOppfolgingTittel")} liste={jobbLenker}/>
+          <LenkeListe tittel={useTranslate("pengeStøtteOgHjelpemidlerTittel")} liste={hjelpemidlerLenker}/>
         </div>
         <div className={styles.listColumn}>
-          <LenkeListe tittel={useTranslate("personopplysningTittel")} liste={personopplysning}/>
-          <LenkeListe tittel={useTranslate("annetTittel")} liste={annet}/>
+          <LenkeListe tittel={useTranslate("personopplysningTittel")} liste={personopplysningLenker}/>
+          <LenkeListe tittel={useTranslate("annetTittel")} liste={annetLenker}/>
         </div>
       </nav>
     </div>
