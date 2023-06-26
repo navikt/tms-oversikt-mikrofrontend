@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { jobb, hjelpemidler, personopplysning, annet, hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./Lenker";
+import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./Lenker";
 import { useTranslate } from "../../hooks/useTranslate";
 import { BodyShort, Detail, Heading } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
