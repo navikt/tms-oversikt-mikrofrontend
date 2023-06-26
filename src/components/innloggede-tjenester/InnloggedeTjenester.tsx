@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { hjelpemidlerLenker, jobbLenker, personopplysningLenker, annetLenker } from "./Lenker";
 import { useTranslate } from "../../hooks/useTranslate";
-import { BodyShort, Detail, Heading } from "@navikt/ds-react";
+import { BodyShort, Heading } from "@navikt/ds-react";
 import { LanguageContext } from "../../language/LanguageProvider";
 import LenkeListe from "./LenkeListe";
 import styles from "./InnloggedeTjenester.module.css";
