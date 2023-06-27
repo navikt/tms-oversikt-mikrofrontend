@@ -1,8 +1,8 @@
 import { rest } from "msw";
-import aap from "../../mock/bundle/aap";
-import aia from "../../mock/bundle/aia";
-import meldekort from "../../mock/bundle/meldekort";
-import syfoDialog from "../../mock/bundle/syfoDialog";
+import aap from "./bundles/aap";
+import aia from "./bundles/aia";
+import meldekort from "./bundles/meldekort";
+import syfoDialog from "./bundles/syfoDialog";
 import {
   aapBaseCdnUrl,
   aapManifestUrl,
