@@ -18,9 +18,8 @@ import { logEvent } from "../../utils/amplitude";
 import ContentLoader from "../loader/ContentLoader";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
-import ProduktkortListe from "../produktkort/ProduktkortListe";
-import styles from "./DinOversikt.module.css";
 import Produktkort from "../produktkort/Produktkort";
+import styles from "./DinOversikt.module.css";
 
 type Sakstemaer = Array<{ kode: string }>;
 
