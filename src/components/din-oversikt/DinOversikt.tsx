@@ -63,7 +63,7 @@ const DinOversikt = ({ setIsError }: { setIsError: React.Dispatch<React.SetState
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
 
   if (!isAapBruker && !isSyfoDialogBruker && uniqueProduktConfigs?.length === 0) {
-    return <></>;
+    return null;
   } else {
     return (
       <div className={styles.oversiktContainer}>
