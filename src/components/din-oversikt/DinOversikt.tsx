@@ -43,13 +43,13 @@ const getUniqueProdukter = () => {
 
 const DinOversikt = ({ setIsError }: { setIsError: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const language = useContext(LanguageContext);
-  
+
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
     onError: () => setIsError(true),
     onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
   });
   const uniqueProduktConfigs = getUniqueProdukter();
-  
+
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
@@ -68,22 +68,22 @@ const DinOversikt = ({ setIsError }: { setIsError: React.Dispatch<React.SetState
   } else {
     return (
       <div className={styles.oversiktContainer}>
-        <React.Suspense fallback={<ContentLoader />}>
-          <BodyShort as="h2" spacing="true">
-            {produktText.oversiktTittel[language]}
-          </BodyShort>
-          {isAapBruker && (
-            <ErrorBoundary setIsError={setIsError}>
-              <Arbeidsavklaringspenger />
-            </ErrorBoundary>
-          )}
-          {isSyfoDialogBruker && (
-            <ErrorBoundary setIsError={setIsError}>
-              <SyfoDialog />
-            </ErrorBoundary>
-          )}
-        </React.Suspense>
+        <BodyShort as="h2" spacing="true">
+          {produktText.oversiktTittel[language]}
+        </BodyShort>
         <div className={styles.listeContainer}>
+          <React.Suspense fallback={<ContentLoader />}>
+            {isAapBruker && (
+              <ErrorBoundary setIsError={setIsError}>
+                <Arbeidsavklaringspenger />
+              </ErrorBoundary>
+            )}
+            {isSyfoDialogBruker && (
+              <ErrorBoundary setIsError={setIsError}>
+                <SyfoDialog />
+              </ErrorBoundary>
+            )}
+          </React.Suspense>
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
