@@ -27,32 +27,21 @@ function App() {
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
 
-  const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
-    onError: () => setIsError(true),
-    onSuccess: (data) => data.microfrontends.map((id) => logEvent(`minside.${id}`, true)),
-  });
-
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
   const brukerUnderOppfolging = data?.underOppfolging;
 
-  const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
-  const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
-  if (isLoadingProfil || isLoadingAiaManifest || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
+  if (isLoadingAiaManifest) {
     return <ContentLoader />;
   }
 
-  const isAapBruker = profil?.microfrontends.includes("aap");
-  const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
   const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
     import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
-  const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-  const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
   return (
@@ -81,8 +70,7 @@ function App() {
             <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt setIsError2={setIsError} />
-          <ProduktkortListe />
+          <DinOversikt setIsError={setIsError} />
 
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
