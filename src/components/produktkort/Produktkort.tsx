@@ -12,7 +12,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
       onClick={() => logNavigereEvent("produktkort", "personlig", produktConfig.produktnavn)}
     >
       <div className={styles.ikonOgTekstContainer}>
-        {produktConfig.ikon}
+        <div>{produktConfig.ikon}</div>
         <div>
           <Heading size="small" level="2">
             {produktConfig.tittel}

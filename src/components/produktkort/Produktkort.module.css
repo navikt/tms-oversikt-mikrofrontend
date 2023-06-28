@@ -31,6 +31,10 @@
   outline: none;
 }
 
+.chevron {
+  flex-shrink: 0;
+}
+
 .ikonOgTekstContainer {
   display: flex;
   align-items: center;
