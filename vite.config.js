@@ -26,7 +26,7 @@ export default ({ command }) => ({
     manifest: true,
     rollupOptions: {
       input: {
-        "tms-oversikt-mikrofrontend": resolve(__dirname, "src/Mikrofrontend.tsx"),
+        "tms-oversikt-mikrofrontend": resolve(__dirname, "src/Mikrofrontend.jsx"),
       },
       preserveEntrySignatures: "exports-only",
       output: {
