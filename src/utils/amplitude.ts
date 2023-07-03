@@ -10,13 +10,13 @@ export const initializeAmplitude = () => {
   });
 };
 
-export function logEvent(name, metric) {
+export function logEvent(name: string, metric: any) {
   amplitude.getInstance().logEvent(name, {
     app: "tms-min-side",
     komponent: metric,
   });
 }
-export function logNavigereEvent(komponent, kategori, lenketekst) {
+export function logNavigereEvent(komponent: string, kategori: string, lenketekst: string) {
   amplitude.getInstance().logEvent("navigere", {
     app: "tms-min-side",
     komponent: komponent,

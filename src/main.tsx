@@ -17,9 +17,10 @@ export const getEnvironment = () => {
   return "local";
 };
 
-const root = createRoot(document.getElementById("root"));
+const container = document.getElementById("root") as HTMLElement;
+const root = createRoot(container);
 
-if (getEnvironment !== "production") {
+if (getEnvironment() !== "production") {
   const msw = await import("./mocks/browser");
   await msw.worker.start({ onUnhandledRequest: "bypass" });
   msw.worker.printHandlers();

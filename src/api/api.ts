@@ -1,17 +1,10 @@
-class FetchError extends Error {
-  constructor(response, message) {
-    super(message);
-    this.response = response;
-  }
-}
-
-const checkResponse = (response) => {
+const checkResponse = (response: Response) => {
   if (!response.ok) {
-    throw new FetchError(response, "Fetch request failed");
+    throw new Error("Fetch request failed");
   }
 };
 
-export const fetcher = async (path) => {
+export const fetcher = async (path: string) => {
   const response = await fetch(path, {
     method: "GET",
     credentials: "include",
@@ -24,7 +17,7 @@ export const fetcher = async (path) => {
   return await response.json();
 };
 
-export const manifestFetcher = async (path) => {
+export const manifestFetcher = async (path: string) => {
   const response = await fetch(path, { method: "GET" });
   checkResponse(response);
 

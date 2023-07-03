@@ -2,10 +2,10 @@ import React from "react";
 import { text } from "../../language/text";
 import dayjs from "dayjs";
 
-const isMorgen = (hour) => hour >= 5 && hour < 10;
-const isKveld = (hour) => hour >= 18;
+const isMorgen = (hour: number) => hour >= 5 && hour < 10;
+const isKveld = (hour: number) => hour >= 18;
 
-export const getVelkomsthilsen = (language) => {
+export const getVelkomsthilsen = (language: string) => {
   const hour = dayjs().hour();
 
   if (isMorgen(hour)) {
