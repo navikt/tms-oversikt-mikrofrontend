@@ -1,14 +1,14 @@
+import { DialogDots, Email } from "@navikt/ds-icons";
+import { Heading, LinkPanel, Panel } from "@navikt/ds-react";
 import { useContext } from "react";
-import { LinkPanel, Panel, Heading } from "@navikt/ds-react";
-import KommunikasjonsElement from "./KommunikasjonsElement";
+import { dialogMedVeilederUrl, innboksUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
-import { dialogMedVeilederUrl, innboksUrl } from "../../api/urls";
 import { logNavigereEvent } from "../../utils/amplitude";
-import { DialogDots, Email } from "@navikt/ds-icons";
+import KommunikasjonsElement from "./KommunikasjonsElement";
 import CSS from "./KommunikasjonsFlis.module.css";
 
-const KommunikasjonsFlis = ({ size }) => {
+const KommunikasjonsFlis = ({ size }: { size: string }) => {
   const language = useContext(LanguageContext);
 
   return (

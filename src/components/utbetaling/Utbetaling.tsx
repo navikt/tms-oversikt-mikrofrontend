@@ -7,7 +7,7 @@ import { utbetalingsoversiktUrl } from "../../api/urls";
 import { Money } from "@navikt/ds-icons";
 import CSS from "./Utbetaling.module.css";
 
-const Utbetaling = ({ size }) => {
+const Utbetaling = ({ size }: { size: string}) => {
   const language = useContext(LanguageContext);
 
   return (

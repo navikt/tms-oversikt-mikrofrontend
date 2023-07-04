@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-const customRender = (ui, options = {}) =>
+const customRender = (ui: any, options = {}) =>
   render(ui, {
     // wrap provider(s) here if needed
     wrapper: ({ children }) => children,

@@ -7,7 +7,13 @@ import { formatDateMonth } from "../../language/i18n";
 import { text } from "../../language/text";
 import styles from "./SakstemaElement.module.css";
 
-const SakstemaElement = ({ href, sakstema, sistEndret }) => {
+type Props = {
+  href: string;
+  sakstema: string;
+  sistEndret: string;
+};
+
+const SakstemaElement = ({ href, sakstema, sistEndret }: Props) => {
   const language = useContext(LanguageContext);
 
   return (

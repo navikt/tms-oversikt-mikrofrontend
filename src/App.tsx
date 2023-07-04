@@ -36,8 +36,8 @@ function App() {
 
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
-  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(() =>
-    import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
+  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(
+    () => import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
   );
 
   const Meldekort = React.lazy(() => import(meldekortUrl));

@@ -3,7 +3,14 @@ import { Next } from "@navikt/ds-icons";
 import { logNavigereEvent } from "../../utils/amplitude";
 import CSS from "./KommunikasjonsElement.module.css";
 
-const KommunikasjonsElement = ({ href, tittel, ingress, ikon }) => {
+type Props = {
+  href: string;
+  tittel: string;
+  ingress: string;
+  ikon: JSX.Element;
+};
+
+const KommunikasjonsElement = ({ href, tittel, ingress, ikon }: Props) => {
   return (
     <a
       className={CSS.element}
