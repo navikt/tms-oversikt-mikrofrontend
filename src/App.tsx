@@ -14,14 +14,17 @@ import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import Utkast from "./components/utkast/Utkast";
 import { aiaEntry, bundle } from "./entrypoints";
-import ErrorBoundary from "./error-boundary/ErrorBoundary";
+import ErrorBoundary from "./ErrorBoundary";
 import { useManifest } from "./hooks/useManifest";
 import { logEvent } from "./utils/amplitude";
+import { isErrorAtom, setIsError } from "./store/store";
+import { useStore } from "@nanostores/react";
 
 function App() {
-  const [isError, setIsError] = useState(false);
+  const isError = useStore(isErrorAtom)
+  
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
-    onError: () => setIsError(true),
+    onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
 
@@ -53,11 +56,11 @@ function App() {
         <Utkast />
       </div>
       <React.Suspense fallback={<ContentLoader />}>
-        <ErrorBoundary setIsError={setIsError}>
+        <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
         {isArbeidssoker ? (
-          <ErrorBoundary setIsError={setIsError}>
+          <ErrorBoundary>
             <ArbeidsflateForInnloggetArbeidssoker />
           </ErrorBoundary>
         ) : null}
@@ -68,8 +71,7 @@ function App() {
             <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt setIsError={setIsError} />
-
+          <DinOversikt/>
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>
