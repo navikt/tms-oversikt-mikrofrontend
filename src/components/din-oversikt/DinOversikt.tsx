@@ -11,7 +11,7 @@ import {
   syfoDialogManifestUrl,
 } from "../../api/urls";
 import { aapEntry, bundle, syfoDialogEntry } from "../../entrypoints";
-import ErrorBoundary from "../../error-boundary/ErrorBoundary";
+import ErrorBoundary from "../../ErrorBoundary";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { logEvent } from "../../utils/amplitude";
@@ -20,6 +20,7 @@ import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
+import { setIsError } from "../../store/store";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -40,11 +41,11 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ setIsError }: { setIsError: React.Dispatch<React.SetStateAction<boolean>> }) => {
+const DinOversikt = () => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
-    onError: () => setIsError(true),
+    onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
   });
   const uniqueProduktConfigs = getUniqueProdukter();
@@ -73,12 +74,12 @@ const DinOversikt = ({ setIsError }: { setIsError: React.Dispatch<React.SetState
         <div className={styles.listeContainer}>
           <React.Suspense fallback={<ContentLoader />}>
             {isAapBruker && (
-              <ErrorBoundary setIsError={setIsError}>
+              <ErrorBoundary>
                 <Arbeidsavklaringspenger />
               </ErrorBoundary>
             )}
             {isSyfoDialogBruker && (
-              <ErrorBoundary setIsError={setIsError}>
+              <ErrorBoundary>
                 <SyfoDialog />
               </ErrorBoundary>
             )}
