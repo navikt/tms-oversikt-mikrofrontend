@@ -1,10 +1,21 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { rest } from "msw";
+import { SWRConfig } from "swr";
 import { expect, test } from "vitest";
 import { mineSakerSakstemaerUrl } from "../../api/urls";
-import DinOversikt from "./DinOversikt";
 import { server } from "../../mocks/server";
-import { SWRConfig } from "swr";
+import DinOversikt from "./DinOversikt";
+
+test("vis alle produktkort", async () => {
+  render(
+    //reset swr-cachen
+    <SWRConfig value={{ provider: () => new Map() }}>
+      <DinOversikt />
+    </SWRConfig>
+  );
+
+  expect(await screen.findAllByRole("heading")).toHaveLength(8); //Overskrift + 7 produktkort
+});
 
 test("SYK og SYM er samme produkt", async () => {
   server.use(
@@ -13,22 +24,13 @@ test("SYK og SYM er samme produkt", async () => {
     })
   );
 
-  //tom provider for å ikke cache kall
-  const renderer = render(
-    <SWRConfig value={{ provider: () => new Map() }}> 
-      <DinOversikt />
-    </SWRConfig>
-  );
-  await screen.findAllByRole("heading");
-  expect(await screen.findAllByRole("heading")).toHaveLength(2); //Overskrift + 1 produktkort
-});
-
-test("vis alle produktkort", async () => {
-  const renderer = render(
+  render(
     <SWRConfig value={{ provider: () => new Map() }}>
       <DinOversikt />
     </SWRConfig>
   );
-  await screen.findAllByRole("heading");
-  expect(await screen.findAllByRole("heading")).toHaveLength(8); //Overskrift + 7 produktkort
+
+  await waitFor(() => {
+    expect(screen.getAllByRole("heading")).toHaveLength(2); //Overskrift + 1 produktkort
+  });
 });
