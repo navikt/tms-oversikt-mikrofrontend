@@ -257,7 +257,7 @@ export const digisosAntallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/digisos/
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideBetaUrl}/utkast`;
 export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
-export const minSideVarslerUrl = `${minSideUrl}/varsler`;
+export const minSideVarslerUrl = `${minSideBetaUrl}/varsler`;
 export const identUrl = `${minSideProxyUrl}/personalia/ident`;
 export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
 
