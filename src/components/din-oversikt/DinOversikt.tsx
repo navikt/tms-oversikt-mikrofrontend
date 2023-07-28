@@ -63,7 +63,7 @@ const DinOversikt = () => {
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
 
-  if (!isAapBruker && !isSyfoDialogBruker && uniqueProduktConfigs?.length === 0) {
+  if (!isAapBruker && !isSyfoDialogBruker && (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)) {
     return null;
   } else {
     return (
