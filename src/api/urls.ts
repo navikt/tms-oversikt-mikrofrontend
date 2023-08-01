@@ -18,12 +18,6 @@ const MIN_SIDE_URL = {
   production: "https://www.nav.no/minside",
 };
 
-const MIN_SIDE_BETA_URL = {
-  local: "http://localhost:3000/minside",
-  development: "https://www.intern.dev.nav.no/minside-beta",
-  production: "https://www.nav.no/minside-beta",
-};
-
 const MIN_SIDE_PROXY_URL = {
   local: "http://localhost:3000/tms-min-side-proxy",
   development: "https://www.intern.dev.nav.no/tms-min-side-proxy",
@@ -241,7 +235,6 @@ const TMS_VARSEL_API = {
 };
 
 export const minSideUrl = MIN_SIDE_URL[getEnvironment()];
-export const minSideBetaUrl = MIN_SIDE_BETA_URL[getEnvironment()];
 export const minSideProxyUrl = MIN_SIDE_PROXY_URL[getEnvironment()];
 export const aapBaseCdnUrl = AAP_BASE_CDN_URL[getEnvironment()];
 export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
@@ -255,9 +248,9 @@ export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const tmsVarselApi = TMS_VARSEL_API[getEnvironment()];
 export const digisosAntallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/digisos/antall`;
 export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
-export const minSideUtkastUrl = `${minSideBetaUrl}/utkast`;
+export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
-export const minSideVarslerUrl = `${minSideBetaUrl}/varsler`;
+export const minSideVarslerUrl = `${minSideUrl}/varsler`;
 export const identUrl = `${minSideProxyUrl}/personalia/ident`;
 export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
 
