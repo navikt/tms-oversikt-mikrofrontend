@@ -2,12 +2,13 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { SWRConfig } from "swr";
 import { expect, test } from "vitest";
+import { axe } from "vitest-axe";
 import { mineSakerSakstemaerUrl } from "../../api/urls";
 import { server } from "../../mocks/server";
 import DinOversikt from "./DinOversikt";
 
 test("vis alle produktkort", async () => {
-  render(
+  const { container } = render(
     //reset swr-cachen
     <SWRConfig value={{ provider: () => new Map() }}>
       <DinOversikt />
@@ -15,6 +16,7 @@ test("vis alle produktkort", async () => {
   );
 
   expect(await screen.findAllByRole("heading")).toHaveLength(8); //Overskrift + 7 produktkort
+  expect(await axe(container)).toHaveNoViolations();
 });
 
 test("SYK og SYM er samme produkt", async () => {

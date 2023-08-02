@@ -12,7 +12,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
       onClick={() => logNavigereEvent("produktkort", "personlig", produktConfig.produktnavn)}
     >
       <div className={styles.ikonOgTekstContainer}>
-        <div>{produktConfig.ikon}</div>
+        <div aria-hidden>{produktConfig.ikon}</div>
         <div>
           <Heading size="small" level="2">
             {produktConfig.tittel}
@@ -20,7 +20,7 @@ const Produktkort = ({ produktConfig }: { produktConfig: ProduktConfig }) => {
           <BodyLong size="medium">{produktConfig.ingress}</BodyLong>
         </div>
       </div>
-      <ChevronRightIcon className={styles.chevron} fontSize="24px" />
+      <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
     </a>
   );
 };
