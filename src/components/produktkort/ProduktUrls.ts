@@ -1,18 +1,4 @@
-const isProduction = window.location.href.includes("www.nav.no");
-const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
-
-//TODO: bruk getEnvironment fra urls
-
-const getEnvironment = () => {
-  if (isProduction) {
-    return "production";
-  }
-
-  if (isDevelopment) {
-    return "development";
-  }
-  return "local";
-};
+import { getEnvironment } from "../innloggede-tjenester/Lenker";
 
 const produktlinkerDev = {
   dagpenger: {
