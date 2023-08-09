@@ -14,6 +14,12 @@ if (process.env.NODE_ENV === 'development') {
 
 root.render(
   <React.StrictMode>
-    <Mikrofrontend />
+    <div className="oversikt">
+      <div className="layout">
+        <main>
+          <Mikrofrontend />
+        </main>
+      </div>
+    </div>
   </React.StrictMode>
 );
