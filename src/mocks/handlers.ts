@@ -13,6 +13,8 @@ import {
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
   navnUrl,
+  registrertArbeidssokerBaseCdnUrl,
+  registrertArbeidssokerManifestUrl,
   selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
@@ -137,6 +139,13 @@ export const microfrontendsHandler = () => {
         ctx.body(mikrofrontendBundle("AiA", "5vh"))
       );
     }),
+    rest.get(`${registrertArbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh"))
+      );
+    }),
     rest.get(`${aapBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
@@ -170,6 +179,19 @@ export const manifestsHandler = () => {
           "src/main.tsx": {
             file: "bundle.js",
             src: "src/main.tsx",
+            isEntry: true,
+            css: ["assets/bundle.4ce1efd6.css"],
+          },
+        })
+      );
+    }),
+    rest.get(registrertArbeidssokerManifestUrl, (_, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          "src/Mikrofrontend.tsx": {
+            file: "bundle.js",
+            src: "src/Mikrofrontend.tsx",
             isEntry: true,
             css: ["assets/bundle.4ce1efd6.css"],
           },

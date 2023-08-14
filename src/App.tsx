@@ -21,8 +21,8 @@ import { isErrorAtom, setIsError } from "./store/store";
 import { useStore } from "@nanostores/react";
 
 function App() {
-  const isError = useStore(isErrorAtom)
-  
+  const isError = useStore(isErrorAtom);
+
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
@@ -71,7 +71,7 @@ function App() {
             <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt/>
+          <DinOversikt isArbeidssoker={isArbeidssoker} />
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>
