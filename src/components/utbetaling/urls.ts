@@ -12,8 +12,8 @@ const UTBETALINGSOVERSIKT_URL = {
 
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/utbetalingsvoversikt-api",
-  development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/utbetaling",
-  production: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetaling",
+  development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/utbetalinger",
+  production: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger",
 };
 
 
