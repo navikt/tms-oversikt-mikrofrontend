@@ -11,7 +11,7 @@ import ContentLoader from "./components/loader/ContentLoader";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
-import Utbetaling from "./components/utbetaling/siste-utbetaling/Utbetaling";
+import Utbetaling from "./components/utbetaling/siste/Utbetaling";
 import Utkast from "./components/utkast/Utkast";
 import { aiaEntry, bundle } from "./entrypoints";
 import ErrorBoundary from "./ErrorBoundary";
@@ -20,7 +20,7 @@ import { logEvent } from "./utils/amplitude";
 import { isErrorAtom, setIsError } from "./store/store";
 import { useStore } from "@nanostores/react";
 import { getEnvironment } from "./utils/getEnvironment";
-import LegacyUtbetaling from "./components/utbetaling/legacy-utbetaling/LegacyUtbetaling";
+import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 
 function App() {
   const isError = useStore(isErrorAtom)
