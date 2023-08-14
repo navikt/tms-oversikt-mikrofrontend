@@ -7,7 +7,6 @@ import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
-import dayjs from "dayjs";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -17,7 +16,7 @@ const Utbetaling = () => {
     return null;
   }
 
-  if (!hasUtbetalinger(utbetalinger)) {
+  if (!hasUtbetalinger(utbetalinger.utbetalteUtbetalinger)) {
     return null;
   }
 
