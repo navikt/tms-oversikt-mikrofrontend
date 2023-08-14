@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { LanguageContext } from "../../language/LanguageProvider";
-import { text } from "../../language/text";
-import { LinkPanel } from "@navikt/ds-react";
-import { logNavigereEvent } from "../../utils/amplitude";
-import { utbetalingsoversiktUrl } from "../../api/urls";
 import { Money } from "@navikt/ds-icons";
-import CSS from "./Utbetaling.module.css";
+import { LanguageContext } from "../../../language/LanguageProvider";
+import { LinkPanel } from "@navikt/ds-react";
+import { utbetalingsoversiktUrl } from "../urls";
+import { logNavigereEvent } from "../../../utils/amplitude";
+import { text } from "../../../language/text";
+import CSS from "./LegacyUtbetaling.module.css";
 
 const Utbetaling = ({ size }: { size: string}) => {
   const language = useContext(LanguageContext);
