@@ -1,4 +1,8 @@
 import { getEnvironment } from "../../utils/getEnvironment";
+import dayjs from "dayjs";
+
+const toDate = dayjs().format("YYYYMMDD");
+const fromDate = dayjs().subtract(3, "month").format("YYYYMMDD");
 
 const UTBETALINGSOVERSIKT_URL = {
   local: "http://localhost:3000/utbetalingsoversikt",
@@ -12,5 +16,6 @@ const UTBETALINGSOVERSIKT_API_URL = {
   production: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetaling",
 };
 
-export const utbetalingsoversiktApiUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}`;
+
+export const utbetalingsoversiktApiUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}?&fom=${fromDate}&tom=${toDate}`;
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];

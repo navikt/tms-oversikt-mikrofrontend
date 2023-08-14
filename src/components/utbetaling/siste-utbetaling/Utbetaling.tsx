@@ -1,13 +1,13 @@
 import { useContext } from "react";
+import useSWRImmutable from "swr/immutable";
 import { LanguageContext } from "../../../language/LanguageProvider";
 import { BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
-import UtbetalingListe from "../utbetaling-liste/UtbetalingListe";
-import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
+import dayjs from "dayjs";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -42,7 +42,7 @@ const Utbetaling = () => {
             </Link>
           </div>
           <Heading size="large">
-            {sisteUtbetaling + " kr "}
+            {sisteUtbetaling + " kr"}
           </Heading>
           <BodyLong>
             {sisteUtbetalingDato} {text.konto[language]} {sisteUtbetalingKonto}
