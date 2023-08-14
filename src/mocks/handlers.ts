@@ -136,7 +136,7 @@ export const microfrontendsHandler = () => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("AiA", "5vh"))
+        ctx.body(mikrofrontendBundle("AiA", "50vh"))
       );
     }),
     rest.get(`${registrertArbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {

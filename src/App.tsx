@@ -59,11 +59,6 @@ function App() {
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
-        {isArbeidssoker ? (
-          <ErrorBoundary>
-            <ArbeidsflateForInnloggetArbeidssoker />
-          </ErrorBoundary>
-        ) : null}
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
@@ -76,8 +71,15 @@ function App() {
             <SisteSakerPanel />
           </div>
         </div>
-        <InnloggedeTjenester />
       </div>
+      <React.Suspense fallback={<ContentLoader />}>
+        {isArbeidssoker ? (
+          <ErrorBoundary>
+            <ArbeidsflateForInnloggetArbeidssoker />
+          </ErrorBoundary>
+        ) : null}
+      </React.Suspense>
+      <InnloggedeTjenester />
     </div>
   );
 }
