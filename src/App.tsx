@@ -74,7 +74,7 @@ function App() {
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
           <DinOversikt/>
-          {getEnvironment() === "production" ?  <Utbetaling />: null}
+          {getEnvironment() === "production" ? null : <Utbetaling />}
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>
