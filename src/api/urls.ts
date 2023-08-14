@@ -49,9 +49,9 @@ const REGISTRERT_ARBEIDSSOKER_BASE_URL = {
 };
 
 const REGISTRERT_ARBEIDSSOKER_BASE_CDN_URL = {
-  local: "http://localhost:3000/registrert-arbeidssoker",
-  development: "https://cdn.nav.no/min-side/registrert-arbeidssoker/dist",
-  production: "https://cdn.nav.no/min-side/registrert-arbeidssoker/dist",
+  local: "http://localhost:3000/arbeidssoker-mikrofrontend",
+  development: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
+  production: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
 };
 
 const MELDEKORT_URL = {
