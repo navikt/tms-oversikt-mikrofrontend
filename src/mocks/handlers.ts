@@ -1,8 +1,4 @@
 import { rest } from "msw";
-import aap from "./bundles/aap";
-import aia from "./bundles/aia";
-import meldekort from "./bundles/meldekort";
-import syfoDialog from "./bundles/syfoDialog";
 import {
   aapBaseCdnUrl,
   aapManifestUrl,
@@ -21,6 +17,7 @@ import {
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../api/urls";
+import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
 export const sakerHandler = () => {
   return [
@@ -134,16 +131,32 @@ export const personaliahandler = () => {
 export const microfrontendsHandler = () => {
   return [
     rest.get(`${aiaBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
-      return res(ctx.set("Content-Type", "text/javascript"), ctx.status(200), ctx.body(aia));
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("AiA", "5vh"))
+      );
     }),
     rest.get(`${aapBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
-      return res(ctx.set("Content-Type", "text/javascript"), ctx.status(200), ctx.body(aap));
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("AAP", "5vh"))
+      );
     }),
     rest.get(`${syfoDialogCdnUrl}/bundle.js`, (_, res, ctx) => {
-      return res(ctx.set("Content-Type", "text/javascript"), ctx.status(200), ctx.body(syfoDialog));
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("Syfo dialog", "5vh"))
+      );
     }),
     rest.get(meldekortUrl, (_, res, ctx) => {
-      return res(ctx.set("Content-Type", "text/javascript"), ctx.status(200), ctx.body(meldekort));
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
+      );
     }),
   ];
 };
