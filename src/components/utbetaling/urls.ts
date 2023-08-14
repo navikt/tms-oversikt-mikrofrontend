@@ -8,8 +8,8 @@ const UTBETALINGSOVERSIKT_URL = {
 
 const UTBETALINGSOVERSIKT_API_URL = {
   local: "http://localhost:3000/utbetalingsvoversikt-api",
-  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/statistikk/innlogging",
-  production: "https://www.nav.no/tms-min-side-proxy/statistikk/innlogging",
+  development: "https://www.intern.dev.nav.no/tms-utbetalingsoversikt-api/utbetaling",
+  production: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetaling",
 };
 
 export const utbetalingsoversiktApiUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}`;
