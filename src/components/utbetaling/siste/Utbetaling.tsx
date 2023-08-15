@@ -8,6 +8,7 @@ import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
 import { getEnvironment } from "../../../utils/getEnvironment";
+import UtbetalingContainer from "../container/UtbetalingContainer";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -37,24 +38,22 @@ const Utbetaling = () => {
 
   return (
     <>
-      <div className={styles["utbetaling-container"]}>
-        <div className={styles["utbetaling"]}>
-          <div className={styles["utbetaling-heading"]}>
-            <BodyShort>
-              {text.tittel[language]}
-            </BodyShort>
-            <Link href={utbetalingsoversiktUrl}>
-              {text.alle[language]}
-            </Link>
-          </div>
-          <Heading size="large">
-            {sisteUtbetaling + " kr"}
-          </Heading>
-          <BodyLong>
-            {sisteUtbetalingDato} {text.konto[language]} {sisteUtbetalingKonto}
-          </BodyLong>
+      <UtbetalingContainer>
+        <div className={styles["utbetaling-heading"]}>
+          <BodyShort>
+            {text.tittel[language]}
+          </BodyShort>
+          <Link href={utbetalingsoversiktUrl}>
+            {text.alle[language]}
+          </Link>
         </div>
-      </div>
+        <Heading size="large">
+          {sisteUtbetaling + " kr"}
+        </Heading>
+        <BodyLong>
+          {sisteUtbetalingDato} {text.konto[language]} {sisteUtbetalingKonto}
+        </BodyLong>
+      </UtbetalingContainer>
     </>
   );
 };
