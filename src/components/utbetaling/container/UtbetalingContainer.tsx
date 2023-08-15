@@ -6,13 +6,11 @@ interface Props {
 }
 
 const UtbetalingContainer = ({ children }: Props) => (
-  <>
-    <div className={styles["utbetaling"]}>
-      <div className={styles["utbetaling-container"]}>
-        {children}
-      </div>
+  <div className={styles["utbetaling"]}>
+    <div className={styles["utbetaling-container"]}>
+      {children}
     </div>
-  </>
+  </div>
 );
 
 export default UtbetalingContainer;
