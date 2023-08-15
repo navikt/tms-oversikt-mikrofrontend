@@ -1,18 +1,4 @@
-.utbetaling-container {
-  display: flex;
-  justify-content: center;
-  /* margin-bottom: 0.15rem; */
-  margin-bottom: 2.5rem;
-}
-
 .utbetaling-heading {
   display: flex;
   justify-content: space-between;
-}
-
-.utbetaling {
-  border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
-  background: var(--a-bg-subtle);
-  width: 37rem;
-  padding: 1.25rem;
 }
