@@ -7,6 +7,7 @@ import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
+import { getEnvironment } from "../../../utils/getEnvironment";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -27,6 +28,12 @@ const Utbetaling = () => {
 
   const sisteUtbetalingDato = formatToReadableDate(utbetalinger.utbetalteUtbetalinger[0].ytelse_dato);
   const sisteUtbetalingKonto = utbetalinger.utbetalteUtbetalinger[0].kontonummer;
+
+  console.info("Siste utbetaling: " + sisteUtbetaling + " kr");
+
+  if (getEnvironment() === "production") {
+    return null;
+  }
 
   return (
     <>
