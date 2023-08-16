@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useStore } from "@nanostores/react";
+import React from "react";
 import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
+import ErrorBoundary from "./ErrorBoundary";
 import { fetcher } from "./api/api";
 import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
@@ -11,20 +13,19 @@ import ContentLoader from "./components/loader/ContentLoader";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
+import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 import Utbetaling from "./components/utbetaling/siste/Utbetaling";
 import Utkast from "./components/utkast/Utkast";
 import { aiaEntry, bundle } from "./entrypoints";
-import ErrorBoundary from "./ErrorBoundary";
 import { useManifest } from "./hooks/useManifest";
-import { logEvent } from "./utils/amplitude";
 import { isErrorAtom, setIsError } from "./store/store";
-import { useStore } from "@nanostores/react";
-import { getEnvironment } from "./utils/getEnvironment";
-import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
+import { logEvent } from "./utils/amplitude";
 
 function App() {
   const isError = useStore(isErrorAtom);
 
+  const enableAiaFlytting = import.meta.env.VITE_ENABLE_AIA_FLYTTING
+  
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
@@ -61,6 +62,11 @@ function App() {
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
+        {enableAiaFlytting !== "true" && isArbeidssoker ? (
+          <ErrorBoundary>
+            <ArbeidsflateForInnloggetArbeidssoker />
+          </ErrorBoundary>
+        ) : null}
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
@@ -76,7 +82,7 @@ function App() {
         </div>
       </div>
       <React.Suspense fallback={<ContentLoader />}>
-        {isArbeidssoker ? (
+        {enableAiaFlytting === "true" && isArbeidssoker ? (
           <ErrorBoundary>
             <ArbeidsflateForInnloggetArbeidssoker />
           </ErrorBoundary>
