@@ -24,8 +24,8 @@ import { logEvent } from "./utils/amplitude";
 function App() {
   const isError = useStore(isErrorAtom);
 
-  const enableAiaFlytting = import.meta.env.VITE_ENABLE_AIA_FLYTTING
-  
+  const enableAiaFlytting = import.meta.env.VITE_ENABLE_AIA_FLYTTING;
+
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
