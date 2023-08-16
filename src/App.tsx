@@ -74,7 +74,7 @@ function App() {
             <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt isArbeidssoker={isArbeidssoker} />
+          <DinOversikt isArbeidssoker={enableAiaFlytting === "true" && isArbeidssoker} />
           <Utbetaling />
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
