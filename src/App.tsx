@@ -11,7 +11,7 @@ import ContentLoader from "./components/loader/ContentLoader";
 import Oppgaver from "./components/oppgaver/Oppgaver";
 import Sidetittel from "./components/sidetittel/Sidetittel";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
-import Utbetaling from "./components/utbetaling/Utbetaling";
+import Utbetaling from "./components/utbetaling/siste/Utbetaling";
 import Utkast from "./components/utkast/Utkast";
 import { aiaEntry, bundle } from "./entrypoints";
 import ErrorBoundary from "./ErrorBoundary";
@@ -19,6 +19,8 @@ import { useManifest } from "./hooks/useManifest";
 import { logEvent } from "./utils/amplitude";
 import { isErrorAtom, setIsError } from "./store/store";
 import { useStore } from "@nanostores/react";
+import { getEnvironment } from "./utils/getEnvironment";
+import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 
 function App() {
   const isError = useStore(isErrorAtom);
@@ -63,10 +65,11 @@ function App() {
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
-            <Utbetaling size={brukerUnderOppfolging ? "large" : "small"} />
+            <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
           <DinOversikt isArbeidssoker={isArbeidssoker} />
+          <Utbetaling />
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>
