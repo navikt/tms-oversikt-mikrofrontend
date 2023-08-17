@@ -239,9 +239,6 @@ export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
 export const minSideVarslerUrl = `${minSideUrl}/varsler`;
-export const identUrl = `${minSideProxyUrl}/personalia/ident`;
-export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
-
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const stillingerUrl = STILLINGER_URL[getEnvironment()];
 export const uforetrygdUrl = UFORETRYGD_URL[getEnvironment()];
