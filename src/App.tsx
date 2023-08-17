@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
 import { fetcher } from "./api/api";
@@ -9,7 +9,6 @@ import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTje
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import Oppgaver from "./components/oppgaver/Oppgaver";
-import Sidetittel from "./components/sidetittel/Sidetittel";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/siste/Utbetaling";
 import Utkast from "./components/utkast/Utkast";
@@ -50,9 +49,6 @@ function App() {
   return (
     <div className={style.app}>
       {isError ? <Feilmelding /> : null}
-      <div className={style.pageWrapper}>
-        <Sidetittel />
-      </div>
       <div className={style.panelWrapper}>
         <Oppgaver />
         <Utkast />

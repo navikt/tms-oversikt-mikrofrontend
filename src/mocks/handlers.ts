@@ -108,27 +108,6 @@ export const microfrontendSelectorHandler = () => {
   ];
 };
 
-export const personaliahandler = () => {
-  return [
-    rest.get(navnUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          navn: "Navn navnesen",
-        })
-      );
-    }),
-    rest.get(identUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          navn: "123",
-        })
-      );
-    }),
-  ];
-};
-
 export const microfrontendsHandler = () => {
   return [
     rest.get(`${aiaBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
@@ -458,7 +437,6 @@ export const handlers = [
   ...utkastHandler(),
   ...varselHandler(),
   ...microfrontendSelectorHandler(),
-  ...personaliahandler(),
   ...microfrontendsHandler(),
   ...manifestsHandler(),
   ...arbeidssøkerHandler(),
