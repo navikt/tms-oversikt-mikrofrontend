@@ -8,6 +8,7 @@ import {
   antallVarslerUrl,
   arbeidssokerUrl,
   digisosAntallUtkastUrl,
+  featureToggleUrl,
   identUrl,
   meldekortUrl,
   mineSakerApiUrl,
@@ -475,6 +476,14 @@ export const utbetalingHandler = () => {
   ];
 };
 
+export const featureToggleHandler = () => {
+  return [
+    rest.get(featureToggleUrl, (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ "FlytteAia": true }));
+    }),
+  ];
+};
+
 export const handlers = [
   ...sakerHandler(),
   ...utkastHandler(),
@@ -485,4 +494,5 @@ export const handlers = [
   ...manifestsHandler(),
   ...arbeidssøkerHandler(),
   ...utbetalingHandler(),
+  ...featureToggleHandler()
 ];

@@ -21,14 +21,14 @@ import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
+type FeatureToggles = { FlytteAia: boolean};
+
 function App() {
   const isError = useStore(isErrorAtom);
 
-  const enableAiaFlytting = import.meta.env.VITE_ENABLE_AIA_FLYTTING;
-
-  const { data: featuretoggles} = useSWRImmutable(featureToggleUrl, fetcher);
-  console.log(featuretoggles)
-
+  const { data: featuretoggles} = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+  const enableAiaFlytting = featuretoggles?.FlytteAia
+  
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
@@ -65,7 +65,7 @@ function App() {
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
-        {enableAiaFlytting !== "true" && isArbeidssoker ? (
+        {!enableAiaFlytting && isArbeidssoker ? (
           <ErrorBoundary>
             <ArbeidsflateForInnloggetArbeidssoker />
           </ErrorBoundary>
@@ -77,7 +77,7 @@ function App() {
             <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt isArbeidssoker={enableAiaFlytting === "true" && isArbeidssoker} />
+          <DinOversikt isArbeidssoker={enableAiaFlytting&& isArbeidssoker} />
           <Utbetaling />
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
@@ -85,7 +85,7 @@ function App() {
         </div>
       </div>
       <React.Suspense fallback={<ContentLoader />}>
-        {enableAiaFlytting === "true" && isArbeidssoker ? (
+        {enableAiaFlytting && isArbeidssoker ? (
           <ErrorBoundary>
             <ArbeidsflateForInnloggetArbeidssoker />
           </ErrorBoundary>
