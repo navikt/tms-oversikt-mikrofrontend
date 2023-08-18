@@ -4,7 +4,7 @@ import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { fetcher } from "./api/api";
-import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
+import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, featureToggleUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
@@ -25,6 +25,9 @@ function App() {
   const isError = useStore(isErrorAtom);
 
   const enableAiaFlytting = import.meta.env.VITE_ENABLE_AIA_FLYTTING;
+
+  const { data: featuretoggles} = useSWRImmutable(featureToggleUrl, fetcher);
+  console.log(featuretoggles)
 
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
