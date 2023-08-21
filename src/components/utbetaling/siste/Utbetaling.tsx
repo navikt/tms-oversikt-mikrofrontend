@@ -30,12 +30,6 @@ const Utbetaling = () => {
   const sisteUtbetalingDato = formatToReadableDate(utbetalinger.utbetalteUtbetalinger[0].ytelse_dato);
   const sisteUtbetalingKonto = utbetalinger.utbetalteUtbetalinger[0].kontonummer;
 
-  console.log("Siste utbetaling: " + sisteUtbetaling + " kr");
-
-  if (getEnvironment() === "production") {
-    return null;
-  }
-
   return (
     <>
       <UtbetalingContainer>
