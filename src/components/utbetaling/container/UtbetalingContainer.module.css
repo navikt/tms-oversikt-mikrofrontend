@@ -4,27 +4,27 @@
   margin-bottom: 0.15rem;
 }
 
-.utbetaling-container {
+.container {
   background: var(--a-bg-subtle);
   width: 37rem;
   padding: 1rem;
 }
 
-.utbetaling-container-siste {
+.container-siste {
   border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
 }
 
-.utbetaling-container-ytelser {
+.container-ytelser {
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   margin-bottom: 2.5rem;
 }
 
 @media (min-width: 648px) {
-  .utbetaling-container {
+  .container {
     padding: 1.25rem;
   }
 
-  .utbetaling-container-ytelser {
+  .container-ytelser {
     padding: 1rem 1.25rem 1rem 1.25rem;
   }
 }
