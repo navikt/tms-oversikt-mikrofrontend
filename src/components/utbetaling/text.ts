@@ -14,4 +14,9 @@ export const text = {
     nn: "til kontonummer",
     en: "to account number",
   },
+  ingen: {
+    nb: "Du har ingen nye utbetalinger de siste tre måneder",
+    nn: "Du har ingen nye utbetalinger de siste tre måneder",
+    en: "Du har ingen nye utbetalinger de siste tre måneder",
+  }
 };
