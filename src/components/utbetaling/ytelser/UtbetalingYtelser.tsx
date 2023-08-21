@@ -13,7 +13,7 @@ const UtbetalingYtelser = ({ ytelse, utbetaling }: Props) => {
         <BodyShort>
           <span className={styles["utbetaling-tema"]}>
             <span>{ytelse}</span>
-            <span className={styles["utbetaling-belop"]}>{`${utbetaling} kr`}</span>
+            <span className={styles["utbetaling-sum"]}>{`${utbetaling} kr`}</span>
           </span>
         </BodyShort>
     </UtbetalingContainer>
