@@ -6,11 +6,13 @@ import {
   aapBaseCdnUrl,
   aapManifestUrl,
   mineSakerSakstemaerUrl,
+  registrertArbeidssokerBaseCdnUrl,
+  registrertArbeidssokerManifestUrl,
   selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
-import { aapEntry, bundle, syfoDialogEntry } from "../../entrypoints";
+import { aapEntry, bundle, registrertArbeidssokerEntry, syfoDialogEntry } from "../../entrypoints";
 import ErrorBoundary from "../../ErrorBoundary";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
@@ -41,7 +43,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = () => {
+const DinOversikt = ({ isArbeidssoker }: { isArbeidssoker: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
@@ -52,8 +54,16 @@ const DinOversikt = () => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
+  const [registretArbeidssokerManifest, isLoadingRegistrertArbeidssokerManifest] = useManifest(
+    registrertArbeidssokerManifestUrl
+  );
 
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
+  if (
+    isLoadingProfil ||
+    isLoadingAapManifest ||
+    isLoadingSyfoDialogManifest ||
+    isLoadingRegistrertArbeidssokerManifest
+  ) {
     return <ContentLoader />;
   }
 
@@ -62,8 +72,19 @@ const DinOversikt = () => {
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
+  const RegistrertArbeidssoker = React.lazy(
+    () =>
+      import(
+        `${registrertArbeidssokerBaseCdnUrl}/${registretArbeidssokerManifest[registrertArbeidssokerEntry][bundle]}`
+      )
+  );
 
-  if (!isAapBruker && !isSyfoDialogBruker && (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)) {
+  if (
+    !isAapBruker &&
+    !isSyfoDialogBruker &&
+    !isArbeidssoker &&
+    (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
+  ) {
     return null;
   } else {
     return (
@@ -73,6 +94,11 @@ const DinOversikt = () => {
         </BodyShort>
         <div className={styles.listeContainer}>
           <React.Suspense fallback={<ContentLoader />}>
+            {isArbeidssoker && (
+              <ErrorBoundary>
+                <RegistrertArbeidssoker />
+              </ErrorBoundary>
+            )}
             {isAapBruker && (
               <ErrorBoundary>
                 <Arbeidsavklaringspenger />

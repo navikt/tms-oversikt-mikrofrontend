@@ -8,11 +8,14 @@ import {
   antallVarslerUrl,
   arbeidssokerUrl,
   digisosAntallUtkastUrl,
+  featureToggleUrl,
   identUrl,
   meldekortUrl,
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
   navnUrl,
+  registrertArbeidssokerBaseCdnUrl,
+  registrertArbeidssokerManifestUrl,
   selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
@@ -114,7 +117,14 @@ export const microfrontendsHandler = () => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("AiA", "5vh"))
+        ctx.body(mikrofrontendBundle("AiA", "50vh"))
+      );
+    }),
+    rest.get(`${registrertArbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh"))
       );
     }),
     rest.get(`${aapBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
@@ -150,6 +160,19 @@ export const manifestsHandler = () => {
           "src/main.tsx": {
             file: "bundle.js",
             src: "src/main.tsx",
+            isEntry: true,
+            css: ["assets/bundle.4ce1efd6.css"],
+          },
+        })
+      );
+    }),
+    rest.get(registrertArbeidssokerManifestUrl, (_, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          "src/Mikrofrontend.tsx": {
+            file: "bundle.js",
+            src: "src/Mikrofrontend.tsx",
             isEntry: true,
             css: ["assets/bundle.4ce1efd6.css"],
           },
@@ -432,6 +455,14 @@ export const utbetalingHandler = () => {
   ];
 };
 
+export const featureToggleHandler = () => {
+  return [
+    rest.get(featureToggleUrl, (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ "FlytteAia": true }));
+    }),
+  ];
+};
+
 export const handlers = [
   ...sakerHandler(),
   ...utkastHandler(),
@@ -441,4 +472,5 @@ export const handlers = [
   ...manifestsHandler(),
   ...arbeidssøkerHandler(),
   ...utbetalingHandler(),
+  ...featureToggleHandler()
 ];
