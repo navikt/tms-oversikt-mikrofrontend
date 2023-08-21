@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { LanguageContext } from "../../../language/LanguageProvider";
-import { BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { fetcher } from "../../../api/api";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import UtbetalingContainer from "../container/UtbetalingContainer";
+import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
-import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -35,9 +35,11 @@ const Utbetaling = () => {
           <BodyShort>
             {text.tittel[language]}
           </BodyShort>
-          <Link className={styles["utbetaling-link"]} href={utbetalingsoversiktUrl}>
-            {text.alle[language]}
-          </Link>
+          <BodyShort>
+            <a className={styles["utbetaling-link"]} href={utbetalingsoversiktUrl}>
+              {text.alle[language]}
+            </a>
+          </BodyShort>
         </div>
         <Heading size="large">
           {sisteUtbetalingSummert + " kr"}

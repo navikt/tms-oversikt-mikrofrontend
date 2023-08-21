@@ -10,10 +10,10 @@ interface Props {
 const UtbetalingYtelser = ({ ytelse, utbetaling }: Props) => {
   return (
     <UtbetalingContainer type="ytelser">
-        <BodyShort className={styles["utbetaling-ytelse"]}>
-          <span>{ytelse}</span>
-          <span className={styles["utbetaling-sum"]}>{`${utbetaling} kr`}</span>
-        </BodyShort>
+      <BodyShort className={styles["utbetaling-ytelse"]}>
+        <span>{ytelse}</span>
+        <span className={styles["utbetaling-sum"]}>{`${utbetaling} kr`}</span>
+      </BodyShort>
     </UtbetalingContainer>
   );
 };

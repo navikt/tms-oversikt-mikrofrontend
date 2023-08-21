@@ -7,3 +7,7 @@
 .utbetaling-link {
   color: black;
 }
+
+.utbetaling-link:hover {
+  text-decoration: none;
+}
