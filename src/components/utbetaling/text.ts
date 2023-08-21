@@ -7,11 +7,11 @@ export const text = {
   alle: {
     nb: "Se alle",
     nn: "Se alle",
-    en: "Se alle",
+    en: "See all",
   },
   konto: {
     nb: "til kontonummer",
     nn: "til kontonummer",
-    en: "til kontonummer",
+    en: "to account number",
   },
 };
