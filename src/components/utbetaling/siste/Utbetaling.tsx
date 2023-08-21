@@ -3,13 +3,13 @@ import useSWRImmutable from "swr/immutable";
 import { LanguageContext } from "../../../language/LanguageProvider";
 import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { fetcher } from "../../../api/api";
-import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
+import { utbetalingsoversiktApiUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import UtbetalingContainer from "../container/UtbetalingContainer";
 import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
+import UtbetalingHeading from "../heading/UtbetalingHeading";
 import { UtbetalingResponse } from "../types";
 import { text } from "../text"
-import styles from "./Utbetaling.module.css";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -26,14 +26,7 @@ const Utbetaling = () => {
   if (!hasUtbetalinger(data.utbetalteUtbetalinger)) {
     return (
       <UtbetalingContainer type="ingen">
-        <div className={styles.heading}>
-          <BodyShort>
-            {text.tittel[language]}
-          </BodyShort>
-          <a className={styles.link} href={utbetalingsoversiktUrl}>
-            {text.alle[language]}
-          </a>
-        </div>
+        <UtbetalingHeading />
         <BodyShort>
           {text.ingen[language]}
         </BodyShort>
@@ -49,14 +42,7 @@ const Utbetaling = () => {
   return (
     <>
       <UtbetalingContainer type="siste">
-        <div className={styles.heading}>
-          <BodyShort>
-            {text.tittel[language]}
-          </BodyShort>
-          <a className={styles.link} href={utbetalingsoversiktUrl}>
-            {text.alle[language]}
-          </a>
-        </div>
+        <UtbetalingHeading />
         <Heading size="large">
           {sum + " kr"}
         </Heading>
