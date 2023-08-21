@@ -5,10 +5,9 @@ import { BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
 import { fetcher } from "../../../api/api";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
+import UtbetalingContainer from "../container/UtbetalingContainer";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
-import { getEnvironment } from "../../../utils/getEnvironment";
-import UtbetalingContainer from "../container/UtbetalingContainer";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);

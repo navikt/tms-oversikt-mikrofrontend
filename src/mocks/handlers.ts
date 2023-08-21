@@ -265,7 +265,7 @@ export const utbetalingHandler = () => {
                 er_utbetalt: true,
                 rettighetshaver: {
                   aktoerId: "12345",
-                  navn: "Ola Nordmann      ",
+                  navn: "Ola Nordmann",
                 },
                 melding: "6 uker igjen av stønadsperioden",
               },
