@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
-import { Trekk, UnderYtelse } from "./types";
+import { HovedYtelse, Trekk, UnderYtelse } from "./types";
 
-export const hasUtbetalinger = (utbetalteUtbetalinger: UnderYtelse[]) => utbetalteUtbetalinger.length > 0;
+export const hasUtbetalinger = (utbetalteUtbetalinger: HovedYtelse[] | []) => utbetalteUtbetalinger.length > 0;
 
 function sum(numbers: number[]): number {
   return numbers.reduce(

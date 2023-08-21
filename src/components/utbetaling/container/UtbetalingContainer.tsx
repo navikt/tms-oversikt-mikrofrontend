@@ -1,5 +1,5 @@
-import styles from "./UtbetalingContainer.module.css";
 import React from "react";
+import styles from "./UtbetalingContainer.module.css";
 
 interface Props {
   type: string;
@@ -7,8 +7,8 @@ interface Props {
 }
 
 const UtbetalingContainer = ({ type, children }: Props) => (
-  <div className={styles["utbetaling"]}>
-    <div className={`${styles["utbetaling-container"]} ${styles[`utbetaling-container-${type}`]}`}>
+  <div className={styles.utbetaling}>
+    <div className={`${styles.container} ${styles[`container-${type}`]}`}>
       {children}
     </div>
   </div>

@@ -1,21 +1,8 @@
-.utbetaling-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-}
-
-.utbetaling-liste {
-  background-color: var(--a-bg-subtle);
-  width: 37rem;
-  border-radius: 0.125rem 0.125rem 0.5rem 0.5rem;
-  padding: 1rem 1.25rem;
-}
-
-.utbetaling-ytelse {
+.ytelse {
   display: flex;
   justify-content: space-between;
 }
 
-.utbetaling-sum {
+.sum {
   font-weight: 600;
 }

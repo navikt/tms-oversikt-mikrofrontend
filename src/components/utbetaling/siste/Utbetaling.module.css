@@ -1,13 +1,13 @@
-.utbetaling-heading {
+.heading {
   display: flex;
   justify-content: space-between;
   padding-bottom: 0.75rem;
 }
 
-.utbetaling-link {
+.link {
   color: black;
 }
 
-.utbetaling-link:hover {
+.link:hover {
   text-decoration: none;
 }

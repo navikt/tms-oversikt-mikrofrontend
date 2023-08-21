@@ -1,6 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
-import styles from "./UtbetalingYtelser.module.css";
 import UtbetalingContainer from "../container/UtbetalingContainer";
+import styles from "./UtbetalingYtelser.module.css";
 
 interface Props {
   ytelse: string;
@@ -10,9 +10,9 @@ interface Props {
 const UtbetalingYtelser = ({ ytelse, utbetaling }: Props) => {
   return (
     <UtbetalingContainer type="ytelser">
-      <BodyShort className={styles["utbetaling-ytelse"]}>
+      <BodyShort className={styles.ytelse}>
         <span>{ytelse}</span>
-        <span className={styles["utbetaling-sum"]}>{`${utbetaling} kr`}</span>
+        <span className={styles.sum}>{`${utbetaling} kr`}</span>
       </BodyShort>
     </UtbetalingContainer>
   );
