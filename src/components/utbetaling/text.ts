@@ -7,7 +7,7 @@ export const text = {
   alle: {
     nb: "Se alle",
     nn: "Se alle",
-    en: "Se all",
+    en: "See all",
   },
   konto: {
     nb: "til kontonummer",
