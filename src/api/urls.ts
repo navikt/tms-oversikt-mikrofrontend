@@ -253,11 +253,6 @@ export const antallUtkastUrl = `${minSideProxyUrl}/utkast/utkast/antall`;
 export const minSideUtkastUrl = `${minSideUrl}/utkast`;
 export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
 export const minSideVarslerUrl = `${minSideUrl}/varsler`;
-export const identUrl = `${minSideProxyUrl}/personalia/ident`;
-export const navnUrl = `${minSideProxyUrl}/personalia/navn`;
-
-export const featureToggleUrl = `${minSideProxyUrl}/featuretoggles`;
-
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const stillingerUrl = STILLINGER_URL[getEnvironment()];
 export const uforetrygdUrl = UFORETRYGD_URL[getEnvironment()];
@@ -283,6 +278,7 @@ export const arbeidsavklaringspengerUrl = ARBEIDSAVKLARINGSPENGER_URL[getEnviron
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];
 export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
+export const featureToggleUrl = `${minSideProxyUrl}/featuretoggles`;
 
 export const dialogMedVeilederUrl = `${navUrl}/arbeid/dialog`;
 export const mineSakerUrl = `${personNavUrl}/mine-saker`;

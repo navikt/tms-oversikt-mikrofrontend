@@ -11,7 +11,6 @@ import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTje
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import Oppgaver from "./components/oppgaver/Oppgaver";
-import Sidetittel from "./components/sidetittel/Sidetittel";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 import Utbetaling from "./components/utbetaling/siste/Utbetaling";
@@ -54,9 +53,6 @@ function App() {
   return (
     <div className={style.app}>
       {isError ? <Feilmelding /> : null}
-      <div className={style.pageWrapper}>
-        <Sidetittel />
-      </div>
       <div className={style.panelWrapper}>
         <Oppgaver />
         <Utkast />
