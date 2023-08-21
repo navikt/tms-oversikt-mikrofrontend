@@ -8,6 +8,7 @@ import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import UtbetalingContainer from "../container/UtbetalingContainer";
 import { text } from "../text"
 import styles from "./Utbetaling.module.css";
+import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
 
 const Utbetaling = () => {
   const language = useContext(LanguageContext);
@@ -21,32 +22,31 @@ const Utbetaling = () => {
     return null;
   }
 
-  const sisteUtbetaling = summerYtelser(
-    utbetalinger.utbetalteUtbetalinger[0].underytelser,
-    utbetalinger.utbetalteUtbetalinger[0].trekk
-  );
+  const sisteUtbetaling = utbetalinger.utbetalteUtbetalinger[0];
+  const sisteUtbetalingSummert = summerYtelser(sisteUtbetaling.underytelser, sisteUtbetaling.trekk);
 
   const sisteUtbetalingDato = formatToReadableDate(utbetalinger.utbetalteUtbetalinger[0].ytelse_dato);
   const sisteUtbetalingKonto = utbetalinger.utbetalteUtbetalinger[0].kontonummer;
 
   return (
     <>
-      <UtbetalingContainer>
+      <UtbetalingContainer type="siste">
         <div className={styles["utbetaling-heading"]}>
           <BodyShort>
             {text.tittel[language]}
           </BodyShort>
-          <Link href={utbetalingsoversiktUrl}>
+          <Link className={styles["utbetaling-link"]} href={utbetalingsoversiktUrl}>
             {text.alle[language]}
           </Link>
         </div>
         <Heading size="large">
-          {sisteUtbetaling + " kr"}
+          {sisteUtbetalingSummert + " kr"}
         </Heading>
         <BodyLong>
           {sisteUtbetalingDato} {text.konto[language]} {sisteUtbetalingKonto}
         </BodyLong>
       </UtbetalingContainer>
+      <UtbetalingYtelser ytelse={sisteUtbetaling.ytelse} utbetaling={sisteUtbetalingSummert}/>
     </>
   );
 };

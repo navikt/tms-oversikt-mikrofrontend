@@ -11,9 +11,11 @@
   padding: 1rem 1.25rem;
 }
 
-.utbetaling-tema {
-  padding-right: 65%;
+.utbetaling-ytelse {
+  display: flex;
+  justify-content: space-between;
 }
 
-.utbetaling-amount {
+.utbetaling-sum {
+  font-weight: 600;
 }
