@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { LanguageContext } from "../../../language/LanguageProvider";
-import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
 import { fetcher } from "../../../api/api";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
@@ -39,11 +39,9 @@ const Utbetaling = () => {
           <BodyShort>
             {text.tittel[language]}
           </BodyShort>
-          <BodyShort>
-            <a className={styles.link} href={utbetalingsoversiktUrl}>
-              {text.alle[language]}
-            </a>
-          </BodyShort>
+          <Link className={styles.link} href={utbetalingsoversiktUrl}>
+            {text.alle[language]}
+          </Link>
         </div>
         <Heading size="large">
           {sum + " kr"}
