@@ -2,11 +2,19 @@ import { BodyShort } from "@navikt/ds-react";
 import styles from "./UtbetalingYtelser.module.css";
 import UtbetalingContainer from "../container/UtbetalingContainer";
 
-const UtbetalingYtelser = () => {
+interface Props {
+  ytelse: string;
+  utbetaling: number;
+}
+
+const UtbetalingYtelser = ({ ytelse, utbetaling }: Props) => {
   return (
-    <UtbetalingContainer>
+    <UtbetalingContainer type="ytelser">
         <BodyShort>
-          <span className={styles["utbetaling-tema"]}>Foreldrepenger</span> 24 368 kr
+          <span className={styles["utbetaling-tema"]}>
+            <span>{ytelse}</span>
+            <span className={styles["utbetaling-belop"]}>{`${utbetaling} kr`}</span>
+          </span>
         </BodyShort>
     </UtbetalingContainer>
   );

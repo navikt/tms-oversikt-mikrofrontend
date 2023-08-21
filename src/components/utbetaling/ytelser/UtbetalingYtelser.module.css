@@ -12,8 +12,10 @@
 }
 
 .utbetaling-tema {
-  padding-right: 65%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.utbetaling-amount {
+.utbetaling-belop {
+  font-weight: 600;
 }
