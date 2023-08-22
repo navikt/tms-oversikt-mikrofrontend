@@ -4,10 +4,7 @@ import {
   aapManifestUrl,
   aiaBaseCdnUrl,
   aiaManifestUrl,
-  antallUtkastUrl,
-  antallVarslerUrl,
   arbeidssokerUrl,
-  digisosAntallUtkastUrl,
   featureToggleUrl,
   meldekortUrl,
   mineSakerApiUrl,
@@ -60,42 +57,6 @@ export const sakerHandler = () => {
           { kode: "UFO" },
           { kode: "UKJENT" },
         ])
-      );
-    }),
-  ];
-};
-
-export const utkastHandler = () => {
-  return [
-    rest.get(antallUtkastUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          antall: 2,
-        })
-      );
-    }),
-    rest.get(digisosAntallUtkastUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          antall: 3,
-        })
-      );
-    }),
-  ];
-};
-
-export const varselHandler = () => {
-  return [
-    rest.get(antallVarslerUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          oppgaver: 3,
-          beskjeder: 2,
-          innbokser: 4,
-        })
       );
     }),
   ];
@@ -463,8 +424,6 @@ export const featureToggleHandler = () => {
 
 export const handlers = [
   ...sakerHandler(),
-  ...utkastHandler(),
-  ...varselHandler(),
   ...microfrontendSelectorHandler(),
   ...microfrontendsHandler(),
   ...manifestsHandler(),

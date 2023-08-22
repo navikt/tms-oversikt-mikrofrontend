@@ -10,11 +10,9 @@ import Feilmelding from "./components/feilmelding/Feilmelding";
 import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
-import Oppgaver from "./components/oppgaver/Oppgaver";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 import Utbetaling from "./components/utbetaling/siste/Utbetaling";
-import Utkast from "./components/utkast/Utkast";
 import { aiaEntry, bundle } from "./entrypoints";
 import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
@@ -27,7 +25,7 @@ function App() {
 
   const { data: featuretoggles} = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
   const enableAiaFlytting = featuretoggles?.FlytteAia
-  
+
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
@@ -53,10 +51,6 @@ function App() {
   return (
     <div className={style.app}>
       {isError ? <Feilmelding /> : null}
-      <div className={style.panelWrapper}>
-        <Oppgaver />
-        <Utkast />
-      </div>
       <React.Suspense fallback={<ContentLoader />}>
         <ErrorBoundary>
           <Meldekort />
