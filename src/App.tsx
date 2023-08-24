@@ -7,7 +7,6 @@ import { fetcher } from "./api/api";
 import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, featureToggleUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
-import InnloggedeTjenester from "./components/innloggede-tjenester/InnloggedeTjenester";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
@@ -81,7 +80,6 @@ function App() {
           </ErrorBoundary>
         ) : null}
       </React.Suspense>
-      <InnloggedeTjenester />
     </div>
   );
 }

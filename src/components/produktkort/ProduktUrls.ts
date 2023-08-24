@@ -1,4 +1,4 @@
-import { getEnvironment } from "../innloggede-tjenester/Lenker";
+import { getEnvironment } from "../../utils/getEnvironment";
 
 const produktlinkerDev = {
   dagpenger: {

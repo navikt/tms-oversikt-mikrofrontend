@@ -269,36 +269,6 @@ export const text = {
     nn: "Aktivitetsplan",
     en: "Aktivitetsplan",
   },
-  innloggedeTjenesterTittel: {
-    nb: "Innloggede tjenester",
-    nn: "Innlogga tenester",
-    en: "Signed in services",
-  },
-  jobbOgOppfolgingTittel: {
-    nb: "JOBB OG OPPFØLGING",
-    nn: "JOBB OG OPPFØLGING",
-    en: "JOB AND WORK RELATED SERVICES",
-  },
-  pengeStøtteOgHjelpemidlerTittel: {
-    nb: "DIN OVERSIKT",
-    nn: "DI OVERSIKT",
-    en: "YOUR OVERVIEW",
-  },
-  personopplysningTittel: {
-    nb: "PERSONOPPLYSNINGER",
-    nn: "PERSONOPPLYSNINGAR",
-    en: "PERSONAL DATA",
-  },
-  annetTittel: {
-    nb: "ANNET",
-    nn: "ANNA",
-    en: "OTHER",
-  },
-  alleTjenesterDisclaimer: {
-    nb: "",
-    nn: "",
-    en: "Not all pages exist in English, in these cases the Norwegian page is provided.",
-  },
   dagpenger: {
     nb: "Dagpenger",
     nn: "Dagpengar",
