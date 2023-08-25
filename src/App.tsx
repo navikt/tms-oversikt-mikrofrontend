@@ -7,6 +7,7 @@ import { fetcher } from "./api/api";
 import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, featureToggleUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
+import Innboks from "./components/innboks/Innboks";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
@@ -17,7 +18,7 @@ import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
-type FeatureToggles = { FlytteAia: boolean};
+type FeatureToggles = { FlytteAia: boolean, NyInnboks: boolean};
 
 function App() {
   const isError = useStore(isErrorAtom);
@@ -68,6 +69,7 @@ function App() {
           </div>
           <DinOversikt isArbeidssoker={enableAiaFlytting&& isArbeidssoker} />
           <Utbetaling />
+          {featuretoggles?.NyInnboks && <Innboks />}
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>

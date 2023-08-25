@@ -248,6 +248,7 @@ export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const tmsVarselApi = TMS_VARSEL_API[getEnvironment()];
+export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const stillingerUrl = STILLINGER_URL[getEnvironment()];
 export const uforetrygdUrl = UFORETRYGD_URL[getEnvironment()];
