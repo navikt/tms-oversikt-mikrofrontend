@@ -11,7 +11,7 @@ const UtbetalingHeading = () => {
 
   return (
     <div className={styles.heading}>
-      <BodyShort>
+      <BodyShort as="h2">
         {text.tittel[language]}
       </BodyShort>
       <a
