@@ -4,7 +4,14 @@ import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { fetcher } from "./api/api";
-import { aiaBaseCdnUrl, aiaManifestUrl, arbeidssokerUrl, featureToggleUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
+import {
+  aiaBaseCdnUrl,
+  aiaManifestUrl,
+  arbeidssokerUrl,
+  featureToggleUrl,
+  meldekortUrl,
+  oppfolgingUrl,
+} from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
@@ -18,13 +25,13 @@ import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
-type FeatureToggles = { FlytteAia: boolean, NyInnboks: boolean};
+type FeatureToggles = { FlytteAia: boolean; NyInnboks: boolean; DialogVeilederWidget: boolean };
 
 function App() {
   const isError = useStore(isErrorAtom);
 
-  const { data: featuretoggles} = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
-  const enableAiaFlytting = featuretoggles?.FlytteAia
+  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+  const enableAiaFlytting = featuretoggles?.FlytteAia;
 
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
@@ -67,7 +74,10 @@ function App() {
             <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt isArbeidssoker={enableAiaFlytting&& isArbeidssoker} />
+          <DinOversikt
+            isArbeidssoker={enableAiaFlytting && isArbeidssoker}
+            isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging}
+          />
           <Utbetaling />
           {featuretoggles?.NyInnboks && <Innboks />}
           <div className={style.sisteSakerWrapper}>
