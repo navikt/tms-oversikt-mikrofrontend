@@ -139,6 +139,21 @@ export const text = {
     nn: "For deg som ikkje har Digipost eller e-Boks.",
     en: "If you don’t have Digipost or e-Boks.",
   },
+  innboksNyMeldingEntall: {
+    nb: "1 ny melding",
+    nn: "1 ny melding",
+    en: "1 new message",
+  },
+  innboksNyMeldingFlertall: {
+    nb: (antall: number) => `${antall} nye meldinger`,
+    nn: (antall: number) => `${antall} nye meldingar`,
+    en: (antall: number) => `${antall} new messages`,
+  },
+  innboksIngenNyMeldinger: {
+    nb: "Ingen nye meldinger",
+    nn: "Ingen nye meldingar",
+    en: "No new messages",
+  },
   generelleFliserSykefravaer: {
     nb: "Ditt sykefravær",
     nn: "Ditt sjukefråvær",
