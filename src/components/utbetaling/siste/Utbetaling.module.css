@@ -1,0 +1,37 @@
+.ingen {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2.5rem;
+}
+
+.container {
+  width: 37rem;
+}
+
+.ingenHeading {
+  padding-bottom: 2.5rem;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--surface-neutral-subtle, rgba(18, 43, 68, 0.08));
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  color: black;
+  text-decoration: none;
+  width: 100%;
+}
+
+.link:hover {
+  background-color: var(--surface-neutral-subtle-hover, rgba(17, 41, 64, 0.13));
+  border: none;
+  text-decoration: underline;
+  box-shadow: none !important;
+}
+
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
