@@ -84,6 +84,7 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
     !isAapBruker &&
     !isSyfoDialogBruker &&
     !isArbeidssoker &&
+    !isOppfolging &&
     (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
   ) {
     return null;
