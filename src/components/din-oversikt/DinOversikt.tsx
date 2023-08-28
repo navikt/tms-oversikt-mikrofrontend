@@ -111,12 +111,8 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
                 <SyfoDialog />
               </ErrorBoundary>
             )}
-             {isOppfolging && (
-              <ErrorBoundary>
-                <DialogVeileder />
-              </ErrorBoundary>
-            )}
           </React.Suspense>
+          {isOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
