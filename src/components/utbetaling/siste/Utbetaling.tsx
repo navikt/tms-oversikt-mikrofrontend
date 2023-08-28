@@ -53,7 +53,7 @@ const Utbetaling = () => {
       <UtbetalingContainer type="siste">
         <UtbetalingHeading />
         <Heading size="large">
-          {sum + " kr"}
+          {sum.toLocaleString("no-nb") + " kr"}
         </Heading>
         <BodyLong>
           {dato} {text.konto[language]} {konto}
