@@ -1,6 +1,7 @@
 import { BodyShort } from "@navikt/ds-react";
 import React, { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
+import ErrorBoundary from "../../ErrorBoundary";
 import { fetcher } from "../../api/api";
 import {
   aapBaseCdnUrl,
@@ -13,16 +14,16 @@ import {
   syfoDialogManifestUrl,
 } from "../../api/urls";
 import { aapEntry, bundle, registrertArbeidssokerEntry, syfoDialogEntry } from "../../entrypoints";
-import ErrorBoundary from "../../ErrorBoundary";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
+import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
+import DialogVeileder from "../dialog-veileder/DialogVeileder";
 import ContentLoader from "../loader/ContentLoader";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
-import { setIsError } from "../../store/store";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -43,7 +44,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isArbeidssoker }: { isArbeidssoker: boolean }) => {
+const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean; isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
@@ -97,6 +98,11 @@ const DinOversikt = ({ isArbeidssoker }: { isArbeidssoker: boolean }) => {
             {isArbeidssoker && (
               <ErrorBoundary>
                 <RegistrertArbeidssoker />
+              </ErrorBoundary>
+            )}
+            {isOppfolging && (
+              <ErrorBoundary>
+                <DialogVeileder />
               </ErrorBoundary>
             )}
             {isAapBruker && (
