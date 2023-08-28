@@ -101,11 +101,6 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
                 <RegistrertArbeidssoker />
               </ErrorBoundary>
             )}
-            {isOppfolging && (
-              <ErrorBoundary>
-                <DialogVeileder />
-              </ErrorBoundary>
-            )}
             {isAapBruker && (
               <ErrorBoundary>
                 <Arbeidsavklaringspenger />
@@ -114,6 +109,11 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
             {isSyfoDialogBruker && (
               <ErrorBoundary>
                 <SyfoDialog />
+              </ErrorBoundary>
+            )}
+             {isOppfolging && (
+              <ErrorBoundary>
+                <DialogVeileder />
               </ErrorBoundary>
             )}
           </React.Suspense>
