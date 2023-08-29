@@ -3,16 +3,17 @@ import useSWRImmutable from "swr/immutable";
 import { LanguageContext } from "../../../language/LanguageProvider";
 import { BodyLong, Heading } from "@navikt/ds-react";
 import { fetcher } from "../../../api/api";
+import { Next } from "@navikt/ds-icons";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
 import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
 import UtbetalingContainer from "../container/UtbetalingContainer";
 import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
 import UtbetalingHeading from "../heading/UtbetalingHeading";
 import { UtbetalingResponse } from "../types";
-import { Next } from "@navikt/ds-icons";
+import { logNavigereEvent } from "../../../utils/amplitude";
 import { text } from "../text"
 import style from "./Utbetaling.module.css";
-import { logNavigereEvent } from "../../../utils/amplitude";
+
 
 const Utbetaling = () => {
   const { data, isLoading} = useSWRImmutable<UtbetalingResponse>(utbetalingsoversiktApiUrl, fetcher);
