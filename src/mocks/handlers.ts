@@ -205,7 +205,7 @@ export const utbetalingHandler = () => {
                   beskrivelse: "Grunnsats",
                   sats: 100.0,
                   antall: 6.0,
-                  belop: 600.0,
+                  belop: 6000.0,
                 },
                 {
                   beskrivelse: "Testytelse",

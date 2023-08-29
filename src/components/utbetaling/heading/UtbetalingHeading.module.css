@@ -1,7 +1,6 @@
 .heading {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 0.75rem;
 }
 
 .link {

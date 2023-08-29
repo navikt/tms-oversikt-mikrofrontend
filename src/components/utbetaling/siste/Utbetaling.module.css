@@ -1,0 +1,31 @@
+.ingen {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2.5rem;
+}
+
+.container {
+  width: 37rem;
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--a-bg-subtle);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: var(--a-surface-neutral-subtle-hover);
+  border: none;
+  text-decoration: underline;
+}
+
+.link:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}

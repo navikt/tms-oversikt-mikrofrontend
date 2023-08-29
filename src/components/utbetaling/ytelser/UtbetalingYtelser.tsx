@@ -12,7 +12,7 @@ const UtbetalingYtelser = ({ ytelse, utbetaling }: Props) => {
     <UtbetalingContainer type="ytelser">
       <BodyShort className={styles.ytelse}>
         <span>{ytelse}</span>
-        <span className={styles.sum}>{`${utbetaling} kr`}</span>
+        <span className={styles.sum}>{`${utbetaling.toLocaleString("no-nb")} kr`}</span>
       </BodyShort>
     </UtbetalingContainer>
   );
