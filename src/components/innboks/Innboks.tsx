@@ -1,51 +1,50 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Tag } from "@navikt/ds-react";
-import React from "react";
+import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { antallVarslerUrl } from "../../api/urls";
+import { antallVarslerUrl, innboksUrl } from "../../api/urls";
+import { Language, LanguageContext } from "../../language/LanguageProvider";
+import { text } from "../../language/text";
 import styles from "./Innboks.module.css";
 
-const MeldingTag = ({ innbokser }: { innbokser: number }) => {
+const MeldingTag = ({ innbokser, language }: { innbokser: number; language: Language }) => {
   if (innbokser > 0) {
-    return <Tag variant="alt3-filled" size="small">
-    {innbokser === 1 ? "1 ny melding" : `${innbokser} nye meldinger`}
-  </Tag>
+    return (
+      <Tag variant="alt3-filled" size="small">
+        {innbokser === 1 ? text.innboksNyMeldingEntall[language] : text.innboksNyMeldingFlertall[language](innbokser)}
+      </Tag>
+    );
   } else {
     return (
       <Tag variant="neutral-moderate" size="small">
-        Ingen nye meldinger
+        {text.innboksIngenNyMeldinger[language]}
       </Tag>
     );
   }
 };
 
 const Innboks = () => {
+  const language = useContext(LanguageContext);
   const { data: varsler, isLoading } = useSWRImmutable(antallVarslerUrl, fetcher);
-  const innbokser = varsler?.innbokser;
-
   if (isLoading) {
     return null;
   }
 
-  const type = innbokser > 0 ? "nyMelding" : "ingenNyMelding"
-
+  const innbokser = varsler?.innbokser;
+  const type = innbokser > 0 ? "NyMelding" : "IngenNyMelding";
   return (
     <div className={styles.componentWrapper}>
       <div className={styles.container}>
-        <div className={`${styles.headerContainer} ${styles[`${type}`]}`}>
-          <BodyShort>Innboks</BodyShort>
+        <a className={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl}>
+          <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
           <div className={styles.tagChevron}>
-            <MeldingTag innbokser={innbokser}/>
+            <MeldingTag innbokser={innbokser} language={language} />
             <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
           </div>
-        </div>
-
-        <div className={`${styles.bodyContainer} ${styles[`${type}`]}`}>
-          <BodyLong>
-            Informasjon fra NAV og svar på henvendelser og referater fra samtaler du har på telefon, chat og “Skriv til
-            oss”.
-          </BodyLong>
+        </a>
+        <div className={`${styles.bodyContainer} ${styles[`bodyContainer${type}`]}`}>
+          <BodyLong>{text.kommunikasjonsFlisIngressInnboks[language]}</BodyLong>
         </div>
       </div>
     </div>

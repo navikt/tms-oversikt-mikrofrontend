@@ -10,6 +10,7 @@ import {
   meldekortUrl,
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
+  oppfolgingUrl,
   registrertArbeidssokerBaseCdnUrl,
   registrertArbeidssokerManifestUrl,
   selectorUrl,
@@ -418,7 +419,7 @@ export const utbetalingHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ FlytteAia: true, NyInnboks: true }));
+      return res(ctx.status(200), ctx.json({ FlytteAia: true, NyInnboks: true, DialogVeilederWidget: true }));
     }),
   ];
 };
@@ -436,6 +437,14 @@ export const varselHandler = () => {
   ];
 };
 
+export const oppfolgingHandler = () => {
+  return [
+    rest.get(oppfolgingUrl, (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ underOppfolging: true }));
+    }),
+  ];
+};
+
 export const handlers = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
@@ -445,4 +454,5 @@ export const handlers = [
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...varselHandler(),
+  ...oppfolgingHandler(),
 ];
