@@ -72,7 +72,9 @@ function App() {
         <div className="min-side-lenkepanel">
           <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
             <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
-            <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
+            {!featuretoggles?.NyInnboks || !featuretoggles.DialogVeilederWidget ? (
+              <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
+            ) : null}
           </div>
           <DinOversikt
             isArbeidssoker={enableAiaFlytting && isArbeidssoker}
