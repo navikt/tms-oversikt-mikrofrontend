@@ -1,9 +1,11 @@
 import "vitest-axe/extend-expect";
-import * as matchers from "vitest-axe/matchers";
+import matchers from '@testing-library/jest-dom/matchers';
+import * as axeMatchers from "vitest-axe/matchers";
 import { afterAll, afterEach, beforeAll, expect } from "vitest";
 import { server } from "./src/mocks/server";
 import { cleanup, render } from "@testing-library/react";
 expect.extend(matchers);
+expect.extend(axeMatchers);
 
 beforeAll(() => {
   server.listen({ onUnhandledRequest: "warn" });
