@@ -4,7 +4,7 @@
 }
 
 .link {
-  color: black;
+  color: var(--a-text-default);
 }
 
 .link:hover {

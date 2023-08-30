@@ -3,8 +3,8 @@ import { BodyShort } from "@navikt/ds-react";
 import { text } from "../text";
 import { utbetalingsoversiktUrl } from "../urls";
 import { LanguageContext } from "../../../language/LanguageProvider";
-import styles from "./UtbetalingHeading.module.css";
 import { logNavigereEvent } from "../../../utils/amplitude";
+import styles from "./UtbetalingHeading.module.css";
 
 interface Props {
   type?: string;
@@ -32,7 +32,9 @@ const UtbetalingHeading = ({ type }: Props) => {
         className={styles.link} href={utbetalingsoversiktUrl}
         onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Se alle")}
       >
-        {text.alle[language]}
+        <BodyShort>
+          {text.alle[language]}
+        </BodyShort>
       </a>
     </div>
   );
