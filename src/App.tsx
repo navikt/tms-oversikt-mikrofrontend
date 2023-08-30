@@ -72,11 +72,11 @@ function App() {
         <div className="min-side-lenkepanel">
           <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
             <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
-            {!featuretoggles?.NyInnboks || !featuretoggles.DialogVeilederWidget ? (
-              <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
-            ) : null}
+            <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
-          <DinOversikt isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging} />
+          <DinOversikt
+            isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging}
+          />
           <Utbetaling />
           {featuretoggles?.NyInnboks && <Innboks />}
           <div className={style.sisteSakerWrapper}>
