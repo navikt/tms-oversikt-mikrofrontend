@@ -75,7 +75,6 @@ function App() {
             <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
           </div>
           <DinOversikt
-            isArbeidssoker={enableAiaFlytting && isArbeidssoker}
             isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging}
           />
           <Utbetaling />
