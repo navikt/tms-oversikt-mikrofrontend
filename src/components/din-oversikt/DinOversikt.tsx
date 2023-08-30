@@ -44,7 +44,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
+const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean; isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
@@ -55,11 +55,15 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
+  const [registretArbeidssokerManifest, isLoadingRegistrertArbeidssokerManifest] = useManifest(
+    registrertArbeidssokerManifestUrl
+  );
 
   if (
     isLoadingProfil ||
     isLoadingAapManifest ||
-    isLoadingSyfoDialogManifest
+    isLoadingSyfoDialogManifest ||
+    isLoadingRegistrertArbeidssokerManifest
   ) {
     return <ContentLoader />;
   }
@@ -69,6 +73,12 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
+  const RegistrertArbeidssoker = React.lazy(
+    () =>
+      import(
+        `${registrertArbeidssokerBaseCdnUrl}/${registretArbeidssokerManifest[registrertArbeidssokerEntry][bundle]}`
+      )
+  );
 
   if (
     !isAapBruker &&
@@ -86,6 +96,11 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
         </BodyShort>
         <div className={styles.listeContainer}>
           <React.Suspense fallback={<ContentLoader />}>
+            {isArbeidssoker && (
+              <ErrorBoundary>
+                <RegistrertArbeidssoker />
+              </ErrorBoundary>
+            )}
             {isAapBruker && (
               <ErrorBoundary>
                 <Arbeidsavklaringspenger />
