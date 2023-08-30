@@ -1,6 +1,7 @@
 .panel {
   margin-bottom: 2rem;
   width: 100%;
+  padding: 1rem;
 }
 
 .panel > a {
@@ -64,6 +65,7 @@
 @media (min-width: 648px) {
   .panel {
     width: 37.5rem;
+    padding: 1.25rem;
   }
 
   .panel_liten {
