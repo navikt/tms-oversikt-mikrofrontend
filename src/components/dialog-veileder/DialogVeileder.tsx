@@ -5,12 +5,17 @@ import { dialogMedVeilederUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import styles from "./DialogVeileder.module.css";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 const DialogVeileder = () => {
   const language = useContext(LanguageContext);
 
   return (
-    <a className={styles.container} href={dialogMedVeilederUrl}>
+    <a
+      className={styles.container}
+      href={dialogMedVeilederUrl}
+      onClick={() => logNavigereEvent("dialog-veileder", "personlig", "Dialog med veilederen din")}
+    >
       <div className={styles.headerContainer}>
         <Heading size="small" level="2">
           {text.kommunikasjonsFlisLenketekstDialog[language]}

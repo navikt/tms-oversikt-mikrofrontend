@@ -7,6 +7,7 @@ import { antallVarslerUrl, innboksUrl } from "../../api/urls";
 import { Language, LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import styles from "./Innboks.module.css";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 const MeldingTag = ({ innbokser, language }: { innbokser: number; language: Language }) => {
   if (innbokser > 0) {
@@ -36,7 +37,11 @@ const Innboks = () => {
   return (
     <div className={styles.componentWrapper}>
       <div className={styles.container}>
-        <a className={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`} href={innboksUrl}>
+        <a
+          className={`${styles.headerContainer} ${styles[`headerContainer${type}`]}`}
+          href={innboksUrl}
+          onClick={() => logNavigereEvent("innboks", "kommunikasjon", "Innboks")}
+        >
           <BodyShort as="h2">{text.kommunikasjonsFlisLenketekstInnboks[language]}</BodyShort>
           <div className={styles.tagChevron}>
             <MeldingTag innbokser={innbokser} language={language} />
