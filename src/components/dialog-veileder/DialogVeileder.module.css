@@ -30,6 +30,7 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 1rem 0.75rem 1rem;
   border-radius: 0.5rem 0.5rem 0rem 0rem;
   border-bottom: 1px solid lightgray;
