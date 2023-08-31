@@ -63,6 +63,10 @@
 }
 
 @media (min-width: 648px) {
+  .ingenDokumenterContainer {
+    width: 37rem;
+  }
+
   .panel {
     width: 37.5rem;
     padding: 1.25rem;
