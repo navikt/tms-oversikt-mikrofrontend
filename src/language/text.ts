@@ -115,9 +115,9 @@ export const text = {
     en: "Information from NAV and replies to inquiries, and summaries of conversations via phone calls, chats and “Write to us”.",
   },
   kommunikasjonsFlisLenketekstDialog: {
-    nb: "Dialog med den lokale veilederen din",
-    nn: "Dialog med den lokale rettleiaren din",
-    en: "Communication with your local consultant",
+    nb: "Dialog med veilederen din",
+    nn: "Dialog med rettleiaren din",
+    en: "Dialogue with your advisor",
   },
   kommunikasjonsFlisIngressDialog: {
     nb: "For arbeidssøkere og de som mottar AAP. Les meldinger, referater og send melding til veilederen din.",
