@@ -71,7 +71,6 @@ function App() {
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
-            <LegacyUtbetaling size={brukerUnderOppfolging ? "large" : "small"} />
             {!featuretoggles?.NyInnboks || !featuretoggles.DialogVeilederWidget ? (
               <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
             ) : null}
