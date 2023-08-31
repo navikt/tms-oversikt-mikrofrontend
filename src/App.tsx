@@ -18,12 +18,12 @@ import Innboks from "./components/innboks/Innboks";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
-import LegacyUtbetaling from "./components/utbetaling/legacy/LegacyUtbetaling";
 import Utbetaling from "./components/utbetaling/siste/Utbetaling";
 import { aiaEntry, bundle } from "./entrypoints";
 import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
+import { Alert, Link } from "@navikt/ds-react";
 
 type FeatureToggles = { FlytteAia: boolean; NyInnboks: boolean; DialogVeilederWidget: boolean };
 
@@ -83,6 +83,13 @@ function App() {
           {featuretoggles?.NyInnboks && <Innboks />}
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
+          </div>
+          <div className={style.infomeldingContainer}>
+            <Alert variant="info" className={style.infomelding}>
+              Nå og fremover vil det skje noen endringer på plassering og innhold på Min side.
+              Om det er noe du ikke finner kan det hende det har havnet et annet sted på siden eller at det ser litt annerledes ut.
+              Ta gjerne ta <Link href="https://www.nav.no/kontaktoss">kontakt</Link> hvis du får problemer.
+            </Alert>
           </div>
         </div>
       </div>
