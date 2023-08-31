@@ -84,13 +84,6 @@ function App() {
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>
-          <div className={style.infomeldingContainer}>
-            <Alert variant="info" className={style.infomelding}>
-              Nå og fremover vil det skje noen endringer på plassering og innhold på Min side.
-              Om det er noe du ikke finner kan det hende det har havnet et annet sted på siden eller at det ser litt annerledes ut.
-              Ta gjerne <Link href="https://www.nav.no/kontaktoss">kontakt</Link> hvis du får problemer.
-            </Alert>
-          </div>
         </div>
       </div>
       <React.Suspense fallback={<ContentLoader />}>
@@ -100,6 +93,13 @@ function App() {
           </ErrorBoundary>
         ) : null}
       </React.Suspense>
+      <div className={style.infomeldingContainer}>
+        <Alert variant="info" className={style.infomelding}>
+          Nå og fremover vil det skje noen endringer på plassering og innhold på Min side.
+          Om det er noe du ikke finner kan det hende det har havnet et annet sted på siden eller at det ser litt annerledes ut.
+          Ta gjerne <Link href="https://www.nav.no/kontaktoss">kontakt</Link> hvis du får problemer.
+        </Alert>
+      </div>
     </div>
   );
 }
