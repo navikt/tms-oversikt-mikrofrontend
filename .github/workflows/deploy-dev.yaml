@@ -1,11 +1,12 @@
 name: Deploy to dev
 on: workflow_dispatch
 
+permissions:
+  contents: 'read'
+  id-token: 'write'
+  packages: 'write'
+
 jobs:
-  permissions:
-    contents: 'read'
-    id-token: 'write'
-    packages: 'write'
   deploy:
     uses: navikt/tms-deploy/.github/workflows/mikrofrontend-deploy.yaml@main
     with:
