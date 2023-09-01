@@ -59,6 +59,10 @@
   transform: translate(3px, 0);
 }
 
+.chevron {
+  flex-shrink: 0;
+}
+
 .ikon {
   display: flex;
   align-self: center;
