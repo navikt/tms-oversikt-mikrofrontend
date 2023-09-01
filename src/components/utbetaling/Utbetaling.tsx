@@ -36,7 +36,7 @@ const Utbetaling = () => {
               className={style.link} href={utbetalingsoversiktUrl}
               onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Du har ingen...")}
             >
-              <BodyLong className={style.text}>{text.ingen[language]}</BodyLong> <ChevronRightIcon className={style.chevron} />
+              <BodyLong className={style.text}>{text.ingen[language]}</BodyLong> <ChevronRightIcon aria-hidden fontSize="24px" className={style.chevron} />
             </a>
         </div>
       </div>
