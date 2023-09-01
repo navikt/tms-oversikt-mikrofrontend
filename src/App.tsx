@@ -18,7 +18,7 @@ import Innboks from "./components/innboks/Innboks";
 import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
-import Utbetaling from "./components/utbetaling/siste/Utbetaling";
+import Utbetaling from "./components/utbetaling/Utbetaling";
 import { aiaEntry, bundle } from "./entrypoints";
 import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";

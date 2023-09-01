@@ -18,7 +18,7 @@ import {
   syfoDialogManifestUrl,
 } from "../api/urls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
-import { utbetalingsoversiktApiUrl } from "../components/utbetaling/urls";
+import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 
 export const sakerHandler = () => {
   return [

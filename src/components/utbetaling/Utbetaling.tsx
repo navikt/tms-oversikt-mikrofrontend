@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
-import { LanguageContext } from "../../../language/LanguageProvider";
+import { LanguageContext } from "../../language/LanguageProvider";
 import { BodyLong, Heading } from "@navikt/ds-react";
-import { fetcher } from "../../../api/api";
-import { Next } from "@navikt/ds-icons";
-import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "../urls";
-import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "../utils";
-import UtbetalingContainer from "../container/UtbetalingContainer";
-import UtbetalingYtelser from "../ytelser/UtbetalingYtelser";
-import UtbetalingHeading from "../heading/UtbetalingHeading";
-import { UtbetalingResponse } from "../types";
-import { logNavigereEvent } from "../../../utils/amplitude";
-import { text } from "../text"
+import { fetcher } from "../../api/api";
+import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "./utbetalingUrls";
+import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "./utbetalingUtils";
+import UtbetalingContainer from "./container/UtbetalingContainer";
+import UtbetalingYtelser from "./ytelser/UtbetalingYtelser";
+import UtbetalingHeading from "./heading/UtbetalingHeading";
+import { UtbetalingResponse } from "./utbetalingTypes";
+import { logNavigereEvent } from "../../utils/amplitude";
+import { text } from "./utbetalingText"
 import style from "./Utbetaling.module.css";
 
 
@@ -36,7 +36,7 @@ const Utbetaling = () => {
               className={style.link} href={utbetalingsoversiktUrl}
               onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Du har ingen...")}
             >
-              <BodyLong className={style.text}>{text.ingen[language]}</BodyLong> <Next className={style.chevron} />
+              <BodyLong className={style.text}>{text.ingen[language]}</BodyLong> <ChevronRightIcon className={style.chevron} />
             </a>
         </div>
       </div>
