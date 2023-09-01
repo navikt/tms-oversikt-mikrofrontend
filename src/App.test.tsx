@@ -5,7 +5,7 @@ import { expect, test } from "vitest";
 import App from "./App";
 import { arbeidssokerUrl, mineSakerApiUrl, mineSakerSakstemaerUrl, oppfolgingUrl, selectorUrl } from "./api/urls";
 import { server } from "./mocks/server";
-import { utbetalingsoversiktApiUrl } from "./components/utbetaling/urls";
+import { utbetalingsoversiktApiUrl } from "./components/utbetaling/utbetalingUrls";
 
 test("side uten personalisert innhold fungerer", async () => {
   server.use(

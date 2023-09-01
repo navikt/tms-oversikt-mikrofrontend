@@ -18,7 +18,7 @@ import {
   syfoDialogManifestUrl,
 } from "../api/urls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
-import { utbetalingsoversiktApiUrl } from "../components/utbetaling/urls";
+import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 
 export const sakerHandler = () => {
   return [
@@ -76,35 +76,35 @@ export const microfrontendsHandler = () => {
   return [
     rest.get(`${aiaBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/javascript"),
+        ctx.set("Content-Type", "utbetalingText/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("AiA", "50vh"))
       );
     }),
     rest.get(`${registrertArbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/javascript"),
+        ctx.set("Content-Type", "utbetalingText/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh"))
       );
     }),
     rest.get(`${aapBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/javascript"),
+        ctx.set("Content-Type", "utbetalingText/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("AAP", "5vh"))
       );
     }),
     rest.get(`${syfoDialogCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/javascript"),
+        ctx.set("Content-Type", "utbetalingText/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Syfo dialog", "5vh"))
       );
     }),
     rest.get(meldekortUrl, (_, res, ctx) => {
       return res(
-        ctx.set("Content-Type", "text/javascript"),
+        ctx.set("Content-Type", "utbetalingText/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
       );

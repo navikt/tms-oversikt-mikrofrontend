@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { HovedYtelse, Trekk, UnderYtelse } from "./types";
+import { HovedYtelse, Trekk, UnderYtelse } from "./utbetalingTypes";
 
 export const hasUtbetalinger = (utbetalteUtbetalinger: HovedYtelse[] | []) => utbetalteUtbetalinger.length > 0;
 

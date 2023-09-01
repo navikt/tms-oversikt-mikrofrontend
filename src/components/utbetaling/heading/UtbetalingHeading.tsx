@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BodyShort } from "@navikt/ds-react";
-import { text } from "../text";
-import { utbetalingsoversiktUrl } from "../urls";
+import { text } from "../utbetalingText";
+import { utbetalingsoversiktUrl } from "../utbetalingUrls";
 import { LanguageContext } from "../../../language/LanguageProvider";
 import { logNavigereEvent } from "../../../utils/amplitude";
 import styles from "./UtbetalingHeading.module.css";
