@@ -39,9 +39,24 @@
 }
 
 .ingenDokumenterTextWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
   border-radius: 8px;
   padding: 20px;
   background-color: var(--a-bg-subtle);
+  color: var(--a-text-default);
+}
+
+.ingenDokumenterTextWrapper:hover {
+  background: var(--a-surface-neutral-subtle-hover);
+  text-decoration: underline;
+}
+
+.ingenDokumenterTextWrapper:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
 }
 
 .ikon {

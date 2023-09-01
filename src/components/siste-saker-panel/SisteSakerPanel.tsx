@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, BodyShort, Panel } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
@@ -46,9 +47,10 @@ const SisteSakerPanel = () => {
           <BodyShort as="h2" spacing="true">
             {text.sisteSakerTittel[language]}
           </BodyShort>
-          <div className={styles.ingenDokumenterTextWrapper}>
+          <a className={styles.ingenDokumenterTextWrapper} href={mineSakerUrl}>
             <BodyLong>{text.ingenDokumenter[language]}</BodyLong>
-          </div>
+            <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
+          </a>
         </div>
       )}
     </>
