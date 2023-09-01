@@ -61,6 +61,10 @@
   gap: 10px;
 }
 
+.chevron {
+  flex-shrink: 0;
+}
+
 @media (min-width: 648px) {
   .headerContainer {
     padding: 1rem 1.25rem 0.75rem 1.25rem;
