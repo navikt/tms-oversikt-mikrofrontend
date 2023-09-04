@@ -7,13 +7,11 @@ import {
   aapBaseCdnUrl,
   aapManifestUrl,
   mineSakerSakstemaerUrl,
-  registrertArbeidssokerBaseCdnUrl,
-  registrertArbeidssokerManifestUrl,
   selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
-import { aapEntry, bundle, registrertArbeidssokerEntry, syfoDialogEntry } from "../../entrypoints";
+import { aapEntry, bundle, syfoDialogEntry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
@@ -44,7 +42,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean; isOppfolging: boolean }) => {
+const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
@@ -55,16 +53,8 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
-  const [registretArbeidssokerManifest, isLoadingRegistrertArbeidssokerManifest] = useManifest(
-    registrertArbeidssokerManifestUrl
-  );
 
-  if (
-    isLoadingProfil ||
-    isLoadingAapManifest ||
-    isLoadingSyfoDialogManifest ||
-    isLoadingRegistrertArbeidssokerManifest
-  ) {
+  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
     return <ContentLoader />;
   }
 
@@ -73,17 +63,10 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-  const RegistrertArbeidssoker = React.lazy(
-    () =>
-      import(
-        `${registrertArbeidssokerBaseCdnUrl}/${registretArbeidssokerManifest[registrertArbeidssokerEntry][bundle]}`
-      )
-  );
 
   if (
     !isAapBruker &&
     !isSyfoDialogBruker &&
-    !isArbeidssoker &&
     !isOppfolging &&
     (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
   ) {
@@ -96,11 +79,6 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
         </BodyShort>
         <div className={styles.listeContainer}>
           <React.Suspense fallback={<ContentLoader />}>
-            {isArbeidssoker && (
-              <ErrorBoundary>
-                <RegistrertArbeidssoker />
-              </ErrorBoundary>
-            )}
             {isAapBruker && (
               <ErrorBoundary>
                 <Arbeidsavklaringspenger />

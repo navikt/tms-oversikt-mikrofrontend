@@ -75,10 +75,7 @@ function App() {
               <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
             ) : null}
           </div>
-          <DinOversikt
-            isArbeidssoker={enableAiaFlytting && isArbeidssoker}
-            isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging}
-          />
+          <DinOversikt isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging} />
           <Utbetaling />
           {featuretoggles?.NyInnboks && <Innboks />}
           <div className={style.sisteSakerWrapper}>
@@ -95,9 +92,9 @@ function App() {
       </React.Suspense>
       <div className={style.infomeldingContainer}>
         <Alert variant="info" className={style.infomelding}>
-          Nå og fremover vil det skje noen endringer på plassering og innhold på Min side.
-          Om det er noe du ikke finner kan det hende det har havnet et annet sted på siden eller at det ser litt annerledes ut.
-          Ta gjerne <Link href="https://www.nav.no/kontaktoss">kontakt</Link> hvis du får problemer.
+          Nå og fremover vil det skje noen endringer på plassering og innhold på Min side. Om det er noe du ikke finner
+          kan det hende det har havnet et annet sted på siden eller at det ser litt annerledes ut. Ta gjerne{" "}
+          <Link href="https://www.nav.no/kontaktoss">kontakt</Link> hvis du får problemer.
         </Alert>
       </div>
     </div>
