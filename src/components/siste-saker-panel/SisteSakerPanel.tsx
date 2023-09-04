@@ -21,10 +21,10 @@ const SisteSakerPanel = () => {
     <>
       {visStortSakspanel ? (
         <Panel className={styles.panel}>
-          <BodyShort as="h2" spacing="true">
+          <BodyShort as="h2" spacing>
             {text.sisteSakerTittel[language]}
           </BodyShort>
-          {saker?.sakstemaer.slice(0, 2).map((sak) => (
+          {saker?.sakstemaer.slice(0, 2).map((sak: any) => (
             <SakstemaElement
               key={sak.kode}
               href={sak.detaljvisningUrl}
@@ -44,7 +44,7 @@ const SisteSakerPanel = () => {
         </Panel>
       ) : (
         <div className={styles.ingenDokumenterContainer}>
-          <BodyShort as="h2" spacing="true">
+          <BodyShort as="h2" spacing>
             {text.sisteSakerTittel[language]}
           </BodyShort>
           <a className={styles.ingenDokumenterTextWrapper} href={mineSakerUrl}>

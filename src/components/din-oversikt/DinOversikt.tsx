@@ -55,7 +55,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
   if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
-    return null;
+    return <ContentLoader />;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
@@ -74,7 +74,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   } else {
     return (
       <div className={styles.oversiktContainer}>
-        <BodyShort as="h2" spacing="true">
+        <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
         <div className={styles.listeContainer}>

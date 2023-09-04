@@ -2,7 +2,6 @@ import react from "@vitejs/plugin-react";
 import { rollupImportMapPlugin } from "rollup-plugin-import-map";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { terser } from "rollup-plugin-terser";
-import { resolve } from "path";
 const reactUrl = "https://www.nav.no/tms-min-side-assets/react/18/esm/index.js";
 const reactDomUrl = "https://www.nav.no/tms-min-side-assets/react-dom/18/esm/index.js";
 
@@ -11,7 +10,7 @@ const imports = {
   "react-dom": reactDomUrl,
 };
 
-export default ({ command }) => ({
+export default () => ({
   plugins: [
     react(),
     terser(),
@@ -26,7 +25,7 @@ export default ({ command }) => ({
     manifest: true,
     rollupOptions: {
       input: {
-        "tms-oversikt-mikrofrontend": resolve(__dirname, "src/Mikrofrontend.jsx"),
+        "tms-oversikt-mikrofrontend": "src/Mikrofrontend.jsx",
       },
       preserveEntrySignatures: "exports-only",
       output: {

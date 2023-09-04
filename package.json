@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite --port 3000",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install && chmod +x .husky/scripts/check-no-a11y-ignored.sh ",
-    "lint": "eslint --fix --ext .js,.jsx .",
-    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
+    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .ts,.tsx,.js,.jsx ."
   },
   "dependencies": {
     "@nanostores/react": "0.7.1",
@@ -25,6 +25,9 @@
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "5.33.1",
+    "@types/amplitude-js": "^8.16.2",
     "@vitejs/plugin-react": "4.0.4",
     "eslint": "8.38.0",
     "eslint-config-prettier": "8.8.0",
@@ -37,6 +40,7 @@
     "prettier": "2.8.7",
     "rollup-plugin-import-map": "2.2.2",
     "rollup-plugin-terser": "7.0.2",
+    "typescript": "4.7.2",
     "vite": "4.4.9",
     "vite-plugin-css-injected-by-js": "3.1.0",
     "vitest": "0.34.3",
@@ -46,7 +50,7 @@
     "printWidth": 120
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint -c .eslintrc.pre-commit.js --fix",
       "prettier --cache --write"
     ],
