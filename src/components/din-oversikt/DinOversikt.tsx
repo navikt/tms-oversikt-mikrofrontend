@@ -55,7 +55,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
 
   if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
-    return <ContentLoader />;
+    return null;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
