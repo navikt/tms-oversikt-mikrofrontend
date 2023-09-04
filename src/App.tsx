@@ -1,4 +1,5 @@
 import { useStore } from "@nanostores/react";
+import { Alert, Link } from "@navikt/ds-react";
 import React from "react";
 import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
@@ -15,7 +16,6 @@ import {
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
-import KommunikasjonsFlis from "./components/kommunikasjonsflis/KommunikasjonsFlis";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
@@ -23,7 +23,6 @@ import { aiaEntry, bundle } from "./entrypoints";
 import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
-import { Alert, Link } from "@navikt/ds-react";
 
 type FeatureToggles = { FlytteAia: boolean; NyInnboks: boolean; DialogVeilederWidget: boolean };
 
@@ -70,14 +69,9 @@ function App() {
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
-          <div className={brukerUnderOppfolging ? style.lenkepanel_stor_wrapper : style.lenkepanel_liten_wrapper}>
-            {!featuretoggles?.NyInnboks || !featuretoggles.DialogVeilederWidget ? (
-              <KommunikasjonsFlis size={brukerUnderOppfolging ? "large" : "small"} />
-            ) : null}
-          </div>
-          <DinOversikt isOppfolging={featuretoggles?.DialogVeilederWidget && brukerUnderOppfolging} />
+          <DinOversikt isOppfolging={brukerUnderOppfolging} />
           <Utbetaling />
-          {featuretoggles?.NyInnboks && <Innboks />}
+          <Innboks />
           <div className={style.sisteSakerWrapper}>
             <SisteSakerPanel />
           </div>

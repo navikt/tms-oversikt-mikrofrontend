@@ -419,7 +419,7 @@ export const utbetalingHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ FlytteAia: true, NyInnboks: true, DialogVeilederWidget: true }));
+      return res(ctx.status(200), ctx.json({ FlytteAia: true }));
     }),
   ];
 };
