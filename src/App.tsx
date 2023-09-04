@@ -5,22 +5,14 @@ import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { fetcher } from "./api/api";
-import {
-  aiaBaseCdnUrl,
-  aiaManifestUrl,
-  arbeidssokerUrl,
-  featureToggleUrl,
-  meldekortUrl,
-  oppfolgingUrl,
-} from "./api/urls";
+import { arbeidssokerUrl, featureToggleUrl, meldekortUrl, oppfolgingUrl } from "./api/urls";
+import AiaWrapper from "./components/aia/AiaWrapper";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
 import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
-import { aiaEntry, bundle } from "./entrypoints";
-import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
@@ -36,21 +28,10 @@ function App() {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
+  const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
   const brukerUnderOppfolging = data?.underOppfolging;
-
-  const [aiaManifest, isLoadingAiaManifest] = useManifest(aiaManifestUrl);
-
-  if (isLoadingAiaManifest) {
-    return <ContentLoader />;
-  }
-
-  const isArbeidssoker = arbeidssoker?.erArbeidssoker;
-
-  const ArbeidsflateForInnloggetArbeidssoker = React.lazy(
-    () => import(`${aiaBaseCdnUrl}/${aiaManifest[aiaEntry][bundle]}`)
-  );
 
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
@@ -61,12 +42,8 @@ function App() {
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
-        {!enableAiaFlytting && isArbeidssoker ? (
-          <ErrorBoundary>
-            <ArbeidsflateForInnloggetArbeidssoker />
-          </ErrorBoundary>
-        ) : null}
       </React.Suspense>
+      {!enableAiaFlytting && isArbeidssoker ? <AiaWrapper /> : null}
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <DinOversikt isOppfolging={brukerUnderOppfolging} />
@@ -77,13 +54,7 @@ function App() {
           </div>
         </div>
       </div>
-      <React.Suspense fallback={<ContentLoader />}>
-        {enableAiaFlytting && isArbeidssoker ? (
-          <ErrorBoundary>
-            <ArbeidsflateForInnloggetArbeidssoker />
-          </ErrorBoundary>
-        ) : null}
-      </React.Suspense>
+      {enableAiaFlytting && isArbeidssoker ? <AiaWrapper /> : null}
       <div className={style.infomeldingContainer}>
         <Alert variant="info" className={style.infomelding}>
           Nå og fremover vil det skje noen endringer på plassering og innhold på Min side. Om det er noe du ikke finner
