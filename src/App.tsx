@@ -24,7 +24,7 @@ import { useManifest } from "./hooks/useManifest";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
-type FeatureToggles = { FlytteAia: boolean; NyInnboks: boolean; DialogVeilederWidget: boolean };
+type FeatureToggles = { FlytteAia: boolean };
 
 function App() {
   const isError = useStore(isErrorAtom);
