@@ -16,13 +16,12 @@ import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
-type FeatureToggles = { FlytteAia: boolean };
+type FeatureToggles = {};
 
 function App() {
   const isError = useStore(isErrorAtom);
 
   const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
-  const enableAiaFlytting = featuretoggles?.FlytteAia;
 
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
@@ -43,7 +42,6 @@ function App() {
           <Meldekort />
         </ErrorBoundary>
       </React.Suspense>
-      {!enableAiaFlytting && isArbeidssoker ? <AiaWrapper /> : null}
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <DinOversikt isOppfolging={brukerUnderOppfolging} />
@@ -54,7 +52,7 @@ function App() {
           </div>
         </div>
       </div>
-      {enableAiaFlytting && isArbeidssoker ? <AiaWrapper /> : null}
+      {isArbeidssoker ? <AiaWrapper /> : null}
       <div className={style.infomeldingContainer}>
         <Alert variant="info" className={style.infomelding}>
           Nå og fremover vil det skje noen endringer på plassering og innhold på Min side. Om det er noe du ikke finner
