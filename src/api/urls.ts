@@ -187,9 +187,9 @@ const MINE_SAKER_API_URL = {
 };
 
 const MINE_SAKER_SAKSTEMAER_URL = {
-  local: "http://localhost:3000/mine-saker-api/sakstemaer",
-  development: "https://www.intern.dev.nav.no/mine-saker-api/sakstemaer",
-  production: "https://person.nav.no/mine-saker-api/sakstemaer",
+  local: "http://localhost:3000/mine-saker-api/sakstemaer/egne",
+  development: "https://www.intern.dev.nav.no/mine-saker-api/sakstemaer/egne",
+  production: "https://person.nav.no/mine-saker-api/sakstemaer/egne",
 };
 
 const TJENESTER_URL = {
