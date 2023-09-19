@@ -8,10 +8,11 @@ import {
   aapManifestUrl,
   mineSakerSakstemaerUrl,
   selectorUrl,
+  syfoAktivitetCdnUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
-import { aapEntry, bundle, syfoDialogEntry } from "../../entrypoints";
+import { aapEntry, bundle, entry, syfoDialogEntry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
@@ -65,13 +66,12 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-  const SyfoAktivitet = React.lazy(
-    () => import(`${syfoDialogCdnUrl}/${syfoAktivitetManifest[syfoDialogEntry][bundle]}`)
-  );
+  const SyfoAktivitet = React.lazy(() => import(`${syfoAktivitetCdnUrl}/${syfoAktivitetManifest[entry][bundle]}`));
 
   if (
     !isAapBruker &&
     !isSyfoDialogBruker &&
+    !isSyfoAktivitetBruker &&
     !isOppfolging &&
     (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
   ) {
