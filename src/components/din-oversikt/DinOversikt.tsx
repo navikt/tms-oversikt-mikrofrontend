@@ -9,6 +9,7 @@ import {
   mineSakerSakstemaerUrl,
   selectorUrl,
   syfoAktivitetCdnUrl,
+  syfoAktivitetManifestUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
@@ -54,7 +55,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
-  const [syfoAktivitetManifest, isLoadingSyfoAktivitetManifest] = useManifest(syfoDialogManifestUrl);
+  const [syfoAktivitetManifest, isLoadingSyfoAktivitetManifest] = useManifest(syfoAktivitetManifestUrl);
 
   if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetManifest) {
     return <ContentLoader />;
