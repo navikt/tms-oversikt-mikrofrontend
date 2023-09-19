@@ -53,16 +53,21 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
+  const [syfoAktivitetManifest, isLoadingSyfoAktivitetManifest] = useManifest(syfoDialogManifestUrl);
 
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
+  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetManifest) {
     return <ContentLoader />;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
   const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
+  const isSyfoAktivitetBruker = profil?.microfrontends.includes("syfo-aktivitet");
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
+  const SyfoAktivitet = React.lazy(
+    () => import(`${syfoDialogCdnUrl}/${syfoAktivitetManifest[syfoDialogEntry][bundle]}`)
+  );
 
   if (
     !isAapBruker &&
@@ -87,6 +92,11 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
             {isSyfoDialogBruker && (
               <ErrorBoundary>
                 <SyfoDialog />
+              </ErrorBoundary>
+            )}
+            {isSyfoAktivitetBruker && (
+              <ErrorBoundary>
+                <SyfoAktivitet />
               </ErrorBoundary>
             )}
           </React.Suspense>
