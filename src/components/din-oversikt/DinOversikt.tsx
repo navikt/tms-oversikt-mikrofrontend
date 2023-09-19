@@ -8,10 +8,12 @@ import {
   aapManifestUrl,
   mineSakerSakstemaerUrl,
   selectorUrl,
+  syfoAktivitetskravCdnUrl,
+  syfoAktivitetskravManifestUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
-import { aapEntry, bundle, syfoDialogEntry } from "../../entrypoints";
+import { aapEntry, bundle, entry, syfoDialogEntry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
@@ -53,20 +55,26 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
+  const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
 
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest) {
+  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
     return <ContentLoader />;
   }
 
   const isAapBruker = profil?.microfrontends.includes("aap");
   const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
+  const isSyfoAktivitetBruker = profil?.microfrontends.includes("syfo-aktivitet");
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
+  const SyfoAktivitetskrav = React.lazy(
+    () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
+  );
 
   if (
     !isAapBruker &&
     !isSyfoDialogBruker &&
+    !isSyfoAktivitetBruker &&
     !isOppfolging &&
     (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
   ) {
@@ -87,6 +95,11 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
             {isSyfoDialogBruker && (
               <ErrorBoundary>
                 <SyfoDialog />
+              </ErrorBoundary>
+            )}
+            {isSyfoAktivitetBruker && (
+              <ErrorBoundary>
+                <SyfoAktivitetskrav />
               </ErrorBoundary>
             )}
           </React.Suspense>

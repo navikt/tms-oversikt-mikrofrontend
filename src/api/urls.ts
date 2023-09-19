@@ -228,6 +228,18 @@ const SYFO_DIALOG_CDN_URL = {
   production: "https://cdn.nav.no/team-esyfo/dialogmote-mikrofrontend/dist",
 };
 
+const SYFO_AKTIVITETSKRAV_BASE_URL = {
+  local: "http://localhost:3000/syfo-dialog",
+  development: "https://www.intern.dev.nav.no/aktivitetskrav-mikrofrontend",
+  production: "https://www.nav.no/aktivitetskrav-mikrofrontend",
+};
+
+const SYFO_AKTIVITETSKRAV_CDN_URL = {
+  local: "http://localhost:3000/syfo-dialog",
+  development: "https://cdn.nav.no/team-esyfo/aktivitetskrav-mikrofrontend/dist",
+  production: "https://cdn.nav.no/team-esyfo/aktivitetskrav-mikrofrontend/dist",
+};
+
 const TMS_VARSEL_API = {
   local: "http://localhost:3000/tms-varsel-api/",
   development: "https://www.intern.dev.nav.no/tms-varsel-api",
@@ -245,6 +257,8 @@ export const registrertArbeidssokerBaseCdnUrl = REGISTRERT_ARBEIDSSOKER_BASE_CDN
 export const registrertArbeidssokerManifestUrl = `${REGISTRERT_ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
 export const syfoDialogManifestUrl = `${SYFO_DIALOG_BASE_URL[getEnvironment()]}/manifest.json`;
 export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
+export const syfoAktivitetskravManifestUrl = `${SYFO_AKTIVITETSKRAV_BASE_URL[getEnvironment()]}/manifest.json`;
+export const syfoAktivitetskravCdnUrl = SYFO_AKTIVITETSKRAV_CDN_URL[getEnvironment()];
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const selectorUrl = SELECTOR_URL[getEnvironment()];
 export const tmsVarselApi = TMS_VARSEL_API[getEnvironment()];
