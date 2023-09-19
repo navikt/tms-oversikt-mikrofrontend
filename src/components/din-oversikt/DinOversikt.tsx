@@ -51,6 +51,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
     onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
   });
+
   const uniqueProduktConfigs = getUniqueProdukter();
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
