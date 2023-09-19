@@ -8,8 +8,8 @@ import {
   aapManifestUrl,
   mineSakerSakstemaerUrl,
   selectorUrl,
-  syfoAktivitetCdnUrl,
-  syfoAktivitetManifestUrl,
+  syfoAktivitetskravCdnUrl,
+  syfoAktivitetskravManifestUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../../api/urls";
@@ -55,9 +55,9 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
-  const [syfoAktivitetManifest, isLoadingSyfoAktivitetManifest] = useManifest(syfoAktivitetManifestUrl);
+  const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
 
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetManifest) {
+  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
     return <ContentLoader />;
   }
 
@@ -67,7 +67,9 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-  const SyfoAktivitet = React.lazy(() => import(`${syfoAktivitetCdnUrl}/${syfoAktivitetManifest[entry][bundle]}`));
+  const SyfoAktivitetskrav = React.lazy(
+    () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
+  );
 
   if (
     !isAapBruker &&
@@ -97,7 +99,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
             )}
             {isSyfoAktivitetBruker && (
               <ErrorBoundary>
-                <SyfoAktivitet />
+                <SyfoAktivitetskrav />
               </ErrorBoundary>
             )}
           </React.Suspense>
