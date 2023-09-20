@@ -64,7 +64,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const isAapBruker = profil?.microfrontends.includes("aap");
   const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
-  const isSyfoAktivitetBruker = profil?.microfrontends.includes("syfo-aktivitet");
+  const isSyfoAktivitetBruker = profil?.microfrontends.includes("syfo-aktivitetskrav");
 
   const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
   const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
