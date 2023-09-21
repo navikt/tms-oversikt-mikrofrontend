@@ -89,13 +89,12 @@ const DinOversikt = ({
     () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
   );
 
-  if (
-    !isAapBruker &&
-    !isSyfoDialogBruker &&
-    !isSyfoAktivitetBruker &&
-    !isOppfolging &&
-    (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
-  ) {
+  const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
+  const hasMicrofrontend = !enableServiceDiscovery && (isAapBruker || isSyfoDialogBruker || isSyfoAktivitetBruker);
+  const hasMicrofrontendServiceDiscovery =
+    enableServiceDiscovery && microfrontends !== undefined && microfrontends.length > 0;
+
+  if (!hasMicrofrontend && !hasMicrofrontendServiceDiscovery && !hasProduktkort && !isOppfolging) {
     return null;
   } else {
     return (
