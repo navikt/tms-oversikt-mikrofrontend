@@ -62,8 +62,8 @@ const MELDEKORT_URL = {
 
 const SELECTOR_URL = {
   local: "http://localhost:3000/selector",
-  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/selector/mikrofrontends",
-  production: "https://www.nav.no/tms-min-side-proxy/selector/mikrofrontends",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/selector",
+  production: "https://www.nav.no/tms-min-side-proxy/selector",
 };
 
 const OPPFOLGING_URL = {
@@ -260,7 +260,8 @@ export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
 export const syfoAktivitetskravManifestUrl = `${SYFO_AKTIVITETSKRAV_BASE_URL[getEnvironment()]}/manifest.json`;
 export const syfoAktivitetskravCdnUrl = SYFO_AKTIVITETSKRAV_CDN_URL[getEnvironment()];
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
-export const selectorUrl = SELECTOR_URL[getEnvironment()];
+export const selectorUrl = `${SELECTOR_URL[getEnvironment()]}/mikrofrontends`;
+export const microfrontendsUrl = `${SELECTOR_URL[getEnvironment()]}/microfrontends`;
 export const tmsVarselApi = TMS_VARSEL_API[getEnvironment()];
 export const antallVarslerUrl = `${tmsVarselApi}/antall/aktive`;
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
