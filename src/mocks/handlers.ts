@@ -8,7 +8,6 @@ import {
   arbeidssokerUrl,
   featureToggleUrl,
   meldekortUrl,
-  microfrontendsUrl,
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
@@ -69,25 +68,6 @@ export const microfrontendSelectorHandler = () => {
   return [
     rest.get(selectorUrl, (_, res, ctx) => {
       return res(ctx.status(200), ctx.json({ microfrontends: ["aap", "syfo-dialog"] }));
-    }),
-
-    rest.get(microfrontendsUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          microfrontends: [
-            {
-              microfrontend_id: "aap",
-              url: `${aapBaseCdnUrl}/bundle.js`,
-            },
-            {
-              microfrontend_id: "syfo-dialog",
-              url: `${syfoDialogCdnUrl}/bundle.js`,
-            },
-          ],
-          offerStepup: false,
-        })
-      );
     }),
   ];
 };
@@ -439,7 +419,7 @@ export const utbetalingHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ EnableServiceDiscovery: true }));
+      return res(ctx.status(200), ctx.json({}));
     }),
   ];
 };
