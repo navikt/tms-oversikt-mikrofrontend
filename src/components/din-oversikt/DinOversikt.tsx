@@ -6,6 +6,7 @@ import { fetcher } from "../../api/api";
 import {
   aapBaseCdnUrl,
   aapManifestUrl,
+  microfrontendsUrl,
   mineSakerSakstemaerUrl,
   selectorUrl,
   syfoAktivitetskravCdnUrl,
@@ -24,6 +25,7 @@ import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
+import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -44,13 +46,28 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
+const DinOversikt = ({
+  isOppfolging,
+  enableServiceDiscovery,
+}: {
+  isOppfolging: boolean;
+  enableServiceDiscovery: boolean | undefined;
+}) => {
   const language = useContext(LanguageContext);
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
   });
+
+  const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
+    //onError: () => setIsError(),
+    //onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
+  });
+
+  const microfrontends = enabledMicrofrontends?.microfrontends.map((mf) => (
+    <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
+  ));
 
   const uniqueProduktConfigs = getUniqueProdukter();
 
@@ -72,13 +89,12 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
     () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
   );
 
-  if (
-    !isAapBruker &&
-    !isSyfoDialogBruker &&
-    !isSyfoAktivitetBruker &&
-    !isOppfolging &&
-    (uniqueProduktConfigs === undefined || uniqueProduktConfigs?.length === 0)
-  ) {
+  const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
+  const hasMicrofrontend = !enableServiceDiscovery && (isAapBruker || isSyfoDialogBruker || isSyfoAktivitetBruker);
+  const hasMicrofrontendServiceDiscovery =
+    enableServiceDiscovery && microfrontends !== undefined && microfrontends.length > 0;
+
+  if (!hasMicrofrontend && !hasMicrofrontendServiceDiscovery && !hasProduktkort && !isOppfolging) {
     return null;
   } else {
     return (
@@ -87,23 +103,27 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
           {produktText.oversiktTittel[language]}
         </BodyShort>
         <div className={styles.listeContainer}>
-          <React.Suspense fallback={<ContentLoader />}>
-            {isAapBruker && (
-              <ErrorBoundary>
-                <Arbeidsavklaringspenger />
-              </ErrorBoundary>
-            )}
-            {isSyfoDialogBruker && (
-              <ErrorBoundary>
-                <SyfoDialog />
-              </ErrorBoundary>
-            )}
-            {isSyfoAktivitetBruker && (
-              <ErrorBoundary>
-                <SyfoAktivitetskrav />
-              </ErrorBoundary>
-            )}
-          </React.Suspense>
+          {enableServiceDiscovery ? (
+            <>{microfrontends}</>
+          ) : (
+            <React.Suspense fallback={<ContentLoader />}>
+              {isAapBruker && (
+                <ErrorBoundary>
+                  <Arbeidsavklaringspenger />
+                </ErrorBoundary>
+              )}
+              {isSyfoDialogBruker && (
+                <ErrorBoundary>
+                  <SyfoDialog />
+                </ErrorBoundary>
+              )}
+              {isSyfoAktivitetBruker && (
+                <ErrorBoundary>
+                  <SyfoAktivitetskrav />
+                </ErrorBoundary>
+              )}
+            </React.Suspense>
+          )}
           {isOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
