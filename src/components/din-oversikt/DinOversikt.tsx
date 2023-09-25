@@ -9,13 +9,12 @@ import {
   featureToggleUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
-  arbeidssokerBaseCdnUrl,
-  arbeidssokerManifestUrl,
   selectorUrl,
   syfoAktivitetskravCdnUrl,
   syfoAktivitetskravManifestUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
+  arbeidssokerUrl,
 } from "../../api/urls";
 import { aapEntry, bundle, entry, syfoDialogEntry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
@@ -31,6 +30,7 @@ import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
 import { FeatureToggles } from "../../utils/featuretoggles";
 import { isDevelopment } from "../../utils/getEnvironment";
+import ArbeidssokerWrapper from "../arbeidssoker/ArbeidssokerWrapper";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -51,7 +51,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean; isOppfolging: boolean }) => {
+const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
@@ -61,6 +61,8 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
     onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
   });
+
+  const { data: arbeidssokerData } = useSWRImmutable(arbeidssokerUrl, fetcher);
 
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     //onError: () => setIsError(),
@@ -76,15 +78,8 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
   const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
-  const [arbeidssokerManifest, isLoadingArbeidssokerManifest] = useManifest(arbeidssokerManifestUrl);
 
-  if (
-    isLoadingProfil ||
-    isLoadingAapManifest ||
-    isLoadingSyfoDialogManifest ||
-    isLoadingSyfoAktivitetskravManifest ||
-    isLoadingArbeidssokerManifest
-  ) {
+  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
     return <ContentLoader />;
   }
 
@@ -97,7 +92,6 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
   const SyfoAktivitetskrav = React.lazy(
     () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
   );
-  const Arbeidssoker = React.lazy(() => import(`${arbeidssokerBaseCdnUrl}/${arbeidssokerManifest[entry][bundle]}`));
 
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontend = !enableServiceDiscovery && (isAapBruker || isSyfoDialogBruker || isSyfoAktivitetBruker);
@@ -114,7 +108,10 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
         </BodyShort>
         <div className={styles.listeContainer}>
           {enableServiceDiscovery ? (
-            <>{microfrontends}</>
+            <>
+              {microfrontends}
+              {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
+            </>
           ) : (
             <React.Suspense fallback={<ContentLoader />}>
               {isAapBruker && (
@@ -132,11 +129,7 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
                   <SyfoAktivitetskrav />
                 </ErrorBoundary>
               )}
-              {isArbeidssoker && isDevelopment && (
-                <ErrorBoundary>
-                  <Arbeidssoker />
-                </ErrorBoundary>
-              )}
+              {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
             </React.Suspense>
           )}
           {isOppfolging && <DialogVeileder />}
