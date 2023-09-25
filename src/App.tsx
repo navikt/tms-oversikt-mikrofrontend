@@ -51,7 +51,6 @@ function App() {
           </div>
         </div>
       </div>
-      {isArbeidssoker ? <AiaWrapper /> : null}
     </div>
   );
 }

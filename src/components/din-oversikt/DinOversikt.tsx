@@ -9,13 +9,9 @@ import {
   featureToggleUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
-  selectorUrl,
-  syfoAktivitetskravCdnUrl,
-  syfoAktivitetskravManifestUrl,
-  syfoDialogCdnUrl,
-  syfoDialogManifestUrl,
-  arbeidssokerUrl,
 } from "../../api/urls";
+import { selectorUrl, syfoAktivitetskravCdnUrl, syfoAktivitetskravManifestUrl, syfoDialogCdnUrl } from "../../api/urls";
+import { syfoDialogManifestUrl, arbeidssokerUrl } from "../../api/urls";
 import { aapEntry, bundle, entry, syfoDialogEntry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import { LanguageContext } from "../../language/LanguageProvider";
