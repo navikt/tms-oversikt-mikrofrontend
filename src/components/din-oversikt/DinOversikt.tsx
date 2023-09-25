@@ -108,7 +108,10 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
         </BodyShort>
         <div className={styles.listeContainer}>
           {enableServiceDiscovery ? (
-            <>{microfrontends}</>
+            <>
+              {microfrontends}
+              {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
+            </>
           ) : (
             <React.Suspense fallback={<ContentLoader />}>
               {isAapBruker && (

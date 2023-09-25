@@ -1,6 +1,6 @@
 import React from "react";
 import ErrorBoundary from "../../ErrorBoundary";
-import { aiaBaseCdnUrl, arbeidssokerManifestUrl } from "../../api/urls";
+import { arbeidssokerBaseCdnUrl, arbeidssokerManifestUrl } from "../../api/urls";
 import { bundle, entry } from "../../entrypoints";
 import { useManifest } from "../../hooks/useManifest";
 import ContentLoader from "../loader/ContentLoader";
@@ -12,7 +12,7 @@ const ArbeidssokerWrapper = () => {
     return null;
   }
 
-  const Arbeidssoker = React.lazy(() => import(`${aiaBaseCdnUrl}/${arbeidssokerManifest[entry][bundle]}`));
+  const Arbeidssoker = React.lazy(() => import(`${arbeidssokerBaseCdnUrl}/${arbeidssokerManifest[entry][bundle]}`));
 
   return (
     <React.Suspense fallback={<ContentLoader />}>
