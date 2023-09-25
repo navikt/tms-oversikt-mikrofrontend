@@ -25,6 +25,7 @@ function App() {
     onError: () => setIsError(),
     onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
   });
+
   const isArbeidssoker = arbeidssoker?.erArbeidssoker;
 
   const { data } = useSWRImmutable(oppfolgingUrl, fetcher);
@@ -42,7 +43,7 @@ function App() {
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
-          <DinOversikt isArbeidssoker={isArbeidssoker} isOppfolging={brukerUnderOppfolging} />
+          <DinOversikt isOppfolging={brukerUnderOppfolging} />
           <Utbetaling />
           <Innboks />
           <div className={style.sisteSakerWrapper}>
