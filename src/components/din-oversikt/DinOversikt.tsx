@@ -114,14 +114,7 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
         </BodyShort>
         <div className={styles.listeContainer}>
           {enableServiceDiscovery ? (
-            <>
-              {microfrontends}
-              {isArbeidssoker && isDevelopment && (
-                <ErrorBoundary>
-                  <Arbeidssoker />
-                </ErrorBoundary>
-              )}
-            </>
+            <>{microfrontends}</>
           ) : (
             <React.Suspense fallback={<ContentLoader />}>
               {isAapBruker && (
