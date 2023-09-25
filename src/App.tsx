@@ -16,7 +16,7 @@ import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
 
-type FeatureToggles = {};
+type FeatureToggles = { EnableServiceDiscovery: boolean };
 
 function App() {
   const isError = useStore(isErrorAtom);
@@ -44,7 +44,10 @@ function App() {
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
-          <DinOversikt isOppfolging={brukerUnderOppfolging} />
+          <DinOversikt
+            isOppfolging={brukerUnderOppfolging}
+            enableServiceDiscovery={featuretoggles?.EnableServiceDiscovery}
+          />
           <Utbetaling />
           <Innboks />
           <div className={style.sisteSakerWrapper}>
