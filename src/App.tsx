@@ -15,13 +15,12 @@ import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom, setIsError } from "./store/store";
 import { logEvent } from "./utils/amplitude";
-
-type FeatureToggles = { EnableServiceDiscovery: boolean };
+import { FeatureToggles } from "./utils/featuretoggles";
 
 function App() {
   const isError = useStore(isErrorAtom);
 
-  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+  useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
 
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
     onError: () => setIsError(),
@@ -44,10 +43,7 @@ function App() {
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
-          <DinOversikt
-            isOppfolging={brukerUnderOppfolging}
-            enableServiceDiscovery={featuretoggles?.EnableServiceDiscovery}
-          />
+          <DinOversikt isOppfolging={brukerUnderOppfolging} />
           <Utbetaling />
           <Innboks />
           <div className={style.sisteSakerWrapper}>

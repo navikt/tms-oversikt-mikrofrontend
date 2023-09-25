@@ -6,6 +6,7 @@ import { fetcher } from "../../api/api";
 import {
   aapBaseCdnUrl,
   aapManifestUrl,
+  featureToggleUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
   selectorUrl,
@@ -26,6 +27,7 @@ import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
+import { FeatureToggles } from "../../utils/featuretoggles";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -46,14 +48,11 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({
-  isOppfolging,
-  enableServiceDiscovery,
-}: {
-  isOppfolging: boolean;
-  enableServiceDiscovery: boolean | undefined;
-}) => {
+const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
+
+  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+  const enableServiceDiscovery = featuretoggles?.EnableServiceDiscovery;
 
   const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
     onError: () => setIsError(),
