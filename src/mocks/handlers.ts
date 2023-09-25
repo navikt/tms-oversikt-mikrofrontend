@@ -12,8 +12,8 @@ import {
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
-  registrertArbeidssokerBaseCdnUrl,
-  registrertArbeidssokerManifestUrl,
+  arbeidssokerBaseCdnUrl,
+  arbeidssokerManifestUrl,
   selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
@@ -101,7 +101,7 @@ export const microfrontendsHandler = () => {
         ctx.body(mikrofrontendBundle("AiA", "50vh"))
       );
     }),
-    rest.get(`${registrertArbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
+    rest.get(`${arbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
@@ -147,7 +147,7 @@ export const manifestsHandler = () => {
         })
       );
     }),
-    rest.get(registrertArbeidssokerManifestUrl, (_, res, ctx) => {
+    rest.get(arbeidssokerManifestUrl, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
