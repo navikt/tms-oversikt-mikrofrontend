@@ -78,7 +78,13 @@ const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean
   const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
   const [arbeidssokerManifest, isLoadingArbeidssokerManifest] = useManifest(arbeidssokerManifestUrl);
 
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
+  if (
+    isLoadingProfil ||
+    isLoadingAapManifest ||
+    isLoadingSyfoDialogManifest ||
+    isLoadingSyfoAktivitetskravManifest ||
+    isLoadingArbeidssokerManifest
+  ) {
     return <ContentLoader />;
   }
 
