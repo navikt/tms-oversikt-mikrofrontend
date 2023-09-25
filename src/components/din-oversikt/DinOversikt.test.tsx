@@ -11,7 +11,7 @@ test("vis alle produktkort", async () => {
   const { container } = render(
     //reset swr-cachen
     <SWRConfig value={{ provider: () => new Map() }}>
-      <DinOversikt isOppfolging={false} />
+      <DinOversikt isArbeidssoker={false} isOppfolging={false} />
     </SWRConfig>
   );
 
@@ -28,7 +28,7 @@ test("SYK og SYM er samme produkt", async () => {
 
   render(
     <SWRConfig value={{ provider: () => new Map() }}>
-      <DinOversikt isOppfolging={false} />
+      <DinOversikt isArbeidssoker={false} isOppfolging={false} />
     </SWRConfig>
   );
 
