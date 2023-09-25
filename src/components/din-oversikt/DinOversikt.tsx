@@ -9,6 +9,8 @@ import {
   featureToggleUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
+  arbeidssokerBaseCdnUrl,
+  arbeidssokerManifestUrl,
   selectorUrl,
   syfoAktivitetskravCdnUrl,
   syfoAktivitetskravManifestUrl,
@@ -28,6 +30,7 @@ import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
 import { FeatureToggles } from "../../utils/featuretoggles";
+import { isDevelopment } from "../../utils/getEnvironment";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -48,7 +51,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
+const DinOversikt = ({ isArbeidssoker, isOppfolging }: { isArbeidssoker: boolean; isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
   const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
@@ -73,6 +76,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
   const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
   const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
+  const [arbeidssokerManifest, isLoadingArbeidssokerManifest] = useManifest(arbeidssokerManifestUrl);
 
   if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
     return <ContentLoader />;
@@ -87,6 +91,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const SyfoAktivitetskrav = React.lazy(
     () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
   );
+  const Arbeidssoker = React.lazy(() => import(`${arbeidssokerBaseCdnUrl}/${arbeidssokerManifest[entry][bundle]}`));
 
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontend = !enableServiceDiscovery && (isAapBruker || isSyfoDialogBruker || isSyfoAktivitetBruker);
@@ -119,6 +124,11 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
               {isSyfoAktivitetBruker && (
                 <ErrorBoundary>
                   <SyfoAktivitetskrav />
+                </ErrorBoundary>
+              )}
+              {isArbeidssoker && isDevelopment && (
+                <ErrorBoundary>
+                  <Arbeidssoker />
                 </ErrorBoundary>
               )}
             </React.Suspense>

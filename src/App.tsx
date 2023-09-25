@@ -1,5 +1,4 @@
 import { useStore } from "@nanostores/react";
-import { Alert, Link } from "@navikt/ds-react";
 import React from "react";
 import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
@@ -43,7 +42,7 @@ function App() {
       </React.Suspense>
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
-          <DinOversikt isOppfolging={brukerUnderOppfolging} />
+          <DinOversikt isArbeidssoker={isArbeidssoker} isOppfolging={brukerUnderOppfolging} />
           <Utbetaling />
           <Innboks />
           <div className={style.sisteSakerWrapper}>

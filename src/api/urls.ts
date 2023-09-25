@@ -42,13 +42,13 @@ const AIA_BASE_CDN_URL = {
   production: "https://cdn.nav.no/paw/aia",
 };
 
-const REGISTRERT_ARBEIDSSOKER_BASE_URL = {
+const ARBEIDSSOKER_BASE_URL = {
   local: "http://localhost:3000/registrert-arbeidssoker",
   development: "https://www.intern.dev.nav.no/arbeidssoker-mikrofrontend",
   production: "https://www.nav.no/arbeidssoker-mikrofrontend",
 };
 
-const REGISTRERT_ARBEIDSSOKER_BASE_CDN_URL = {
+const ARBEIDSSOKER_BASE_CDN_URL = {
   local: "http://localhost:3000/arbeidssoker-mikrofrontend",
   development: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
   production: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
@@ -253,8 +253,8 @@ export const aapManifestUrl = `${AAP_BASE_URL[getEnvironment()]}/manifest.json`;
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
-export const registrertArbeidssokerBaseCdnUrl = REGISTRERT_ARBEIDSSOKER_BASE_CDN_URL[getEnvironment()];
-export const registrertArbeidssokerManifestUrl = `${REGISTRERT_ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
+export const arbeidssokerBaseCdnUrl = ARBEIDSSOKER_BASE_CDN_URL[getEnvironment()];
+export const arbeidssokerManifestUrl = `${ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
 export const syfoDialogManifestUrl = `${SYFO_DIALOG_BASE_URL[getEnvironment()]}/manifest.json`;
 export const syfoDialogCdnUrl = SYFO_DIALOG_CDN_URL[getEnvironment()];
 export const syfoAktivitetskravManifestUrl = `${SYFO_AKTIVITETSKRAV_BASE_URL[getEnvironment()]}/manifest.json`;
