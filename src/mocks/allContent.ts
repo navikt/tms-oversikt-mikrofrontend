@@ -5,6 +5,8 @@ import {
   aiaBaseCdnUrl,
   aiaManifestUrl,
   antallVarslerUrl,
+  arbeidssokerBaseCdnUrl,
+  arbeidssokerManifestUrl,
   arbeidssokerUrl,
   featureToggleUrl,
   meldekortUrl,
@@ -12,14 +14,11 @@ import {
   mineSakerApiUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
-  arbeidssokerBaseCdnUrl,
-  arbeidssokerManifestUrl,
-  selectorUrl,
   syfoDialogCdnUrl,
   syfoDialogManifestUrl,
 } from "../api/urls";
-import { mikrofrontendBundle } from "./mikrofrontendBundle";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
+import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
 export const sakerHandler = () => {
   return [
@@ -88,7 +87,7 @@ export const microfrontendSelectorHandler = () => {
   ];
 };
 
-export const microfrontendsHandler = () => {
+export const microfrontendBundleHandler = () => {
   return [
     rest.get(`${aiaBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
@@ -128,7 +127,7 @@ export const microfrontendsHandler = () => {
   ];
 };
 
-export const manifestsHandler = () => {
+export const manifestHandler = () => {
   return [
     rest.get(aiaManifestUrl, (_, res, ctx) => {
       return res(
@@ -137,45 +136,6 @@ export const manifestsHandler = () => {
           "src/main.tsx": {
             file: "bundle.js",
             src: "src/main.tsx",
-            isEntry: true,
-            css: ["assets/bundle.4ce1efd6.css"],
-          },
-        })
-      );
-    }),
-    rest.get(arbeidssokerManifestUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          "src/Mikrofrontend.tsx": {
-            file: "bundle.js",
-            src: "src/Mikrofrontend.tsx",
-            isEntry: true,
-            css: ["assets/bundle.4ce1efd6.css"],
-          },
-        })
-      );
-    }),
-    rest.get(aapManifestUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          "src/Mikrofrontend.tsx": {
-            file: "bundle.js",
-            src: "src/Mikrofrontend.tsx",
-            isEntry: true,
-            css: ["assets/bundle.4ce1efd6.css"],
-          },
-        })
-      );
-    }),
-    rest.get(syfoDialogManifestUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          "src/Mikrofrontend.tsx": {
-            file: "bundle.js",
-            src: "src/Mikrofrontend.tsx",
             isEntry: true,
             css: ["assets/bundle.4ce1efd6.css"],
           },
@@ -461,11 +421,11 @@ export const oppfolgingHandler = () => {
   ];
 };
 
-export const handlers = [
+export const handlersAllContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
-  ...microfrontendsHandler(),
-  ...manifestsHandler(),
+  ...microfrontendBundleHandler(),
+  ...manifestHandler(),
   ...arbeidssøkerHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),

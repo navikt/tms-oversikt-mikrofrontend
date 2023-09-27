@@ -6,10 +6,12 @@ import { axe } from "vitest-axe";
 import { mineSakerSakstemaerUrl } from "../../api/urls";
 import { server } from "../../mocks/server";
 import DinOversikt from "./DinOversikt";
+import { sakerHandler } from "../../mocks/allContent";
 
 test("vis alle produktkort", async () => {
+  server.use(...sakerHandler());
+
   const { container } = render(
-    //reset swr-cachen
     <SWRConfig value={{ provider: () => new Map() }}>
       <DinOversikt isOppfolging={false} />
     </SWRConfig>
