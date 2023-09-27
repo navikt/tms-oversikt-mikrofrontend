@@ -1,36 +1,19 @@
 import { BodyShort } from "@navikt/ds-react";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
-import ErrorBoundary from "../../ErrorBoundary";
 import { fetcher } from "../../api/api";
-import {
-  aapBaseCdnUrl,
-  aapManifestUrl,
-  featureToggleUrl,
-  microfrontendsUrl,
-  mineSakerSakstemaerUrl,
-  selectorUrl,
-  syfoAktivitetskravCdnUrl,
-  syfoAktivitetskravManifestUrl,
-  syfoDialogCdnUrl,
-  syfoDialogManifestUrl,
-  arbeidssokerUrl,
-} from "../../api/urls";
-import { aapEntry, bundle, entry, syfoDialogEntry } from "../../entrypoints";
-import { useManifest } from "../../hooks/useManifest";
+import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
+import { isDevelopment } from "../../utils/getEnvironment";
+import ArbeidssokerWrapper from "../arbeidssoker/ArbeidssokerWrapper";
 import DialogVeileder from "../dialog-veileder/DialogVeileder";
-import ContentLoader from "../loader/ContentLoader";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
-import { FeatureToggles } from "../../utils/featuretoggles";
-import { isDevelopment } from "../../utils/getEnvironment";
-import ArbeidssokerWrapper from "../arbeidssoker/ArbeidssokerWrapper";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -54,20 +37,12 @@ const getUniqueProdukter = () => {
 const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const language = useContext(LanguageContext);
 
-  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
-  const enableServiceDiscovery = featuretoggles?.EnableServiceDiscovery;
-
-  const { data: profil, isLoading: isLoadingProfil } = useSWRImmutable(selectorUrl, fetcher, {
+  const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     onError: () => setIsError(),
-    onSuccess: (data) => data.microfrontends.map((id: string) => logEvent(`minside.${id}`, true)),
+    onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
   });
 
   const { data: arbeidssokerData } = useSWRImmutable(arbeidssokerUrl, fetcher);
-
-  const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
-    //onError: () => setIsError(),
-    //onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
-  });
 
   const microfrontends = enabledMicrofrontends?.microfrontends.map((mf) => (
     <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
@@ -75,30 +50,10 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
 
   const uniqueProduktConfigs = getUniqueProdukter();
 
-  const [aapManifest, isLoadingAapManifest] = useManifest(aapManifestUrl);
-  const [syfoDialogManifest, isLoadingSyfoDialogManifest] = useManifest(syfoDialogManifestUrl);
-  const [syfoAktivitetskravManifest, isLoadingSyfoAktivitetskravManifest] = useManifest(syfoAktivitetskravManifestUrl);
-
-  if (isLoadingProfil || isLoadingAapManifest || isLoadingSyfoDialogManifest || isLoadingSyfoAktivitetskravManifest) {
-    return <ContentLoader />;
-  }
-
-  const isAapBruker = profil?.microfrontends.includes("aap");
-  const isSyfoDialogBruker = profil?.microfrontends.includes("syfo-dialog");
-  const isSyfoAktivitetBruker = profil?.microfrontends.includes("syfo-aktivitetskrav");
-
-  const Arbeidsavklaringspenger = React.lazy(() => import(`${aapBaseCdnUrl}/${aapManifest[aapEntry][bundle]}`));
-  const SyfoDialog = React.lazy(() => import(`${syfoDialogCdnUrl}/${syfoDialogManifest[syfoDialogEntry][bundle]}`));
-  const SyfoAktivitetskrav = React.lazy(
-    () => import(`${syfoAktivitetskravCdnUrl}/${syfoAktivitetskravManifest[entry][bundle]}`)
-  );
-
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
-  const hasMicrofrontend = !enableServiceDiscovery && (isAapBruker || isSyfoDialogBruker || isSyfoAktivitetBruker);
-  const hasMicrofrontendServiceDiscovery =
-    enableServiceDiscovery && microfrontends !== undefined && microfrontends.length > 0;
+  const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
 
-  if (!hasMicrofrontend && !hasMicrofrontendServiceDiscovery && !hasProduktkort && !isOppfolging) {
+  if (!hasMicrofrontends && !hasProduktkort && !isOppfolging) {
     return null;
   } else {
     return (
@@ -107,31 +62,8 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
           {produktText.oversiktTittel[language]}
         </BodyShort>
         <div className={styles.listeContainer}>
-          {enableServiceDiscovery ? (
-            <>
-              {microfrontends}
-              {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
-            </>
-          ) : (
-            <React.Suspense fallback={<ContentLoader />}>
-              {isAapBruker && (
-                <ErrorBoundary>
-                  <Arbeidsavklaringspenger />
-                </ErrorBoundary>
-              )}
-              {isSyfoDialogBruker && (
-                <ErrorBoundary>
-                  <SyfoDialog />
-                </ErrorBoundary>
-              )}
-              {isSyfoAktivitetBruker && (
-                <ErrorBoundary>
-                  <SyfoAktivitetskrav />
-                </ErrorBoundary>
-              )}
-              {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
-            </React.Suspense>
-          )}
+          <>{microfrontends}</>
+          {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
           {isOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
