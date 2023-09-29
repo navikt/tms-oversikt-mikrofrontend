@@ -11,7 +11,6 @@ const imports = {
 };
 
 export default () => ({
-  publicDir: false,
   plugins: [
     react(),
     terser(),
@@ -24,6 +23,7 @@ export default () => ({
   ],
   build: {
     manifest: true,
+    copyPublicDir: false,
     rollupOptions: {
       input: {
         "tms-oversikt-mikrofrontend": "src/Mikrofrontend.jsx",
