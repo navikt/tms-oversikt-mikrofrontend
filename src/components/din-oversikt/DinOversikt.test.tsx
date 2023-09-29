@@ -47,9 +47,7 @@ test("SYK og SYM er samme produkt", async () => {
     </SWRConfig>
   );
 
-  await waitFor(() => {
-    expect(screen.getAllByRole("heading")).toHaveLength(2); //Overskrift + 1 produktkort
-  });
+  expect(await screen.findAllByRole("heading")).toHaveLength(2); //Overskrift + 1 produktkort
 });
 
 test("vis alle microfrontends", async () => {
@@ -96,5 +94,5 @@ test("vis dialog med veileder hvis under oppfølging", async () => {
     </SWRConfig>
   );
 
-  expect(await screen.findByRole("heading", { name: "Dialog med veilederen din" })).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { level: 2, name: "Dialog med veilederen din" })).toBeInTheDocument();
 });
