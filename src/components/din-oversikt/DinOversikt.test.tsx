@@ -1,5 +1,5 @@
 import { Heading } from "@navikt/ds-react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { rest } from "msw";
 import { SWRConfig } from "swr";
 import { expect, test, vi } from "vitest";

@@ -1,12 +1,10 @@
 import { rest } from "msw";
 import {
   aapBaseCdnUrl,
-  aapManifestUrl,
   aiaBaseCdnUrl,
   aiaManifestUrl,
   antallVarslerUrl,
   arbeidssokerBaseCdnUrl,
-  arbeidssokerManifestUrl,
   arbeidssokerUrl,
   featureToggleUrl,
   meldekortUrl,
@@ -15,7 +13,6 @@ import {
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
   syfoDialogCdnUrl,
-  syfoDialogManifestUrl,
 } from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
