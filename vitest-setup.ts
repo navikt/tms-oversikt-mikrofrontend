@@ -1,11 +1,14 @@
 import "vitest-axe/extend-expect";
-import matchers from '@testing-library/jest-dom/matchers';
+import matchers from "@testing-library/jest-dom/matchers";
 import * as axeMatchers from "vitest-axe/matchers";
-import { afterAll, afterEach, beforeAll, expect } from "vitest";
+import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
 import { server } from "./src/mocks/server";
 import { cleanup, render } from "@testing-library/react";
 expect.extend(matchers);
 expect.extend(axeMatchers);
+
+// @ts-expect-error mock for å fikse jsdom-feil i testene
+HTMLCanvasElement.prototype.getContext = vi.fn();
 
 beforeAll(() => {
   server.listen({ onUnhandledRequest: "warn" });

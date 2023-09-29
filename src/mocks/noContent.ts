@@ -19,8 +19,6 @@ const sakerHandler = () => {
         ctx.status(200),
         ctx.json({
           sakstemaer: [],
-          sakerURL: "https://www.dev.intern.nav.no/mine-saker",
-          dagpengerSistEndret: null,
         })
       );
     }),

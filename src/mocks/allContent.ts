@@ -37,8 +37,6 @@ export const sakerHandler = () => {
               detaljvisningUrl: "https://aap-innsyn.dev.nav.no/aap/mine-aap",
             },
           ],
-          sakerURL: "https://www.dev.intern.nav.no/mine-saker",
-          dagpengerSistEndret: null,
         })
       );
     }),

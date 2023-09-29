@@ -15,7 +15,7 @@ vi.mock("./components/aia/AiaWrapper", function mockFactory() {
   };
 });
 
-test("side uten personalisert innhold fungerer", async () => {
+test("bruker uten personalisert innhold får alle generelle komponenter", async () => {
   const { container } = render(
     <SWRConfig value={{ provider: () => new Map() }}>
       <App />

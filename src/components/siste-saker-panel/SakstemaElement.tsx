@@ -26,7 +26,7 @@ const SakstemaElement = ({ href, sakstema, sistEndret }: Props) => {
           {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
         </BodyLong>
       </div>
-      <ChevronRightIcon className={styles.chevron} fontSize="24px" />
+      <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
     </a>
   );
 };
