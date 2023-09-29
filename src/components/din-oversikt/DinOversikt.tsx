@@ -2,7 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl } from "../../api/urls";
+import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
@@ -13,7 +13,8 @@ import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
-import { EnabledMicrofrontends, MicrofrontendWrapper } from "./microfrontendTypes";
+import { EnabledMicrofrontends } from "./microfrontendTypes";
+import MicrofrontendWrapper from "./MicrofrontendWrapper";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -34,7 +35,7 @@ const getUniqueProdukter = () => {
   return uniqueProduktConfigs;
 };
 
-const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
+const DinOversikt = () => {
   const language = useContext(LanguageContext);
 
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
@@ -43,6 +44,9 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   });
 
   const { data: arbeidssokerData } = useSWRImmutable(arbeidssokerUrl, fetcher);
+
+  const { data: oppfolgingData } = useSWRImmutable(oppfolgingUrl, fetcher);
+  const brukerUnderOppfolging = oppfolgingData?.underOppfolging;
 
   const microfrontends = enabledMicrofrontends?.microfrontends.map((mf) => (
     <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
@@ -53,7 +57,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
 
-  if (!hasMicrofrontends && !hasProduktkort && !isOppfolging) {
+  if (!hasMicrofrontends && !hasProduktkort && !brukerUnderOppfolging) {
     return null;
   } else {
     return (
@@ -64,7 +68,7 @@ const DinOversikt = ({ isOppfolging }: { isOppfolging: boolean }) => {
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
           {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
-          {isOppfolging && <DialogVeileder />}
+          {brukerUnderOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
