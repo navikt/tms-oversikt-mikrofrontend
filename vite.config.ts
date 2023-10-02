@@ -23,6 +23,7 @@ export default () => ({
   ],
   build: {
     manifest: true,
+    copyPublicDir: false,
     rollupOptions: {
       input: {
         "tms-oversikt-mikrofrontend": "src/Mikrofrontend.jsx",
