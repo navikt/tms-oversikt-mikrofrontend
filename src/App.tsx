@@ -9,7 +9,6 @@ import AiaWrapper from "./components/aia/AiaWrapper";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
-import ContentLoader from "./components/loader/ContentLoader";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom, setIsError } from "./store/store";
@@ -32,7 +31,7 @@ function App() {
   return (
     <div className={style.app}>
       {isError ? <Feilmelding /> : null}
-      <React.Suspense fallback={<ContentLoader />}>
+      <React.Suspense fallback={null}>
         <ErrorBoundary>
           <Meldekort />
         </ErrorBoundary>
