@@ -1,6 +1,5 @@
 import { rest } from "msw";
 import {
-  aapBaseCdnUrl,
   aiaBaseCdnUrl,
   aiaManifestUrl,
   antallVarslerUrl,
@@ -9,17 +8,16 @@ import {
   featureToggleUrl,
   meldekortUrl,
   microfrontendsUrl,
-  mineSakerApiUrl,
+  mineSakerApiSisteUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
-  syfoDialogCdnUrl,
 } from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
 export const sakerHandler = () => {
   return [
-    rest.get(mineSakerApiUrl, (_, res, ctx) => {
+    rest.get(mineSakerApiSisteUrl, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
@@ -68,11 +66,11 @@ export const microfrontendSelectorHandler = () => {
           microfrontends: [
             {
               microfrontend_id: "aap",
-              url: `${aapBaseCdnUrl}/bundle.js`,
+              url: `https://localhost:3000/aap/bundle.js`,
             },
             {
               microfrontend_id: "syfo-dialog",
-              url: `${syfoDialogCdnUrl}/bundle.js`,
+              url: `https://localhost:3000/syfo-dialog/bundle.js`,
             },
           ],
           offerStepup: false,
@@ -98,14 +96,14 @@ export const microfrontendBundleHandler = () => {
         ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh"))
       );
     }),
-    rest.get(`${aapBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
+    rest.get(`https://localhost:3000/aap/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("AAP", "5vh"))
       );
     }),
-    rest.get(`${syfoDialogCdnUrl}/bundle.js`, (_, res, ctx) => {
+    rest.get(`https://localhost:3000/syfo-dialog/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),

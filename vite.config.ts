@@ -11,7 +11,6 @@ const imports = {
 };
 
 export default () => ({
-  publicDir: false,
   plugins: [
     react(),
     terser(),

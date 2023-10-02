@@ -3,13 +3,13 @@ import { rest } from "msw";
 import { SWRConfig } from "swr";
 import { expect, test } from "vitest";
 import { axe } from "vitest-axe";
-import { mineSakerApiUrl, mineSakerUrl } from "../../api/urls";
+import { mineSakerApiSisteUrl, mineSakerUrl } from "../../api/urls";
 import { server } from "../../mocks/server";
 import SisteSakerPanel from "./SisteSakerPanel";
 
 test("tomt panel lenker til dokumentarkiv", async () => {
   server.use(
-    rest.get(mineSakerApiUrl, (_, res, ctx) => {
+    rest.get(mineSakerApiSisteUrl, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
@@ -31,7 +31,7 @@ test("tomt panel lenker til dokumentarkiv", async () => {
 
 test("viser siste dokument", async () => {
   server.use(
-    rest.get(mineSakerApiUrl, (_, res, ctx) => {
+    rest.get(mineSakerApiSisteUrl, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
@@ -66,7 +66,7 @@ test("viser siste dokument", async () => {
 
 test("viser to siste dokumenter", async () => {
   server.use(
-    rest.get(mineSakerApiUrl, (_, res, ctx) => {
+    rest.get(mineSakerApiSisteUrl, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
