@@ -3,7 +3,7 @@ import { BodyLong, BodyShort, Panel } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { mineSakerApiUrl, mineSakerUrl } from "../../api/urls";
+import { mineSakerApiSisteUrl, mineSakerUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { text } from "../../language/text";
 import { logNavigereEvent } from "../../utils/amplitude";
@@ -11,7 +11,7 @@ import SakstemaElement from "./SakstemaElement";
 import styles from "./SisteSakerPanel.module.css";
 
 const SisteSakerPanel = () => {
-  const { data: saker } = useSWRImmutable(mineSakerApiUrl, fetcher);
+  const { data: saker } = useSWRImmutable(mineSakerApiSisteUrl, fetcher);
 
   const language = useContext(LanguageContext);
 

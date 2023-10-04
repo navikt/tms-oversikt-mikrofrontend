@@ -1,10 +1,10 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
-import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import { useContext } from "react";
 import { LanguageContext } from "../../language/LanguageProvider";
-import { logNavigereEvent } from "../../utils/amplitude";
 import { formatDateMonth } from "../../language/i18n";
 import { text } from "../../language/text";
+import { logNavigereEvent } from "../../utils/amplitude";
 import styles from "./SakstemaElement.module.css";
 
 type Props = {
@@ -26,7 +26,7 @@ const SakstemaElement = ({ href, sakstema, sistEndret }: Props) => {
           {text.sisteSakerLenkedetail[language] + formatDateMonth(sistEndret)}
         </BodyLong>
       </div>
-      <ChevronRightIcon className={styles.chevron} fontSize="24px" />
+      <ChevronRightIcon className={styles.chevron} aria-hidden fontSize="24px" />
     </a>
   );
 };
