@@ -1,7 +1,6 @@
 import { rest } from "msw";
 import {
   antallVarslerUrl,
-  arbeidssokerUrl,
   featureToggleUrl,
   meldekortUrl,
   microfrontendsUrl,
@@ -50,14 +49,6 @@ const microfrontendBundleHandler = () => {
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
       );
-    }),
-  ];
-};
-
-const arbeidssøkerHandler = () => {
-  return [
-    rest.get(arbeidssokerUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ erArbeidssoker: false }));
     }),
   ];
 };
@@ -113,7 +104,6 @@ export const handlersNoContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
   ...microfrontendBundleHandler(),
-  ...arbeidssøkerHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...varselHandler(),

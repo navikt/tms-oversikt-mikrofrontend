@@ -1,10 +1,7 @@
 import { rest } from "msw";
 import {
-  aiaBaseCdnUrl,
-  aiaManifestUrl,
   antallVarslerUrl,
   arbeidssokerBaseCdnUrl,
-  arbeidssokerUrl,
   featureToggleUrl,
   meldekortUrl,
   microfrontendsUrl,
@@ -82,13 +79,6 @@ export const microfrontendSelectorHandler = () => {
 
 export const microfrontendBundleHandler = () => {
   return [
-    rest.get(`${aiaBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
-      return res(
-        ctx.set("Content-Type", "text/javascript"),
-        ctx.status(200),
-        ctx.body(mikrofrontendBundle("AiA", "50vh"))
-      );
-    }),
     rest.get(`${arbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
@@ -116,32 +106,6 @@ export const microfrontendBundleHandler = () => {
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
       );
-    }),
-  ];
-};
-
-export const manifestHandler = () => {
-  return [
-    rest.get(aiaManifestUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          "src/main.tsx": {
-            file: "bundle.js",
-            src: "src/main.tsx",
-            isEntry: true,
-            css: ["assets/bundle.4ce1efd6.css"],
-          },
-        })
-      );
-    }),
-  ];
-};
-
-export const arbeidssøkerHandler = () => {
-  return [
-    rest.get(arbeidssokerUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ erArbeidssoker: true }));
     }),
   ];
 };
@@ -418,8 +382,6 @@ export const handlersAllContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
   ...microfrontendBundleHandler(),
-  ...manifestHandler(),
-  ...arbeidssøkerHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...varselHandler(),
