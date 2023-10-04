@@ -6,18 +6,6 @@ const MIN_SIDE_PROXY_URL = {
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
-const AIA_BASE_URL = {
-  local: "http://localhost:3000/aia",
-  development: "https://veientilarbeid.intern.dev.nav.no/esm",
-  production: "https://veientilarbeid.nav.no/esm",
-};
-
-const AIA_BASE_CDN_URL = {
-  local: "http://localhost:3000/aia",
-  development: "https://cdn.nav.no/paw/aia",
-  production: "https://cdn.nav.no/paw/aia",
-};
-
 const ARBEIDSSOKER_BASE_URL = {
   local: "http://localhost:3000/registrert-arbeidssoker",
   development: "https://www.intern.dev.nav.no/arbeidssoker-mikrofrontend",
@@ -84,8 +72,6 @@ const TMS_VARSEL_API = {
   production: "https://www.nav.no/tms-varsel-api",
 };
 
-export const aiaBaseCdnUrl = AIA_BASE_CDN_URL[getEnvironment()];
-export const aiaManifestUrl = `${AIA_BASE_URL[getEnvironment()]}/manifest.json`;
 export const arbeidssokerBaseCdnUrl = ARBEIDSSOKER_BASE_CDN_URL[getEnvironment()];
 export const arbeidssokerManifestUrl = `${ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
