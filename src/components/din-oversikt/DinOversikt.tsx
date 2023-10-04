@@ -2,7 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
+import { microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
@@ -43,8 +43,6 @@ const DinOversikt = () => {
     onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
   });
 
-  const { data: arbeidssokerData } = useSWRImmutable(arbeidssokerUrl, fetcher);
-
   const { data: oppfolgingData } = useSWRImmutable(oppfolgingUrl, fetcher);
   const brukerUnderOppfolging = oppfolgingData?.underOppfolging;
 
@@ -67,7 +65,7 @@ const DinOversikt = () => {
         </BodyShort>
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
-          {isDevelopment && arbeidssokerData?.erArbeidssoker && <ArbeidssokerWrapper />}
+          {isDevelopment && <ArbeidssokerWrapper />}
           {brukerUnderOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
