@@ -1,30 +1,21 @@
-import { useStore } from "@nanostores/react";
 import React from "react";
+import { useStore } from "@nanostores/react";
 import useSWRImmutable from "swr/immutable";
 import style from "./App.module.css";
 import ErrorBoundary from "./ErrorBoundary";
 import { fetcher } from "./api/api";
-import { arbeidssokerUrl, featureToggleUrl, meldekortUrl } from "./api/urls";
-import AiaWrapper from "./components/aia/AiaWrapper";
+import { featureToggleUrl, meldekortUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
 import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
-import { isErrorAtom, setIsError } from "./store/store";
-import { logEvent } from "./utils/amplitude";
+import { isErrorAtom } from "./store/store";
 import { FeatureToggles } from "./utils/featuretoggles";
 
 function App() {
-  const isError = useStore(isErrorAtom);
-
   useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
-
-  const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher, {
-    onError: () => setIsError(),
-    onSuccess: (data) => logEvent("minside.aia", data.erArbeidssoker),
-  });
-  const isArbeidssoker = arbeidssoker?.erArbeidssoker;
+  const isError = useStore(isErrorAtom);
 
   const Meldekort = React.lazy(() => import(meldekortUrl));
 
@@ -46,7 +37,6 @@ function App() {
           </div>
         </div>
       </div>
-      {isArbeidssoker ? <AiaWrapper /> : null}
     </div>
   );
 }
