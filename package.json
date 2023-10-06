@@ -7,8 +7,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install && chmod +x .husky/scripts/check-no-a11y-ignored.sh ",
-    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
-    "lint:staged": "eslint -c .eslintrc.pre-commit.js --fix --ext .ts,.tsx,.js,.jsx ."
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx ."
   },
   "dependencies": {
     "@nanostores/react": "0.7.1",
@@ -51,7 +50,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint -c .eslintrc.pre-commit.js --fix",
+      "eslint --fix",
       "prettier --cache --write"
     ],
     "*.{css,md,html,json}": [
