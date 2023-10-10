@@ -8,7 +8,6 @@ import { featureToggleUrl, meldekortUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
 import Innboks from "./components/innboks/Innboks";
-import SisteSakerPanel from "./components/siste-saker-panel/SisteSakerPanel";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom } from "./store/store";
 import { FeatureToggles } from "./utils/featuretoggles";
@@ -32,9 +31,6 @@ function App() {
           <DinOversikt />
           <Utbetaling />
           <Innboks />
-          <div className={style.sisteSakerWrapper}>
-            <SisteSakerPanel />
-          </div>
         </div>
       </div>
     </div>
