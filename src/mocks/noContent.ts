@@ -4,7 +4,6 @@ import {
   featureToggleUrl,
   meldekortUrl,
   microfrontendsUrl,
-  mineSakerApiSisteUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
 } from "../api/urls";
@@ -13,14 +12,6 @@ import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
 const sakerHandler = () => {
   return [
-    rest.get(mineSakerApiSisteUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          sakstemaer: [],
-        })
-      );
-    }),
     rest.get(mineSakerSakstemaerUrl, (_, res, ctx) => {
       return res(ctx.status(200), ctx.json([]));
     }),

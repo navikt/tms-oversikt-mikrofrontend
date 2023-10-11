@@ -21,6 +21,5 @@ test("bruker uten personalisert innhold får alle generelle komponenter", async 
 
   expect(await screen.findByRole("heading", { name: "Siste utbetaling", level: 2 })).toBeInTheDocument();
   expect(await screen.findByRole("heading", { name: "Innboks", level: 2 })).toBeInTheDocument();
-  expect(await screen.findByRole("heading", { name: "Dokumentarkiv", level: 2 })).toBeInTheDocument();
   expect(await axe(container)).toHaveNoViolations();
 });

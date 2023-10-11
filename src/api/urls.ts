@@ -48,12 +48,6 @@ const PERSON_NAV_URL = {
   production: "https://person.nav.no",
 };
 
-const MINE_SAKER_API_URL = {
-  local: "http://localhost:3000/mine-saker-api/siste",
-  development: "https://www.intern.dev.nav.no/mine-saker-api/siste",
-  production: "https://person.nav.no/mine-saker-api/siste",
-};
-
 const MINE_SAKER_SAKSTEMAER_URL = {
   local: "http://localhost:3000/mine-saker-api/sakstemaer/egne",
   development: "https://www.intern.dev.nav.no/mine-saker-api/sakstemaer/egne",
@@ -79,8 +73,6 @@ export const microfrontendsUrl = `${SELECTOR_URL[getEnvironment()]}/microfronten
 export const antallVarslerUrl = `${TMS_VARSEL_API[getEnvironment()]}/antall/aktive`;
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const innboksUrl = INNBOKS_URL[getEnvironment()];
-export const mineSakerApiSisteUrl = MINE_SAKER_API_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/featuretoggles`;
 export const dialogMedVeilederUrl = `${NAV_URL[getEnvironment()]}/arbeid/dialog`;
-export const mineSakerUrl = `${PERSON_NAV_URL[getEnvironment()]}/mine-saker`;
