@@ -104,16 +104,6 @@ export const text = {
     nn: "Kommunikasjon med NAV",
     en: "Communication with NAV",
   },
-  kommunikasjonsFlisLenketekstInnboks: {
-    nb: "Innboks",
-    nn: "Innboks",
-    en: "Inbox",
-  },
-  kommunikasjonsFlisIngressInnboks: {
-    nb: "Informasjon fra NAV og svar på henvendelser og referater fra samtaler du har på telefon, chat og “Skriv til oss”.",
-    nn: "Informasjon frå NAV og svar på førespurnadar og referat frå samtalar du har på telefon, chat og “Skriv til oss”.",
-    en: "Information from NAV and replies to inquiries, and summaries of conversations via phone calls, chats and “Write to us”.",
-  },
   kommunikasjonsFlisLenketekstDialog: {
     nb: "Dialog med veilederen din",
     nn: "Dialog med rettleiaren din",
@@ -133,21 +123,6 @@ export const text = {
     nb: "For deg som ikke har Digipost eller e-Boks.",
     nn: "For deg som ikkje har Digipost eller e-Boks.",
     en: "If you don’t have Digipost or e-Boks.",
-  },
-  innboksNyMeldingEntall: {
-    nb: "1 ny melding",
-    nn: "1 ny melding",
-    en: "1 new message",
-  },
-  innboksNyMeldingFlertall: {
-    nb: (antall: number) => `${antall} nye meldinger`,
-    nn: (antall: number) => `${antall} nye meldingar`,
-    en: (antall: number) => `${antall} new messages`,
-  },
-  innboksIngenNyMeldinger: {
-    nb: "Ingen nye meldinger",
-    nn: "Ingen nye meldingar",
-    en: "No new messages",
   },
   generelleFliserSykefravaer: {
     nb: "Ditt sykefravær",

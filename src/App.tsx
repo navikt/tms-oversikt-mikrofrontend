@@ -7,7 +7,6 @@ import { fetcher } from "./api/api";
 import { featureToggleUrl, meldekortUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
-import Innboks from "./components/innboks/Innboks";
 import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom } from "./store/store";
 import { FeatureToggles } from "./utils/featuretoggles";
@@ -30,7 +29,6 @@ function App() {
         <div className="min-side-lenkepanel">
           <DinOversikt />
           <Utbetaling />
-          <Innboks />
         </div>
       </div>
     </div>
