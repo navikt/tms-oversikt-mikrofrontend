@@ -1,6 +1,5 @@
 import { rest } from "msw";
 import {
-  antallVarslerUrl,
   arbeidssokerBaseCdnUrl,
   featureToggleUrl,
   meldekortUrl,
@@ -335,19 +334,6 @@ export const featureToggleHandler = () => {
   ];
 };
 
-export const varselHandler = () => {
-  return [
-    rest.get(antallVarslerUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          innbokser: 4,
-        })
-      );
-    }),
-  ];
-};
-
 export const oppfolgingHandler = () => {
   return [
     rest.get(oppfolgingUrl, (_, res, ctx) => {
@@ -362,6 +348,5 @@ export const handlersAllContent = [
   ...microfrontendBundleHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
-  ...varselHandler(),
   ...oppfolgingHandler(),
 ];

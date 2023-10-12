@@ -1,12 +1,5 @@
 import { rest } from "msw";
-import {
-  antallVarslerUrl,
-  featureToggleUrl,
-  meldekortUrl,
-  microfrontendsUrl,
-  mineSakerSakstemaerUrl,
-  oppfolgingUrl,
-} from "../api/urls";
+import { featureToggleUrl, meldekortUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
@@ -70,19 +63,6 @@ const featureToggleHandler = () => {
   ];
 };
 
-const varselHandler = () => {
-  return [
-    rest.get(antallVarslerUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          innbokser: 0,
-        })
-      );
-    }),
-  ];
-};
-
 const oppfolgingHandler = () => {
   return [
     rest.get(oppfolgingUrl, (_, res, ctx) => {
@@ -97,6 +77,5 @@ export const handlersNoContent = [
   ...microfrontendBundleHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
-  ...varselHandler(),
   ...oppfolgingHandler(),
 ];
