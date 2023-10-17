@@ -6,7 +6,7 @@ import "./index.css";
 const container = document.getElementById("root") as HTMLElement;
 const root = createRoot(container);
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   const msw = await import("./mocks/browser");
   await msw.worker.start({ onUnhandledRequest: "bypass" });
   msw.worker.printHandlers();

@@ -18,5 +18,5 @@ export const text = {
     nb: "Du har ingen nye utbetalinger de siste tre månedene",
     nn: "Du har ingen nye utbetalingar dei siste tre månadene",
     en: "You have no new payments in the last three months",
-  }
+  },
 };

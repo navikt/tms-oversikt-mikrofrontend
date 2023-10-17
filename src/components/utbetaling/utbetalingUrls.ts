@@ -16,6 +16,7 @@ const UTBETALINGSOVERSIKT_API_URL = {
   production: "https://person.nav.no/tms-utbetalingsoversikt-api/utbetalinger",
 };
 
-
-export const utbetalingsoversiktApiUrl = `${UTBETALINGSOVERSIKT_API_URL[getEnvironment()]}?&fom=${fromDate}&tom=${toDate}`;
+export const utbetalingsoversiktApiUrl = `${
+  UTBETALINGSOVERSIKT_API_URL[getEnvironment()]
+}?&fom=${fromDate}&tom=${toDate}`;
 export const utbetalingsoversiktUrl = UTBETALINGSOVERSIKT_URL[getEnvironment()];

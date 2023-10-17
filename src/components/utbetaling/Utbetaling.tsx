@@ -11,12 +11,11 @@ import UtbetalingYtelser from "./ytelser/UtbetalingYtelser";
 import UtbetalingHeading from "./heading/UtbetalingHeading";
 import { UtbetalingResponse } from "./utbetalingTypes";
 import { logNavigereEvent } from "../../utils/amplitude";
-import { text } from "./utbetalingText"
+import { text } from "./utbetalingText";
 import style from "./Utbetaling.module.css";
 
-
 const Utbetaling = () => {
-  const { data, isLoading} = useSWRImmutable<UtbetalingResponse>(utbetalingsoversiktApiUrl, fetcher);
+  const { data, isLoading } = useSWRImmutable<UtbetalingResponse>(utbetalingsoversiktApiUrl, fetcher);
   const language = useContext(LanguageContext);
 
   if (isLoading) {
@@ -32,12 +31,14 @@ const Utbetaling = () => {
       <div className={style.ingen}>
         <div className={style.container}>
           <UtbetalingHeading type="ingen" />
-            <a
-              className={style.link} href={utbetalingsoversiktUrl}
-              onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Du har ingen...")}
-            >
-              <BodyLong className={style.text}>{text.ingen[language]}</BodyLong> <ChevronRightIcon aria-hidden fontSize="24px" className={style.chevron} />
-            </a>
+          <a
+            className={style.link}
+            href={utbetalingsoversiktUrl}
+            onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Du har ingen...")}
+          >
+            <BodyLong className={style.text}>{text.ingen[language]}</BodyLong>{" "}
+            <ChevronRightIcon aria-hidden fontSize="24px" className={style.chevron} />
+          </a>
         </div>
       </div>
     );
@@ -52,14 +53,12 @@ const Utbetaling = () => {
     <>
       <UtbetalingContainer type="siste">
         <UtbetalingHeading />
-        <Heading size="large">
-          {sum.toLocaleString("no-nb") + " kr"}
-        </Heading>
+        <Heading size="large">{sum.toLocaleString("no-nb") + " kr"}</Heading>
         <BodyLong>
           {dato} {text.konto[language]} {konto}
         </BodyLong>
       </UtbetalingContainer>
-      <UtbetalingYtelser ytelse={sisteUtbetaling.ytelse} utbetaling={sum}/>
+      <UtbetalingYtelser ytelse={sisteUtbetaling.ytelse} utbetaling={sum} />
     </>
   );
 };

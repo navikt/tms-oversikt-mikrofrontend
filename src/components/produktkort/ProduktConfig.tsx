@@ -10,7 +10,7 @@ import { LanguageContext } from "../../language/LanguageProvider";
 import { produktlinker as produktUrls } from "./ProduktUrls";
 import { produktText } from "./ProduktText";
 
-type ProduktConfig = {produktnavn: string, url: string; tittel: string; ingress: string, ikon: JSX.Element };
+type ProduktConfig = { produktnavn: string; url: string; tittel: string; ingress: string; ikon: JSX.Element };
 
 export function getProduktConfigMap(): Record<string, ProduktConfig> {
   const language = useContext(LanguageContext);
@@ -21,7 +21,7 @@ export function getProduktConfigMap(): Record<string, ProduktConfig> {
     tittel: produktText.sykefravær[language],
     ingress: produktText.sykefraværIngress[language],
     ikon: <IkonSykefravær />,
-  }
+  };
 
   return {
     DAG: {

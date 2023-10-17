@@ -8,9 +8,7 @@ interface Props {
 
 const UtbetalingContainer = ({ type, children }: Props) => (
   <div className={styles.utbetaling}>
-    <div className={`${styles.container} ${styles[`container-${type}`]}`}>
-      {children}
-    </div>
+    <div className={`${styles.container} ${styles[`container-${type}`]}`}>{children}</div>
   </div>
 );
 

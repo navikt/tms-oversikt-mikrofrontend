@@ -29,15 +29,14 @@ const UtbetalingHeading = ({ type }: Props) => {
         {text.tittel[language]}
       </BodyShort>
       <a
-        className={styles.link} href={utbetalingsoversiktUrl}
+        className={styles.link}
+        href={utbetalingsoversiktUrl}
         onClick={() => logNavigereEvent("utbetaling-widget", "generell", "Se alle")}
       >
-        <BodyShort>
-          {text.alle[language]}
-        </BodyShort>
+        <BodyShort>{text.alle[language]}</BodyShort>
       </a>
     </div>
   );
-}
+};
 
 export default UtbetalingHeading;

@@ -4,14 +4,11 @@ import { HovedYtelse, Trekk, UnderYtelse } from "./utbetalingTypes";
 export const hasUtbetalinger = (utbetalteUtbetalinger: HovedYtelse[] | []) => utbetalteUtbetalinger.length > 0;
 
 function sum(numbers: number[]): number {
-  return numbers.reduce(
-    (a, b) => a + b,
-    0
-  );
+  return numbers.reduce((a, b) => a + b, 0);
 }
 
 export function summerTrekk(trekk: Trekk[]): number {
-  return sum(trekk.map(trekkbelop => trekkbelop.trekk_belop));
+  return sum(trekk.map((trekkbelop) => trekkbelop.trekk_belop));
 }
 
 export function summerYtelser(ytelse: UnderYtelse[], trekk: Trekk[]): number {
@@ -19,7 +16,7 @@ export function summerYtelser(ytelse: UnderYtelse[], trekk: Trekk[]): number {
 }
 
 export function summerBruttoYtelser(ytelse: UnderYtelse[]): number {
-  return sum(ytelse.map(underytelse => underytelse.belop));
+  return sum(ytelse.map((underytelse) => underytelse.belop));
 }
 
 export const formatToReadableDate = (date: string) => {
