@@ -554,4 +554,4 @@ export const mikrofrontendBundle = (title: string, minHeight: string) => {
   
   export { App as default };
   `;
-}
+};

@@ -29,6 +29,5 @@ const IkonHjelpemidler = () => (
     </defs>
   </svg>
 );
-    
+
 export default IkonHjelpemidler;
-    

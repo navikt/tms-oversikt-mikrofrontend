@@ -31,6 +31,5 @@ const IkonUføretrygd = () => (
     </defs>
   </svg>
 );
-    
- export default IkonUføretrygd;
-    
+
+export default IkonUføretrygd;

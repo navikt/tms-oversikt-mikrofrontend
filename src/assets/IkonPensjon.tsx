@@ -48,6 +48,5 @@ const IkonPensjon = () => (
     </defs>
   </svg>
 );
-    
+
 export default IkonPensjon;
-    
