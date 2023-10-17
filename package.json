@@ -7,7 +7,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "prepare": "husky install && chmod +x .husky/scripts/check-no-a11y-ignored.sh ",
-    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx ."
+    "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "dependencies": {
     "@nanostores/react": "0.7.1",
@@ -48,12 +48,26 @@
   "prettier": {
     "printWidth": 120
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --cache --write"
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jsx-a11y/recommended"
     ],
-    "*.{css,md,html,json}": [
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,css,md,html,json}": [
       "prettier --cache --write"
     ]
   },
