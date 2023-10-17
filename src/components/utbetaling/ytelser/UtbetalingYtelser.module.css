@@ -8,11 +8,26 @@
 .container {
   display: flex;
   width: 37rem;
-  background: var(--a-bg-subtle);
   border-radius: 0rem 0rem 0.5rem 0.5rem;
   padding: 1rem 1.25rem 1rem 1.25rem;
   text-decoration: none;
   color: inherit;
+}
+
+.utbetalt {
+  background: var(--a-bg-subtle);
+}
+
+.utbetalt:hover {
+  background: var(--a-surface-neutral-subtle-hover);
+}
+
+.kommende {
+  background: var(--a-surface-success-subtle);
+}
+
+.kommende:hover {
+  background: var(--a-surface-success-subtle-hover);
 }
 
 .ytelse {
@@ -32,8 +47,4 @@
 .container:hover .chevron {
   transition-duration: 0.2s;
   transform: translate(3px, 0);
-}
-
-.kommendeUtbetaling {
-  background: var(--a-surface-success-subtle);
 }
