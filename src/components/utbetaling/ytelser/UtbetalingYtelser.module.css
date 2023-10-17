@@ -1,8 +1,39 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.container {
+  display: flex;
+  width: 37rem;
+  background: var(--a-bg-subtle);
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  padding: 1rem 1.25rem 1rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+}
+
 .ytelse {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .sum {
   font-weight: 600;
+}
+
+.chevron {
+  flex-shrink: 0;
+}
+
+.container:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}
+
+.kommendeUtbetaling {
+  background: var(--a-surface-success-subtle);
 }
