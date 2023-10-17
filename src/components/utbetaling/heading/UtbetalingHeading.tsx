@@ -26,7 +26,7 @@ const UtbetalingHeading = ({ type }: Props) => {
   return (
     <div className={styles.heading}>
       <BodyShort as="h2" spacing>
-        {text.tittel[language]}
+        {type === "neste" ? text.tittelNeste[language] : text.tittel[language]}
       </BodyShort>
       <a
         className={styles.link}

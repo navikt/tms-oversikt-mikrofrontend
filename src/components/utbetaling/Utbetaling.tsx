@@ -54,7 +54,7 @@ const Utbetaling = () => {
     <>
       <div className={style.detaljer}>
         <div className={`${style.detaljerContainer} ${hasKommendeUtbetaling && style.kommendeUtbetaling}`}>
-          <UtbetalingHeading />
+          <UtbetalingHeading type={hasKommendeUtbetaling ? "neste" : "siste"} />
           <Heading size="large">{sum.toLocaleString("no-nb") + " kr"}</Heading>
           <BodyLong>
             {dato} {text.konto[language]} {konto}
