@@ -25,7 +25,7 @@ export const sakerHandler = () => {
           { kode: "SYM" },
           { kode: "UFO" },
           { kode: "UKJENT" },
-        ])
+        ]),
       );
     }),
   ];
@@ -48,7 +48,7 @@ export const microfrontendSelectorHandler = () => {
             },
           ],
           offerStepup: false,
-        })
+        }),
       );
     }),
   ];
@@ -60,28 +60,28 @@ export const microfrontendBundleHandler = () => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh"))
+        ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh")),
       );
     }),
     rest.get(`https://localhost:3000/aap/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("AAP", "5vh"))
+        ctx.body(mikrofrontendBundle("AAP", "5vh")),
       );
     }),
     rest.get(`https://localhost:3000/syfo-dialog/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("Syfo dialog", "5vh"))
+        ctx.body(mikrofrontendBundle("Syfo dialog", "5vh")),
       );
     }),
     rest.get(meldekortUrl, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
+        ctx.body(mikrofrontendBundle("Meldekort", "5vh")),
       );
     }),
   ];
@@ -101,6 +101,7 @@ export const utbetalingHandler = () => {
           utbetalteUtbetalinger: [
             {
               ytelse: "Arbeidsavklaringspenger",
+              id: "1233",
               status: "Utbetalt",
               ytelse_dato: "2023-04-09T22:46:01.204+02:00",
               forfall_dato: "2023-04-09T22:46:01.204+02:00",
@@ -145,6 +146,7 @@ export const utbetalingHandler = () => {
             },
             {
               ytelse: "Dagpenger",
+              id: "167",
               status: "Utbetalt",
               ytelse_dato: "2023-05-12T22:46:01.204+02:00",
               forfall_dato: "2023-05-12T22:46:01.204+02:00",
@@ -190,6 +192,7 @@ export const utbetalingHandler = () => {
             {
               ytelse: "Dagpenger",
               status: "Utbetalt",
+              id: "987",
               ytelse_dato: "2023-04-12T22:46:01.204+02:00",
               forfall_dato: "2023-04-12T22:46:01.204+02:00",
               ytelse_periode: {
@@ -233,6 +236,7 @@ export const utbetalingHandler = () => {
             },
             {
               ytelse: "Dagpenger",
+              id: "08123a",
               status: "Utbetalt",
               ytelse_dato: "2023-04-12T22:46:01.204+02:00",
               forfall_dato: "2023-04-12T22:46:01.204+02:00",
@@ -277,6 +281,7 @@ export const utbetalingHandler = () => {
             },
             {
               ytelse: "Dagpenger",
+              id: "1235",
               status: "Utbetalt",
               ytelse_dato: "2023-04-12T22:46:01.204+02:00",
               forfall_dato: "2023-04-12T22:46:01.204+02:00",
@@ -320,7 +325,7 @@ export const utbetalingHandler = () => {
               melding: "60 uker igjen av stønadsperioden",
             },
           ],
-        })
+        }),
       );
     }),
   ];

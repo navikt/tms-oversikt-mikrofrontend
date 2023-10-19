@@ -4,6 +4,11 @@ export const text = {
     nn: "Siste utbetaling",
     en: "Last payment",
   },
+  tittelNeste: {
+    nb: "Neste utbetaling",
+    nn: "Neste utbetaling",
+    en: "Next payment",
+  },
   alle: {
     nb: "Se alle",
     nn: "Se alle",

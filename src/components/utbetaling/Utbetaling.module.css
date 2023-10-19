@@ -1,7 +1,7 @@
 .ingen {
   display: flex;
   justify-content: center;
-  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .container {
@@ -32,4 +32,21 @@
 
 .chevron {
   flex-shrink: 0;
+}
+
+.detaljer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.15rem;
+}
+
+.detaljerContainer {
+  background: var(--a-bg-subtle);
+  width: 37rem;
+  padding: 1rem 1rem 0.75rem;
+  border-radius: 0.5rem 0.5rem 0.125rem 0.125rem;
+}
+
+.kommendeUtbetaling {
+  background: var(--a-surface-success-subtle);
 }

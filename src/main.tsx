@@ -21,5 +21,5 @@ root.render(
         </main>
       </div>
     </div>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -1,7 +1,5 @@
 import dayjs from "dayjs";
-import { HovedYtelse, Trekk, UnderYtelse } from "./utbetalingTypes";
-
-export const hasUtbetalinger = (utbetalteUtbetalinger: HovedYtelse[] | []) => utbetalteUtbetalinger.length > 0;
+import { Trekk, UnderYtelse } from "./utbetalingTypes";
 
 function sum(numbers: number[]): number {
   return numbers.reduce((a, b) => a + b, 0);

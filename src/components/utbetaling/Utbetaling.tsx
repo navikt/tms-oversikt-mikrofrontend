@@ -5,8 +5,7 @@ import { BodyLong, Heading } from "@navikt/ds-react";
 import { fetcher } from "../../api/api";
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { utbetalingsoversiktApiUrl, utbetalingsoversiktUrl } from "./utbetalingUrls";
-import { formatToReadableDate, hasUtbetalinger, summerYtelser } from "./utbetalingUtils";
-import UtbetalingContainer from "./container/UtbetalingContainer";
+import { formatToReadableDate, summerYtelser } from "./utbetalingUtils";
 import UtbetalingYtelser from "./ytelser/UtbetalingYtelser";
 import UtbetalingHeading from "./heading/UtbetalingHeading";
 import { UtbetalingResponse } from "./utbetalingTypes";
@@ -25,8 +24,10 @@ const Utbetaling = () => {
   if (!data) {
     return null;
   }
+  const hasKommendeUtbetaling = data.kommendeUtbetalinger.length > 0;
+  const hasUtbetaltUtbetaling = data.utbetalteUtbetalinger.length > 0;
 
-  if (!hasUtbetalinger(data.utbetalteUtbetalinger)) {
+  if (!hasKommendeUtbetaling && !hasUtbetaltUtbetaling) {
     return (
       <div className={style.ingen}>
         <div className={style.container}>
@@ -44,21 +45,28 @@ const Utbetaling = () => {
     );
   }
 
-  const sisteUtbetaling = data.utbetalteUtbetalinger[0];
-  const sum = summerYtelser(sisteUtbetaling.underytelser, sisteUtbetaling.trekk);
-  const dato = formatToReadableDate(sisteUtbetaling.ytelse_dato);
-  const konto = sisteUtbetaling.kontonummer;
+  const utbetalingToShow = hasKommendeUtbetaling ? data.kommendeUtbetalinger[0] : data.utbetalteUtbetalinger[0];
+  const sum = summerYtelser(utbetalingToShow.underytelser, utbetalingToShow.trekk);
+  const dato = formatToReadableDate(utbetalingToShow.ytelse_dato);
+  const konto = utbetalingToShow.kontonummer;
 
   return (
     <>
-      <UtbetalingContainer type="siste">
-        <UtbetalingHeading />
-        <Heading size="large">{sum.toLocaleString("no-nb") + " kr"}</Heading>
-        <BodyLong>
-          {dato} {text.konto[language]} {konto}
-        </BodyLong>
-      </UtbetalingContainer>
-      <UtbetalingYtelser ytelse={sisteUtbetaling.ytelse} utbetaling={sum} />
+      <div className={style.detaljer}>
+        <div className={`${style.detaljerContainer} ${hasKommendeUtbetaling && style.kommendeUtbetaling}`}>
+          <UtbetalingHeading type={hasKommendeUtbetaling ? "neste" : "siste"} />
+          <Heading size="large">{sum.toLocaleString("no-nb") + " kr"}</Heading>
+          <BodyLong>
+            {dato} {text.konto[language]} {konto}
+          </BodyLong>
+        </div>
+      </div>
+      <UtbetalingYtelser
+        isKommende={hasKommendeUtbetaling}
+        ytelse={utbetalingToShow.ytelse}
+        utbetaling={sum}
+        id={utbetalingToShow.id}
+      />
     </>
   );
 };
