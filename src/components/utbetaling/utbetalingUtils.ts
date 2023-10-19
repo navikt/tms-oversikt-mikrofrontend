@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import "dayjs/locale/nb";
 import { Trekk, UnderYtelse } from "./utbetalingTypes";
 
 function sum(numbers: number[]): number {
@@ -18,5 +19,5 @@ export function summerBruttoYtelser(ytelse: UnderYtelse[]): number {
 }
 
 export const formatToReadableDate = (date: string) => {
-  return dayjs(date).format("D. MMMM ");
+  return dayjs(date).locale("nb").format("D. MMMM ");
 };
