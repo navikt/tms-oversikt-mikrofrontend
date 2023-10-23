@@ -2,7 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
+import { microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl, standardInnsatsUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
@@ -15,6 +15,7 @@ import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends } from "./microfrontendTypes";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
+import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -43,8 +44,10 @@ const DinOversikt = () => {
     onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
   });
 
-  const { data: oppfolgingData } = useSWRImmutable(oppfolgingUrl, fetcher);
-  const brukerUnderOppfolging = oppfolgingData?.underOppfolging;
+  const { data: isStandardInnsats } = useSWRImmutable(standardInnsatsUrl, fetcher);
+  const { data: oppfolging } = useSWRImmutable(oppfolgingUrl, fetcher);
+
+  const isUnderOppfolging = oppfolging?.underOppfolging;
 
   const microfrontends = enabledMicrofrontends?.microfrontends.map((mf) => (
     <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
@@ -55,18 +58,19 @@ const DinOversikt = () => {
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
 
-  if (!hasMicrofrontends && !hasProduktkort && !brukerUnderOppfolging) {
+  if (!hasMicrofrontends && !hasProduktkort && !isUnderOppfolging && !isStandardInnsats) {
     return null;
   } else {
     return (
       <div className={styles.oversiktContainer}>
+        {isDevelopment && isStandardInnsats && <AiaStandardWrapper />}
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
           {isDevelopment && <ArbeidssokerWrapper />}
-          {brukerUnderOppfolging && <DialogVeileder />}
+          {isUnderOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
