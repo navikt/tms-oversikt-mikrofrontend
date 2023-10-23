@@ -63,7 +63,7 @@ const DinOversikt = () => {
   } else {
     return (
       <div className={styles.oversiktContainer}>
-        {isStandardInnsats && <AiaStandardWrapper />}
+        {isDevelopment && isStandardInnsats && <AiaStandardWrapper />}
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
