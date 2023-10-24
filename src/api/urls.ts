@@ -6,18 +6,6 @@ const MIN_SIDE_PROXY_URL = {
   production: "https://www.nav.no/tms-min-side-proxy",
 };
 
-const ARBEIDSSOKER_BASE_URL = {
-  local: "http://localhost:3000/registrert-arbeidssoker",
-  development: "https://www.intern.dev.nav.no/arbeidssoker-mikrofrontend",
-  production: "https://www.nav.no/arbeidssoker-mikrofrontend",
-};
-
-const ARBEIDSSOKER_BASE_CDN_URL = {
-  local: "http://localhost:3000/arbeidssoker-mikrofrontend",
-  development: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
-  production: "https://cdn.nav.no/min-side/arbeidssoker-mikrofrontend/dist",
-};
-
 const MELDEKORT_URL = {
   local: "http://localhost:3000/meldekort/bundle.js",
   development: "https://www.intern.dev.nav.no/meldekort-mikrofrontend/meldekort-mikrofrontend.js",
@@ -66,8 +54,6 @@ const ARBEIDSSOKER_URL = {
   production: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
 };
 
-export const arbeidssokerBaseCdnUrl = ARBEIDSSOKER_BASE_CDN_URL[getEnvironment()];
-export const arbeidssokerManifestUrl = `${ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const microfrontendsUrl = `${SELECTOR_URL[getEnvironment()]}/microfrontends`;
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
