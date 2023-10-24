@@ -30,7 +30,7 @@ const getUniqueProdukter = () => {
     .filter((produktConfig) => produktConfig != undefined);
 
   const uniqueProduktConfigs = produktConfigs?.filter(
-    (produktConfig, index) => produktConfigs.findIndex((element) => element.tittel == produktConfig.tittel) === index
+    (produktConfig, index) => produktConfigs.findIndex((element) => element.tittel == produktConfig.tittel) === index,
   );
 
   return uniqueProduktConfigs;
@@ -63,7 +63,7 @@ const DinOversikt = () => {
   } else {
     return (
       <div className={styles.oversiktContainer}>
-        {isDevelopment && isStandardInnsats && <AiaStandardWrapper />}
+        {isStandardInnsats && <AiaStandardWrapper />}
         <BodyShort as="h2" spacing>
           {produktText.oversiktTittel[language]}
         </BodyShort>
