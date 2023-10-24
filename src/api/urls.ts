@@ -48,12 +48,6 @@ const MINE_SAKER_SAKSTEMAER_URL = {
   production: "https://person.nav.no/mine-saker-api/sakstemaer/egne",
 };
 
-const STANDARD_INNSATS_URL = {
-  local: "http://localhost:3000/er-arbeidssoker",
-  development: "https://www.intern.dev.nav.no/aia-backend/standard-innsats",
-  production: "https://www.nav.no/aia-backend/standard-innsats",
-};
-
 const AIA_URL = {
   local: "http://localhost:4000",
   development: "https://veientilarbeid.intern.dev.nav.no/esm",
@@ -66,6 +60,12 @@ const AIA_CDN_URL = {
   production: "https://cdn.nav.no/paw/aia",
 };
 
+const ARBEIDSSOKER_URL = {
+  local: "http://localhost:3000/er-arbeidssoker",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
+  production: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
+};
+
 export const arbeidssokerBaseCdnUrl = ARBEIDSSOKER_BASE_CDN_URL[getEnvironment()];
 export const arbeidssokerManifestUrl = `${ARBEIDSSOKER_BASE_URL[getEnvironment()]}/manifest.json`;
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
@@ -74,6 +74,6 @@ export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/featuretoggles`;
 export const dialogMedVeilederUrl = `${NAV_URL[getEnvironment()]}/arbeid/dialog`;
-export const standardInnsatsUrl = STANDARD_INNSATS_URL[getEnvironment()];
+export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_URL[getEnvironment()]}/manifest.json`;
 export const aiaCdnUrl = AIA_CDN_URL[getEnvironment()];

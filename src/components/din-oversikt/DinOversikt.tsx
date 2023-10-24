@@ -2,7 +2,7 @@ import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl, standardInnsatsUrl } from "../../api/urls";
+import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
@@ -44,10 +44,11 @@ const DinOversikt = () => {
     onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
   });
 
-  const { data: isStandardInnsats } = useSWRImmutable(standardInnsatsUrl, fetcher);
+  const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher);
   const { data: oppfolging } = useSWRImmutable(oppfolgingUrl, fetcher);
 
   const isUnderOppfolging = oppfolging?.underOppfolging;
+  const isStandardInnsats = arbeidssoker?.erArbeidssoker && arbeidssoker?.erStandard;
 
   const microfrontends = enabledMicrofrontends?.microfrontends.map((mf) => (
     <MicrofrontendWrapper manifestUrl={mf.url} key={mf.microfrontend_id} />
