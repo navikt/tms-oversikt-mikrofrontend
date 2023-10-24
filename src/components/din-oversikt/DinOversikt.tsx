@@ -6,8 +6,6 @@ import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingU
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
-import { isDevelopment } from "../../utils/getEnvironment";
-import ArbeidssokerWrapper from "../arbeidssoker/ArbeidssokerWrapper";
 import DialogVeileder from "../dialog-veileder/DialogVeileder";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
@@ -70,7 +68,6 @@ const DinOversikt = () => {
         </BodyShort>
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
-          {isDevelopment && <ArbeidssokerWrapper />}
           {isUnderOppfolging && <DialogVeileder />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />

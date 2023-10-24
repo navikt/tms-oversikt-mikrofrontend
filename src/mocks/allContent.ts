@@ -1,12 +1,5 @@
 import { rest } from "msw";
-import {
-  arbeidssokerBaseCdnUrl,
-  featureToggleUrl,
-  meldekortUrl,
-  microfrontendsUrl,
-  mineSakerSakstemaerUrl,
-  oppfolgingUrl,
-} from "../api/urls";
+import { featureToggleUrl, meldekortUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
@@ -56,13 +49,6 @@ export const microfrontendSelectorHandler = () => {
 
 export const microfrontendBundleHandler = () => {
   return [
-    rest.get(`${arbeidssokerBaseCdnUrl}/bundle.js`, (_, res, ctx) => {
-      return res(
-        ctx.set("Content-Type", "text/javascript"),
-        ctx.status(200),
-        ctx.body(mikrofrontendBundle("Registrert arbeidssøker", "5vh")),
-      );
-    }),
     rest.get(`https://localhost:3000/aap/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
