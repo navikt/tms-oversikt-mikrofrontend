@@ -63,9 +63,11 @@ const DinOversikt = () => {
     return (
       <div className={styles.oversiktContainer}>
         {isStandardInnsats && <AiaStandardWrapper />}
-        <BodyShort as="h2" spacing>
-          {produktText.oversiktTittel[language]}
-        </BodyShort>
+        {hasMicrofrontends || hasProduktkort || isUnderOppfolging ? (
+          <BodyShort as="h2" spacing>
+            {produktText.oversiktTittel[language]}
+          </BodyShort>
+        ) : null}
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
           {isUnderOppfolging && <DialogVeileder />}
