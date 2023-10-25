@@ -1,5 +1,12 @@
 import { rest } from "msw";
-import { featureToggleUrl, meldekortUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../api/urls";
+import {
+  featureToggleUrl,
+  meldekortApiUrl,
+  meldekortUrl,
+  microfrontendsUrl,
+  mineSakerSakstemaerUrl,
+  oppfolgingUrl,
+} from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
@@ -320,7 +327,7 @@ export const utbetalingHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({}));
+      return res(ctx.status(200), ctx.json({ FlytteMeldekort: true }));
     }),
   ];
 };
@@ -333,6 +340,23 @@ export const oppfolgingHandler = () => {
   ];
 };
 
+export const meldekortHandler = () => {
+  return [
+    rest.get(meldekortApiUrl, (_, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          meldekort: 1,
+          etterregistrerteMeldekort: 0,
+          antallGjenstaaendeFeriedager: 0,
+          nesteMeldekort: null,
+          nesteInnsendingAvMeldekort: null,
+        }),
+      );
+    }),
+  ];
+};
+
 export const handlersAllContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
@@ -340,4 +364,5 @@ export const handlersAllContent = [
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...oppfolgingHandler(),
+  ...meldekortHandler(),
 ];

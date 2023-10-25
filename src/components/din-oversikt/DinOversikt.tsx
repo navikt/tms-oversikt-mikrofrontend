@@ -2,7 +2,14 @@ import { BodyShort } from "@navikt/ds-react";
 import { useContext } from "react";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { arbeidssokerUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../../api/urls";
+import {
+  arbeidssokerUrl,
+  featureToggleUrl,
+  meldekortApiUrl,
+  microfrontendsUrl,
+  mineSakerSakstemaerUrl,
+  oppfolgingUrl,
+} from "../../api/urls";
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
@@ -14,6 +21,9 @@ import styles from "./DinOversikt.module.css";
 import { EnabledMicrofrontends } from "./microfrontendTypes";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
 import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
+import { FeatureToggles } from "../../utils/featuretoggles";
+import { MeldekortDataFraApi, isMeldekortbruker } from "../meldekort/meldekortTypes";
+import MeldekortWrapper from "../meldekort/MeldekortWrapper";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -37,9 +47,15 @@ const getUniqueProdukter = () => {
 const DinOversikt = () => {
   const language = useContext(LanguageContext);
 
+  const { data: featureToggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
+  });
+
+  const { data: meldekortFraApi } = useSWRImmutable<MeldekortDataFraApi>(meldekortApiUrl, fetcher, {
+    onError: () => setIsError(),
   });
 
   const { data: arbeidssoker } = useSWRImmutable(arbeidssokerUrl, fetcher);
@@ -56,18 +72,24 @@ const DinOversikt = () => {
 
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
+  const hasMeldekort = featureToggles?.FlytteMeldekort && isMeldekortbruker(meldekortFraApi);
 
-  if (!hasMicrofrontends && !hasProduktkort && !isUnderOppfolging && !isStandardInnsats) {
+  if (!hasMicrofrontends && !hasProduktkort && !isUnderOppfolging && !isStandardInnsats && !hasMeldekort) {
     return null;
   } else {
     return (
       <div className={styles.oversiktContainer}>
         {isStandardInnsats && <AiaStandardWrapper />}
-        {hasMicrofrontends || hasProduktkort || isUnderOppfolging ? (
+        {hasMicrofrontends || hasProduktkort || isUnderOppfolging || hasMeldekort ? (
           <BodyShort as="h2" spacing>
             {produktText.oversiktTittel[language]}
           </BodyShort>
         ) : null}
+        {hasMeldekort && (
+          <div className={styles.meldekort}>
+            <MeldekortWrapper />
+          </div>
+        )}
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
           {isUnderOppfolging && <DialogVeileder />}

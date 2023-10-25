@@ -12,7 +12,7 @@ import { isErrorAtom } from "./store/store";
 import { FeatureToggles } from "./utils/featuretoggles";
 
 function App() {
-  useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
+  const { data: featureToggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
   const isError = useStore(isErrorAtom);
 
   const Meldekort = React.lazy(() => import(meldekortUrl));
@@ -20,11 +20,13 @@ function App() {
   return (
     <div className={style.app}>
       {isError ? <Feilmelding /> : null}
-      <React.Suspense fallback={null}>
-        <ErrorBoundary>
-          <Meldekort />
-        </ErrorBoundary>
-      </React.Suspense>
+      {!featureToggles?.FlytteMeldekort && (
+        <React.Suspense fallback={null}>
+          <ErrorBoundary>
+            <Meldekort />
+          </ErrorBoundary>
+        </React.Suspense>
+      )}
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <DinOversikt />

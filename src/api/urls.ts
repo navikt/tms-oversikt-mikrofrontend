@@ -54,6 +54,12 @@ const ARBEIDSSOKER_URL = {
   production: "https://www.nav.no/tms-min-side-proxy/aia/aia-backend/er-arbeidssoker",
 };
 
+const MELDEKORT_API_URL = {
+  local: "http://localhost:3000/api/meldekortinfo",
+  development: "https://www.intern.dev.nav.no/tms-min-side-proxy/meldekort/api/person/meldekortstatus",
+  production: "https://www.nav.no/tms-min-side-proxy/meldekort/api/person/meldekortstatus",
+};
+
 export const meldekortUrl = MELDEKORT_URL[getEnvironment()];
 export const microfrontendsUrl = `${SELECTOR_URL[getEnvironment()]}/microfrontends`;
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
@@ -63,3 +69,4 @@ export const dialogMedVeilederUrl = `${NAV_URL[getEnvironment()]}/arbeid/dialog`
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_URL[getEnvironment()]}/manifest.json`;
 export const aiaCdnUrl = AIA_CDN_URL[getEnvironment()];
+export const meldekortApiUrl = MELDEKORT_API_URL[getEnvironment()];

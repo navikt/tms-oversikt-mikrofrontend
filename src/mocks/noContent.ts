@@ -1,5 +1,12 @@
 import { rest } from "msw";
-import { featureToggleUrl, meldekortUrl, microfrontendsUrl, mineSakerSakstemaerUrl, oppfolgingUrl } from "../api/urls";
+import {
+  featureToggleUrl,
+  meldekortApiUrl,
+  meldekortUrl,
+  microfrontendsUrl,
+  mineSakerSakstemaerUrl,
+  oppfolgingUrl,
+} from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
@@ -19,7 +26,7 @@ const microfrontendSelectorHandler = () => {
         ctx.json({
           microfrontends: [],
           offerStepup: false,
-        })
+        }),
       );
     }),
   ];
@@ -31,7 +38,7 @@ const microfrontendBundleHandler = () => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
-        ctx.body(mikrofrontendBundle("Meldekort", "5vh"))
+        ctx.body(mikrofrontendBundle("Meldekort", "5vh")),
       );
     }),
   ];
@@ -49,7 +56,7 @@ const utbetalingHandler = () => {
           },
           kommendeUtbetalinger: [],
           utbetalteUtbetalinger: [],
-        })
+        }),
       );
     }),
   ];
@@ -71,6 +78,23 @@ const oppfolgingHandler = () => {
   ];
 };
 
+export const meldekortHandler = () => {
+  return [
+    rest.get(meldekortApiUrl, (_, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          meldekort: 0,
+          etterregistrerteMeldekort: 0,
+          antallGjenstaaendeFeriedager: 0,
+          nesteMeldekort: null,
+          nesteInnsendingAvMeldekort: null,
+        }),
+      );
+    }),
+  ];
+};
+
 export const handlersNoContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
@@ -78,4 +102,5 @@ export const handlersNoContent = [
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...oppfolgingHandler(),
+  ...meldekortHandler(),
 ];

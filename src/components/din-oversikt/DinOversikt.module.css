@@ -13,9 +13,17 @@
   gap: 1rem;
 }
 
+.meldekort {
+  padding-bottom: 1rem;
+}
+
 @media (min-width: 648px) {
   .listeContainer {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+
+  .meldekort {
+    padding-bottom: 1.5rem;
   }
 }

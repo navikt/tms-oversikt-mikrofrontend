@@ -1,1 +1,1 @@
-export type FeatureToggles = { EnableServiceDiscovery: boolean };
+export type FeatureToggles = { FlytteMeldekort: boolean };
