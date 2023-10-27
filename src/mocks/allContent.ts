@@ -327,7 +327,7 @@ export const utbetalingHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ FlytteMeldekort: true }));
+      return res(ctx.status(200), ctx.json({}));
     }),
   ];
 };

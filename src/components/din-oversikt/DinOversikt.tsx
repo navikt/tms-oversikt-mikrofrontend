@@ -4,7 +4,6 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
 import {
   arbeidssokerUrl,
-  featureToggleUrl,
   meldekortApiUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
@@ -13,17 +12,16 @@ import {
 import { LanguageContext } from "../../language/LanguageProvider";
 import { setIsError } from "../../store/store";
 import { logEvent } from "../../utils/amplitude";
+import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
 import DialogVeileder from "../dialog-veileder/DialogVeileder";
+import MeldekortWrapper from "../meldekort/MeldekortWrapper";
+import { MeldekortDataFraApi, isMeldekortbruker } from "../meldekort/meldekortTypes";
 import { getProduktConfigMap } from "../produktkort/ProduktConfig";
 import { produktText } from "../produktkort/ProduktText";
 import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
-import { EnabledMicrofrontends } from "./microfrontendTypes";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
-import AiaStandardWrapper from "../arbeidssoker/AiaStandardWrapper";
-import { FeatureToggles } from "../../utils/featuretoggles";
-import { MeldekortDataFraApi, isMeldekortbruker } from "../meldekort/meldekortTypes";
-import MeldekortWrapper from "../meldekort/MeldekortWrapper";
+import { EnabledMicrofrontends } from "./microfrontendTypes";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -46,8 +44,6 @@ const getUniqueProdukter = () => {
 
 const DinOversikt = () => {
   const language = useContext(LanguageContext);
-
-  const { data: featureToggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
 
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     onError: () => setIsError(),
@@ -72,7 +68,7 @@ const DinOversikt = () => {
 
   const hasProduktkort = uniqueProduktConfigs !== undefined && uniqueProduktConfigs.length > 0;
   const hasMicrofrontends = microfrontends !== undefined && microfrontends.length > 0;
-  const hasMeldekort = featureToggles?.FlytteMeldekort && isMeldekortbruker(meldekortFraApi);
+  const hasMeldekort = isMeldekortbruker(meldekortFraApi);
 
   if (!hasMicrofrontends && !hasProduktkort && !isUnderOppfolging && !isStandardInnsats && !hasMeldekort) {
     return null;
