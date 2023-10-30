@@ -14,8 +14,6 @@ const AiaStandardWrapper = () => {
 
   const AiaStandard = React.lazy(() => import(`${aiaCdnUrl}/${manifest[aiaStandardEntry][bundle]}`));
 
-  console.log("AiaStandard");
-
   return (
     <React.Suspense fallback={<ContentLoader />}>
       <ErrorBoundary>

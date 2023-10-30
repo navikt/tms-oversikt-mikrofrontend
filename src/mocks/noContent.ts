@@ -1,14 +1,13 @@
 import { rest } from "msw";
 import {
+  arbeidssokerUrl,
   featureToggleUrl,
   meldekortApiUrl,
-  meldekortUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
 } from "../api/urls";
 import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
-import { mikrofrontendBundle } from "./mikrofrontendBundle";
 
 const sakerHandler = () => {
   return [
@@ -27,18 +26,6 @@ const microfrontendSelectorHandler = () => {
           microfrontends: [],
           offerStepup: false,
         }),
-      );
-    }),
-  ];
-};
-
-const microfrontendBundleHandler = () => {
-  return [
-    rest.get(meldekortUrl, (_, res, ctx) => {
-      return res(
-        ctx.set("Content-Type", "text/javascript"),
-        ctx.status(200),
-        ctx.body(mikrofrontendBundle("Meldekort", "5vh")),
       );
     }),
   ];
@@ -95,12 +82,20 @@ export const meldekortHandler = () => {
   ];
 };
 
+export const arbeidssokerHandler = () => {
+  return [
+    rest.get(arbeidssokerUrl, (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ erArbeidssoker: false, erStandard: false }));
+    }),
+  ];
+};
+
 export const handlersNoContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
-  ...microfrontendBundleHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...oppfolgingHandler(),
   ...meldekortHandler(),
+  ...arbeidssokerHandler(),
 ];

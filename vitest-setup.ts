@@ -1,9 +1,10 @@
-import "vitest-axe/extend-expect";
 import matchers from "@testing-library/jest-dom/matchers";
-import * as axeMatchers from "vitest-axe/matchers";
-import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
-import { server } from "./src/mocks/server";
 import { cleanup, render } from "@testing-library/react";
+import { ReactElement } from "react";
+import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
+import "vitest-axe/extend-expect";
+import * as axeMatchers from "vitest-axe/matchers";
+import { server } from "./src/mocks/server";
 expect.extend(matchers);
 expect.extend(axeMatchers);
 
@@ -23,7 +24,7 @@ afterAll(() => {
   server.close();
 });
 
-const customRender = (ui: any, options = {}) =>
+const customRender = (ui: ReactElement, options = {}) =>
   render(ui, {
     // wrap provider(s) here if needed
     wrapper: ({ children }) => children,

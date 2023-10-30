@@ -1,5 +1,8 @@
 import { rest } from "msw";
 import {
+  aiaCdnUrl,
+  aiaManifestUrl,
+  arbeidssokerUrl,
   featureToggleUrl,
   meldekortApiUrl,
   meldekortUrl,
@@ -56,6 +59,13 @@ export const microfrontendSelectorHandler = () => {
 
 export const microfrontendBundleHandler = () => {
   return [
+    rest.get(`${aiaCdnUrl}/bundle.js`, (_, res, ctx) => {
+      return res(
+        ctx.set("Content-Type", "text/javascript"),
+        ctx.status(200),
+        ctx.body(mikrofrontendBundle("AiA", "30vh")),
+      );
+    }),
     rest.get(`https://localhost:3000/aap/bundle.js`, (_, res, ctx) => {
       return res(
         ctx.set("Content-Type", "text/javascript"),
@@ -75,6 +85,24 @@ export const microfrontendBundleHandler = () => {
         ctx.set("Content-Type", "text/javascript"),
         ctx.status(200),
         ctx.body(mikrofrontendBundle("Meldekort", "5vh")),
+      );
+    }),
+  ];
+};
+
+export const manifestHandler = () => {
+  return [
+    rest.get(aiaManifestUrl, (_, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          "src/main-standard.tsx": {
+            file: "bundle.js",
+            src: "src/main.tsx",
+            isEntry: true,
+            css: ["assets/bundle.4ce1efd6.css"],
+          },
+        }),
       );
     }),
   ];
@@ -357,12 +385,22 @@ export const meldekortHandler = () => {
   ];
 };
 
+export const arbeidssokerHandler = () => {
+  return [
+    rest.get(arbeidssokerUrl, (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ erArbeidssoker: true, erStandard: true }));
+    }),
+  ];
+};
+
 export const handlersAllContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
   ...microfrontendBundleHandler(),
+  ...manifestHandler(),
   ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...oppfolgingHandler(),
   ...meldekortHandler(),
+  ...arbeidssokerHandler(),
 ];
