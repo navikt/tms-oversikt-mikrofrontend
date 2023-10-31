@@ -7,7 +7,6 @@ import {
   mineSakerSakstemaerUrl,
   oppfolgingUrl,
 } from "../api/urls";
-import { utbetalingsoversiktApiUrl } from "../components/utbetaling/utbetalingUrls";
 
 const sakerHandler = () => {
   return [
@@ -25,24 +24,6 @@ const microfrontendSelectorHandler = () => {
         ctx.json({
           microfrontends: [],
           offerStepup: false,
-        }),
-      );
-    }),
-  ];
-};
-
-const utbetalingHandler = () => {
-  return [
-    rest.get(utbetalingsoversiktApiUrl, (_, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          bruker: {
-            aktoerId: "12345",
-            navn: "Ola Nordmann",
-          },
-          kommendeUtbetalinger: [],
-          utbetalteUtbetalinger: [],
         }),
       );
     }),
@@ -93,7 +74,6 @@ export const arbeidssokerHandler = () => {
 export const handlersNoContent = [
   ...sakerHandler(),
   ...microfrontendSelectorHandler(),
-  ...utbetalingHandler(),
   ...featureToggleHandler(),
   ...oppfolgingHandler(),
   ...meldekortHandler(),
