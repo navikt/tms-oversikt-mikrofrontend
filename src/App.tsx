@@ -5,7 +5,6 @@ import { fetcher } from "./api/api";
 import { featureToggleUrl } from "./api/urls";
 import DinOversikt from "./components/din-oversikt/DinOversikt";
 import Feilmelding from "./components/feilmelding/Feilmelding";
-import Utbetaling from "./components/utbetaling/Utbetaling";
 import { isErrorAtom } from "./store/store";
 import { FeatureToggles } from "./utils/featuretoggles";
 
@@ -19,7 +18,6 @@ function App() {
       <div className={style.page_wrapper_microfrontend}>
         <div className="min-side-lenkepanel">
           <DinOversikt />
-          <Utbetaling />
         </div>
       </div>
     </div>
