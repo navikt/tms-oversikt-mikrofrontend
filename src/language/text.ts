@@ -124,6 +124,16 @@ export const text = {
     nn: "For deg som ikkje har Digipost eller e-Boks.",
     en: "If you don’t have Digipost or e-Boks.",
   },
+  aktivitetsplanTittel: {
+    nb: "Aktivitetsplan",
+    nn: "Aktivitetsplan",
+    en: "Aktivitetsplan",
+  },
+  aktivitetsplanIngress: {
+    nb: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
+    nn: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
+    en: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
+  },
   generelleFliserSykefravaer: {
     nb: "Ditt sykefravær",
     nn: "Ditt sjukefråvær",
