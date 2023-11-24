@@ -1,1 +1,1 @@
-export type FeatureToggles = { FlytteMeldekort: boolean };
+export type FeatureToggles = { Aktivitetsplan: boolean };
