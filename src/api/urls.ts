@@ -24,10 +24,10 @@ const OPPFOLGING_URL = {
   production: "https://www.nav.no/tms-min-side-proxy/oppfolging",
 };
 
-const NAV_URL = {
-  local: "http://localhost:3000",
-  development: "https://www.intern.dev.nav.no",
-  production: "https://www.nav.no",
+const DIALOG_MED_VEILEDER_URL = {
+  local: "http://localhost:3000/arbeid/dialog",
+  development: "https://pto.ekstern.dev.nav.no/arbeid/dialog",
+  production: "https://www.nav.no/arbeid/dialog",
 };
 
 const MINE_SAKER_SAKSTEMAER_URL = {
@@ -71,7 +71,7 @@ export const microfrontendsUrl = `${SELECTOR_URL[getEnvironment()]}/microfronten
 export const oppfolgingUrl = OPPFOLGING_URL[getEnvironment()];
 export const mineSakerSakstemaerUrl = MINE_SAKER_SAKSTEMAER_URL[getEnvironment()];
 export const featureToggleUrl = `${MIN_SIDE_PROXY_URL[getEnvironment()]}/featuretoggles`;
-export const dialogMedVeilederUrl = `${NAV_URL[getEnvironment()]}/arbeid/dialog`;
+export const dialogMedVeilederUrl = DIALOG_MED_VEILEDER_URL[getEnvironment()];
 export const arbeidssokerUrl = ARBEIDSSOKER_URL[getEnvironment()];
 export const aiaManifestUrl = `${AIA_URL[getEnvironment()]}/manifest.json`;
 export const aiaCdnUrl = AIA_CDN_URL[getEnvironment()];
