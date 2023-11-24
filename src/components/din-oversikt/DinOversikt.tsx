@@ -4,6 +4,7 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
 import {
   arbeidssokerUrl,
+  featureToggleUrl,
   meldekortApiUrl,
   microfrontendsUrl,
   mineSakerSakstemaerUrl,
@@ -22,6 +23,8 @@ import Produktkort from "../produktkort/Produktkort";
 import styles from "./DinOversikt.module.css";
 import MicrofrontendWrapper from "./MicrofrontendWrapper";
 import { EnabledMicrofrontends } from "./microfrontendTypes";
+import Aktivitetsplan from "../aktivitetsplan/Aktivitetsplan";
+import { FeatureToggles } from "../../utils/featuretoggles";
 
 type Sakstemaer = Array<{ kode: string }>;
 
@@ -44,6 +47,8 @@ const getUniqueProdukter = () => {
 
 const DinOversikt = () => {
   const language = useContext(LanguageContext);
+
+  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
 
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     onError: () => setIsError(),
@@ -89,6 +94,7 @@ const DinOversikt = () => {
         <div className={styles.listeContainer}>
           <>{microfrontends}</>
           {isUnderOppfolging && <DialogVeileder />}
+          {featuretoggles?.Aktivitetsplan && isUnderOppfolging && <Aktivitetsplan />}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
