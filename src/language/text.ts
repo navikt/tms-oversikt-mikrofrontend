@@ -127,12 +127,12 @@ export const text = {
   aktivitetsplanTittel: {
     nb: "Aktivitetsplan",
     nn: "Aktivitetsplan",
-    en: "Aktivitetsplan",
+    en: "Activities Plan",
   },
   aktivitetsplanIngress: {
     nb: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
-    nn: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
-    en: "I aktivitetsplanen holder du oversikt over det du gjør for å komme i jobb eller annen aktivitet.",
+    nn: "I aktivitetsplanen held du oversikt over kva du gjer for å komme i jobb eller annan aktivitet.",
+    en: "The Activities Plan provides an overview of the activities you are doing to find work or another activity.",
   },
   generelleFliserSykefravaer: {
     nb: "Ditt sykefravær",
