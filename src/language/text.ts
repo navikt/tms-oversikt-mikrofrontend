@@ -110,7 +110,7 @@ export const text = {
     en: "Dialogue with your advisor",
   },
   kommunikasjonsFlisIngressDialog: {
-    nb: "For arbeidssøkere og de som mottar AAP. Les meldinger, referater og send melding til veilederen din.",
+    nb: "Du må være registrert som arbeidssøker for å kontakte veilederen din. Da kan du ha dialog om arbeidsoppfølging, slik som avtalte møter, aktiviteter og tiltak.",
     nn: "For arbeidssøkarar og de som mottek AAP. Les meldingar, referat og send melding til rettleiaren din.",
     en: "For job seekers and those on AAP. Read messages and summaries or send a message to your consultant.",
   },
