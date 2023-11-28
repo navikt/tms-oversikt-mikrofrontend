@@ -111,8 +111,8 @@ export const text = {
   },
   kommunikasjonsFlisIngressDialog: {
     nb: "Du må være registrert som arbeidssøker for å kontakte veilederen din. Da kan du ha dialog om arbeidsoppfølging, slik som avtalte møter, aktiviteter og tiltak.",
-    nn: "For arbeidssøkarar og de som mottek AAP. Les meldingar, referat og send melding til rettleiaren din.",
-    en: "For job seekers and those on AAP. Read messages and summaries or send a message to your consultant.",
+    nn: "Du må vere registrert som arbeidssøkjer hos NAV for å kontakte rettleiaren din. Då kan du ha dialog om arbeid og oppfølging, slik som avtalte møte, aktivitetar og tiltak.",
+    en: "You must be registered as a job seeker to contact your advisor.",
   },
   kommunikasjonsFlisLenketekstBrevOgVedtak: {
     nb: "Brev og vedtak",
