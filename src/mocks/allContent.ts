@@ -110,7 +110,7 @@ export const manifestHandler = () => {
 export const featureToggleHandler = () => {
   return [
     rest.get(featureToggleUrl, (_, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ Aktivitetsplan: true }));
+      return res(ctx.status(200), ctx.json({}));
     }),
   ];
 };

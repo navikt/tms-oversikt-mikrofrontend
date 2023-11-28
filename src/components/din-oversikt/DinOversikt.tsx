@@ -48,8 +48,6 @@ const getUniqueProdukter = () => {
 const DinOversikt = () => {
   const language = useContext(LanguageContext);
 
-  const { data: featuretoggles } = useSWRImmutable<FeatureToggles>(featureToggleUrl, fetcher);
-
   const { data: enabledMicrofrontends } = useSWRImmutable<EnabledMicrofrontends>(microfrontendsUrl, fetcher, {
     onError: () => setIsError(),
     onSuccess: (data) => data.microfrontends.map((mf) => logEvent(`minside.${mf.microfrontend_id}`, true)),
@@ -92,9 +90,13 @@ const DinOversikt = () => {
           </div>
         )}
         <div className={styles.listeContainer}>
-          <>{microfrontends}</>
-          {isUnderOppfolging && <DialogVeileder />}
-          {featuretoggles?.Aktivitetsplan && isUnderOppfolging && <Aktivitetsplan />}
+          {microfrontends}
+          {isUnderOppfolging && (
+            <>
+              <DialogVeileder />
+              <Aktivitetsplan />
+            </>
+          )}
           {uniqueProduktConfigs?.map((produktConfig) => (
             <Produktkort produktConfig={produktConfig} key={produktConfig.tittel} />
           ))}
